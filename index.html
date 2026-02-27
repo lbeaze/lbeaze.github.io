@@ -1,75 +1,455 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Len Beasley — Digital Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
 
-    <title>large type for homepage tabs</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    :root {
+      --navy:       #0f1623;
+      --navy-mid:   #16202f;
+      --navy-light: #1e2d42;
+      --cream:      #e8e2d9;
+      --warm-white: #f2ede6;
+      --accent:     #f07828;
+      --accent-dim: #d96820;
+      --text-body:  #b8c4d0;
+      --text-muted: #8fa3b8;
+      --text-bright:#dce6ef;
+    }
 
-    <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
-    <style>
-    .container {padding-left:0;}
-   .nav-tabs .nav-link.active {
-    color: #7D3F98;
-    background-color: #fff;
-    border-color: #fff #fff #7D3F98;
-}
-.nav-link {
-    color: #000; }
-    p{padding-left:15px;}
-    </style>
-  </head>
+    html {
+      scroll-behavior: smooth;
+    }
 
-  <body>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--navy);
+      color: var(--text-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-    <main role="main" class="container">
-      <div class="starter-template">
-        <img src="img/primary.png"/><br />
-        <img src="img/family_picker.png"/>
-        <nav>
-  				<div class="nav nav-tabs" id="nav-tab" role="tablist">
-   					 <a class="nav-item nav-link active" id="nav-care-tab" data-toggle="tab" href="#nav-care" role="tab" aria-controls="nav-care" aria-selected="true">Care</a>
-   					
-   					 <a class="nav-item nav-link" id="nav-plans-tab" data-toggle="tab" href="#nav-plans" role="tab" aria-controls="nav-plans" aria-selected="false">Plans</a>
- 				    
- 				    <a class="nav-item nav-link" id="nav-spending-tab" data-toggle="tab" href="#nav-spending" role="tab" aria-controls="nav-spending" aria-selected="false">Spending</a>
- 				    
- 				    <a class="nav-item nav-link" id="nav-claims-tab" data-toggle="tab" href="#nav-claims" role="tab" aria-controls="nav-claims" aria-selected="false">Claims (5)</a>
-			  </div>
-		</nav>
-		<div class="tab-content" id="nav-tabContent">
-  			<div class="tab-pane fade show active" id="nav-care" role="tabpanel" aria-labelledby="nav-care-tab"><p> <br />care tab content area</p>
-  			<p>Sept. 5th 2018</p>
-  			<p>deductible - $4,000.00 OR deductible: $4,000.00</p> 
-  			<p>CVS #456</p> 
-  			</div>
-  			  			
-  			<div class="tab-pane fade" id="nav-plans" role="tabpanel" aria-labelledby="nav-plans-tab"><p> <br />plans tab content area</p>
-  			<p><a href="ios_dynamic%20typeface_a11y.png">iOS scaling typefaces</a></p></div>
-  			
-  			<div class="tab-pane fade" id="nav-spending" role="tabpanel" aria-labelledby="nav-spending-tab"><p> <br />spending tab content area</p></div>
-  			
-  			<div class="tab-pane fade" id="nav-claims" role="tabpanel" aria-labelledby="nav-claims-tab">
-  			  <p> <br />claims tab content area</p>
-  			</div>
-  			
-		</div>      
+    /* ─── LAYOUT ─────────────────────────────────────── */
+    .site-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+
+    /* ─── LEFT PANEL ─────────────────────────────────── */
+    .left-panel {
+      background: var(--navy-mid);
+      padding: 4rem 3.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle grain texture */
+    .left-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    /* thin accent line on left edge */
+    .left-panel::after {
+      content: '';
+      position: absolute;
+      top: 4rem;
+      bottom: 4rem;
+      left: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── NAME ───────────────────────────────────────── */
+    .name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 200;
+      font-size: clamp(2.8rem, 4vw, 4rem);
+      color: var(--warm-white);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 2.5rem;
+    }
+
+    .name span {
+      display: block;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+      font-size: 0.6em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.3em;
+    }
+
+    /* ─── HEADLINE ───────────────────────────────────── */
+    .headline {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+      color: var(--text-bright);
+      line-height: 1.55;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--navy-light);
+    }
+
+    /* ─── BODY TEXT ──────────────────────────────────── */
+    .bio p {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: var(--text-body);
+      margin-bottom: 1.1rem;
+      font-weight: 300;
+    }
+
+    /* ─── COLUMNS (companies + adjectives) ───────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 2rem;
+      margin: 1.75rem 0;
+    }
+
+    .col-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .col-list {
+      list-style: none;
+      border-left: 2px solid var(--accent-dim);
+      padding-left: 0.85rem;
+    }
+
+    .col-list li {
+      font-size: 0.825rem;
+      color: var(--text-body);
+      padding: 0.2rem 0;
+      font-weight: 300;
+    }
+
+    /* ─── TOPICS ─────────────────────────────────────── */
+    .topics {
+      margin-top: 1.75rem;
+    }
+
+    .topics-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .topic-tag {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      border: 1px solid var(--navy-light);
+      border-radius: 2px;
+      padding: 0.3rem 0.65rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .topic-tag:hover {
+      color: var(--accent);
+      border-color: var(--accent-dim);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    .site-footer {
+      position: relative;
+      z-index: 1;
+      padding-top: 2rem;
+      border-top: 1px solid var(--navy-light);
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: underline;
+      text-decoration-color: var(--accent-dim);
+      text-underline-offset: 3px;
+      color: var(--text-bright);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      border-radius: 2px;
+      padding: 0.25rem 0.4rem;
+      margin: -0.25rem -0.4rem;
+      transition: color 0.2s, background-color 0.2s, text-decoration-color 0.2s;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+      background-color: rgba(240, 120, 40, 0.1);
+    }
+
+    .footer-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
+
+    .footer-link svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .footer-note svg {
+      width: 13px;
+      height: 13px;
+      opacity: 0.6;
+    }
+
+    /* ─── RIGHT PANEL (photo) ────────────────────────── */
+    .right-panel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chair-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      background: var(--navy-light);
+    }
+
+    /* gradient overlay to blend into left panel */
+    .right-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        var(--navy-mid) 0%,
+        transparent 18%
+      );
+      pointer-events: none;
+    }
+
+    /* ─── FADE-IN ANIMATION ──────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .name        { animation: fadeUp 0.7s ease both; }
+    .headline    { animation: fadeUp 0.7s 0.12s ease both; }
+    .bio         { animation: fadeUp 0.7s 0.22s ease both; }
+    .two-col     { animation: fadeUp 0.7s 0.32s ease both; }
+    .topics      { animation: fadeUp 0.7s 0.42s ease both; }
+    .site-footer { animation: fadeUp 0.7s 0.52s ease both; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      .site-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      /* hide the image panel entirely — shown as faint background instead */
+      .right-panel {
+        display: none;
+      }
+
+      /* faint background image on the left panel for atmosphere */
+      .left-panel {
+        background-image: url('chair.jpg');
+        background-size: cover;
+        background-position: center right;
+        background-blend-mode: overlay;
+        background-color: var(--navy-mid);
+        /* image shows through at low opacity by blending with the panel color */
+      }
+
+      /* slightly stronger overlay so text stays readable */
+      .left-panel::before {
+        background-color: rgba(15, 22, 35, 0.82);
+        z-index: 0;
+      }
+
+      .left-panel {
+        padding: 3rem 2rem 2.5rem;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .left-panel {
+        padding: 2.5rem 1.5rem 2rem;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .site-footer {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="site-wrapper">
+
+  <!-- ── LEFT PANEL ─────────────────────────────────── -->
+  <main class="left-panel">
+    <div class="content">
+
+      <h1 class="name">
+        <span>Product Designer</span>
+        Len Beasley
+      </h1>
+
+      <p class="headline">
+        My approach to digital product design reduces costs, up-skills teams,
+        and ensures accessible, impactful products for diverse audiences.
+      </p>
+
+      <div class="bio">
+        <p>
+          You need tools designed for you—ones that feel natural and intentional,
+          moving you into confident action. I help your customers and users feel
+          this every time they use your site, open your app, or do something in
+          one of your physical spaces.
+        </p>
+        <p>
+          With 25 years of experience designing digital products for startups and
+          Fortune 10 companies, I focus on creating scalable, intuitive solutions.
+          My curiosity unravels complexity, delivering simple, effective designs
+          that solve business problems and enhance user experiences.
+        </p>
+        <p>
+          I have taught in a Master's of Design program at the University of
+          Colorado, worked with international standards organizations, and led
+          design sprints, workshops, and training.
+        </p>
       </div>
 
-    </main><!-- /.container -->
+      <div class="two-col">
+        <div>
+          <p class="col-label">Companies</p>
+          <ul class="col-list">
+            <li>Aetna Health</li>
+            <li>CVS Health</li>
+            <li>HireRight</li>
+            <li>Audi USA</li>
+            <li>Oakley</li>
+            <li>The North Face</li>
+            <li>Coalition for National Trauma Research</li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">I am a</p>
+          <ul class="col-list">
+            <li>Designer</li>
+            <li>Mentor</li>
+            <li>Speaker</li>
+            <li>Trainer</li>
+            <li>Thought leader</li>
+            <li>W3C working group &amp; task force member</li>
+          </ul>
+        </div>
+      </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="bootstrap/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="bootstrap/js/vendor/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-  </body>
-</html>
+      <div class="topics">
+        <p class="col-label">Things we can talk about</p>
+        <div class="topics-grid">
+          <span class="topic-tag">Usability &amp; accessibility</span>
+          <span class="topic-tag">Accessible design components</span>
+          <span class="topic-tag">AI in user experience</span>
+          <span class="topic-tag">Assistive tech</span>
+          <span class="topic-tag">Experience design &amp; strategy</span>
+          <span class="topic-tag">Maturing your design team</span>
+          <span class="topic-tag">Product concepting &amp; research</span>
+          <span class="topic-tag">Team processes &amp; tooling</span>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+
+    <footer class="site-footer">
+      <a href="/cdn-cgi/l/email-protection#1d7178735d7178737f787c6e717864337e7270" class="footer-link">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m2 7 10 7 10-7"/>
+        </svg>
+        <span class="__cf_email__" data-cfemail="09656c6749656c676b6c687a656c70276a6664">[email&#160;protected]</span>
+      </a>
+      <a href="https://www.linkedin.com/in/lenbeasley" target="_blank" rel="noopener" class="footer-link">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+        LinkedIn
+      </a>
+      <span class="footer-note">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/>
+          <path d="M3 12h18M12 3a15 15 0 0 1 4 9 15 15 0 0 1-4 9 15 15 0 0 1-4-9 15 15 0 0 1 4-9z"/>
+        </svg>
+        <span>Willing to travel</span>
+      </span>
+    </footer>
+  </main>
+
+  <!-- ── RIGHT PANEL ────────────────────────────────── -->
+  <div class="right-panel" aria-hidden="true">
+    <!--
+      Export the chair photo from Figma:
+        1. Select the image in Figma
+        2. In the right panel, click Export → PNG → Export
+        3. Save the file as "chair.jpg" (or .png) in the same folder as index.html
+        4. Update the src below to match the filename
+    -->
