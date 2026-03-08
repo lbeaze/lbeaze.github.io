@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thinking — Len Beasley</title>
+  <meta name="description" content="Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy:        #0f1623;
+      --navy-mid:    #16202f;
+      --navy-light:  #1e2d42;
+      --warm-white:  #f2ede6;
+      --accent:      #f07828;
+      --accent-dim:  #d96820;
+      --text-body:   #b8c4d0;
+      --text-muted:  #8fa3b8;
+      --text-bright: #dce6ef;
+      --nav-height:  56px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--navy);
+      color: var(--text-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── SKIP LINK ──────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 0 0 4px 4px;
+      text-decoration: none;
+      z-index: 200;
+      transition: top 0.1s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ─── NAV ────────────────────────────────────────── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: var(--navy-mid);
+      border-bottom: 1px solid var(--navy-light);
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .site-nav nav {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-brand:hover { color: var(--warm-white); }
+    .nav-brand:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-bright);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-link:hover { color: var(--accent); border-bottom-color: var(--accent-dim); }
+    .nav-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    .nav-link--active {
+      color: var(--warm-white);
+      border-bottom-color: var(--accent);
+    }
+    .nav-link--soon {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: default;
+      user-select: none;
+    }
+
+    /* ─── PAGE HEADER ────────────────────────────────── */
+    .page-header {
+      background: var(--navy-mid);
+      border-bottom: 1px solid var(--navy-light);
+      padding: 4rem 2rem 3rem;
+    }
+
+    .page-header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 200;
+      color: var(--warm-white);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 0.85rem;
+    }
+
+    .page-header p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-body);
+      line-height: 1.65;
+      max-width: 560px;
+    }
+
+    /* ─── CONTENT WRAPPER ────────────────────────────── */
+    .content-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* ─── SEARCH ─────────────────────────────────────── */
+    .search-area {
+      margin-bottom: 3rem;
+    }
+
+    .search-area label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+    }
+
+    .search-input-wrapper svg {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 17px;
+      height: 17px;
+      color: var(--text-muted);
+      pointer-events: none;
+      flex-shrink: 0;
+    }
+
+    #search-input {
+      width: 100%;
+      background: var(--navy-mid);
+      border: 1px solid var(--navy-light);
+      border-radius: 3px;
+      padding: 0.85rem 1rem 0.85rem 2.75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-bright);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    #search-input::placeholder { color: var(--text-muted); }
+    #search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(240, 120, 40, 0.15);
+    }
+    /* hide browser default clear button — we handle via input event */
+    #search-input::-webkit-search-cancel-button { display: none; }
+
+    .search-status {
+      min-height: 1.4em;
+      margin-top: 0.55rem;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    /* ─── POSTS LIST ─────────────────────────────────── */
+    #posts-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── POST CARD ──────────────────────────────────── */
+    .post-card {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--navy-light);
+    }
+    .post-card:first-child { border-top: 1px solid var(--navy-light); }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .post-date {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .post-meta-sep {
+      color: var(--navy-light);
+      font-size: 0.8rem;
+      line-height: 1;
+    }
+
+    .post-read-time {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .post-title {
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 300;
+      color: var(--warm-white);
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.8rem;
+    }
+
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      border: 1px solid rgba(240, 120, 40, 0.3);
+      border-radius: 2px;
+      padding: 0.18rem 0.55rem;
+    }
+
+    .post-excerpt {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-body);
+      font-weight: 300;
+      margin-bottom: 1.4rem;
+    }
+
+    /* ─── EXPANDED CONTENT ───────────────────────────── */
+    .post-full-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease;
+    }
+    .post-full-content.is-expanded {
+      max-height: 12000px;
+    }
+
+    .post-full-content-inner {
+      padding: 1.5rem 0 1.25rem;
+      border-top: 1px solid var(--navy-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .post-full-content-inner p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-body);
+      font-weight: 300;
+      margin-bottom: 1.35rem;
+    }
+    .post-full-content-inner p:last-child { margin-bottom: 0; }
+
+    .post-full-content-inner h2 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--warm-white);
+      letter-spacing: 0.02em;
+      margin: 2rem 0 0.8rem;
+    }
+
+    .post-full-content-inner h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-bright);
+      margin: 1.5rem 0 0.6rem;
+    }
+
+    .post-full-content-inner ul,
+    .post-full-content-inner ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .post-full-content-inner li {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text-body);
+      font-weight: 300;
+      margin-bottom: 0.35rem;
+    }
+
+    .post-full-content-inner a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .post-full-content-inner a:hover { color: var(--warm-white); }
+
+    /* ─── POST ACTIONS ───────────────────────────────── */
+    .post-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .post-expand-btn {
+      background: none;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 0.5rem 1.1rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .post-expand-btn:hover {
+      background: rgba(240, 120, 40, 0.1);
+      border-color: var(--accent);
+    }
+    .post-expand-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .post-linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .post-linkedin-link:hover {
+      color: var(--text-bright);
+      border-bottom-color: var(--text-muted);
+    }
+    .post-linkedin-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* ─── LOAD MORE ──────────────────────────────────── */
+    .load-more-area {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    #load-more-btn {
+      background: none;
+      border: 1px solid var(--navy-light);
+      color: var(--text-bright);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 2.75rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    #load-more-btn:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+      background: rgba(240, 120, 40, 0.06);
+    }
+    #load-more-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ─── EMPTY / NO RESULTS ─────────────────────────── */
+    .no-results {
+      padding: 4rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ─── PAGE FOOTER ────────────────────────────────── */
+    .page-footer {
+      border-top: 1px solid var(--navy-light);
+      padding: 1.75rem 2rem;
+      text-align: center;
+    }
+
+    .page-footer a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .page-footer a:hover { color: var(--accent); }
+    .page-footer a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 1.25rem; }
+      .nav-link--soon { display: none; }
+      .page-header { padding: 2.5rem 1.25rem 2rem; }
+      .content-wrapper { padding: 2.25rem 1.25rem 4rem; }
+      .post-card { padding: 2rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ── NAV ─────────────────────────────────────────── -->
+  <header class="site-nav">
+    <nav aria-label="Main navigation">
+      <a href="/" class="nav-brand">Len Beasley</a>
+      <ul class="nav-links" role="list">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/thinking/" class="nav-link nav-link--active" aria-current="page">Thinking</a></li>
+        <li><span class="nav-link nav-link--soon" title="Coming soon">Speaking</span></li>
+        <li><span class="nav-link nav-link--soon" title="Coming soon">Connect</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── PAGE HEADER ──────────────────────────────────── -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <h1>Thinking</h1>
+      <p>Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans.</p>
+    </div>
+  </div>
+
+  <!-- ── MAIN ─────────────────────────────────────────── -->
+  <main id="main-content">
+    <div class="content-wrapper">
+
+      <!-- Search -->
+      <div class="search-area" role="search">
+        <label for="search-input">Search posts</label>
+        <div class="search-input-wrapper">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search by title, topic, or keyword…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+        <p class="search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      </div>
+
+      <!-- Posts -->
+      <div id="posts-container" aria-label="Posts"></div>
+
+      <!-- Load more -->
+      <div class="load-more-area">
+        <button id="load-more-btn" hidden>Load more posts</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <a href="/">← Back to Len Beasley</a>
+  </footer>
+
+  <!-- Fuse.js for search -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+  <!-- marked.js for markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+
+  <script>
+    'use strict';
+
+    const POSTS_PER_PAGE = 5;
+
+    let allPosts      = [];
+    let filteredPosts = [];
+    let displayedCount = POSTS_PER_PAGE;
+    let fuse          = null;
+
+    const container    = document.getElementById('posts-container');
+    const loadMoreBtn  = document.getElementById('load-more-btn');
+    const searchInput  = document.getElementById('search-input');
+    const searchStatus = document.querySelector('.search-status');
+
+    /* ── Helpers ─────────────────────────────────────── */
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function readingTime(text) {
+      const clean = (text || '').replace(/[#*`_~\[\]>]/g, '').replace(/<[^>]+>/g, '');
+      const words = clean.trim().split(/\s+/).filter(Boolean).length;
+      const mins  = Math.max(1, Math.ceil(words / 200));
+      return mins === 1 ? '1 min read' : `${mins} min read`;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    /* ── Render a single card ────────────────────────── */
+
+    function renderCard(post) {
+      const article = document.createElement('article');
+      article.className = 'post-card';
+      article.id = `post-${post.id}`;
+
+      const tags = (post.tags || [])
+        .map(t => `<span class="post-tag">${escapeHtml(t)}</span>`)
+        .join('');
+
+      const hasContent  = post.content && post.content.trim().length > 0;
+      const renderedMd  = hasContent ? marked.parse(post.content) : '';
+      const time        = readingTime(post.content + ' ' + post.excerpt);
+
+      const expandBtn = hasContent
+        ? `<button
+             class="post-expand-btn"
+             aria-expanded="false"
+             aria-controls="content-${escapeHtml(post.id)}"
+           >Read →</button>`
+        : '';
+
+      const linkedinLink = post.linkedinUrl
+        ? `<a
+             href="${escapeHtml(post.linkedinUrl)}"
+             class="post-linkedin-link"
+             target="_blank"
+             rel="noopener noreferrer"
+           >Also on LinkedIn ↗</a>`
+        : '';
+
+      article.innerHTML = `
+        <div class="post-meta">
+          <time datetime="${escapeHtml(post.date)}" class="post-date">${formatDate(post.date)}</time>
+          <span class="post-meta-sep" aria-hidden="true">·</span>
+          <span class="post-read-time">${time}</span>
+        </div>
+        <h2 class="post-title">${escapeHtml(post.title)}</h2>
+        <div class="post-tags" aria-label="Tags">${tags}</div>
+        <p class="post-excerpt">${escapeHtml(post.excerpt)}</p>
+        ${hasContent ? `
+          <div class="post-full-content"
+               id="content-${escapeHtml(post.id)}"
+               aria-hidden="true">
+            <div class="post-full-content-inner">${renderedMd}</div>
+          </div>
+        ` : ''}
+        <div class="post-actions">
+          ${expandBtn}
+          ${linkedinLink}
+        </div>
+      `;
+
+      /* Expand / collapse */
+      if (hasContent) {
+        const btn         = article.querySelector('.post-expand-btn');
+        const fullContent = article.querySelector('.post-full-content');
+
+        btn.addEventListener('click', () => {
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          const nowExpanded = !isExpanded;
+
+          btn.setAttribute('aria-expanded', nowExpanded);
+          fullContent.setAttribute('aria-hidden', !nowExpanded);
+          fullContent.classList.toggle('is-expanded', nowExpanded);
+          btn.textContent = nowExpanded ? 'Close ↑' : 'Read →';
+        });
+      }
+
+      return article;
+    }
+
+    /* ── Render visible slice of filteredPosts ───────── */
+
+    function renderPosts() {
+      container.innerHTML = '';
+      const slice = filteredPosts.slice(0, displayedCount);
+
+      if (slice.length === 0) {
+        container.innerHTML =
+          '<p class="no-results">No posts matched your search.<br>Try a different keyword or clear the search field.</p>';
+        loadMoreBtn.hidden = true;
+        return;
+      }
+
+      const frag = document.createDocumentFragment();
+      slice.forEach(post => frag.appendChild(renderCard(post)));
+      container.appendChild(frag);
+
+      const remaining = filteredPosts.length - displayedCount;
+      if (remaining > 0) {
+        const nextBatch = Math.min(remaining, POSTS_PER_PAGE);
+        loadMoreBtn.textContent = `Load ${nextBatch} more post${nextBatch !== 1 ? 's' : ''}`;
+        loadMoreBtn.hidden = false;
+      } else {
+        loadMoreBtn.hidden = true;
+      }
+    }
+
+    /* ── Search ──────────────────────────────────────── */
+
+    function initFuse(posts) {
+      fuse = new Fuse(posts, {
+        keys: [
+          { name: 'title',   weight: 3 },
+          { name: 'excerpt', weight: 2 },
+          { name: 'tags',    weight: 2 },
+          { name: 'content', weight: 1 },
+        ],
+        threshold: 0.35,
+        includeScore: true,
+        minMatchCharLength: 2,
+      });
+    }
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim();
+      displayedCount = POSTS_PER_PAGE;
+
+      if (!query) {
+        filteredPosts = [...allPosts];
+        searchStatus.textContent = '';
+      } else {
+        filteredPosts = fuse.search(query).map(r => r.item);
+        const n = filteredPosts.length;
+        searchStatus.textContent = n === 0
+          ? `No results for "${query}"`
+          : `${n} result${n !== 1 ? 's' : ''} for "${query}"`;
+      }
+
+      renderPosts();
+    });
+
+    /* ── Load more ───────────────────────────────────── */
+
+    loadMoreBtn.addEventListener('click', () => {
+      const prevCount = displayedCount;
+      displayedCount += POSTS_PER_PAGE;
+      renderPosts();
+
+      /* Move focus to first newly revealed post heading */
+      const cards = container.querySelectorAll('.post-card');
+      const firstNew = cards[prevCount];
+      if (firstNew) {
+        const heading = firstNew.querySelector('h2');
+        heading.setAttribute('tabindex', '-1');
+        heading.focus({ preventScroll: false });
+      }
+    });
+
+    /* ── Bootstrap ───────────────────────────────────── */
+
+    fetch('/posts.json')
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        allPosts = (data.posts || []).sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
+        filteredPosts = [...allPosts];
+        initFuse(allPosts);
+        renderPosts();
+      })
+      .catch(err => {
+        console.error('Failed to load posts:', err);
+        container.innerHTML =
+          '<p class="no-results">Posts couldn\'t load right now. Please refresh to try again.</p>';
+      });
+
+  </script>
+</body>
+</html>

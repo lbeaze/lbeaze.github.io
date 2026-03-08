@@ -16,16 +16,17 @@
     }
 
     :root {
-      --navy:       #0f1623;
-      --navy-mid:   #16202f;
-      --navy-light: #1e2d42;
-      --cream:      #e8e2d9;
-      --warm-white: #f2ede6;
-      --accent:     #f07828;
-      --accent-dim: #d96820;
-      --text-body:  #b8c4d0;
-      --text-muted: #8fa3b8;
-      --text-bright:#dce6ef;
+      --navy:        #0f1623;
+      --navy-mid:    #16202f;
+      --navy-light:  #1e2d42;
+      --cream:       #e8e2d9;
+      --warm-white:  #f2ede6;
+      --accent:      #f07828;
+      --accent-dim:  #d96820;
+      --text-body:   #b8c4d0;
+      --text-muted:  #8fa3b8;
+      --text-bright: #dce6ef;
+      --nav-height:  56px;
     }
 
     html {
@@ -40,11 +41,100 @@
       overflow-x: hidden;
     }
 
+    /* ─── SKIP LINK ──────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 0 0 4px 4px;
+      text-decoration: none;
+      z-index: 200;
+      transition: top 0.1s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ─── NAV ────────────────────────────────────────── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: var(--navy-mid);
+      border-bottom: 1px solid var(--navy-light);
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .site-nav nav {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-brand:hover { color: var(--warm-white); }
+    .nav-brand:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-bright);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-link:hover { color: var(--accent); border-bottom-color: var(--accent-dim); }
+    .nav-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    .nav-link--active {
+      color: var(--warm-white);
+      border-bottom-color: var(--accent);
+    }
+    .nav-link--soon {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: default;
+    }
+
     /* ─── LAYOUT ─────────────────────────────────────── */
     .site-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 100vh;
+      min-height: calc(100vh - var(--nav-height));
     }
 
     /* ─── LEFT PANEL ─────────────────────────────────── */
@@ -289,6 +379,11 @@
     .site-footer { animation: fadeUp 0.7s 0.52s ease both; }
 
     /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 1.25rem; }
+      .nav-link--soon { display: none; }
+    }
+
     @media (max-width: 900px) {
       .site-wrapper {
         grid-template-columns: 1fr;
@@ -341,10 +436,24 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-nav">
+  <nav aria-label="Main navigation">
+    <a href="/" class="nav-brand">Len Beasley</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/" class="nav-link nav-link--active" aria-current="page">Home</a></li>
+      <li><a href="/thinking/" class="nav-link">Thinking</a></li>
+      <li><span class="nav-link nav-link--soon" title="Coming soon">Speaking</span></li>
+      <li><span class="nav-link nav-link--soon" title="Coming soon">Connect</span></li>
+    </ul>
+  </nav>
+</header>
+
 <div class="site-wrapper">
 
   <!-- ── LEFT PANEL ─────────────────────────────────── -->
-  <main class="left-panel">
+  <main class="left-panel" id="main-content">
     <div class="content">
 
       <h1 class="name">
