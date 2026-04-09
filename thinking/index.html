@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WWV7W5D8');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thinking — Len Beasley</title>
   <meta name="description" content="Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Len Beasley" />
+  <meta property="og:title"       content="Thinking — Len Beasley" />
+  <meta property="og:description" content="Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans." />
+  <meta property="og:url"         content="https://lenbeasley.com/thinking/" />
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="Thinking — Len Beasley" />
+  <meta name="twitter:description" content="Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
@@ -61,7 +76,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      height: var(--nav-height);
+      min-height: var(--nav-height);
       background: var(--navy-mid);
       border-bottom: 1px solid var(--navy-light);
       display: flex;
@@ -119,14 +134,6 @@
     .nav-link--active {
       color: var(--warm-white);
       border-bottom-color: var(--accent);
-    }
-    .nav-link--soon {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      cursor: default;
-      user-select: none;
     }
 
     /* ─── PAGE HEADER ────────────────────────────────── */
@@ -282,15 +289,40 @@
       margin-bottom: 1rem;
     }
 
+    /* Tags are now buttons with filter behavior */
     .post-tag {
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.7rem;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent-dim);
+      background: none;
       border: 1px solid rgba(240, 120, 40, 0.3);
       border-radius: 2px;
       padding: 0.18rem 0.55rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .post-tag:hover {
+      color: var(--accent);
+      border-color: rgba(240, 120, 40, 0.6);
+    }
+    .post-tag:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    .post-tag--active {
+      background: var(--accent);
+      color: var(--navy);
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+    .post-tag--active:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent-dim);
+      color: var(--navy);
     }
 
     .post-excerpt {
@@ -313,8 +345,27 @@
 
     .post-full-content-inner {
       padding: 1.5rem 0 1.25rem;
-      border-top: 1px solid var(--navy-light);
       margin-bottom: 1.25rem;
+    }
+
+    /* "— continued" separator label */
+    .post-continued {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.75rem;
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .post-continued::before,
+    .post-continued::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--navy-light);
     }
 
     .post-full-content-inner p {
@@ -326,10 +377,11 @@
     }
     .post-full-content-inner p:last-child { margin-bottom: 0; }
 
+    /* H2 subheadings inside posts are orange — part of the craft */
     .post-full-content-inner h2 {
       font-size: 1.15rem;
       font-weight: 500;
-      color: var(--warm-white);
+      color: var(--accent);
       letter-spacing: 0.02em;
       margin: 2rem 0 0.8rem;
     }
@@ -414,6 +466,138 @@
       border-radius: 2px;
     }
 
+    /* ─── SHARE BUTTONS ──────────────────────────────── */
+    .post-share {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-left: auto;
+    }
+
+    .post-share-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 0.2rem;
+    }
+
+    .post-share-btn {
+      background: none;
+      border: 1px solid var(--navy-light);
+      border-radius: 2px;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .post-share-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-dim);
+      background: rgba(240, 120, 40, 0.08);
+    }
+    .post-share-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    .post-share-btn svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+    .post-share-btn--copied {
+      color: var(--accent) !important;
+      border-color: var(--accent-dim) !important;
+    }
+
+    /* Mastodon instance picker — appears below share row when Mastodon is clicked */
+    .post-mastodon-form {
+      flex-basis: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .post-mastodon-form[hidden] { display: none; }
+
+    .post-mastodon-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .post-mastodon-input {
+      flex: 1;
+      min-width: 150px;
+      background: var(--navy-mid);
+      border: 1px solid var(--navy-light);
+      border-radius: 2px;
+      padding: 0.35rem 0.65rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--text-bright);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .post-mastodon-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(240, 120, 40, 0.15);
+    }
+
+    .post-mastodon-go {
+      background: none;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .post-mastodon-go:hover { background: rgba(240, 120, 40, 0.1); border-color: var(--accent); }
+    .post-mastodon-go:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .post-mastodon-cancel {
+      background: none;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.35rem 0.1rem;
+      transition: color 0.2s;
+    }
+    .post-mastodon-cancel:hover { color: var(--text-bright); }
+    .post-mastodon-cancel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+    /* Caption-copied notice — appears below the share row */
+    .post-share-notice {
+      flex-basis: 100%;        /* forces its own row inside .post-actions */
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--accent);
+      text-align: right;
+      letter-spacing: 0.01em;
+    }
+
     /* ─── LOAD MORE ──────────────────────────────────── */
     .load-more-area {
       display: flex;
@@ -475,10 +659,28 @@
       border-radius: 2px;
     }
 
+    /* ─── SCREEN READER ONLY ────────────────────────── */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ─── REDUCED MOTION ─────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .post-full-content { transition: none; }
+    }
+
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 640px) {
       .site-nav { padding: 0 1.25rem; }
-      .nav-link--soon { display: none; }
       .page-header { padding: 2.5rem 1.25rem 2rem; }
       .content-wrapper { padding: 2.25rem 1.25rem 4rem; }
       .post-card { padding: 2rem 0; }
@@ -486,6 +688,10 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWV7W5D8"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -496,8 +702,6 @@
       <ul class="nav-links" role="list">
         <li><a href="/" class="nav-link">Home</a></li>
         <li><a href="/thinking/" class="nav-link nav-link--active" aria-current="page">Thinking</a></li>
-        <li><span class="nav-link nav-link--soon" title="Coming soon">Speaking</span></li>
-        <li><span class="nav-link nav-link--soon" title="Coming soon">Connect</span></li>
       </ul>
     </nav>
   </header>
@@ -505,13 +709,13 @@
   <!-- ── PAGE HEADER ──────────────────────────────────── -->
   <div class="page-header">
     <div class="page-header-inner">
-      <h1>Thinking</h1>
+      <h1 id="main-content" tabindex="-1">Thinking</h1>
       <p>Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans.</p>
     </div>
   </div>
 
   <!-- ── MAIN ─────────────────────────────────────────── -->
-  <main id="main-content">
+  <main>
     <div class="content-wrapper">
 
       <!-- Search -->
@@ -544,6 +748,9 @@
     </div>
   </main>
 
+  <!-- Screen-reader announcement region for clipboard feedback -->
+  <div class="sr-only" id="share-announce" aria-live="polite" aria-atomic="true"></div>
+
   <footer class="page-footer">
     <a href="/">← Back to Len Beasley</a>
   </footer>
@@ -556,17 +763,45 @@
   <script>
     'use strict';
 
+    /* ── SVG icon strings ────────────────────────────── */
+    const ICONS = {
+      linkedin: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>`,
+      x: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>`,
+      facebook: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>`,
+      link: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>`,
+      check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>`,
+      bluesky: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+        <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.26.902 1.702c-.659.441-.919 1.489-.51 2.31C.849 4.946 3.205 8.555 5.197 9.99 2.935 9.357.602 8.98.168 11.575c-.17.998.449 2.045 1.33 2.37.799.296 1.714.11 2.478-.295C5.003 13.025 8.37 11.44 12 10.8zm0 0c1.087-2.114 4.046-6.053 6.798-7.995 2.636-1.861 3.641-1.545 4.3-1.103.659.441.919 1.489.51 2.31-.457.934-2.813 4.543-4.805 5.978 2.262-.633 4.595-1.01 5.029 1.585.17.998-.449 2.045-1.33 2.37-.799.296-1.714.11-2.478-.295C18.997 13.025 15.63 11.44 12 10.8z"/>
+      </svg>`,
+      mastodon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+        <path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"/>
+      </svg>`,
+    };
+
     const POSTS_PER_PAGE = 5;
 
     let allPosts      = [];
     let filteredPosts = [];
     let displayedCount = POSTS_PER_PAGE;
     let fuse          = null;
+    let activeTag     = null;   // currently active tag filter
 
-    const container    = document.getElementById('posts-container');
-    const loadMoreBtn  = document.getElementById('load-more-btn');
-    const searchInput  = document.getElementById('search-input');
-    const searchStatus = document.querySelector('.search-status');
+    const container      = document.getElementById('posts-container');
+    const loadMoreBtn    = document.getElementById('load-more-btn');
+    const searchInput    = document.getElementById('search-input');
+    const searchStatus   = document.querySelector('.search-status');
+    const shareAnnounce  = document.getElementById('share-announce');
 
     /* ── Helpers ─────────────────────────────────────── */
 
@@ -590,6 +825,45 @@
         .replace(/"/g, '&quot;');
     }
 
+    /* ── Combined filter + search ────────────────────── */
+
+    function applyFilters() {
+      const query = searchInput.value.trim();
+      displayedCount = POSTS_PER_PAGE;
+
+      // Start with search results (or all posts if no query)
+      let results = query
+        ? fuse.search(query).map(r => r.item)
+        : [...allPosts];
+
+      // Layer tag filter on top
+      if (activeTag) {
+        results = results.filter(p => (p.tags || []).includes(activeTag));
+      }
+
+      filteredPosts = results;
+
+      // Status text
+      const n = filteredPosts.length;
+      if (!query && !activeTag) {
+        searchStatus.textContent = '';
+      } else if (activeTag && !query) {
+        searchStatus.textContent = n === 0
+          ? `No posts tagged "${activeTag}"`
+          : `${n} post${n !== 1 ? 's' : ''} tagged "${activeTag}" — click the tag again to clear`;
+      } else if (query && !activeTag) {
+        searchStatus.textContent = n === 0
+          ? `No results for "${query}"`
+          : `${n} result${n !== 1 ? 's' : ''} for "${query}"`;
+      } else {
+        searchStatus.textContent = n === 0
+          ? `No results for "${query}" tagged "${activeTag}"`
+          : `${n} result${n !== 1 ? 's' : ''} for "${query}" tagged "${activeTag}"`;
+      }
+
+      renderPosts();
+    }
+
     /* ── Render a single card ────────────────────────── */
 
     function renderCard(post) {
@@ -598,7 +872,18 @@
       article.id = `post-${post.id}`;
 
       const tags = (post.tags || [])
-        .map(t => `<span class="post-tag">${escapeHtml(t)}</span>`)
+        .map(t => {
+          const isActive = activeTag === t;
+          const label = isActive
+            ? `Clear filter: ${t}`
+            : `Show posts tagged ${t}`;
+          return `<button
+                    class="post-tag${isActive ? ' post-tag--active' : ''}"
+                    data-tag="${escapeHtml(t)}"
+                    aria-pressed="${isActive ? 'true' : 'false'}"
+                    aria-label="${escapeHtml(label)}"
+                  >${escapeHtml(t)}</button>`;
+        })
         .join('');
 
       const hasContent  = post.content && post.content.trim().length > 0;
@@ -631,34 +916,170 @@
         <h2 class="post-title">${escapeHtml(post.title)}</h2>
         <div class="post-tags" aria-label="Tags">${tags}</div>
         <p class="post-excerpt">${escapeHtml(post.excerpt)}</p>
+        <div class="post-actions">
+          ${expandBtn}
+          ${linkedinLink}
+          <div class="post-share" aria-label="Share this post">
+            <span class="post-share-label" aria-hidden="true">Share</span>
+            <button class="post-share-btn" data-share="linkedin" aria-label="Share on LinkedIn">${ICONS.linkedin}</button>
+            <button class="post-share-btn" data-share="x"        aria-label="Share on X">${ICONS.x}</button>
+            <button class="post-share-btn" data-share="bluesky"  aria-label="Share on Bluesky">${ICONS.bluesky}</button>
+            <button class="post-share-btn" data-share="mastodon" aria-label="Share on Mastodon" aria-expanded="false">${ICONS.mastodon}</button>
+            <button class="post-share-btn" data-share="facebook" aria-label="Share on Facebook">${ICONS.facebook}</button>
+            <button class="post-share-btn" data-share="copy"     aria-label="Copy link to this post">${ICONS.link}</button>
+          </div>
+          <div class="post-mastodon-form" hidden role="group" aria-label="Share on Mastodon">
+            <label class="post-mastodon-label" for="mastodon-instance-${escapeHtml(post.id)}">Your instance</label>
+            <input class="post-mastodon-input"
+                   id="mastodon-instance-${escapeHtml(post.id)}"
+                   type="text"
+                   value="mastodon.social"
+                   placeholder="mastodon.social"
+                   autocomplete="off"
+                   autocapitalize="none"
+                   spellcheck="false" />
+            <button class="post-mastodon-go" type="button">Share ↗</button>
+            <button class="post-mastodon-cancel" type="button">Cancel</button>
+          </div>
+          <span class="post-share-notice" hidden aria-hidden="true"></span>
+        </div>
         ${hasContent ? `
           <div class="post-full-content"
                id="content-${escapeHtml(post.id)}"
                aria-hidden="true">
-            <div class="post-full-content-inner">${renderedMd}</div>
+            <div class="post-full-content-inner">
+              <p class="post-continued" aria-hidden="true">— continued</p>
+              <span class="sr-only" tabindex="-1" data-content-start>
+                Beginning of full post: ${escapeHtml(post.title)}
+              </span>
+              ${renderedMd}
+            </div>
           </div>
         ` : ''}
-        <div class="post-actions">
-          ${expandBtn}
-          ${linkedinLink}
-        </div>
       `;
 
       /* Expand / collapse */
       if (hasContent) {
         const btn         = article.querySelector('.post-expand-btn');
         const fullContent = article.querySelector('.post-full-content');
+        const contentStart = article.querySelector('[data-content-start]');
 
         btn.addEventListener('click', () => {
-          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          const isExpanded  = btn.getAttribute('aria-expanded') === 'true';
           const nowExpanded = !isExpanded;
 
           btn.setAttribute('aria-expanded', nowExpanded);
           fullContent.setAttribute('aria-hidden', !nowExpanded);
           fullContent.classList.toggle('is-expanded', nowExpanded);
           btn.textContent = nowExpanded ? 'Close ↑' : 'Read →';
+
+          if (nowExpanded && contentStart) {
+            // Move focus to top of content so reader can navigate forward naturally.
+            // Small delay lets the max-height transition begin before focus shifts.
+            requestAnimationFrame(() => contentStart.focus({ preventScroll: false }));
+          }
+          // On collapse, focus stays on the button — no change needed.
         });
       }
+
+      /* Share buttons */
+      // Always use the production domain — not window.location.origin,
+      // which would be localhost during local preview.
+      const postUrl = `https://lenbeasley.com/thinking/#post-${post.id}`;
+      article.querySelectorAll('.post-share-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const type    = btn.getAttribute('data-share');
+          const encoded = encodeURIComponent(postUrl);
+          const titleEncoded = encodeURIComponent(post.title);
+
+          if (type === 'copy') {
+            navigator.clipboard.writeText(postUrl).then(() => {
+              btn.innerHTML = ICONS.check;
+              btn.classList.add('post-share-btn--copied');
+              btn.setAttribute('aria-label', 'Link copied!');
+              shareAnnounce.textContent = 'Link copied to clipboard';
+              setTimeout(() => {
+                btn.innerHTML = ICONS.link;
+                btn.classList.remove('post-share-btn--copied');
+                btn.setAttribute('aria-label', 'Copy link to this post');
+                shareAnnounce.textContent = '';
+              }, 2500);
+            }).catch(() => {
+              shareAnnounce.textContent = 'Unable to copy automatically. URL: ' + postUrl;
+            });
+          } else if (type === 'mastodon') {
+            // Mastodon is decentralised — toggle an inline instance picker form.
+            const mastodonForm = btn.closest('.post-actions').querySelector('.post-mastodon-form');
+            const isOpen = !mastodonForm.hidden;
+            mastodonForm.hidden = isOpen;
+            btn.setAttribute('aria-expanded', !isOpen);
+            if (!isOpen) mastodonForm.querySelector('.post-mastodon-input').focus();
+
+          } else {
+            const caption = `"${post.title}" — ${postUrl}`;
+            const notice  = btn.closest('.post-actions').querySelector('.post-share-notice');
+
+            const urls = {
+              linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encoded}`,
+              x:        `https://x.com/intent/post?url=${encoded}&text=${titleEncoded}`,
+              bluesky:  `https://bsky.app/intent/compose?text=${encodeURIComponent(caption)}`,
+              facebook: `https://www.facebook.com/sharer/sharer.php?u=${encoded}`,
+            };
+
+            // LinkedIn and Facebook don't support pre-populated text via URL params.
+            // Copy a suggested caption to clipboard first, then open the dialog.
+            if (type === 'linkedin' || type === 'facebook') {
+              navigator.clipboard.writeText(caption).then(() => {
+                if (notice) {
+                  notice.textContent = 'Caption copied — paste it into your post';
+                  notice.hidden = false;
+                  setTimeout(() => { notice.hidden = true; }, 4000);
+                }
+                shareAnnounce.textContent = 'Suggested caption copied to clipboard. Paste it into your post.';
+                setTimeout(() => { shareAnnounce.textContent = ''; }, 4500);
+              }).catch(() => {
+                // Clipboard unavailable — dialog still opens, no notice shown
+              });
+            }
+
+            window.open(urls[type], '_blank', 'noopener,noreferrer,width=620,height=540');
+          }
+        });
+      });
+
+      /* Mastodon instance form */
+      const mastodonForm   = article.querySelector('.post-mastodon-form');
+      const mastodonInput  = mastodonForm.querySelector('.post-mastodon-input');
+      const mastodonGo     = mastodonForm.querySelector('.post-mastodon-go');
+      const mastodonCancel = mastodonForm.querySelector('.post-mastodon-cancel');
+      const mastodonBtn    = article.querySelector('[data-share="mastodon"]');
+
+      function doMastodonShare() {
+        const raw      = mastodonInput.value.trim().replace(/^https?:\/\//, '').replace(/\/$/, '');
+        if (!raw) { mastodonInput.focus(); return; }
+        const caption  = `"${post.title}" — ${postUrl}`;
+        const shareUrl = `https://${raw}/share?text=${encodeURIComponent(caption)}`;
+        window.open(shareUrl, '_blank', 'noopener,noreferrer,width=620,height=540');
+        mastodonForm.hidden = true;
+        mastodonBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      mastodonGo.addEventListener('click', doMastodonShare);
+      mastodonInput.addEventListener('keydown', e => { if (e.key === 'Enter') doMastodonShare(); });
+      mastodonCancel.addEventListener('click', () => {
+        mastodonForm.hidden = true;
+        mastodonBtn.setAttribute('aria-expanded', 'false');
+        mastodonBtn.focus();
+      });
+
+      /* Tag filter buttons */
+      article.querySelectorAll('.post-tag').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tag = btn.getAttribute('data-tag');
+          activeTag = activeTag === tag ? null : tag;  // toggle
+          applyFilters();
+        });
+      });
 
       return article;
     }
@@ -706,23 +1127,7 @@
       });
     }
 
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value.trim();
-      displayedCount = POSTS_PER_PAGE;
-
-      if (!query) {
-        filteredPosts = [...allPosts];
-        searchStatus.textContent = '';
-      } else {
-        filteredPosts = fuse.search(query).map(r => r.item);
-        const n = filteredPosts.length;
-        searchStatus.textContent = n === 0
-          ? `No results for "${query}"`
-          : `${n} result${n !== 1 ? 's' : ''} for "${query}"`;
-      }
-
-      renderPosts();
-    });
+    searchInput.addEventListener('input', () => applyFilters());
 
     /* ── Load more ───────────────────────────────────── */
 
@@ -755,6 +1160,18 @@
         filteredPosts = [...allPosts];
         initFuse(allPosts);
         renderPosts();
+
+        // Deep-link: if the URL contains a #post-... hash (e.g. from a shared link),
+        // scroll to that post and auto-expand it.
+        const hash = window.location.hash;
+        if (hash && hash.startsWith('#post-')) {
+          const postEl = document.getElementById(hash.slice(1));
+          if (postEl) {
+            postEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const expandBtn = postEl.querySelector('.post-expand-btn');
+            if (expandBtn) setTimeout(() => expandBtn.click(), 400);
+          }
+        }
       })
       .catch(err => {
         console.error('Failed to load posts:', err);

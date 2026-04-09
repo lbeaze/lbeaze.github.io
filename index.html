@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WWV7W5D8');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Len Beasley — Accessibility is a Design Skill</title>
+  <meta name="description" content="Digital product designer and W3C AGWG member. Accessibility is a design skill, not a compliance task." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Len Beasley" />
+  <meta property="og:title"       content="Len Beasley — Accessibility is a Design Skill" />
+  <meta property="og:description" content="Digital product designer and W3C AGWG member. Accessibility is a design skill, not a compliance task." />
+  <meta property="og:url"         content="https://lenbeasley.com/" />
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="Len Beasley — Accessibility is a Design Skill" />
+  <meta name="twitter:description" content="Digital product designer and W3C AGWG member. Accessibility is a design skill, not a compliance task." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
@@ -63,7 +79,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      height: var(--nav-height);
+      min-height: var(--nav-height);
       background: var(--navy-mid);
       border-bottom: 1px solid var(--navy-light);
       display: flex;
@@ -121,13 +137,6 @@
     .nav-link--active {
       color: var(--warm-white);
       border-bottom-color: var(--accent);
-    }
-    .nav-link--soon {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      cursor: default;
     }
 
     /* ─── LAYOUT ─────────────────────────────────────── */
@@ -378,10 +387,17 @@
     .topics      { animation: fadeUp 0.7s 0.42s ease both; }
     .site-footer { animation: fadeUp 0.7s 0.52s ease both; }
 
+    /* ─── REDUCED MOTION ─────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .name, .headline, .bio, .two-col, .topics, .site-footer {
+        animation: none;
+      }
+    }
+
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 640px) {
       .site-nav { padding: 0 1.25rem; }
-      .nav-link--soon { display: none; }
     }
 
     @media (max-width: 900px) {
@@ -435,6 +451,10 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWV7W5D8"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -444,8 +464,6 @@
     <ul class="nav-links" role="list">
       <li><a href="/" class="nav-link nav-link--active" aria-current="page">Home</a></li>
       <li><a href="/thinking/" class="nav-link">Thinking</a></li>
-      <li><span class="nav-link nav-link--soon" title="Coming soon">Speaking</span></li>
-      <li><span class="nav-link nav-link--soon" title="Coming soon">Connect</span></li>
     </ul>
   </nav>
 </header>
