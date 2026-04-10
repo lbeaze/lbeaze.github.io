@@ -10,16 +10,16 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thinking — Len Beasley</title>
-  <meta name="description" content="Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans." />
+  <title>Notes — Len Beasley</title>
+  <meta name="description" content="Atomic notes on design, accessibility, standards, and practice — short-form thinking captured in the moment." />
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="Len Beasley" />
-  <meta property="og:title"       content="Thinking — Len Beasley" />
-  <meta property="og:description" content="Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans." />
-  <meta property="og:url"         content="https://lenbeasley.com/thinking/" />
+  <meta property="og:title"       content="Notes — Len Beasley" />
+  <meta property="og:description" content="Atomic notes on design, accessibility, standards, and practice." />
+  <meta property="og:url"         content="https://lenbeasley.com/notes/" />
   <meta name="twitter:card"        content="summary" />
-  <meta name="twitter:title"       content="Thinking — Len Beasley" />
-  <meta name="twitter:description" content="Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans." />
+  <meta name="twitter:title"       content="Notes — Len Beasley" />
+  <meta name="twitter:description" content="Atomic notes on design, accessibility, standards, and practice." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
@@ -223,13 +223,13 @@
       outline-offset: 2px;
     }
 
-    /* ── ARTICLE NAV ───────────────────────────────────── */
-    .article-nav {
+    /* ── NOTE NAV ──────────────────────────────────────── */
+    .note-nav {
       flex: 1;
       overflow-y: auto;
     }
 
-    .article-nav-label {
+    .note-nav-label {
       font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.14em;
@@ -239,29 +239,28 @@
       margin-bottom: 0.75rem;
     }
 
-    .article-nav-list {
+    .note-nav-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 0.15rem;
     }
 
-    .article-nav-link {
+    .note-nav-link {
       display: block;
       padding: 0.65rem 0 0.65rem 1rem;
       border-left: 2px solid var(--navy-light);
       text-decoration: none;
       transition: border-color 0.2s;
     }
-    .article-nav-link:hover { border-left-color: var(--text-muted); }
-    .article-nav-link.is-active { border-left-color: var(--accent); }
-    .article-nav-link:focus-visible {
+    .note-nav-link:hover { border-left-color: var(--text-muted); }
+    .note-nav-link.is-active { border-left-color: var(--accent); }
+    .note-nav-link:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
 
-    /* Two-line clamped title */
-    .article-nav-title {
+    .note-nav-title {
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -273,10 +272,10 @@
       margin-bottom: 0.2rem;
       transition: color 0.2s;
     }
-    .article-nav-link:hover .article-nav-title { color: var(--text-bright); }
-    .article-nav-link.is-active .article-nav-title { color: var(--warm-white); }
+    .note-nav-link:hover .note-nav-title { color: var(--text-bright); }
+    .note-nav-link.is-active .note-nav-title { color: var(--warm-white); }
 
-    .article-nav-date {
+    .note-nav-date {
       font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.06em;
@@ -284,13 +283,12 @@
       opacity: 0.5;
       transition: color 0.2s, opacity 0.2s;
     }
-    .article-nav-link.is-active .article-nav-date {
+    .note-nav-link.is-active .note-nav-date {
       color: var(--accent);
       opacity: 1;
     }
 
-    /* Hidden nav item (filtered out) */
-    .article-nav-item.is-hidden { display: none; }
+    .note-nav-item.is-hidden { display: none; }
 
     /* ── LEFT FOOTER ───────────────────────────────────── */
     .left-footer {
@@ -323,30 +321,29 @@
       padding: 4rem 5rem 8rem 5rem;
     }
 
-    /* ── ARTICLE ───────────────────────────────────────── */
-    .post-article {
+    /* ── NOTES ─────────────────────────────────────────── */
+    .note-article {
       max-width: 680px;
-      padding-bottom: 6rem;
+      padding-bottom: 5rem;
     }
 
-    .post-article + .post-article {
-      padding-top: 6rem;
+    .note-article + .note-article {
+      padding-top: 5rem;
       border-top: 1px solid var(--navy-light);
     }
 
-    /* Hidden article (filtered out) */
-    .post-article.is-hidden { display: none; }
+    .note-article.is-hidden { display: none; }
 
-    /* ── ARTICLE HEADER ────────────────────────────────── */
-    .post-meta-line {
+    /* ── NOTE HEADER ───────────────────────────────────── */
+    .note-meta-line {
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      margin-bottom: 0.75rem;
       flex-wrap: wrap;
+      margin-bottom: 0.75rem;
     }
 
-    .post-date {
+    .note-date {
       font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.1em;
@@ -354,34 +351,34 @@
       color: var(--text-muted);
     }
 
-    .post-meta-sep {
+    .note-meta-sep {
       color: var(--navy-light);
       font-size: 0.8rem;
     }
 
-    .post-read-time {
+    .note-read-time {
       font-size: 0.72rem;
       color: var(--text-muted);
       font-weight: 300;
     }
 
-    .post-title {
-      font-size: clamp(1.6rem, 3vw, 2.1rem);
-      font-weight: 200;
+    .note-title {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 300;
       color: var(--warm-white);
-      line-height: 1.2;
+      line-height: 1.25;
       letter-spacing: 0.01em;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.75rem;
     }
 
-    .post-tags {
+    .note-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
-    .post-tag {
+    .note-tag {
       font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.08em;
@@ -395,73 +392,65 @@
       font-family: 'Montserrat', sans-serif;
       transition: background 0.15s, color 0.15s, border-color 0.15s;
     }
-    .post-tag:hover {
-      color: var(--accent);
-      border-color: rgba(240, 120, 40, 0.6);
-    }
-    .post-tag.is-active {
+    .note-tag:hover { color: var(--accent); border-color: rgba(240, 120, 40, 0.6); }
+    .note-tag.is-active {
       background: var(--accent);
       color: var(--navy);
       border-color: var(--accent);
       font-weight: 600;
     }
-    .post-tag:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
+    .note-tag:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-    /* ── ARTICLE BODY ──────────────────────────────────── */
-    .post-body {
+    /* ── NOTE BODY ─────────────────────────────────────── */
+    .note-body {
       font-size: 1rem;
       line-height: 1.8;
       color: var(--text-body);
       font-weight: 300;
     }
 
-    .post-body p {
-      margin-bottom: 1.5rem;
-    }
-    .post-body p:last-child { margin-bottom: 0; }
+    .note-body p { margin-bottom: 1.35rem; }
+    .note-body p:last-child { margin-bottom: 0; }
 
-    .post-body h2 {
-      font-size: 1.1rem;
+    .note-body h2 {
+      font-size: 1rem;
       font-weight: 500;
       color: var(--accent);
       letter-spacing: 0.02em;
-      margin: 2.25rem 0 0.85rem;
+      margin: 2rem 0 0.75rem;
     }
 
-    .post-body h3 {
-      font-size: 1rem;
+    .note-body h3 {
+      font-size: 0.975rem;
       font-weight: 500;
       color: var(--text-bright);
-      margin: 1.75rem 0 0.65rem;
+      margin: 1.5rem 0 0.6rem;
     }
 
-    .post-body ul,
-    .post-body ol {
+    .note-body ul,
+    .note-body ol {
       padding-left: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.35rem;
     }
 
-    .post-body li {
+    .note-body li {
       font-size: 1rem;
       line-height: 1.75;
       color: var(--text-body);
       font-weight: 300;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
 
-    .post-body a {
+    .note-body a {
       color: var(--accent);
       text-decoration: underline;
       text-underline-offset: 3px;
       text-decoration-color: var(--accent-dim);
-      transition: color 0.2s, text-decoration-color 0.2s;
+      transition: color 0.2s;
     }
-    .post-body a:hover { color: var(--warm-white); text-decoration-color: var(--text-muted); }
+    .note-body a:hover { color: var(--warm-white); }
 
-    .post-body blockquote {
+    .note-body blockquote {
       border-left: 3px solid var(--accent-dim);
       padding-left: 1.25rem;
       margin: 1.5rem 0;
@@ -469,7 +458,7 @@
       font-style: italic;
     }
 
-    .post-body code {
+    .note-body code {
       font-family: 'Courier New', monospace;
       font-size: 0.875em;
       background: var(--navy-light);
@@ -478,10 +467,10 @@
       color: var(--accent);
     }
 
-    /* ── ARTICLE FOOTER (LinkedIn + Share) ─────────────── */
-    .post-footer {
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
+    /* ── NOTE FOOTER (share) ───────────────────────────── */
+    .note-footer {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
       border-top: 1px solid var(--navy-light);
       display: flex;
       align-items: center;
@@ -489,34 +478,15 @@
       flex-wrap: wrap;
     }
 
-    .post-linkedin-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--text-muted);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .post-linkedin-link:hover { color: var(--text-bright); border-bottom-color: var(--text-muted); }
-    .post-linkedin-link:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-      border-radius: 2px;
-    }
-
     /* ── SHARE BUTTONS ─────────────────────────────────── */
-    .post-share {
+    .note-share {
       display: flex;
       align-items: center;
       gap: 0.3rem;
       margin-left: auto;
     }
 
-    .post-share-label {
+    .note-share-label {
       font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.1em;
@@ -525,7 +495,7 @@
       margin-right: 0.2rem;
     }
 
-    .post-share-btn {
+    .note-share-btn {
       background: none;
       border: 1px solid var(--navy-light);
       border-radius: 2px;
@@ -540,23 +510,17 @@
       padding: 0;
       flex-shrink: 0;
     }
-    .post-share-btn:hover {
+    .note-share-btn:hover {
       color: var(--accent);
       border-color: var(--accent-dim);
       background: rgba(240, 120, 40, 0.08);
     }
-    .post-share-btn:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-    .post-share-btn svg { width: 13px; height: 13px; }
-    .post-share-btn--copied {
-      color: var(--accent) !important;
-      border-color: var(--accent-dim) !important;
-    }
+    .note-share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .note-share-btn svg { width: 13px; height: 13px; }
+    .note-share-btn--copied { color: var(--accent) !important; border-color: var(--accent-dim) !important; }
 
     /* ── MASTODON FORM ─────────────────────────────────── */
-    .post-mastodon-form {
+    .note-mastodon-form {
       flex-basis: 100%;
       display: flex;
       align-items: center;
@@ -564,9 +528,9 @@
       flex-wrap: wrap;
       margin-top: 0.5rem;
     }
-    .post-mastodon-form[hidden] { display: none; }
+    .note-mastodon-form[hidden] { display: none; }
 
-    .post-mastodon-label {
+    .note-mastodon-label {
       font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.1em;
@@ -575,7 +539,7 @@
       white-space: nowrap;
     }
 
-    .post-mastodon-input {
+    .note-mastodon-input {
       flex: 1;
       min-width: 150px;
       background: var(--navy-mid);
@@ -589,12 +553,12 @@
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .post-mastodon-input:focus {
+    .note-mastodon-input:focus {
       border-color: var(--accent);
       box-shadow: 0 0 0 2px rgba(240, 120, 40, 0.15);
     }
 
-    .post-mastodon-go {
+    .note-mastodon-go {
       background: none;
       border: 1px solid var(--accent-dim);
       color: var(--accent);
@@ -608,10 +572,10 @@
       white-space: nowrap;
       transition: background 0.2s, border-color 0.2s;
     }
-    .post-mastodon-go:hover { background: rgba(240, 120, 40, 0.1); border-color: var(--accent); }
-    .post-mastodon-go:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .note-mastodon-go:hover { background: rgba(240, 120, 40, 0.1); border-color: var(--accent); }
+    .note-mastodon-go:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-    .post-mastodon-cancel {
+    .note-mastodon-cancel {
       background: none;
       border: none;
       font-family: 'Montserrat', sans-serif;
@@ -622,16 +586,25 @@
       padding: 0.35rem 0.1rem;
       transition: color 0.2s;
     }
-    .post-mastodon-cancel:hover { color: var(--text-bright); }
-    .post-mastodon-cancel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+    .note-mastodon-cancel:hover { color: var(--text-bright); }
+    .note-mastodon-cancel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
-    .post-share-notice {
+    .note-share-notice {
       flex-basis: 100%;
       font-size: 0.75rem;
       font-weight: 400;
       color: var(--accent);
       text-align: right;
-      letter-spacing: 0.01em;
+    }
+
+    /* ── EMPTY STATE ───────────────────────────────────── */
+    .no-notes {
+      padding: 4rem 0;
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 680px;
     }
 
     /* ── SCREEN READER ONLY ────────────────────────────── */
@@ -641,22 +614,11 @@
       clip: rect(0,0,0,0); white-space: nowrap; border: 0;
     }
 
-    /* ── EMPTY STATE ───────────────────────────────────── */
-    .no-results {
-      padding: 4rem 0;
-      color: var(--text-muted);
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
     /* ── REDUCED MOTION ────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       body::before { display: none; }
-      .article-nav-link,
-      .article-nav-title,
-      .article-nav-date { transition: none; }
+      .note-nav-link, .note-nav-title, .note-nav-date { transition: none; }
     }
 
     /* ── RESPONSIVE ────────────────────────────────────── */
@@ -676,22 +638,21 @@
         border-bottom: 1px solid var(--navy-light);
       }
 
-      /* On mobile show nav as horizontal scroll row */
-      .article-nav-list {
+      .note-nav-list {
         flex-direction: row;
         flex-wrap: nowrap;
         overflow-x: auto;
         gap: 0;
         padding-bottom: 0.5rem;
       }
-      .article-nav-item { flex-shrink: 0; max-width: 180px; }
-      .article-nav-link {
+      .note-nav-item { flex-shrink: 0; max-width: 180px; }
+      .note-nav-link {
         border-left: none;
         border-bottom: 2px solid var(--navy-light);
         padding: 0.5rem 1rem 0.75rem 0;
       }
-      .article-nav-link:hover { border-bottom-color: var(--text-muted); }
-      .article-nav-link.is-active { border-bottom-color: var(--accent); }
+      .note-nav-link:hover { border-bottom-color: var(--text-muted); }
+      .note-nav-link.is-active { border-bottom-color: var(--accent); }
 
       .right-panel { padding: 2.5rem 2.5rem 5rem; }
     }
@@ -713,13 +674,13 @@
   <div class="layout">
 
     <!-- ── LEFT PANEL ─────────────────────────────────── -->
-    <aside class="left-panel" aria-label="Thinking navigation">
+    <aside class="left-panel" aria-label="Notes navigation">
 
       <nav class="site-nav" aria-label="Site">
         <ul role="list">
           <li><a href="/"            class="site-nav-link">Home</a></li>
-          <li><a href="/thinking/"   class="site-nav-link" aria-current="page">Thinking</a></li>
-          <li><a href="/notes/"      class="site-nav-link">Notes</a></li>
+          <li><a href="/thinking/"   class="site-nav-link">Thinking</a></li>
+          <li><a href="/notes/"      class="site-nav-link" aria-current="page">Notes</a></li>
           <li><a href="/experience/" class="site-nav-link">Experience</a></li>
         </ul>
         <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
@@ -732,16 +693,16 @@
         </button>
       </nav>
 
-      <h1 class="left-title">Thinking</h1>
-      <p class="left-desc">Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans.</p>
+      <h1 class="left-title">Notes</h1>
+      <p class="left-desc">Atomic notes on design, accessibility, standards, and practice — short-form thinking captured in the moment.</p>
 
       <!-- Tag filter pills — populated by JS -->
-      <div class="tag-filters" id="tag-filters" role="group" aria-label="Filter articles by topic"></div>
+      <div class="tag-filters" id="tag-filters" role="group" aria-label="Filter notes by topic"></div>
 
-      <!-- Article index nav — populated by JS, scroll-spy active states -->
-      <nav class="article-nav" aria-label="Article index">
-        <p class="article-nav-label">Articles</p>
-        <ul class="article-nav-list" id="article-nav-list" role="list"></ul>
+      <!-- Note index nav — populated by JS, scroll-spy active states -->
+      <nav class="note-nav" aria-label="Note index">
+        <p class="note-nav-label">Notes</p>
+        <ul class="note-nav-list" id="note-nav-list" role="list"></ul>
       </nav>
 
       <footer class="left-footer">
@@ -765,12 +726,11 @@
 
     <!-- ── RIGHT PANEL ────────────────────────────────── -->
     <main class="right-panel" id="main-content">
-      <div id="posts-container" aria-label="All articles"></div>
+      <div id="notes-container" aria-label="All notes"></div>
     </main>
 
   </div>
 
-  <!-- Screen-reader announcement for share feedback -->
   <div class="sr-only" id="share-announce" aria-live="polite" aria-atomic="true"></div>
 
   <!-- marked.js for markdown rendering -->
@@ -800,10 +760,10 @@
     };
 
     /* ── State ─────────────────────────────────────────── */
-    let allPosts    = [];
-    let activeTag   = null;
-    const container    = document.getElementById('posts-container');
-    const navList      = document.getElementById('article-nav-list');
+    let allNotes  = [];
+    let activeTag = null;
+    const container    = document.getElementById('notes-container');
+    const navList      = document.getElementById('note-nav-list');
     const tagFiltersEl = document.getElementById('tag-filters');
     const shareAnnounce = document.getElementById('share-announce');
 
@@ -827,13 +787,12 @@
     }
 
     /* ── Build tag filter pills ────────────────────────── */
-    function buildTagFilters(posts) {
+    function buildTagFilters(notes) {
       const tagSet = new Set();
-      posts.forEach(p => (p.tags || []).forEach(t => tagSet.add(t)));
+      notes.forEach(n => (n.tags || []).forEach(t => tagSet.add(t)));
       const tags = Array.from(tagSet).sort();
       if (!tags.length) return;
 
-      // "All" pill
       const allBtn = document.createElement('button');
       allBtn.className = 'tag-pill is-active';
       allBtn.textContent = 'All';
@@ -855,113 +814,104 @@
     function applyTagFilter(tag) {
       activeTag = tag;
 
-      // Update pill states
       tagFiltersEl.querySelectorAll('.tag-pill').forEach(btn => {
-        const isAll    = btn.textContent === 'All';
-        const isActive = tag === null ? isAll : btn.textContent === tag;
+        const isActive = tag === null ? btn.textContent === 'All' : btn.textContent === tag;
         btn.classList.toggle('is-active', isActive);
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
 
-      // Show/hide articles and nav items
-      container.querySelectorAll('.post-article').forEach(article => {
+      container.querySelectorAll('.note-article').forEach(article => {
         const match = tag === null || (article.dataset.tags || '').split(',').includes(tag);
         article.classList.toggle('is-hidden', !match);
       });
 
-      navList.querySelectorAll('.article-nav-item').forEach(item => {
+      navList.querySelectorAll('.note-nav-item').forEach(item => {
         const match = tag === null || (item.dataset.tags || '').split(',').includes(tag);
         item.classList.toggle('is-hidden', !match);
       });
     }
 
-    /* ── Build article nav ─────────────────────────────── */
-    function buildArticleNav(posts) {
+    /* ── Build note nav ────────────────────────────────── */
+    function buildNoteNav(notes) {
       navList.innerHTML = '';
-      posts.forEach(post => {
+      notes.forEach(note => {
         const li = document.createElement('li');
-        li.className = 'article-nav-item';
-        li.dataset.id   = post.id;
-        li.dataset.tags = (post.tags || []).join(',');
+        li.className = 'note-nav-item';
+        li.dataset.id   = note.id;
+        li.dataset.tags = (note.tags || []).join(',');
 
         const a = document.createElement('a');
-        a.className = 'article-nav-link';
-        a.href = '#post-' + post.id;
-        a.dataset.postId = post.id;
+        a.className = 'note-nav-link';
+        a.href = '#note-' + note.id;
+        a.dataset.noteId = note.id;
         a.innerHTML =
-          `<span class="article-nav-title">${esc(post.title)}</span>` +
-          `<span class="article-nav-date">${formatDate(post.date)}</span>`;
+          `<span class="note-nav-title">${esc(note.title)}</span>` +
+          `<span class="note-nav-date">${formatDate(note.date)}</span>`;
 
         li.appendChild(a);
         navList.appendChild(li);
       });
     }
 
-    /* ── Render all articles, fully open ───────────────── */
-    function renderArticles(posts) {
+    /* ── Render all notes, fully open ──────────────────── */
+    function renderNotes(notes) {
       container.innerHTML = '';
 
-      if (!posts.length) {
-        container.innerHTML = '<p class="no-results">No articles yet — check back soon.</p>';
+      if (!notes.length) {
+        container.innerHTML = '<p class="no-notes">Notes are coming — check back soon.</p>';
         return;
       }
 
-      posts.forEach(post => {
+      notes.forEach(note => {
         const article = document.createElement('article');
-        article.className = 'post-article';
-        article.id = 'post-' + post.id;
-        article.dataset.tags = (post.tags || []).join(',');
+        article.className = 'note-article';
+        article.id = 'note-' + note.id;
+        article.dataset.tags = (note.tags || []).join(',');
 
-        const tags = (post.tags || [])
-          .map(t => `<button class="post-tag" data-tag="${esc(t)}" aria-label="Filter by ${esc(t)}">${esc(t)}</button>`)
+        const tags = (note.tags || [])
+          .map(t => `<button class="note-tag" data-tag="${esc(t)}" aria-label="Filter by ${esc(t)}">${esc(t)}</button>`)
           .join('');
 
-        const renderedContent = post.content
-          ? marked.parse(post.content)
-          : `<p>${esc(post.excerpt || '')}</p>`;
+        const renderedContent = note.content
+          ? marked.parse(note.content)
+          : `<p>${esc(note.excerpt || '')}</p>`;
 
-        const time = readingTime((post.content || '') + ' ' + (post.excerpt || ''));
-
-        const linkedinLink = post.linkedinUrl
-          ? `<a href="${esc(post.linkedinUrl)}" class="post-linkedin-link"
-               target="_blank" rel="noopener noreferrer">Also on LinkedIn ↗</a>`
-          : '';
+        const time = readingTime((note.content || '') + ' ' + (note.excerpt || ''));
 
         article.innerHTML = `
-          <div class="post-meta-line">
-            <time datetime="${esc(post.date)}" class="post-date">${formatDate(post.date)}</time>
-            <span class="post-meta-sep" aria-hidden="true">·</span>
-            <span class="post-read-time">${time}</span>
+          <div class="note-meta-line">
+            <time datetime="${esc(note.date)}" class="note-date">${formatDate(note.date)}</time>
+            <span class="note-meta-sep" aria-hidden="true">·</span>
+            <span class="note-read-time">${time}</span>
           </div>
-          <h2 class="post-title">${esc(post.title)}</h2>
-          ${tags ? `<div class="post-tags" aria-label="Tags">${tags}</div>` : ''}
-          <div class="post-body">${renderedContent}</div>
-          <footer class="post-footer">
-            ${linkedinLink}
-            <div class="post-share" aria-label="Share this article">
-              <span class="post-share-label" aria-hidden="true">Share</span>
-              <button class="post-share-btn" data-share="linkedin" aria-label="Share on LinkedIn">${ICONS.linkedin}</button>
-              <button class="post-share-btn" data-share="x"        aria-label="Share on X">${ICONS.x}</button>
-              <button class="post-share-btn" data-share="bluesky"  aria-label="Share on Bluesky">${ICONS.bluesky}</button>
-              <button class="post-share-btn" data-share="mastodon" aria-label="Share on Mastodon" aria-expanded="false">${ICONS.mastodon}</button>
-              <button class="post-share-btn" data-share="facebook" aria-label="Share on Facebook">${ICONS.facebook}</button>
-              <button class="post-share-btn" data-share="copy"     aria-label="Copy link">${ICONS.link}</button>
+          <h2 class="note-title">${esc(note.title)}</h2>
+          ${tags ? `<div class="note-tags" aria-label="Tags">${tags}</div>` : ''}
+          <div class="note-body">${renderedContent}</div>
+          <footer class="note-footer">
+            <div class="note-share" aria-label="Share this note">
+              <span class="note-share-label" aria-hidden="true">Share</span>
+              <button class="note-share-btn" data-share="linkedin" aria-label="Share on LinkedIn">${ICONS.linkedin}</button>
+              <button class="note-share-btn" data-share="x"        aria-label="Share on X">${ICONS.x}</button>
+              <button class="note-share-btn" data-share="bluesky"  aria-label="Share on Bluesky">${ICONS.bluesky}</button>
+              <button class="note-share-btn" data-share="mastodon" aria-label="Share on Mastodon" aria-expanded="false">${ICONS.mastodon}</button>
+              <button class="note-share-btn" data-share="facebook" aria-label="Share on Facebook">${ICONS.facebook}</button>
+              <button class="note-share-btn" data-share="copy"     aria-label="Copy link">${ICONS.link}</button>
             </div>
-            <div class="post-mastodon-form" hidden role="group" aria-label="Share on Mastodon">
-              <label class="post-mastodon-label" for="mastodon-${esc(post.id)}">Your instance</label>
-              <input class="post-mastodon-input"
-                     id="mastodon-${esc(post.id)}"
+            <div class="note-mastodon-form" hidden role="group" aria-label="Share on Mastodon">
+              <label class="note-mastodon-label" for="mastodon-${esc(note.id)}">Your instance</label>
+              <input class="note-mastodon-input"
+                     id="mastodon-${esc(note.id)}"
                      type="text" value="mastodon.social"
                      autocomplete="off" autocapitalize="none" spellcheck="false" />
-              <button class="post-mastodon-go" type="button">Share ↗</button>
-              <button class="post-mastodon-cancel" type="button">Cancel</button>
+              <button class="note-mastodon-go" type="button">Share ↗</button>
+              <button class="note-mastodon-cancel" type="button">Cancel</button>
             </div>
-            <span class="post-share-notice" hidden aria-hidden="true"></span>
+            <span class="note-share-notice" hidden aria-hidden="true"></span>
           </footer>
         `;
 
         /* Tag buttons → filter */
-        article.querySelectorAll('.post-tag').forEach(btn => {
+        article.querySelectorAll('.note-tag').forEach(btn => {
           btn.addEventListener('click', () => {
             const tag = btn.getAttribute('data-tag');
             applyTagFilter(activeTag === tag ? null : tag);
@@ -969,39 +919,39 @@
         });
 
         /* Share buttons */
-        const postUrl = `https://lenbeasley.com/thinking/#post-${post.id}`;
-        article.querySelectorAll('.post-share-btn').forEach(btn => {
+        const noteUrl = `https://lenbeasley.com/notes/#note-${note.id}`;
+        article.querySelectorAll('.note-share-btn').forEach(btn => {
           btn.addEventListener('click', () => {
             const type         = btn.getAttribute('data-share');
-            const encoded      = encodeURIComponent(postUrl);
-            const titleEncoded = encodeURIComponent(post.title);
+            const encoded      = encodeURIComponent(noteUrl);
+            const titleEncoded = encodeURIComponent(note.title);
 
             if (type === 'copy') {
-              navigator.clipboard.writeText(postUrl).then(() => {
+              navigator.clipboard.writeText(noteUrl).then(() => {
                 btn.innerHTML = ICONS.check;
-                btn.classList.add('post-share-btn--copied');
+                btn.classList.add('note-share-btn--copied');
                 btn.setAttribute('aria-label', 'Link copied!');
                 shareAnnounce.textContent = 'Link copied to clipboard';
                 setTimeout(() => {
                   btn.innerHTML = ICONS.link;
-                  btn.classList.remove('post-share-btn--copied');
+                  btn.classList.remove('note-share-btn--copied');
                   btn.setAttribute('aria-label', 'Copy link');
                   shareAnnounce.textContent = '';
                 }, 2500);
               }).catch(() => {
-                shareAnnounce.textContent = 'Unable to copy. URL: ' + postUrl;
+                shareAnnounce.textContent = 'Unable to copy. URL: ' + noteUrl;
               });
 
             } else if (type === 'mastodon') {
-              const form   = btn.closest('.post-footer').querySelector('.post-mastodon-form');
+              const form   = btn.closest('.note-footer').querySelector('.note-mastodon-form');
               const isOpen = !form.hidden;
               form.hidden  = isOpen;
               btn.setAttribute('aria-expanded', !isOpen);
-              if (!isOpen) form.querySelector('.post-mastodon-input').focus();
+              if (!isOpen) form.querySelector('.note-mastodon-input').focus();
 
             } else {
-              const caption = `"${post.title}" — ${postUrl}`;
-              const notice  = btn.closest('.post-footer').querySelector('.post-share-notice');
+              const caption = `"${note.title}" — ${noteUrl}`;
+              const notice  = btn.closest('.note-footer').querySelector('.note-share-notice');
               const urls = {
                 linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encoded}`,
                 x:        `https://x.com/intent/post?url=${encoded}&text=${titleEncoded}`,
@@ -1026,16 +976,16 @@
         });
 
         /* Mastodon form */
-        const mForm   = article.querySelector('.post-mastodon-form');
-        const mInput  = mForm.querySelector('.post-mastodon-input');
-        const mGo     = mForm.querySelector('.post-mastodon-go');
-        const mCancel = mForm.querySelector('.post-mastodon-cancel');
+        const mForm   = article.querySelector('.note-mastodon-form');
+        const mInput  = mForm.querySelector('.note-mastodon-input');
+        const mGo     = mForm.querySelector('.note-mastodon-go');
+        const mCancel = mForm.querySelector('.note-mastodon-cancel');
         const mBtn    = article.querySelector('[data-share="mastodon"]');
 
         function doMastodon() {
           const raw = mInput.value.trim().replace(/^https?:\/\//, '').replace(/\/$/, '');
           if (!raw) { mInput.focus(); return; }
-          const caption  = `"${post.title}" — ${postUrl}`;
+          const caption  = `"${note.title}" — ${noteUrl}`;
           const shareUrl = `https://${raw}/share?text=${encodeURIComponent(caption)}`;
           window.open(shareUrl, '_blank', 'noopener,noreferrer,width=620,height=540');
           mForm.hidden = true;
@@ -1054,14 +1004,14 @@
       });
     }
 
-    /* ── Scroll-spy: highlight nav link for visible article */
+    /* ── Scroll-spy ────────────────────────────────────── */
     function initScrollSpy() {
-      const articles = container.querySelectorAll('.post-article');
-      const navLinks = navList.querySelectorAll('.article-nav-link');
+      const articles = container.querySelectorAll('.note-article');
+      const navLinks = navList.querySelectorAll('.note-nav-link');
 
       function setActive(id) {
         navLinks.forEach(link => {
-          const active = link.dataset.postId === id;
+          const active = link.dataset.noteId === id;
           link.classList.toggle('is-active', active);
           link.setAttribute('aria-current', active ? 'true' : 'false');
         });
@@ -1069,46 +1019,41 @@
 
       const obs = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id.replace('post-', ''));
-          }
+          if (entry.isIntersecting) setActive(entry.target.id.replace('note-', ''));
         });
       }, { threshold: 0.2 });
 
       articles.forEach(a => obs.observe(a));
-      if (articles.length) setActive(articles[0].id.replace('post-', ''));
+      if (articles.length) setActive(articles[0].id.replace('note-', ''));
     }
 
     /* ── Bootstrap ─────────────────────────────────────── */
-    fetch('/posts.json')
+    fetch('/notes.json')
       .then(r => {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
       .then(data => {
-        allPosts = (data.posts || []).sort((a, b) => new Date(b.date) - new Date(a.date));
+        allNotes = (data.notes || []).sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        buildTagFilters(allPosts);
-        buildArticleNav(allPosts);
-        renderArticles(allPosts);
+        buildTagFilters(allNotes);
+        buildNoteNav(allNotes);
+        renderNotes(allNotes);
         initScrollSpy();
 
-        // Hash routing: scroll to the linked article on load
+        // Hash routing: scroll to linked note on load
         const hash = window.location.hash;
-        if (hash && hash.startsWith('#post-')) {
+        if (hash && hash.startsWith('#note-')) {
           const target = document.getElementById(hash.slice(1));
           if (target) {
-            // Small delay lets the page finish rendering before scrolling
-            setTimeout(() => {
-              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
+            setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
           }
         }
       })
       .catch(err => {
-        console.error('Failed to load posts:', err);
+        console.error('Failed to load notes:', err);
         container.innerHTML =
-          '<p class="no-results">Articles couldn\'t load right now. Please refresh to try again.</p>';
+          '<p class="no-notes">Notes couldn\'t load right now. Please refresh to try again.</p>';
       });
 
   /* ── THEME TOGGLE ─────────────────────────────────── */

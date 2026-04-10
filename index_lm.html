@@ -125,71 +125,6 @@
       max-width: 300px;
     }
 
-    /* ── SITE NAV ─────────────────────────────────────── */
-    .site-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid rgba(242,237,230,0.1);
-    }
-    .site-nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.2rem 1.1rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .site-nav-link {
-      font-size: 0.67rem;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .site-nav-link:hover { color: var(--text-bright); }
-    .site-nav-link[aria-current="page"] { color: var(--accent); }
-    .site-nav-link:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-      border-radius: 2px;
-    }
-    .theme-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--text-muted);
-      padding: 0.2rem;
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-      transition: color 0.2s;
-      border-radius: 4px;
-    }
-    .theme-toggle:hover { color: var(--accent); }
-    .theme-toggle:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-    }
-
-    /* ── LIGHT MODE ────────────────────────────────────── */
-    [data-theme="light"] {
-      --navy:        #f0ebe3;
-      --panel-bg:    #e5dfd5;
-      --card-bg:     rgba(255,255,255,0.65);
-      --text-bright: #0e131f;
-      --text-main:   #2c2c3c;
-      --text-muted:  #6a6678;
-    }
-    [data-theme="light"] body::before {
-      background: radial-gradient(700px circle at var(--mouse-x,-400px) var(--mouse-y,-400px),
-        rgba(240,120,40,0.04), transparent 70%);
-    }
-
     /* ── SIDEBAR NAV ───────────────────────────────────── */
     .sidebar-nav {
       margin: 3.5rem 0;
@@ -361,6 +296,75 @@
       transition: color 0.2s, border-color 0.2s;
     }
     .topic-tag:hover { color: var(--accent); border-color: var(--accent-dim); cursor: default; }
+
+    /* ── EXPERIENCE CARDS ──────────────────────────────── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .exp-card {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1rem 1.5rem;
+      padding: 1.5rem;
+      border-radius: 4px;
+      margin: 0 -1.5rem;
+      transition: background 0.2s;
+    }
+    .exp-card:hover { background: rgba(30, 45, 66, 0.6); }
+
+    .exp-period {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .exp-title {
+      font-size: 0.975rem;
+      font-weight: 500;
+      color: var(--text-bright);
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+      transition: color 0.2s;
+    }
+    .exp-card:hover .exp-title { color: var(--accent); }
+
+    .exp-company {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+      letter-spacing: 0.01em;
+    }
+
+    .exp-desc {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-body);
+      font-weight: 300;
+      margin-bottom: 0.85rem;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      list-style: none;
+    }
+    .exp-tags li {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--accent-dim);
+      border: 1px solid rgba(240, 120, 40, 0.25);
+      border-radius: 2px;
+      padding: 0.15rem 0.55rem;
+    }
 
     /* ── THINKING CARDS ────────────────────────────────── */
     .thinking-list {
@@ -555,7 +559,10 @@
 
       .right-panel { padding: 2.5rem 2.5rem 4rem; }
 
-      .section-label { display: block; } /* Show section labels on mobile */
+      .section-label { display: block; } /* Show About/Experience labels on mobile */
+
+      .exp-card { grid-template-columns: 1fr; gap: 0.4rem; }
+      .exp-period { padding-top: 0; }
     }
 
     @media (max-width: 520px) {
@@ -563,7 +570,27 @@
       .right-panel { padding: 2rem 1.5rem 3.5rem; }
       .site-intro  { max-width: none; }
     }
+
+    /* Theme toggle button (small, accessible) */
+    .theme-toggle {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1000;
+      background: var(--navy-mid);
+      color: var(--text-bright);
+      border: none;
+      padding: 0.55rem 0.7rem;
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.12);
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+    }
+    .theme-toggle:focus { outline: 2px solid var(--accent); outline-offset: 3px; }
+    html.light .theme-toggle { background: var(--navy-light); color: var(--warm-white); box-shadow: 0 4px 10px rgba(11,18,32,0.06); }
   </style>
+  <link rel="stylesheet" href="light-theme.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -578,23 +605,6 @@
     <!-- ── LEFT PANEL ─────────────────────────────────── -->
     <aside class="left-panel" aria-label="Profile and navigation">
 
-      <nav class="site-nav" aria-label="Site">
-        <ul role="list">
-          <li><a href="/"            class="site-nav-link" aria-current="page">Home</a></li>
-          <li><a href="/thinking/"   class="site-nav-link">Thinking</a></li>
-          <li><a href="/notes/"      class="site-nav-link">Notes</a></li>
-          <li><a href="/experience/" class="site-nav-link">Experience</a></li>
-        </ul>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-               width="16" height="16">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-          </svg>
-        </button>
-      </nav>
-
       <div class="left-top">
         <h1 class="site-name">Len Beasley</h1>
         <p class="site-intro">
@@ -604,8 +614,9 @@
 
         <nav class="sidebar-nav" aria-label="Page sections">
           <ul role="list">
-            <li><a href="#about"    class="sidebar-link" data-section="about">About</a></li>
-            <li><a href="#thinking" class="sidebar-link" data-section="thinking">Thinking</a></li>
+            <li><a href="#about"      class="sidebar-link" data-section="about">About</a></li>
+            <li><a href="#experience" class="sidebar-link" data-section="experience">Experience</a></li>
+            <li><a href="#thinking"   class="sidebar-link" data-section="thinking">Thinking</a></li>
           </ul>
         </nav>
       </div>
@@ -682,6 +693,104 @@
             <span class="topic-tag">Product concepting &amp; research</span>
             <span class="topic-tag">Team processes &amp; tooling</span>
           </div>
+        </div>
+      </section>
+
+      <!-- ─── EXPERIENCE ──────────────────────────────── -->
+      <section id="experience" class="section" aria-labelledby="experience-heading">
+        <h2 class="section-label" id="experience-heading">Experience</h2>
+
+        <!--
+          UPDATE THIS SECTION: Add your actual date ranges and adjust descriptions as needed.
+          The cards below are based on available information — feel free to reorder or edit.
+        -->
+        <div class="exp-list" role="list">
+
+          <article class="exp-card" role="listitem">
+            <div class="exp-period">Current</div>
+            <div>
+              <h3 class="exp-title">Principal Designer &amp; Accessibility Lead</h3>
+              <p class="exp-company">Aetna Health · CVS Health</p>
+              <p class="exp-desc">Enterprise digital product design at scale, focusing on accessibility strategy, design systems, and building lasting team capability across large organizations.</p>
+              <ul class="exp-tags" aria-label="Skills">
+                <li>Accessibility</li>
+                <li>Design Systems</li>
+                <li>Healthcare UX</li>
+                <li>Enterprise Design</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="exp-card" role="listitem">
+            <div class="exp-period">Active</div>
+            <div>
+              <h3 class="exp-title">Working Group &amp; Task Force Member</h3>
+              <p class="exp-company">W3C — Accessibility Guidelines Working Group (AGWG)</p>
+              <p class="exp-desc">Contributing to WCAG and related accessibility standards that define how the web works for people with disabilities — across cognitive, mobile, and visual accessibility task forces.</p>
+              <ul class="exp-tags" aria-label="Skills">
+                <li>WCAG</li>
+                <li>Standards</li>
+                <li>International Collaboration</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="exp-card" role="listitem">
+            <div class="exp-period"></div>
+            <div>
+              <h3 class="exp-title">Design Lead</h3>
+              <p class="exp-company">Coalition for National Trauma Research</p>
+              <p class="exp-desc">Mission-driven design for a national research coalition, translating complex clinical workflows and data systems into accessible, human-centered interfaces.</p>
+              <ul class="exp-tags" aria-label="Skills">
+                <li>Research UX</li>
+                <li>Healthcare</li>
+                <li>Data Design</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="exp-card" role="listitem">
+            <div class="exp-period"></div>
+            <div>
+              <h3 class="exp-title">Design Lead</h3>
+              <p class="exp-company">HireRight</p>
+              <p class="exp-desc">End-to-end product design for background screening and identity verification workflows used by HR teams worldwide.</p>
+              <ul class="exp-tags" aria-label="Skills">
+                <li>Product Design</li>
+                <li>UX Research</li>
+                <li>Workflow Design</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="exp-card" role="listitem">
+            <div class="exp-period"></div>
+            <div>
+              <h3 class="exp-title">Design Consultant</h3>
+              <p class="exp-company">Audi USA · Oakley · The North Face</p>
+              <p class="exp-desc">Premium digital brand experiences for automotive and consumer lifestyle clients — from interactive product configurators to e-commerce platforms.</p>
+              <ul class="exp-tags" aria-label="Skills">
+                <li>Brand Experience</li>
+                <li>E-commerce</li>
+                <li>Automotive UX</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="exp-card" role="listitem">
+            <div class="exp-period"></div>
+            <div>
+              <h3 class="exp-title">Graduate Faculty</h3>
+              <p class="exp-company">University of Colorado</p>
+              <p class="exp-desc">Taught design craft, methodology, and critical thinking in the Master's of Design program. Mentored emerging designers in developing a principled, human-centered practice.</p>
+              <ul class="exp-tags" aria-label="Skills">
+                <li>Design Education</li>
+                <li>Mentoring</li>
+                <li>Design Thinking</li>
+              </ul>
+            </div>
+          </article>
+
         </div>
       </section>
 
@@ -823,25 +932,32 @@
         })
         .catch(function () { /* silently fail */ });
     }());
+  </script>
 
-  /* ── THEME TOGGLE ─────────────────────────────────── */
-  (function () {
-    const btn = document.querySelector('.theme-toggle');
-    if (!btn) return;
-    const stored = localStorage.getItem('lb-theme');
-    if (stored) {
-      document.documentElement.dataset.theme = stored;
-      btn.setAttribute('aria-label', stored === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-      btn.title = stored === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
-    }
-    btn.addEventListener('click', function () {
-      const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-      document.documentElement.dataset.theme = next;
-      localStorage.setItem('lb-theme', next);
-      btn.setAttribute('aria-label', next === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-      btn.title = next === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
-    });
-  })();
+  <!-- Theme toggle (persists in localStorage) -->
+  <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle light theme">☾</button>
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+
+      function setLight(on) {
+        document.documentElement.classList.toggle('light', !!on);
+        btn.setAttribute('aria-pressed', !!on ? 'true' : 'false');
+        btn.textContent = !!on ? '☀︎' : '☾';
+        try { localStorage.setItem('theme', !!on ? 'light' : 'dark'); } catch (e) { }
+      }
+
+      // Initialize from localStorage
+      try {
+        var pref = localStorage.getItem('theme');
+        setLight(pref === 'light');
+      } catch (e) { setLight(false); }
+
+      btn.addEventListener('click', function () {
+        setLight(!document.documentElement.classList.contains('light'));
+      });
+    }());
   </script>
 
 </body>

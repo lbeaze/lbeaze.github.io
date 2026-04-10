@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WWV7W5D8');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience — Len Beasley</title>
+  <meta name="description" content="25 years designing digital products for startups and Fortune 10 companies. Accessibility, design systems, and human-centered practice." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Len Beasley" />
+  <meta property="og:title"       content="Experience — Len Beasley" />
+  <meta property="og:description" content="25 years designing digital products for startups and Fortune 10 companies." />
+  <meta property="og:url"         content="https://lenbeasley.com/experience/" />
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="Experience — Len Beasley" />
+  <meta name="twitter:description" content="25 years designing digital products for startups and Fortune 10 companies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0f1623;
+      --navy-mid:    #16202f;
+      --navy-light:  #1e2d42;
+      --warm-white:  #f2ede6;
+      --accent:      #f07828;
+      --accent-dim:  #d96820;
+      --text-body:   #b8c4d0;
+      --text-muted:  #8fa3b8;
+      --text-bright: #dce6ef;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--navy);
+      color: var(--text-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── SPOTLIGHT CURSOR ──────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(
+        700px circle at var(--mouse-x, -400px) var(--mouse-y, -400px),
+        rgba(240, 120, 40, 0.07),
+        transparent 70%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── SKIP LINK ─────────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 0 0 4px 4px;
+      text-decoration: none;
+      z-index: 999;
+      transition: top 0.1s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ── LAYOUT ────────────────────────────────────────── */
+    .layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      min-height: 100vh;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── LEFT PANEL ────────────────────────────────────── */
+    .left-panel {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 4rem 2.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--navy-light);
+    }
+
+    /* ── SITE NAV ─────────────────────────────────────── */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(242,237,230,0.1);
+    }
+    .site-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 1.1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .site-nav-link {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-nav-link:hover { color: var(--text-bright); }
+    .site-nav-link[aria-current="page"] { color: var(--accent); }
+    .site-nav-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 0.2rem;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      transition: color 0.2s;
+      border-radius: 4px;
+    }
+    .theme-toggle:hover { color: var(--accent); }
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ── LIGHT MODE ────────────────────────────────────── */
+    [data-theme="light"] {
+      --navy:        #f0ebe3;
+      --panel-bg:    #e5dfd5;
+      --card-bg:     rgba(255,255,255,0.65);
+      --text-bright: #0e131f;
+      --text-main:   #2c2c3c;
+      --text-muted:  #6a6678;
+    }
+    [data-theme="light"] body::before {
+      background: radial-gradient(700px circle at var(--mouse-x,-400px) var(--mouse-y,-400px),
+        rgba(240,120,40,0.04), transparent 70%);
+    }
+
+    /* ── LEFT HEADINGS ─────────────────────────────────── */
+    .left-title {
+      font-size: 1.6rem;
+      font-weight: 200;
+      color: var(--warm-white);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+    }
+
+    .left-desc {
+      font-size: 0.84rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    /* ── LEFT FOOTER ───────────────────────────────────── */
+    .left-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--navy-light);
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .social-link:hover { color: var(--accent); }
+    .social-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    .social-link svg { width: 17px; height: 17px; display: block; }
+
+    /* ── RIGHT PANEL ───────────────────────────────────── */
+    .right-panel {
+      padding: 4rem 5rem 8rem 5rem;
+    }
+
+    /* ── EXPERIENCE CARDS ──────────────────────────────── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      max-width: 680px;
+    }
+
+    .exp-card {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1rem 1.5rem;
+      padding: 1.5rem;
+      border-radius: 4px;
+      margin: 0 -1.5rem;
+      transition: background 0.2s;
+    }
+    .exp-card:hover { background: rgba(30, 45, 66, 0.6); }
+
+    .exp-period {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .exp-title {
+      font-size: 0.975rem;
+      font-weight: 500;
+      color: var(--text-bright);
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+      transition: color 0.2s;
+    }
+    .exp-card:hover .exp-title { color: var(--accent); }
+
+    .exp-company {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+      letter-spacing: 0.01em;
+    }
+
+    .exp-desc {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-body);
+      font-weight: 300;
+      margin-bottom: 0.85rem;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      list-style: none;
+    }
+    .exp-tags li {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--accent-dim);
+      border: 1px solid rgba(240, 120, 40, 0.25);
+      border-radius: 2px;
+      padding: 0.15rem 0.55rem;
+    }
+
+    /* ── SCREEN READER ONLY ────────────────────────────── */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ── REDUCED MOTION ────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      body::before { display: none; }
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .layout { grid-template-columns: 280px 1fr; }
+      .right-panel { padding: 4rem 3.5rem 8rem; }
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; max-width: 740px; }
+
+      .left-panel {
+        position: static;
+        height: auto;
+        padding: 3rem 2.5rem 2rem;
+        border-right: none;
+        border-bottom: 1px solid var(--navy-light);
+      }
+
+      .left-footer { margin-top: 2rem; }
+
+      .right-panel { padding: 2.5rem 2.5rem 5rem; }
+
+      .exp-card { grid-template-columns: 1fr; gap: 0.4rem; }
+      .exp-period { padding-top: 0; }
+    }
+
+    @media (max-width: 520px) {
+      .left-panel  { padding: 2.5rem 1.5rem 2rem; }
+      .right-panel { padding: 2rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWV7W5D8"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="layout">
+
+    <!-- ── LEFT PANEL ─────────────────────────────────── -->
+    <aside class="left-panel" aria-label="Experience navigation">
+
+      <nav class="site-nav" aria-label="Site">
+        <ul role="list">
+          <li><a href="/"            class="site-nav-link">Home</a></li>
+          <li><a href="/thinking/"   class="site-nav-link">Thinking</a></li>
+          <li><a href="/notes/"      class="site-nav-link">Notes</a></li>
+          <li><a href="/experience/" class="site-nav-link" aria-current="page">Experience</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+               width="16" height="16">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+        </button>
+      </nav>
+
+      <h1 class="left-title">Experience</h1>
+      <p class="left-desc">
+        25 years designing digital products for startups and Fortune 10 companies.
+        A résumé is available on request.
+      </p>
+
+      <footer class="left-footer">
+        <a href="mailto:len@lenbeasley.com" class="social-link" aria-label="Email Len Beasley">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m2 7 10 7 10-7"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/lenbeasley" target="_blank" rel="noopener"
+           class="social-link" aria-label="LinkedIn profile (opens in new tab)">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </footer>
+    </aside>
+
+    <!-- ── RIGHT PANEL ────────────────────────────────── -->
+    <main class="right-panel" id="main-content">
+
+      <!--
+        UPDATE THIS SECTION: Add actual date ranges and adjust descriptions as needed.
+        These cards are a starting point — reorder or edit to match your real history.
+      -->
+      <div class="exp-list" role="list">
+
+        <article class="exp-card" role="listitem">
+          <div class="exp-period">Current</div>
+          <div>
+            <h2 class="exp-title">Principal Designer &amp; Accessibility Lead</h2>
+            <p class="exp-company">Aetna Health · CVS Health</p>
+            <p class="exp-desc">Enterprise digital product design at scale, focusing on accessibility strategy, design systems, and building lasting team capability across large organizations.</p>
+            <ul class="exp-tags" aria-label="Skills">
+              <li>Accessibility</li>
+              <li>Design Systems</li>
+              <li>Healthcare UX</li>
+              <li>Enterprise Design</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp-card" role="listitem">
+          <div class="exp-period">Active</div>
+          <div>
+            <h2 class="exp-title">Working Group &amp; Task Force Member</h2>
+            <p class="exp-company">W3C — Accessibility Guidelines Working Group (AGWG)</p>
+            <p class="exp-desc">Contributing to WCAG and related accessibility standards that define how the web works for people with disabilities — across cognitive, mobile, and visual accessibility task forces.</p>
+            <ul class="exp-tags" aria-label="Skills">
+              <li>WCAG</li>
+              <li>Standards</li>
+              <li>International Collaboration</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp-card" role="listitem">
+          <div class="exp-period"></div>
+          <div>
+            <h2 class="exp-title">Design Lead</h2>
+            <p class="exp-company">Coalition for National Trauma Research</p>
+            <p class="exp-desc">Mission-driven design for a national research coalition, translating complex clinical workflows and data systems into accessible, human-centered interfaces.</p>
+            <ul class="exp-tags" aria-label="Skills">
+              <li>Research UX</li>
+              <li>Healthcare</li>
+              <li>Data Design</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp-card" role="listitem">
+          <div class="exp-period"></div>
+          <div>
+            <h2 class="exp-title">Design Lead</h2>
+            <p class="exp-company">HireRight</p>
+            <p class="exp-desc">End-to-end product design for background screening and identity verification workflows used by HR teams worldwide.</p>
+            <ul class="exp-tags" aria-label="Skills">
+              <li>Product Design</li>
+              <li>UX Research</li>
+              <li>Workflow Design</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp-card" role="listitem">
+          <div class="exp-period"></div>
+          <div>
+            <h2 class="exp-title">Design Consultant</h2>
+            <p class="exp-company">Audi USA · Oakley · The North Face</p>
+            <p class="exp-desc">Premium digital brand experiences for automotive and consumer lifestyle clients — from interactive product configurators to e-commerce platforms.</p>
+            <ul class="exp-tags" aria-label="Skills">
+              <li>Brand Experience</li>
+              <li>E-commerce</li>
+              <li>Automotive UX</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp-card" role="listitem">
+          <div class="exp-period"></div>
+          <div>
+            <h2 class="exp-title">Graduate Faculty</h2>
+            <p class="exp-company">University of Colorado</p>
+            <p class="exp-desc">Taught design craft, methodology, and critical thinking in the Master's of Design program. Mentored emerging designers in developing a principled, human-centered practice.</p>
+            <ul class="exp-tags" aria-label="Skills">
+              <li>Design Education</li>
+              <li>Mentoring</li>
+              <li>Design Thinking</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    'use strict';
+    /* ── Spotlight cursor ── */
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.addEventListener('mousemove', function (e) {
+        document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+        document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+      });
+    }());
+
+  /* ── THEME TOGGLE ─────────────────────────────────── */
+  (function () {
+    const btn = document.querySelector('.theme-toggle');
+    if (!btn) return;
+    const stored = localStorage.getItem('lb-theme');
+    if (stored) {
+      document.documentElement.dataset.theme = stored;
+      btn.setAttribute('aria-label', stored === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      btn.title = stored === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+    }
+    btn.addEventListener('click', function () {
+      const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('lb-theme', next);
+      btn.setAttribute('aria-label', next === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      btn.title = next === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+    });
+  })();
+  </script>
+
+</body>
+</html>

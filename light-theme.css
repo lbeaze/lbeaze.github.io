@@ -1,0 +1,56 @@
+/* Light theme overrides — keeps original accent hues
+   Usage: add class="light" to the <html> element or include this
+   stylesheet after the existing styles and add <html class="light">.
+*/
+:root.light {
+  --navy:        #fbfaf8; /* page background (was dark) */
+  --navy-mid:    #f6f5f3;
+  --navy-light:  #e6e7ea; /* borders and subtle dividers */
+  --warm-white:  #0b1220; /* used for prominent text on light background */
+  --accent:      #B85600; /* original accent hue adjusted for contrast */
+  --accent-dim:  #d96820;
+  --text-body:   #2b3b3f; /* primary body text, darker for readability */
+  --text-muted:  #6b7280; /* secondary text */
+  --text-bright: #071124; /* headings/bright text */
+}
+
+/* Slightly reduce the spotlight intensity on light background */
+html.light body::before {
+  background: radial-gradient(
+    700px circle at var(--mouse-x, -400px) var(--mouse-y, -400px),
+    rgba(184,86,0,0.045),
+    transparent 70%
+  );
+}
+
+/* Make hover backgrounds subtle on light cards */
+html.light .exp-card:hover,
+html.light .thinking-card:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Tags & subtle borders on light theme */
+html.light .topic-tag,
+html.light .exp-tags li,
+html.light .thinking-card-tag {
+  border-color: rgba(0,0,0,0.06);
+}
+
+/* Ensure links still use the accent color */
+html.light .about-body a,
+html.light .sidebar-link.is-active::before,
+html.light .thinking-card-read,
+html.light .thinking-all-link,
+html.light .footer-link:hover,
+html.light .social-link:hover {
+  color: var(--accent);
+}
+
+/* Focus outlines remain visible on light backgrounds */
+html.light .sidebar-link:focus-visible,
+html.light .social-link:focus-visible,
+html.light .thinking-card:focus-visible,
+html.light .thinking-all-link:focus-visible,
+html.light .footer-link:focus-visible {
+  outline-color: var(--accent);
+}

@@ -1,0 +1,18 @@
+{
+  "notes": [
+    {
+      "id": "legibility-is-not-an-opinion",
+      "title": "Legibility is Not an Opinion",
+      "date": "2026-04-07",
+      "tags": ["accessibility", "design", "craft"],
+      "content": "There's a category of design feedback I've learned to push back on immediately: \"It feels a little heavy\" or \"Can we lighten it up?\" when someone is talking about text. Because legibility isn't a matter of taste — it's a matter of physics and human biology.\n\nThe eye needs a certain luminance ratio between text and its background to resolve letterforms clearly. WCAG's 4.5:1 minimum for normal text isn't arbitrary. It's derived from research on contrast sensitivity across the population — including people with moderately low vision, people in bright environments, and people on screens with poor calibration. Meeting that number means your text is readable for a much wider range of people in a much wider range of conditions.\n\nWhen a stakeholder asks to \"lighten it up,\" what they're often describing is an aesthetic preference formed by looking at a well-calibrated monitor in a dim room. That's not a valid sample of real-world conditions. Push back with data, not opinion — and then offer them something that's both lighter *and* legible, because that solution almost always exists."
+    },
+    {
+      "id": "the-invisible-user",
+      "title": "The Invisible User",
+      "date": "2026-03-22",
+      "tags": ["accessibility", "inclusion", "design"],
+      "content": "The users you hear from are not representative of all your users. They're the ones who had the time and ability to file a bug report, write an email, or find the feedback form. The people who bounced because navigation didn't make sense, who couldn't complete a purchase because the modal trapped their focus, who gave up because the error message told them nothing — those users don't appear in your qualitative data. They just leave.\n\nThis is why accessibility work is fundamentally different from feature feedback cycles. You can't wait for complaints. The people most affected by poor accessibility are often the least positioned to advocate loudly for themselves in your feedback channels.\n\nDesigning accessibly means designing for users you will never hear from. It requires building that user into your mental model from the start — not as an edge case to accommodate at the end, but as part of the primary audience your design has to work for."
+    }
+  ]
+}
