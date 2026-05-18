@@ -10,6 +10,14 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Apply theme before first paint to prevent flash -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem('lb-theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      if (theme === 'light') document.documentElement.dataset.theme = 'light';
+    }());
+  </script>
   <title>Experience — Len Beasley</title>
   <meta name="description" content="25 years designing digital products for startups and Fortune 10 companies. Accessibility, design systems, and human-centered practice." />
   <meta property="og:type"        content="website" />
@@ -159,13 +167,25 @@
       --navy:        #f0ebe3;
       --panel-bg:    #e5dfd5;
       --card-bg:     rgba(255,255,255,0.65);
+      --warm-white:  #1c1c2e;   /* fix: H1 was near-invisible on light bg */
       --text-bright: #0e131f;
       --text-main:   #2c2c3c;
-      --text-muted:  #6a6678;
+      --text-body:   #3d3a4a;   /* fix: was unset — defaulted to light blue-grey (~1.5:1) */
+      --text-muted:  #525065;   /* fix: darkened from #6a6678 — was ~4.3:1, now ~5.8:1 */
+      --accent:      #9e4d0d;   /* fix: dark orange ~5:1 on light bg; #f07828 was only ~2.4:1 */
+      --accent-dim:  #7a3a09;   /* fix: darkened to match — tag text/borders now ~7.4:1 */
     }
     [data-theme="light"] body::before {
       background: radial-gradient(700px circle at var(--mouse-x,-400px) var(--mouse-y,-400px),
         rgba(240,120,40,0.04), transparent 70%);
+    }
+    /* fix: dark navy hover bg looks wrong in light mode; use a subtle tint instead */
+    [data-theme="light"] .exp-card:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+    /* fix: hardcoded rgba border was ~1.1:1 on light bg; now uses --accent-dim (~7.4:1) */
+    [data-theme="light"] .exp-tags li {
+      border-color: var(--accent-dim);
     }
 
     /* ── LEFT HEADINGS ─────────────────────────────────── */
@@ -362,7 +382,8 @@
 
       <h1 class="left-title">Experience</h1>
       <p class="left-desc">
-        25 years designing digital products for startups and Fortune 10 companies.
+        25 years designing products that work for everyone—starting from the assumption
+        that if it works for people with disabilities, it'll work better for everyone else too.
         A résumé is available on request.
       </p>
 
@@ -388,93 +409,108 @@
     <!-- ── RIGHT PANEL ────────────────────────────────── -->
     <main class="right-panel" id="main-content">
 
-      <!--
-        UPDATE THIS SECTION: Add actual date ranges and adjust descriptions as needed.
-        These cards are a starting point — reorder or edit to match your real history.
-      -->
       <div class="exp-list" role="list">
 
         <article class="exp-card" role="listitem">
-          <div class="exp-period">Current</div>
+          <div class="exp-period">Summary</div>
           <div>
-            <h2 class="exp-title">Principal Designer &amp; Accessibility Lead</h2>
-            <p class="exp-company">Aetna Health · CVS Health</p>
-            <p class="exp-desc">Enterprise digital product design at scale, focusing on accessibility strategy, design systems, and building lasting team capability across large organizations.</p>
+            <p class="exp-desc">Designing for the margins makes better products for everyone. That belief has guided 25 years of work across startups and Fortune 10 companies — and it's what drives me to build accessibility and UX operations practices that go well beyond compliance to create genuine competitive advantage.</p>
+            <p class="exp-desc">At Aetna/CVS Health, I've led the accessibility maturity journey for one of the nation's largest health platforms — developing the operational infrastructure that makes sustainable, enterprise-scale accessibility possible. That means operating models, design system integration, defect workflow systems, audit processes, and the reporting that translates it all into executive conversations leadership can act on.</p>
+            <p class="exp-desc">My credentials go deep. I'm a CPACC-certified accessibility practitioner, an active member of the W3C Accessibility Guidelines Working Group and Cognitive Accessibility Task Force, and a former faculty member in the Masters of Design program at the University of Colorado. I've helped shape accessibility standards before they become the standards.</p>
+            <p class="exp-desc">My approach is pragmatic: I reduce costs, upskill teams, and build the operational frameworks that transform accessibility from a liability into a product differentiator. Whether growing WCAG adoption across a global product ecosystem, building inclusive research programs, or presenting compliance strategy to C-suite leadership, I bring the depth of a practitioner and the perspective of a strategic leader.</p>
+            <p class="exp-desc">The best accessible experiences feel invisible - natural, intentional, and effortless for every user. That's what I help organizations build.</p>
+          </div>
+        </article>
+
+        <article class="exp-card" role="listitem">
+          <div class="exp-period">2022 –<br>Present</div>
+          <div>
+            <h2 class="exp-title">Domain Expert, Accessibility &amp; Inclusive Design</h2>
+            <p class="exp-company">Aetna, a CVS Health Company · Denver Metro</p>
+            <p class="exp-desc">Led the work that made our iOS app the first in its class to hit all 9 of Apple's accessibility standards at launch—changing how we talk about accessibility in sales conversations. We went from "we comply" to "we lead."</p>
+            <p class="exp-desc">Overhauled defect reporting: 70% of issues now resolved within a week, average dropped to 1 defect per full product test. Spent the last year preparing teams, tools, and reporting for WCAG 3.0 before it's even finalized. Present accessibility strategy to VP and C-suite regularly—accessible products aren't cheaper to build, but they're more defensible and they sell better.</p>
             <ul class="exp-tags" aria-label="Skills">
-              <li>Accessibility</li>
-              <li>Design Systems</li>
+              <li>Accessibility Strategy</li>
+              <li>WCAG &amp; Standards</li>
               <li>Healthcare UX</li>
-              <li>Enterprise Design</li>
+              <li>Design Systems</li>
+              <li>Executive Reporting</li>
             </ul>
           </div>
         </article>
 
         <article class="exp-card" role="listitem">
-          <div class="exp-period">Active</div>
+          <div class="exp-period">2016 –<br>2022</div>
           <div>
-            <h2 class="exp-title">Working Group &amp; Task Force Member</h2>
-            <p class="exp-company">W3C — Accessibility Guidelines Working Group (AGWG)</p>
-            <p class="exp-desc">Contributing to WCAG and related accessibility standards that define how the web works for people with disabilities — across cognitive, mobile, and visual accessibility task forces.</p>
+            <h2 class="exp-title">Sr Accessibility Designer &amp; A11y Training Lead</h2>
+            <p class="exp-company">Aetna, a CVS Health Company · Denver Metro</p>
+            <p class="exp-desc">Built accessibility into product before code. Trained 50+ designers, reviewed every feature, and pushed WCAG standards into the design system before leadership even asked. Fixed the design system by treating accessibility defects as a symptom of larger component problems—resolved 90+ issues in one release cycle while clearing years of UX debt.</p>
+            <p class="exp-desc">Created UX operations standards across teams: design handoffs, accessible research, audit processes. Designed an accessibility training program that moved 50+ designers, researchers, and writers from "I don't know what accessible means" to actually designing inclusively. Built an accessible user research program that included disabled participants—which changed what we build.</p>
             <ul class="exp-tags" aria-label="Skills">
-              <li>WCAG</li>
-              <li>Standards</li>
-              <li>International Collaboration</li>
+              <li>Inclusive Design</li>
+              <li>A11y Training</li>
+              <li>UX Operations</li>
+              <li>User Research</li>
+              <li>Design Systems</li>
             </ul>
           </div>
         </article>
 
         <article class="exp-card" role="listitem">
-          <div class="exp-period"></div>
+          <div class="exp-period">2015 –<br>2016</div>
           <div>
-            <h2 class="exp-title">Design Lead</h2>
-            <p class="exp-company">Coalition for National Trauma Research</p>
-            <p class="exp-desc">Mission-driven design for a national research coalition, translating complex clinical workflows and data systems into accessible, human-centered interfaces.</p>
+            <h2 class="exp-title">Sr Director UX/UI</h2>
+            <p class="exp-company">iTriage (Aetna Digital) · Greater Denver</p>
+            <p class="exp-desc">The role where I learned that good strategy can be the difference between a company getting restructured around your idea or just dissolved. Worked directly with Apple on design partnerships, led a team through a complete product redesign and rebrand, and coordinated research mapping consumer needs to Aetna's tools. The outcome: Aetna restructured the team as "Aetna Digital" to build the vision.</p>
             <ul class="exp-tags" aria-label="Skills">
-              <li>Research UX</li>
-              <li>Healthcare</li>
-              <li>Data Design</li>
+              <li>Product Strategy</li>
+              <li>Team Leadership</li>
+              <li>Consumer Health</li>
+              <li>Brand Design</li>
             </ul>
           </div>
         </article>
 
         <article class="exp-card" role="listitem">
-          <div class="exp-period"></div>
+          <div class="exp-period">2012 –<br>2021</div>
           <div>
-            <h2 class="exp-title">Design Lead</h2>
-            <p class="exp-company">HireRight</p>
-            <p class="exp-desc">End-to-end product design for background screening and identity verification workflows used by HR teams worldwide.</p>
-            <ul class="exp-tags" aria-label="Skills">
-              <li>Product Design</li>
-              <li>UX Research</li>
-              <li>Workflow Design</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="exp-card" role="listitem">
-          <div class="exp-period"></div>
-          <div>
-            <h2 class="exp-title">Design Consultant</h2>
-            <p class="exp-company">Audi USA · Oakley · The North Face</p>
-            <p class="exp-desc">Premium digital brand experiences for automotive and consumer lifestyle clients — from interactive product configurators to e-commerce platforms.</p>
-            <ul class="exp-tags" aria-label="Skills">
-              <li>Brand Experience</li>
-              <li>E-commerce</li>
-              <li>Automotive UX</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="exp-card" role="listitem">
-          <div class="exp-period"></div>
-          <div>
-            <h2 class="exp-title">Graduate Faculty</h2>
-            <p class="exp-company">University of Colorado</p>
-            <p class="exp-desc">Taught design craft, methodology, and critical thinking in the Master's of Design program. Mentored emerging designers in developing a principled, human-centered practice.</p>
+            <h2 class="exp-title">Faculty, Masters of Design Program</h2>
+            <p class="exp-company">University of Colorado, CMCI Studio · Boulder</p>
+            <p class="exp-desc">Taught graduate-level UX and design strategy with one rule: every student project had to be portfolio-ready. The goal was to teach the thinking, not just the tools—covering everything from launching design-led startups to accessibility. Watched 104+ students graduate and land jobs at Google, Apple, Uber, Spotify, and elsewhere. Teaching this stuff is the best way to actually understand it.</p>
             <ul class="exp-tags" aria-label="Skills">
               <li>Design Education</li>
-              <li>Mentoring</li>
-              <li>Design Thinking</li>
+              <li>UX Strategy</li>
+              <li>Mentorship</li>
+              <li>Accessibility</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp-card" role="listitem">
+          <div class="exp-period">2009 –<br>2015</div>
+          <div>
+            <h2 class="exp-title">AD, UX Strategy</h2>
+            <p class="exp-company">Factory Design Labs · Denver</p>
+            <p class="exp-desc">Led the UX practice for global brands—Audi, Oakley, The North Face, Vans, and others. Managed a team of UX designers and worked across a 100+ person agency to improve customer experiences in digital and retail.</p>
+            <ul class="exp-tags" aria-label="Skills">
+              <li>Brand Experience</li>
+              <li>UX Leadership</li>
+              <li>Digital &amp; Retail</li>
+              <li>Agency</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp-card" role="listitem">
+          <div class="exp-period">Earlier</div>
+          <div>
+            <h2 class="exp-title">Information Architecture &amp; UX</h2>
+            <p class="exp-company">Alpha Cube · Winnercomm · XOR · The Frontline Group</p>
+            <p class="exp-desc">Wore a lot of different hats in the early days of web design and user research. These roles built the foundation - IA, interaction design, research - before those were common job titles.</p>
+            <ul class="exp-tags" aria-label="Skills">
+              <li>Information Architecture</li>
+              <li>Interaction Design</li>
+              <li>User Research</li>
             </ul>
           </div>
         </article>
@@ -499,18 +535,28 @@
   (function () {
     const btn = document.querySelector('.theme-toggle');
     if (!btn) return;
-    const stored = localStorage.getItem('lb-theme');
-    if (stored) {
-      document.documentElement.dataset.theme = stored;
-      btn.setAttribute('aria-label', stored === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-      btn.title = stored === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      btn.title = theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
     }
+
+    // Priority: stored preference > system preference > dark
+    const stored = localStorage.getItem('lb-theme');
+    const systemLight = window.matchMedia('(prefers-color-scheme: light)');
+    applyTheme(stored || (systemLight.matches ? 'light' : 'dark'));
+
+    // Follow system changes live only when the user hasn't set a manual preference
+    systemLight.addEventListener('change', function (e) {
+      if (!localStorage.getItem('lb-theme')) applyTheme(e.matches ? 'light' : 'dark');
+    });
+
+    // Manual toggle stores the choice and overrides system preference
     btn.addEventListener('click', function () {
       const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-      document.documentElement.dataset.theme = next;
       localStorage.setItem('lb-theme', next);
-      btn.setAttribute('aria-label', next === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-      btn.title = next === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+      applyTheme(next);
     });
   })();
   </script>

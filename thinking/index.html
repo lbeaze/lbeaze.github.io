@@ -10,6 +10,14 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Apply theme before first paint to prevent flash -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem('lb-theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      if (theme === 'light') document.documentElement.dataset.theme = 'light';
+    }());
+  </script>
   <title>Thinking — Len Beasley</title>
   <meta name="description" content="Essays, observations, and ideas at the intersection of design, accessibility, and the future of building for humans." />
   <meta property="og:type"        content="website" />
@@ -159,9 +167,13 @@
       --navy:        #f0ebe3;
       --panel-bg:    #e5dfd5;
       --card-bg:     rgba(255,255,255,0.65);
+      --warm-white:  #1c1c2e;
       --text-bright: #0e131f;
       --text-main:   #2c2c3c;
-      --text-muted:  #6a6678;
+      --text-body:   #3d3a4a;
+      --text-muted:  #525065;
+      --accent:      #9e4d0d;
+      --accent-dim:  #7a3a09;
     }
     [data-theme="light"] body::before {
       background: radial-gradient(700px circle at var(--mouse-x,-400px) var(--mouse-y,-400px),
@@ -1079,14 +1091,45 @@
       if (articles.length) setActive(articles[0].id.replace('post-', ''));
     }
 
+    /* ── Frontmatter parser ─────────────────────────────── */
+    function parseFrontmatter(text, slug) {
+      const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+      if (!match) return { id: slug, title: slug, date: '', tags: [], excerpt: '', linkedinUrl: null, content: text };
+      const meta = {};
+      match[1].split(/\r?\n/).forEach(line => {
+        const i = line.indexOf(':');
+        if (i === -1) return;
+        meta[line.slice(0, i).trim()] = line.slice(i + 1).trim();
+      });
+      return {
+        id:          slug,
+        title:       meta.title       || slug,
+        date:        meta.date        || '',
+        tags:        meta.tags        ? meta.tags.split(',').map(t => t.trim()).filter(Boolean) : [],
+        excerpt:     meta.excerpt     || '',
+        linkedinUrl: meta.linkedinUrl || null,
+        content:     match[2].trim()
+      };
+    }
+
     /* ── Bootstrap ─────────────────────────────────────── */
-    fetch('/posts.json')
+    fetch('/thinking/index.json')
       .then(r => {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
-      .then(data => {
-        allPosts = (data.posts || []).sort((a, b) => new Date(b.date) - new Date(a.date));
+      .then(slugs => Promise.all(
+        slugs.map(slug =>
+          fetch(`/thinking/${slug}.md`)
+            .then(r => {
+              if (!r.ok) throw new Error('HTTP ' + r.status);
+              return r.text();
+            })
+            .then(text => parseFrontmatter(text, slug))
+        )
+      ))
+      .then(posts => {
+        allPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         buildTagFilters(allPosts);
         buildArticleNav(allPosts);
@@ -1098,7 +1141,6 @@
         if (hash && hash.startsWith('#post-')) {
           const target = document.getElementById(hash.slice(1));
           if (target) {
-            // Small delay lets the page finish rendering before scrolling
             setTimeout(() => {
               target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
@@ -1115,18 +1157,28 @@
   (function () {
     const btn = document.querySelector('.theme-toggle');
     if (!btn) return;
-    const stored = localStorage.getItem('lb-theme');
-    if (stored) {
-      document.documentElement.dataset.theme = stored;
-      btn.setAttribute('aria-label', stored === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-      btn.title = stored === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      btn.title = theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
     }
+
+    // Priority: stored preference > system preference > dark
+    const stored = localStorage.getItem('lb-theme');
+    const systemLight = window.matchMedia('(prefers-color-scheme: light)');
+    applyTheme(stored || (systemLight.matches ? 'light' : 'dark'));
+
+    // Follow system changes live only when the user hasn't set a manual preference
+    systemLight.addEventListener('change', function (e) {
+      if (!localStorage.getItem('lb-theme')) applyTheme(e.matches ? 'light' : 'dark');
+    });
+
+    // Manual toggle stores the choice and overrides system preference
     btn.addEventListener('click', function () {
       const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-      document.documentElement.dataset.theme = next;
       localStorage.setItem('lb-theme', next);
-      btn.setAttribute('aria-label', next === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-      btn.title = next === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+      applyTheme(next);
     });
   })();
 
