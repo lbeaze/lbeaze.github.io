@@ -1141,9 +1141,11 @@
         if (hash && hash.startsWith('#post-')) {
           const target = document.getElementById(hash.slice(1));
           if (target) {
-            setTimeout(() => {
-              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
+            (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
+              setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 50);
+            });
           }
         }
       })
