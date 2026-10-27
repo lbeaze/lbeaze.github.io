@@ -1,0 +1,5194 @@
+{
+ "generated": "2026-10-27",
+ "characteristics": [
+  {
+   "key": "font",
+   "label": "Font face / weight",
+   "definition": "Typeface styles used for body text, and how bold/italic weights are used."
+  },
+  {
+   "key": "size",
+   "label": "Font size",
+   "definition": "Body-text sizes and minimum sizes stated as defaults."
+  },
+  {
+   "key": "contrast",
+   "label": "Contrast",
+   "definition": "Any script- or language-specific statement about text/background contrast."
+  },
+  {
+   "key": "aspect",
+   "label": "Letter aspect ratio",
+   "definition": "Proportions of the letterforms. Mapped to the height of the script's basic letters relative to Latin x-height / cap-height, or to the letter face inside the character frame for CJK."
+  },
+  {
+   "key": "decoration",
+   "label": "Text decoration",
+   "definition": "Underline, overline, side lines, strikethrough: placement, thickness, meaning."
+  },
+  {
+   "key": "letterspacing",
+   "label": "Letter spacing",
+   "definition": "Default inter-character spacing and when tracking is used or prohibited."
+  },
+  {
+   "key": "caps",
+   "label": "Capitalization",
+   "definition": "Whether the script has case, and any language-specific casing rules."
+  },
+  {
+   "key": "hyphen",
+   "label": "End-of-line hyphenation",
+   "definition": "Whether words are broken at line end and how the break is marked."
+  },
+  {
+   "key": "linespacing",
+   "label": "Line spacing",
+   "definition": "Default line gap / line height, or stated need for more vertical space than Latin."
+  },
+  {
+   "key": "paraspacing",
+   "label": "Paragraph spacing",
+   "definition": "Space between paragraphs and the paragraph-marking method (indent vs. space)."
+  },
+  {
+   "key": "linelength",
+   "label": "Line length",
+   "definition": "Default or maximum characters per line."
+  },
+  {
+   "key": "padding",
+   "label": "Padding (text containers)",
+   "definition": "Margins/padding around text blocks, including direction of layout."
+  }
+ ],
+ "statuses": {
+  "numeric": {
+   "label": "Value",
+   "definition": "A source states a default value or range."
+  },
+  "convention": {
+   "label": "Convention",
+   "definition": "A source describes a convention without a number."
+  },
+  "not-used": {
+   "label": "Not used",
+   "definition": "A source says the characteristic is not used or not applicable."
+  },
+  "no-data": {
+   "label": "No data",
+   "definition": "No ingested source says anything usable."
+  }
+ },
+ "scripts": [
+  {
+   "code": "Adlm",
+   "name": "Adlam",
+   "languages": [
+    "Fula"
+   ],
+   "notes_files": [
+    "n:adlm/fuf"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Bold and italic used; italic leans right",
+     "details": [
+      "Adlam texts use both bolding and italics.",
+      "After community consultation the first drawn Adlam italic leans to the right (the opposite of N’Ko)."
+     ],
+     "sources": [
+      {
+       "key": "n:adlm/fuf",
+       "anchor": "fontstyle"
+      },
+      {
+       "key": "n:nkoo/nqo",
+       "anchor": "fontstyle"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters ≈ Latin x-height; marks exceed Latin ascenders",
+     "details": [
+      "Basic lowercase Adlam letters are typically around the Latin x-height (Noto Sans Adlam).",
+      "Diacritics reach well beyond Latin ascenders; capitals increase height further."
+     ],
+     "sources": [
+      {
+       "key": "n:adlm/fuf",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "convention",
+     "short": "Bicameral",
+     "details": [
+      "The notes refer to capital letters increasing vertical height; Unicode 15.1 has case mappings for Adlam."
+     ],
+     "sources": [
+      {
+       "key": "n:adlm/fuf",
+       "anchor": "baselines"
+      },
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Hyphenation used",
+     "details": [
+      "Breaks occur primarily at spaces; in-word breaks with hyphenation also occur.",
+      "Long words may be hyphenated to reduce added space in justified text."
+     ],
+     "sources": [
+      {
+       "key": "n:adlm/fuf",
+       "anchor": "linebreak"
+      },
+      {
+       "key": "n:adlm/fuf",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Interword spacing for justification; baseline stretching is historical",
+     "details": [
+      "Modern preference is interword spacing for justification; stretching the baseline with ـ was used in the past."
+     ],
+     "sources": [
+      {
+       "key": "n:adlm/fuf",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Larger than Latin",
+     "details": [
+      "Vertical resolution needed for readable Fula text is higher than for English; diacritics create a need for larger line spacing."
+     ],
+     "sources": [
+      {
+       "key": "n:adlm/fuf",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "padding": {
+     "status": "convention",
+     "short": "Right-to-left page progression",
+     "details": [
+      "Books are bound on the right; pages progress right to left. Layout direction mirrors left-to-right layouts."
+     ],
+     "sources": [
+      {
+       "key": "n:adlm/fuf",
+       "anchor": "generallayout"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Arab",
+   "name": "Arabic",
+   "languages": [
+    "Arabic",
+    "Urdu",
+    "Persian",
+    "Pashto",
+    "Sindhi",
+    "Kurdish",
+    "Saraiki",
+    "Kashmiri",
+    "Uighur"
+   ],
+   "notes_files": [
+    "n:arab/arb",
+    "n:arab/ur",
+    "n:arab/pes",
+    "n:arab/ps",
+    "n:arab/sd",
+    "n:arab/ckb",
+    "n:arab/skr",
+    "n:arab/ks",
+    "n:arab/ug"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Naskh default; Nastaʻlīq for Persian (Iran) and Urdu (Pakistan)",
+     "details": [
+      "Naskh has become the default form of Arabic in most contexts and is the model for most text typefaces.",
+      "In Iran and Pakistan, Nastaʻlīq remains the preferred style for Persian and Urdu respectively.",
+      "ALReq lists accessibility (readability and visibility) and small-screen legibility (larger loops and teeth, small descenders) as font-selection considerations.",
+      "Italic/oblique Arabic may slant to the left."
+     ],
+     "sources": [
+      {
+       "key": "alreq",
+       "anchor": "h_writing_style"
+      },
+      {
+       "key": "alreq",
+       "anchor": "h_writing_styles"
+      },
+      {
+       "key": "n:arab/arb",
+       "anchor": "letterforms"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Ascenders/descenders extend much further than Latin",
+     "details": [
+      "Arabic ascenders and descenders extend much further than those of Latin.",
+      "Uighur: the basic part of most letters is less than Latin x-height, but extenders and marks reach Latin ascender/descender lines."
+     ],
+     "sources": [
+      {
+       "key": "alreq",
+       "anchor": "h_baselines"
+      },
+      {
+       "key": "n:arab/ug",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "decoration": {
+     "status": "convention",
+     "short": "Underline further from baseline than Latin; avoid short ink-skip fragments",
+     "details": [
+      "Underlines and overlines sit further from the baseline than in Latin text, typically clearing long descenders and their diacritics.",
+      "If lines skip ink, very short line remnants must be avoided because they can look like dots or diacritics.",
+      "The Qur’an tends to use overlines rather than underlines.",
+      "Text borders must not expose the joins between letters; styling one letter must not break its joining."
+     ],
+     "sources": [
+      {
+       "key": "n:arab/arb",
+       "anchor": "otherinline"
+      },
+      {
+       "key": "alreq",
+       "anchor": "h_joining_and_text_border"
+      },
+      {
+       "key": "alreq",
+       "anchor": "h_styling_individual_letters"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "not-used",
+     "short": "No letter spacing (cursive); stretching via kashida instead",
+     "details": [
+      "Spaces are not added between characters except micro-spacing at non-joining letters during justification.",
+      "Stretching for headings, signs, or emphasis is done by elongating the baseline, unevenly, and does not correspond to Latin letter-spacing.",
+      "CSS Text 3 classes Arabic as a cursive script that does not admit gaps between letters; authors should avoid letter-spacing on cursive scripts."
+     ],
+     "sources": [
+      {
+       "key": "n:arab/arb",
+       "anchor": "spacing"
+      },
+      {
+       "key": "alreq",
+       "anchor": "h_spacing"
+      },
+      {
+       "key": "css-text-3",
+       "anchor": "cursive-tracking"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "not-used",
+     "short": "No hyphenation (Arabic, Persian); lines break between words",
+     "details": [
+      "Lines are broken at word boundaries, not at gaps after non-joining letters.",
+      "No hyphenation is used for Arabic script when used for Arabic and Persian."
+     ],
+     "sources": [
+      {
+       "key": "alreq",
+       "anchor": "h_line_breaking"
+      },
+      {
+       "key": "n:arab/arb",
+       "anchor": "linebreak"
+      },
+      {
+       "key": "arfa-checklist",
+       "anchor": ""
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Larger than Latin; much larger for Nastaʻlīq",
+     "details": [
+      "Ascenders and descenders travel further from the baseline than Latin; line height must allow for this.",
+      "Nastaʻlīq’s cascading baselines can require quite large line heights compared with many other orthographies."
+     ],
+     "sources": [
+      {
+       "key": "n:arab/arb",
+       "anchor": "baselines"
+      },
+      {
+       "key": "n:arab/ur",
+       "anchor": "baselines"
+      },
+      {
+       "key": "n:arab/ks",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "padding": {
+     "status": "convention",
+     "short": "Right-to-left page progression",
+     "details": [
+      "Books are bound on the right and pages progress right to left (Arabic, Persian, Pashto, Sindhi, Saraiki, Kashmiri)."
+     ],
+     "sources": [
+      {
+       "key": "n:arab/arb",
+       "anchor": "generallayout"
+      },
+      {
+       "key": "n:arab/pes",
+       "anchor": "generallayout"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": [
+    {
+     "languages": "Urdu, Kashmiri, Persian (Iran)",
+     "characteristic": "linespacing",
+     "text": "Nastaʻlīq style needs much larger line height than Naskh.",
+     "sources": [
+      {
+       "key": "n:arab/ur",
+       "anchor": "baselines"
+      },
+      {
+       "key": "alreq",
+       "anchor": "h_writing_style"
+      }
+     ]
+    },
+    {
+     "languages": "Urdu",
+     "characteristic": "letterspacing",
+     "text": "Interword spacing is a last resort for justification; U+0640 tatweel is not used and is ignored by some Nastaʻlīq fonts.",
+     "sources": [
+      {
+       "key": "n:arab/ur",
+       "anchor": "justification"
+      }
+     ]
+    },
+    {
+     "languages": "Uighur",
+     "characteristic": "hyphen",
+     "text": "Lines may break at any point; kashida lengthening and hyphenation can occur in the same word.",
+     "sources": [
+      {
+       "key": "n:arab/ug",
+       "anchor": "linebreak"
+      },
+      {
+       "key": "n:arab/ug",
+       "anchor": "justification"
+      }
+     ]
+    },
+    {
+     "languages": "Uighur",
+     "characteristic": "font",
+     "text": "Italic glyphs observed leaning in the direction of text (to the left).",
+     "sources": [
+      {
+       "key": "n:arab/ug",
+       "anchor": "letterforms"
+      }
+     ]
+    },
+    {
+     "languages": "Uighur",
+     "characteristic": "linespacing",
+     "text": "Must also look right next to Chinese text, which has a lower baseline and larger characters than Latin.",
+     "sources": [
+      {
+       "key": "n:arab/ug",
+       "anchor": "baselines"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "Beng",
+   "name": "Bengali",
+   "languages": [
+    "Bangla",
+    "Assamese",
+    "Manipuri"
+   ],
+   "notes_files": [
+    "n:beng/bn"
+   ],
+   "cells": {
+    "font": {
+     "status": "not-used",
+     "short": "Italic and bold not traditional",
+     "details": [
+      "Italicisation, bolding, and underlining are not traditional features of Bengali text."
+     ],
+     "sources": [
+      {
+       "key": "n:beng/bn",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "decoration": {
+     "status": "not-used",
+     "short": "Underline not traditional",
+     "details": [
+      "Underlining is not a traditional feature of Bengali text."
+     ],
+     "sources": [
+      {
+       "key": "n:beng/bn",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters slightly above Latin x-height",
+     "details": [
+      "Basic Bangla letters are typically slightly higher than Latin x-height; some letters and marks extend beyond Latin ascenders."
+     ],
+     "sources": [
+      {
+       "key": "n:beng/bn",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Applied per orthographic syllable; more prevalent than in Hindi",
+     "details": [
+      "In Indian languages letter spacing is inserted after each orthographic syllable, not each character; ILReq says it is more prevalent in Bengali."
+     ],
+     "sources": [
+      {
+       "key": "ilreq",
+       "anchor": "h_letter_spacing"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Possible but uncommon",
+     "details": [
+      "Bengali can be hyphenated at line wrap, though it is not very common because most words are short; a hyphen is added at line end."
+     ],
+     "sources": [
+      {
+       "key": "n:beng/bn",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Slightly more than Latin",
+     "details": [
+      "Bangla requires slightly more vertical space than Latin text."
+     ],
+     "sources": [
+      {
+       "key": "n:beng/bn",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Cans",
+   "name": "Canadian Aboriginal Syllabics",
+   "languages": [
+    "Inuktitut",
+    "Plains Cree"
+   ],
+   "notes_files": [
+    "n:cans/ike",
+    "n:cans/crk"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Italic observed; function unclear",
+     "details": [
+      "Italicised text is used frequently on East Cree web pages but its function is not clear."
+     ],
+     "sources": [
+      {
+       "key": "n:cans/crk",
+       "anchor": "fontstyle"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters ≈ Latin cap-height",
+     "details": [
+      "Basic letter height is usually the Latin cap-height; no ascenders, descenders, or combining marks except the long-vowel dot."
+     ],
+     "sources": [
+      {
+       "key": "n:cans/ike",
+       "anchor": "baselines"
+      },
+      {
+       "key": "n:cans/crk",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Hyphenation used; important for long Inuktitut words",
+     "details": [
+      "Inuktitut uses hyphenation; it is important because words can be very long and helps justification in narrow columns.",
+      "Plains Cree uses U+1400 CANADIAN SYLLABICS HYPHEN because a standard hyphen can be confused with U+1428."
+     ],
+     "sources": [
+      {
+       "key": "n:cans/ike",
+       "anchor": "linebreak"
+      },
+      {
+       "key": "n:cans/ike",
+       "anchor": "justification"
+      },
+      {
+       "key": "n:cans/crk",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Slightly more than Latin",
+     "details": [
+      "The long-vowel dot sits above the Latin ascender line, creating a need for slightly larger line spacing."
+     ],
+     "sources": [
+      {
+       "key": "n:cans/ike",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": [
+    {
+     "languages": "Plains Cree",
+     "characteristic": "hyphen",
+     "text": "Hyphen character is U+1400, not U+002D/U+2010.",
+     "sources": [
+      {
+       "key": "n:cans/crk",
+       "anchor": "linebreak"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "Cher",
+   "name": "Cherokee",
+   "languages": [
+    "Cherokee"
+   ],
+   "notes_files": [
+    "n:cher/chr"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Users want bold/italic; not yet common",
+     "details": [
+      "Cherokee users would like fonts with italic and bold styles, used as for Latin; this is not currently common."
+     ],
+     "sources": [
+      {
+       "key": "n:cher/chr",
+       "anchor": "fontstyle"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Upper = Latin cap-height; lower = Latin x-height",
+     "details": [
+      "Uppercase Cherokee letters are at Latin cap-height and lowercase at Latin x-height (Noto Sans Cherokee). Glyphs rarely descend."
+     ],
+     "sources": [
+      {
+       "key": "n:cher/chr",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "convention",
+     "short": "Bicameral since Unicode 8; existing text is uppercase",
+     "details": [
+      "Lowercase letters were added in Unicode 8.0. Traditional text is uppercase; mixed-case text uses lowercase for most body text.",
+      "Cherokee case-folds to uppercase, not lowercase. Upper/lowercase shapes differ mainly in size."
+     ],
+     "sources": [
+      {
+       "key": "n:cher/chr",
+       "anchor": "transforms"
+      },
+      {
+       "key": "n:cher/chr",
+       "anchor": "cs"
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [
+      "Lines break at inter-word spaces; nothing is said about hyphenation."
+     ],
+     "sources": [
+      {
+       "key": "n:cher/chr",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Justification by interword spacing",
+     "details": [
+      "Justification is done principally by adjusting the space between words."
+     ],
+     "sources": [
+      {
+       "key": "n:cher/chr",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Similar to Latin",
+     "details": [
+      "No combining marks in normal text; glyphs are generally the same height and rarely descend."
+     ],
+     "sources": [
+      {
+       "key": "n:cher/chr",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Cyrl",
+   "name": "Cyrillic",
+   "languages": [
+    "Russian",
+    "Ukrainian",
+    "Uzbek",
+    "Azerbaijani",
+    "Bulgarian",
+    "Serbian"
+   ],
+   "notes_files": [
+    "n:cyrl/ru",
+    "n:cyrl/uk"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Italic letterforms can differ radically from regular; vary by language",
+     "details": [
+      "There can be a significant difference in shape between regular and italic forms of the same character, and italic shapes can vary by language."
+     ],
+     "sources": [
+      {
+       "key": "n:cyrl/ru",
+       "anchor": "fontstyle"
+      },
+      {
+       "key": "n:cyrl/uk",
+       "anchor": "fontstyle"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Same metrics as Latin",
+     "details": [
+      "Font metrics are mostly the same as ASCII text; some diacritics on capitals rise above the ASCII ascender."
+     ],
+     "sources": [
+      {
+       "key": "n:cyrl/ru",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "convention",
+     "short": "Bicameral",
+     "details": [
+      "Russian and Ukrainian are bicameral; applications may need case transforms."
+     ],
+     "sources": [
+      {
+       "key": "n:cyrl/ru",
+       "anchor": "transforms"
+      },
+      {
+       "key": "n:cyrl/uk",
+       "anchor": "transforms"
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [
+      "Spaces are the primary break opportunities; hyphenation is not described."
+     ],
+     "sources": [
+      {
+       "key": "n:cyrl/ru",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Justification by interword spacing",
+     "details": [
+      "Justification is done principally by adjusting the space between words."
+     ],
+     "sources": [
+      {
+       "key": "n:cyrl/ru",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Similar to Latin",
+     "details": [
+      "Little in the way of ascenders/descenders beyond Latin; metrics mostly the same as ASCII."
+     ],
+     "sources": [
+      {
+       "key": "n:cyrl/ru",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Deva",
+   "name": "Devanagari",
+   "languages": [
+    "Hindi",
+    "Marathi",
+    "Bhojpuri",
+    "Maithili",
+    "Awadhi",
+    "Nepali"
+   ],
+   "notes_files": [
+    "n:deva/hi"
+   ],
+   "cells": {
+    "font": {
+     "status": "not-used",
+     "short": "Italic and bold not traditional for highlighting",
+     "details": [
+      "Italicisation and bolding are not traditionally used for highlighting text in Devanagari."
+     ],
+     "sources": [
+      {
+       "key": "n:deva/hi",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "decoration": {
+     "status": "not-used",
+     "short": "Underline not traditional",
+     "details": [
+      "Underlining is not a traditional feature of Devanagari text."
+     ],
+     "sources": [
+      {
+       "key": "iip-deva",
+       "anchor": ""
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters / hanging baseline slightly above Latin x-height",
+     "details": [
+      "Basic letters and the hanging baseline are just slightly higher than Latin x-height; vowel signs with tone marks go slightly beyond Latin ascenders/descenders."
+     ],
+     "sources": [
+      {
+       "key": "n:deva/hi",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Used decoratively; applied per syllable and breaks the top bar",
+     "details": [
+      "Inter-character spacing is sometimes applied (banners, newspapers, name plates); the top bar then appears broken.",
+      "Space is inserted after each orthographic syllable, not after each code point."
+     ],
+     "sources": [
+      {
+       "key": "n:deva/hi",
+       "anchor": "spacing"
+      },
+      {
+       "key": "ilreq",
+       "anchor": "h_letter_spacing"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Possible but uncommon for Hindi",
+     "details": [
+      "Devanagari can be hyphenated at line wrap, but it is not very common for Hindi (mostly short words); it is much more common for Sanskrit.",
+      "A hyphen is added at the end of the line."
+     ],
+     "sources": [
+      {
+       "key": "n:deva/hi",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Slightly more than Latin",
+     "details": [
+      "Ascenders and vowel signs, especially with tone marks, push slightly beyond Latin ascenders and descenders."
+     ],
+     "sources": [
+      {
+       "key": "n:deva/hi",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": [
+    {
+     "languages": "Marathi, Bhojpuri, Maithili, Awadhi, Nepali",
+     "characteristic": "*",
+     "text": "No language-specific source found; script-level values are taken from Hindi notes and ILReq.",
+     "sources": []
+    }
+   ]
+  },
+  {
+   "code": "Ethi",
+   "name": "Ethiopic",
+   "languages": [
+    "Amharic",
+    "Tigriña"
+   ],
+   "notes_files": [
+    "n:ethi/am"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Classic heavy typeface: avoid bold for emphasis",
+     "details": [
+      "With the classic heavy typeface, bold should not be used for emphasis because it is hard to distinguish from regular; bold suits titles when designed for it.",
+      "With modern thinner typefaces, bold and italic can be used effectively.",
+      "When the rendering typeface is unknown, avoid bold in favour of underline or italics.",
+      "Latin text set alongside Ethiopic is commonly made heavier to match Ethiopic weight."
+     ],
+     "sources": [
+      {
+       "key": "elreq-sg",
+       "anchor": "h_emphasis_boldface"
+      },
+      {
+       "key": "elreq-sg",
+       "anchor": "h_emphasis_italic"
+      },
+      {
+       "key": "elreq",
+       "anchor": "relative_typeface_weights"
+      }
+     ]
+    },
+    "size": {
+     "status": "numeric",
+     "short": "Emphasis by +≈25% size (single-typeface works)",
+     "details": [
+      "Where only one typeface is available, mid-sentence emphasis is sometimes shown by enlarging the font by around 25%. Use mainly when reproducing works that already do this."
+     ],
+     "sources": [
+      {
+       "key": "elreq-sg",
+       "anchor": "h_emphasis_inline_size_change"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Variable letter heights: up to Latin ascender; some at cap-height",
+     "details": [
+      "In the classic style letter heights vary. Letters with a top bar reach about the Latin ascender height; others are at cap-height. Nothing goes below the Latin descender.",
+      "Relative letter heights change between typefaces."
+     ],
+     "sources": [
+      {
+       "key": "n:ethi/am",
+       "anchor": "baselines"
+      },
+      {
+       "key": "elreq",
+       "anchor": "relative_character_heights"
+      }
+     ]
+    },
+    "decoration": {
+     "status": "convention",
+     "short": "Underline is preferred emphasis with classic typeface; often heavier; wordspace inherits it",
+     "details": [
+      "Underline is the more appropriate emphasis for the classic heavy typeface and has historic precedence.",
+      "Underlines are often made heavier to match the weight of Ethiopic letters; the gap analysis says they need to be thicker than in English text.",
+      "A wordspace (፡) after an emphasised word should receive the same emphasis, including underline."
+     ],
+     "sources": [
+      {
+       "key": "elreq-sg",
+       "anchor": "h_emphasis_underscore"
+      },
+      {
+       "key": "elreq",
+       "anchor": "emphasis_within_prose"
+      },
+      {
+       "key": "ethi-checklist",
+       "anchor": ""
+      },
+      {
+       "key": "elreq",
+       "anchor": "emphasis_with_wordspace"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Justify by interword spacing; ፡ width changes rather than adding spaces",
+     "details": [
+      "Ethiopic is usually justified by adjusting interword spacing; when ፡ separates words, the wordspace width changes and no extra spaces are added."
+     ],
+     "sources": [
+      {
+       "key": "n:ethi/am",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Traditionally none; open question for space-separated text",
+     "details": [
+      "Classical text using ፡ did not need hyphenation; older text wraps wherever it hits the margin without hyphens.",
+      "Whether to hyphenate when spaces separate words is an open question in ELReq."
+     ],
+     "sources": [
+      {
+       "key": "elreq",
+       "anchor": "ethiopic_hyphenation"
+      },
+      {
+       "key": "n:ethi/am",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Similar to Latin unless diacritics are added above",
+     "details": [
+      "Height differences from Latin are small; diacritics above letters increase line height."
+     ],
+     "sources": [
+      {
+       "key": "n:ethi/am",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "paraspacing": {
+     "status": "convention",
+     "short": "First-line indent is regular practice; amount not specified",
+     "details": [
+      "Paragraph indentation is a regular practice in Ethiopic publishing; ELReq lists the indent amount as an open question."
+     ],
+     "sources": [
+      {
+       "key": "elreq",
+       "anchor": "first_paragraph"
+      }
+     ]
+    },
+    "padding": {
+     "status": "numeric",
+     "short": "Ge’ez religious literature: margins ≈ 1 : 2 : 4 (gutter : top/fore-edge : bottom)",
+     "details": [
+      "Top and fore-edge margins are commonly twice the gutter and half the bottom. ELReq notes this is not well understood and seeks expert input."
+     ],
+     "sources": [
+      {
+       "key": "elreq",
+       "anchor": "h_page_margins"
+      }
+     ]
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Geor",
+   "name": "Georgian",
+   "languages": [
+    "Georgian"
+   ],
+   "notes_files": [
+    "n:geor/ka"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Emphasis via mtavruli (all-caps style) rather than weight",
+     "details": [
+      "Modern Georgian tends to use mtavruli for a word or phrase to show emphasis."
+     ],
+     "sources": [
+      {
+       "key": "n:geor/ka",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Same metrics as Latin",
+     "details": [
+      "Georgian metrics match Latin, including x-height, ascenders, descenders, cap-height (Noto)."
+     ],
+     "sources": [
+      {
+       "key": "n:geor/ka",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "convention",
+     "short": "Mtavruli applied to whole words only, never initial letter",
+     "details": [
+      "Mtavruli characters are used like ALL-CAPS on whole words or phrases, never just the first letter of a word."
+     ],
+     "sources": [
+      {
+       "key": "n:geor/ka",
+       "anchor": "emphasis"
+      },
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Hyphenation used",
+     "details": [
+      "Georgian uses hyphenation to fit text to lines better."
+     ],
+     "sources": [
+      {
+       "key": "n:geor/ka",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Same as Latin",
+     "details": [
+      "No vowel or tone marks above or below base characters; metrics match Latin."
+     ],
+     "sources": [
+      {
+       "key": "n:geor/ka",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Grek",
+   "name": "Greek",
+   "languages": [
+    "Greek"
+   ],
+   "notes_files": [
+    "n:grek/el"
+   ],
+   "cells": {
+    "caps": {
+     "status": "convention",
+     "short": "Bicameral; all-caps drops tonos, keeps dialytika",
+     "details": [
+      "When a whole word is capitalised the tonos is dropped; dialytika is kept. Diphthongs with tonos gain a dialytika in all-caps. Disjunctive ή keeps its tonos.",
+      "Uppercase→lowercase cannot be done reliably because context determines where tonos is restored."
+     ],
+     "sources": [
+      {
+       "key": "n:grek/el",
+       "anchor": "transforms"
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Hyphenation used; rules from official grammar",
+     "details": [
+      "Hyphenation is a feature of modern Greek with consonant-cluster rules; certain vowel combinations and diphthongs are not split. The marker is a hyphen at line end."
+     ],
+     "sources": [
+      {
+       "key": "n:grek/el",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Justification by interword spacing",
+     "details": [
+      "The primary justification point is the space between words."
+     ],
+     "sources": [
+      {
+       "key": "n:grek/el",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "aspect": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linespacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Gujr",
+   "name": "Gujarati",
+   "languages": [
+    "Gujarati"
+   ],
+   "notes_files": [
+    "n:gujr/gu"
+   ],
+   "cells": {
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Gaps between units are admissible (not a cursive script)",
+     "details": [
+      "CSS Text 3 notes Indic scripts with baseline connectors such as Devanagari and Gujarati are not cursive and do admit gaps."
+     ],
+     "sources": [
+      {
+       "key": "css-text-3",
+       "anchor": "cursive-script"
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [
+      "Lines break on spaces between words; hyphenation is not described."
+     ],
+     "sources": [
+      {
+       "key": "n:gujr/gu",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "aspect": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linespacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Guru",
+   "name": "Gurmukhi",
+   "languages": [
+    "Panjabi"
+   ],
+   "notes_files": [
+    "n:guru/pa"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Italic sets off blocks, not emphasis; bold occurs",
+     "details": [
+      "Italic is not commonly used for emphasis; slanted text sets off blocks, by-lines, etc. Slanted text and bolding occur in modern texts."
+     ],
+     "sources": [
+      {
+       "key": "n:guru/pa",
+       "anchor": "fontstyle"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters slightly above Latin x-height",
+     "details": [
+      "Basic letters are typically slightly higher than Latin x-height; conjuncts and diacritics extend slightly below Latin descenders."
+     ],
+     "sources": [
+      {
+       "key": "n:guru/pa",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [
+      "Lines break at inter-word spaces; hyphenation is not described."
+     ],
+     "sources": [
+      {
+       "key": "n:guru/pa",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Justify by interword spacing; space before danda not stretched",
+     "details": [
+      "Lines are justified by stretching inter-word spaces; the space before an end-of-sentence danda is not stretched."
+     ],
+     "sources": [
+      {
+       "key": "n:guru/pa",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Slightly more than Latin",
+     "details": [
+      "Gurmukhi requires slightly more vertical space than Latin."
+     ],
+     "sources": [
+      {
+       "key": "n:guru/pa",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Hang/Kore",
+   "name": "Hangul (Korean, incl. mixed Hanja)",
+   "languages": [
+    "Korean"
+   ],
+   "notes_files": [
+    "n:kore/ko"
+   ],
+   "cells": {
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [
+      "KLReq: both fixed-width and proportional Hangul fonts are used. Its section on bold/italic is marked ‘content is needed’."
+     ],
+     "sources": [
+      {
+       "key": "klreq",
+       "anchor": "fonts-types"
+      },
+      {
+       "key": "klreq",
+       "anchor": "h_letterforms"
+      }
+     ]
+    },
+    "decoration": {
+     "status": "convention",
+     "short": "Underline below (horizontal) / right (vertical), with a gap from glyphs",
+     "details": [
+      "Underlines appear below horizontal text and to the right of vertical text, low enough to leave a gap below the characters (text-underline-position: under right).",
+      "Underlines may exclude the particle syllables at the end of a word. Emphasis dots go above syllables in horizontal text."
+     ],
+     "sources": [
+      {
+       "key": "n:kore/ko",
+       "anchor": "textdecor"
+      },
+      {
+       "key": "n:kore/ko",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "numeric",
+     "short": "Zero by default",
+     "details": [
+      "Hangul, Hanja and Kana have zero space between characters by default; narrower/wider settings exist for justification.",
+      "Unlike Chinese/Japanese, no extra gap is normally inserted between Hangul and Latin text."
+     ],
+     "sources": [
+      {
+       "key": "klreq",
+       "anchor": "chartypes-intercharspace"
+      },
+      {
+       "key": "n:kore/ko",
+       "anchor": "spacing"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "There is no upper/lowercase distinction in Korean syllables."
+     ],
+     "sources": [
+      {
+       "key": "klreq",
+       "anchor": "h_transforms"
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Break by syllable or by word; hyphen described only for English",
+     "details": [
+      "Hangul lines break on a character or word basis by user choice; KLReq describes hyphens only for English text in Korean documents."
+     ],
+     "sources": [
+      {
+       "key": "klreq",
+       "anchor": "line-break"
+      },
+      {
+       "key": "n:kore/ko",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "numeric",
+     "short": "Proportional line spacing; example 160% of character size",
+     "details": [
+      "KLReq describes four methods (percentage of character size, fixed value, space only, minimum). Its example value for proportional spacing is 160%.",
+      "160% is shown as an example setting, not stated as a standard."
+     ],
+     "sources": [
+      {
+       "key": "klreq",
+       "anchor": "line-space"
+      }
+     ]
+    },
+    "paraspacing": {
+     "status": "convention",
+     "short": "First-line indent of one character width by default",
+     "details": [
+      "The character width of the paragraph is the default indent unit. Indenting every paragraph is the most common mode; no indent suits shorter horizontal lines."
+     ],
+     "sources": [
+      {
+       "key": "klreq",
+       "anchor": "line-head-indent"
+      }
+     ]
+    },
+    "padding": {
+     "status": "convention",
+     "short": "Page body position is defined by margin values; tables have inner padding",
+     "details": [
+      "The page body is the area excluding the top/bottom/left/right margins; its position is linked to margin values.",
+      "Tables and cells have inner padding; cell padding takes priority over table padding."
+     ],
+     "sources": [
+      {
+       "key": "klreq",
+       "anchor": "page-body"
+      },
+      {
+       "key": "klreq",
+       "anchor": "inner-padding"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "aspect": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Hani",
+   "name": "Han (Chinese)",
+   "languages": [
+    "Simplified Chinese",
+    "Traditional Chinese"
+   ],
+   "notes_files": [
+    "n:hani/zh"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Song (Ming) for body; Hei or bold Song for headings",
+     "details": [
+      "CLReq names four frequently used typeface styles: Song, Kai, Hei, Fangsong. Song is currently the most common in printing.",
+      "Headings use Hei or bold Song; when Hei is used for low-level headings its weight is increased.",
+      "Mainland China stipulates Fangsong in principle for government official documents."
+     ],
+     "sources": [
+      {
+       "key": "clreq",
+       "anchor": "four_commonly_used_typefaces_for_chinese_composition"
+      },
+      {
+       "key": "clreq",
+       "anchor": "song"
+      },
+      {
+       "key": "clreq",
+       "anchor": "kai"
+      },
+      {
+       "key": "clreq",
+       "anchor": "hei"
+      },
+      {
+       "key": "clreq",
+       "anchor": "imitation_song"
+      },
+      {
+       "key": "clreq",
+       "anchor": "styling_of_headings"
+      }
+     ]
+    },
+    "size": {
+     "status": "numeric",
+     "short": "Body: Size 5 (10.5 pt); minimum Size 6 (≈7.875 pt, 2.8 mm)",
+     "details": [
+      "Size 5 is usually used for body text. The acceptable minimum is Size 6 (7.875 pt ≈ 2.8 mm); smaller is hard to read because of the complex structure of Han characters.",
+      "Headings 10–20% larger than body; e.g. 9 pt body → 10/12/14 pt headings."
+     ],
+     "sources": [
+      {
+       "key": "clreq",
+       "anchor": "considerations_in_designing_type_area"
+      },
+      {
+       "key": "clreq",
+       "anchor": "styling_of_headings"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Square character frame; letter face smaller, centred",
+     "details": [
+      "Han characters have square frames of equal size with a smaller centred character face. Font size is measured by the frame."
+     ],
+     "sources": [
+      {
+       "key": "clreq",
+       "anchor": "h_baselines"
+      }
+     ]
+    },
+    "decoration": {
+     "status": "convention",
+     "short": "Lines mark proper nouns and titles, not emphasis; left side in vertical text",
+     "details": [
+      "Straight or wavy side lines indicate proper nouns and book titles, not emphasis.",
+      "Lines appear below horizontal text and to the left of vertical text; emphasis dots go below (horizontal) or right (vertical).",
+      "Adjacent underlined items should have a break between their lines."
+     ],
+     "sources": [
+      {
+       "key": "n:hani/zh",
+       "anchor": "text_decoration"
+      },
+      {
+       "key": "n:hani/zh",
+       "anchor": "emphasis"
+      },
+      {
+       "key": "clreq",
+       "anchor": "id84"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "numeric",
+     "short": "Solid setting (0) for body; up to ¼ em gap next to Latin/numerals",
+     "details": [
+      "Characters are set solid. Increased spacing (examples ¼, ⅓, ½, 1 em) is used for running heads, captions, short poetry, and children’s publications.",
+      "A gap of up to ¼ em is suggested between Han and Latin/numerals."
+     ],
+     "sources": [
+      {
+       "key": "clreq",
+       "anchor": "considerations_in_designing_type_area"
+      },
+      {
+       "key": "clreq",
+       "anchor": "increased_inter_character_spacing"
+      },
+      {
+       "key": "n:hani/zh",
+       "anchor": "letterspace"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "not-used",
+     "short": "No hyphenation; wraps between characters",
+     "details": [
+      "Lines wrap between characters; there is no hyphenation."
+     ],
+     "sources": [
+      {
+       "key": "n:hani/zh",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "numeric",
+     "short": "Line gap 50–100% of character frame; not above 100%",
+     "details": [
+      "The line gap is commonly 50–100% of the character frame height; shorter for short lines or small sizes. Exceeding the font size does not improve reading.",
+      "The line gap must accommodate interlinear decorations and emphasis dots and stay constant."
+     ],
+     "sources": [
+      {
+       "key": "clreq",
+       "anchor": "considerations_in_designing_type_area"
+      },
+      {
+       "key": "n:hani/zh",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "paraspacing": {
+     "status": "numeric",
+     "short": "No extra space; 2 em first-line indent (1 em in narrow columns)",
+     "details": [
+      "There is in principle no extra spacing between paragraphs; the gap equals the line gap. A blank line signals end of section.",
+      "Publications usually use a 2 em first-line indent; multi-column magazines may use 1 em."
+     ],
+     "sources": [
+      {
+       "key": "clreq",
+       "anchor": "first_line_indents"
+      }
+     ]
+    },
+    "linelength": {
+     "status": "numeric",
+     "short": "Books 17–40 chars; min 10; max 48 horizontal / 55 vertical",
+     "details": [
+      "Most books use 17–40 characters per line. Body lines should not be less than 10 characters, and should not exceed 48 (horizontal) or 55 (vertical).",
+      "Line length should be an integer multiple of the font size."
+     ],
+     "sources": [
+      {
+       "key": "clreq",
+       "anchor": "considerations_in_designing_type_area"
+      }
+     ]
+    },
+    "padding": {
+     "status": "convention",
+     "short": "Type area defined on a character grid; shape similar to trim size",
+     "details": [
+      "The type area’s dimensions consider trim size and margins; its shape can be similar to the trim size. The type area also defines a grid that characters align to."
+     ],
+     "sources": [
+      {
+       "key": "clreq",
+       "anchor": "considerations_in_designing_type_area"
+      },
+      {
+       "key": "clreq",
+       "anchor": "main_elements_of_basic_composition"
+      }
+     ]
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": [
+    {
+     "languages": "Traditional Chinese (Taiwan, Hong Kong)",
+     "characteristic": "hyphen",
+     "text": "Line start/end prohibition rules are sometimes not observed, especially in newsprint with narrow columns.",
+     "sources": [
+      {
+       "key": "n:hani/zh",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    {
+     "languages": "Traditional Chinese",
+     "characteristic": "linespacing",
+     "text": "Pronunciation marks (Bopomofo) may be inserted between lines; the line gap must be sized to fit them.",
+     "sources": [
+      {
+       "key": "clreq",
+       "anchor": "considerations_in_designing_type_area"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "Hebr",
+   "name": "Hebrew",
+   "languages": [
+    "Hebrew"
+   ],
+   "notes_files": [
+    "n:hebr/he"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Bold (often light) for emphasis; italic controversial",
+     "details": [
+      "Bold is used for emphasis and highlighting; the degree of bolding is often quite light. Bold-italic is mostly for display text.",
+      "Use of italic in Hebrew is controversial; slant direction preference varies."
+     ],
+     "sources": [
+      {
+       "key": "n:hebr/he",
+       "anchor": "fontstyle"
+      },
+      {
+       "key": "hlreq",
+       "anchor": "h_letterforms"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Slightly taller than Latin x-height",
+     "details": [
+      "Hebrew characters are commonly slightly taller than Latin x-height."
+     ],
+     "sources": [
+      {
+       "key": "n:hebr/he",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "decoration": {
+     "status": "convention",
+     "short": "Underline is an alternative emphasis",
+     "details": [
+      "Alternatives to tracking for emphasis include a different typeface and/or underlining."
+     ],
+     "sources": [
+      {
+       "key": "n:hebr/he",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Increased tracking is a common emphasis method",
+     "details": [
+      "Increased tracking is a common way to express emphasis or highlight text (e.g. terms in a dictionary)."
+     ],
+     "sources": [
+      {
+       "key": "n:hebr/he",
+       "anchor": "spacing"
+      },
+      {
+       "key": "hlreq",
+       "anchor": "h_spacing"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [
+      "Lines are normally broken at word boundaries; hyphenation is not described."
+     ],
+     "sources": [
+      {
+       "key": "n:hebr/he",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "padding": {
+     "status": "convention",
+     "short": "Right-to-left page progression",
+     "details": [
+      "Books are bound on the right; pages progress right to left."
+     ],
+     "sources": [
+      {
+       "key": "n:hebr/he",
+       "anchor": "generallayout"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linespacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Java",
+   "name": "Javanese",
+   "languages": [
+    "Javanese"
+   ],
+   "notes_files": [
+    "n:java/jv"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Slant used for whole blocks, not inline",
+     "details": [
+      "Slanted text (1933 publication) distinguishes blocks: panels, subheadings, captions, by-lines; not used inline."
+     ],
+     "sources": [
+      {
+       "key": "n:java/jv",
+       "anchor": "fontstyle"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters ≈ Latin x-height; overall height 2–3× Latin",
+     "details": [
+      "Basic letters are around Latin x-height but overall height is 2 to 3 times that of Latin letters."
+     ],
+     "sources": [
+      {
+       "key": "n:java/jv",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "not-used",
+     "short": "Breaks after syllables; no hyphenation",
+     "details": [
+      "Lines break after full orthographic syllables without splitting conjuncts; hyphenation as such is not used."
+     ],
+     "sources": [
+      {
+       "key": "n:java/jv",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Slight inter-character stretch observed in justification",
+     "details": [
+      "Justification observed in a 1933 publication stretches spaces and slightly stretches inter-character spaces (not stacks)."
+     ],
+     "sources": [
+      {
+       "key": "n:java/jv",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Far more than Latin",
+     "details": [
+      "Javanese requires far more vertical space than Latin, creating a need for much larger line spacing."
+     ],
+     "sources": [
+      {
+       "key": "n:java/jv",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "paraspacing": {
+     "status": "convention",
+     "short": "Paragraph indents observed",
+     "details": [
+      "One article in the 1933 Kajawen publication uses paragraph indents."
+     ],
+     "sources": [
+      {
+       "key": "n:java/jv",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Jpan",
+   "name": "Japanese",
+   "languages": [
+    "Japanese"
+   ],
+   "notes_files": [
+    "n:jpan/ja"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Mincho (light, Hoso-mincho) for body; Gothic for headings/emphasis",
+     "details": [
+      "Mincho is the most frequently used typeface for main text; body Mincho is usually light weight (Hoso-mincho).",
+      "Headings use Mincho or Japanese Gothic, sometimes heavier weight. A Gothic face in Mincho text is a common emphasis method; italic and bold are not in the list of emphasis methods."
+     ],
+     "sources": [
+      {
+       "key": "jlreq",
+       "anchor": "font_selection_and_font_size_of_heading"
+      },
+      {
+       "key": "jlreq",
+       "anchor": "terminology"
+      },
+      {
+       "key": "n:jpan/ja",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "size": {
+     "status": "numeric",
+     "short": "Body 9 pt common; minimum 8 pt",
+     "details": [
+      "Generally 9 pt (≈3.2 mm) is common; except for dictionaries etc., the minimum is 8 pt (≈2.8 mm).",
+      "JLReq contrasts this with Western layout, where 10 or 12 pt is common, because of differences in letter design.",
+      "Headings e.g. 10/12/14 pt for 9 pt body; or a constant 15–20% step."
+     ],
+     "sources": [
+      {
+       "key": "jlreq",
+       "anchor": "considerations_in_designing_the_kihonhanmen"
+      },
+      {
+       "key": "jlreq",
+       "anchor": "font_selection_and_font_size_of_heading"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Square character frame; letter face smaller, centred",
+     "details": [
+      "Kanji and kana share square frames of equal size; a smaller centred letter face holds the glyph. Size is measured by the frame. Small kana are offset within the frame."
+     ],
+     "sources": [
+      {
+       "key": "jlreq",
+       "anchor": "kanji_hiragana_and_katakana"
+      }
+     ]
+    },
+    "decoration": {
+     "status": "convention",
+     "short": "Below (horizontal) / right (vertical), just outside the character box",
+     "details": [
+      "Underlines may be used for emphasis. Lines appear below horizontal text and right of vertical text (unlike Chinese), immediately outside the character box.",
+      "Boten (emphasis dots) go above characters in horizontal text and right in vertical text."
+     ],
+     "sources": [
+      {
+       "key": "n:jpan/ja",
+       "anchor": "text_decoration"
+      },
+      {
+       "key": "n:jpan/ja",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "numeric",
+     "short": "Solid setting (0) for body; ¼ em gap next to Latin/numerals",
+     "details": [
+      "Body text is set solid (no extra space between character frames); this is the most reader-friendly approach.",
+      "Fixed inter-character spacing is used for short running heads, headings, captions, short poetry. Tsumegumi (negative spacing) is rare in books, used for large headings.",
+      "JLReq suggests a ¼ em gap between kanji/kana and Latin/numerals."
+     ],
+     "sources": [
+      {
+       "key": "jlreq",
+       "anchor": "principles_of_arrangement_of_kanji_and_kana_characters"
+      },
+      {
+       "key": "n:jpan/ja",
+       "anchor": "letterspace"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "not-used",
+     "short": "No hyphenation; wraps between characters",
+     "details": [
+      "There is no hyphenation at line-breaks for Japanese text."
+     ],
+     "sources": [
+      {
+       "key": "n:jpan/ja",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "numeric",
+     "short": "Line gap ½–1 em; ≈1 em when line > 35 chars; not above 1 em",
+     "details": [
+      "The line gap is commonly between half-em and one-em of the character frame. Half-em suits short lines; one em or close to it is better above 35 characters per line.",
+      "A line gap larger than full-width decreases legibility unless ruby/annotations need the space.",
+      "JLReq notes the Western standard line gap is said to be ⅓ em."
+     ],
+     "sources": [
+      {
+       "key": "jlreq",
+       "anchor": "considerations_in_designing_the_kihonhanmen"
+      }
+     ]
+    },
+    "paraspacing": {
+     "status": "numeric",
+     "short": "Space between paragraphs = line gap; 1 em first-line indent",
+     "details": [
+      "The space between paragraphs is usually the same as the line gap. Paragraphs are marked by a one-em first-line indent, used in nearly all books and magazines.",
+      "Understanding 1.4.12 notes that Japanese does not use spacing following paragraphs."
+     ],
+     "sources": [
+      {
+       "key": "jlreq",
+       "anchor": "processing_of_spaces_between_paragraphs"
+      },
+      {
+       "key": "jlreq",
+       "anchor": "line_head_indent_at_the_beginning_of_paragraphs"
+      },
+      {
+       "key": "u-1412",
+       "anchor": ""
+      }
+     ]
+    },
+    "linelength": {
+     "status": "numeric",
+     "short": "Max ≈40 chars horizontal / ≈52 vertical",
+     "details": [
+      "The best line length is around 52 characters maximum (vertical) and 40 maximum (horizontal); use columns if the page would exceed this.",
+      "Line length should be a multiple of the character size."
+     ],
+     "sources": [
+      {
+       "key": "jlreq",
+       "anchor": "considerations_in_designing_the_kihonhanmen"
+      }
+     ]
+    },
+    "padding": {
+     "status": "convention",
+     "short": "Text area set in characters × lines; margins are what remains",
+     "details": [
+      "Japanese text areas are usually defined by width and height in characters and lines; margins are determined from what remains of the page.",
+      "The text area shape should be similar to the trim size."
+     ],
+     "sources": [
+      {
+       "key": "n:jpan/ja",
+       "anchor": "generallayout"
+      },
+      {
+       "key": "jlreq",
+       "anchor": "considerations_in_designing_the_kihonhanmen"
+      },
+      {
+       "key": "jlreq",
+       "anchor": "elements_of_kihonhanmen"
+      }
+     ]
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Khmr",
+   "name": "Khmer",
+   "languages": [
+    "Khmer"
+   ],
+   "notes_files": [
+    "n:khmr/km"
+   ],
+   "cells": {
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters between Latin x-height and ascender (font-dependent)",
+     "details": [
+      "Basic letter height is around Latin ascender height in one Noto font and around x-height in the other; extenders and marks go well beyond Latin ascenders/descenders."
+     ],
+     "sources": [
+      {
+       "key": "n:khmr/km",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Break at word boundaries; not at sub-word syllables",
+     "details": [
+      "Line-breaks are expected at word boundaries (no spaces between words). Text is not broken at sub-word syllable boundaries. ZWSP/WJ control breaks."
+     ],
+     "sources": [
+      {
+       "key": "n:khmr/km",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Larger than Latin",
+     "details": [
+      "Extenders and combining marks create a need for larger line spacing."
+     ],
+     "sources": [
+      {
+       "key": "n:khmr/km",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Knda",
+   "name": "Kannada",
+   "languages": [
+    "Kannada"
+   ],
+   "notes_files": [],
+   "cells": {
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "aspect": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "hyphen": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linespacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Laoo",
+   "name": "Lao",
+   "languages": [
+    "Lao"
+   ],
+   "notes_files": [
+    "n:laoo/lo"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Italic for captions and quotations",
+     "details": [
+      "Italicised text observed for figure captions and quotations."
+     ],
+     "sources": [
+      {
+       "key": "n:laoo/lo",
+       "anchor": "fontstyle"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters slightly above Latin x-height",
+     "details": [
+      "Basic height slightly above Latin x-height; stacked marks reach well beyond Latin ascenders/descenders."
+     ],
+     "sources": [
+      {
+       "key": "n:laoo/lo",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Larger than Latin; Lao adds more interline spacing",
+     "details": [
+      "Stacked vowel and tone marks need higher vertical resolution; Lao also tends to add more interline spacing than Latin."
+     ],
+     "sources": [
+      {
+       "key": "n:laoo/lo",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "hyphen": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Latn",
+   "name": "Latin",
+   "languages": [
+    "English",
+    "Spanish",
+    "Portuguese",
+    "German",
+    "Javanese",
+    "Malay",
+    "Vietnamese",
+    "French",
+    "Turkish",
+    "Italian",
+    "Polish",
+    "Hausa",
+    "Tagalog",
+    "Yoruba",
+    "Uzbek",
+    "Fula",
+    "Romanian",
+    "Oromo",
+    "Igbo",
+    "Azerbaijani",
+    "Cebuano",
+    "Dutch",
+    "Kurdish",
+    "Croatian",
+    "Malagasy",
+    "Hungarian",
+    "Catalan"
+   ],
+   "notes_files": [
+    "n:latn/ff",
+    "n:latn/ha",
+    "n:latn/kmr"
+   ],
+   "cells": {
+    "size": {
+     "status": "numeric",
+     "short": "10–12 pt common in Western layout (per JLReq)",
+     "details": [
+      "JLReq states that in Western text layout 10 pt (≈3.5 mm) or 12 pt (≈4.2 mm) type is common. No Latin-specific requirements document was found."
+     ],
+     "sources": [
+      {
+       "key": "jlreq",
+       "anchor": "considerations_in_designing_the_kihonhanmen"
+      }
+     ]
+    },
+    "caps": {
+     "status": "convention",
+     "short": "Bicameral; language-specific casing rules exist",
+     "details": [
+      "Turkish (and other Turkic languages using Turkish casing rules) map dotted/dotless i differently from English.",
+      "Dutch capitalises word-initial ij as IJ."
+     ],
+     "sources": [
+      {
+       "key": "css-text-3",
+       "anchor": "text-transform-property"
+      },
+      {
+       "key": "nl-checklist",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Hyphenation used; practice varies by language",
+     "details": [
+      "Hyphenation practices vary: hyphen before the break, after it, both, a different character, or spelling changes (CSS Text 3 examples: English, Dutch, Hungarian)."
+     ],
+     "sources": [
+      {
+       "key": "css-text-3",
+       "anchor": "hyphenation"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "numeric",
+     "short": "Line gap ≈ ⅓ em (per JLReq)",
+     "details": [
+      "JLReq: ‘It is said that the standard line-gap in Western text layout is one third em’. Kurmanji line height is the same as other simple Latin orthographies."
+     ],
+     "sources": [
+      {
+       "key": "jlreq",
+       "anchor": "considerations_in_designing_the_kihonhanmen"
+      },
+      {
+       "key": "n:latn/kmr",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Justification by interword spacing",
+     "details": [
+      "Principal justification opportunities are inter-word spaces (Kurmanji)."
+     ],
+     "sources": [
+      {
+       "key": "n:latn/kmr",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "aspect": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": [
+    {
+     "languages": "Dutch",
+     "characteristic": "caps",
+     "text": "Word-initial ‘ij’ capitalises as ‘IJ’ (ijs → IJs).",
+     "sources": [
+      {
+       "key": "nl-checklist",
+       "anchor": ""
+      }
+     ]
+    },
+    {
+     "languages": "Dutch",
+     "characteristic": "hyphen",
+     "text": "Hyphenation can change spelling (cafeetje → café-tje).",
+     "sources": [
+      {
+       "key": "css-text-3",
+       "anchor": "hyphenation"
+      },
+      {
+       "key": "nl-checklist",
+       "anchor": "hyphenation"
+      }
+     ]
+    },
+    {
+     "languages": "Hungarian",
+     "characteristic": "hyphen",
+     "text": "Hyphenation can change spelling (Összeg → Ösz-szeg).",
+     "sources": [
+      {
+       "key": "css-text-3",
+       "anchor": "hyphenation"
+      }
+     ]
+    },
+    {
+     "languages": "Turkish (and Turkic languages using Turkish casing)",
+     "characteristic": "caps",
+     "text": "I/ı and İ/i case mappings replace the English I/i mapping.",
+     "sources": [
+      {
+       "key": "css-text-3",
+       "anchor": "text-transform-property"
+      }
+     ]
+    },
+    {
+     "languages": "English, Spanish, Portuguese, German, Malay, Vietnamese, French, Italian, Polish, Tagalog, Yoruba, Romanian, Oromo, Igbo, Cebuano, Croatian, Malagasy, Catalan",
+     "characteristic": "*",
+     "text": "No language-specific source ingested; script-level Latin values apply only where cited.",
+     "sources": []
+    }
+   ]
+  },
+  {
+   "code": "Mlym",
+   "name": "Malayalam",
+   "languages": [
+    "Malayalam"
+   ],
+   "notes_files": [
+    "n:mlym/ml"
+   ],
+   "cells": {
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters ≈ Latin x-height",
+     "details": [
+      "Basic letter height around Latin x-height; extenders slightly beyond Latin ascenders/descenders."
+     ],
+     "sources": [
+      {
+       "key": "n:mlym/ml",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "In-word breaks very common; usually no visible marker",
+     "details": [
+      "Long agglutinative words make in-word breaks very common, especially in newsprint. Breaks are mostly at syllable boundaries and usually have no visual marker."
+     ],
+     "sources": [
+      {
+       "key": "n:mlym/ml",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Slightly more than Latin",
+     "details": [
+      "Creates a need for slightly larger line spacing."
+     ],
+     "sources": [
+      {
+       "key": "n:mlym/ml",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Mong",
+   "name": "Mongolian",
+   "languages": [
+    "Mongolian"
+   ],
+   "notes_files": [
+    "n:mong/mn"
+   ],
+   "cells": {
+    "font": {
+     "status": "not-used",
+     "short": "No italics",
+     "details": [
+      "Mongolian has no concept of italics. If synthesised, vertical text tilts clockwise."
+     ],
+     "sources": [
+      {
+       "key": "mlreq",
+       "anchor": "h_letterforms"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Smaller than Chinese/Japanese at the same font size",
+     "details": [
+      "At the same font size Mongolian appears smaller than Chinese or Japanese; numbers appear slightly larger than Mongolian."
+     ],
+     "sources": [
+      {
+       "key": "mlreq",
+       "anchor": "mixed_arrangement_cjk"
+      },
+      {
+       "key": "mlreq",
+       "anchor": "mixed_arrangement_alphanum"
+      }
+     ]
+    },
+    "decoration": {
+     "status": "convention",
+     "short": "Right line = underline; left line = overline; centred strikethrough",
+     "details": [
+      "In vertical text the ‘right line’ functions like an underline and the ‘left line’ like an overline; strikethrough is baseline-centred.",
+      "Lines may skip inter-word spaces but must not skip the gaps before suffixes (U+202F, U+180E)."
+     ],
+     "sources": [
+      {
+       "key": "mlreq",
+       "anchor": "h_text_decor"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "not-used",
+     "short": "Cursive script: no letter spacing",
+     "details": [
+      "CSS Text 3 lists Mongolian as a cursive script that does not admit gaps between letters."
+     ],
+     "sources": [
+      {
+       "key": "css-text-3",
+       "anchor": "cursive-script"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Words not broken; hyphenated compounds break with the hyphen moved to the next line",
+     "details": [
+      "Words are not normally broken. Compounds may break at a hyphen, which moves to the next line; Unicode provides U+1806 for this."
+     ],
+     "sources": [
+      {
+       "key": "n:mong/mn",
+       "anchor": "linebreak"
+      },
+      {
+       "key": "mlreq",
+       "anchor": "h_line_breaking"
+      }
+     ]
+    },
+    "paraspacing": {
+     "status": "convention",
+     "short": "Indent or paragraph leading; no standard amount",
+     "details": [
+      "A new paragraph may be signalled by first-line indentation or by paragraph leading. MLReq: there is no clear standard for indentation amount."
+     ],
+     "sources": [
+      {
+       "key": "n:mong/mn",
+       "anchor": "justification"
+      },
+      {
+       "key": "mlreq",
+       "anchor": "first_line_indents"
+      }
+     ]
+    },
+    "padding": {
+     "status": "convention",
+     "short": "Bound on the left; columns run horizontally; landscape pages common",
+     "details": [
+      "Books are bound on the left. Columns run horizontally. Landscape orientation is common."
+     ],
+     "sources": [
+      {
+       "key": "n:mong/mn",
+       "anchor": "generallayout"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linespacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Mymr",
+   "name": "Myanmar",
+   "languages": [
+    "Burmese",
+    "Shan"
+   ],
+   "notes_files": [
+    "n:mymr/my",
+    "n:mymr/shn"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Italic for quotations and titles",
+     "details": [
+      "Italicisation observed in Wikipedia for quotations and publication titles."
+     ],
+     "sources": [
+      {
+       "key": "n:mymr/my",
+       "anchor": "fontstyle"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters ≈ Latin x-height",
+     "details": [
+      "Basic height around Latin x-height; overall height and marks extend beyond Latin."
+     ],
+     "sources": [
+      {
+       "key": "n:mymr/my",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Break at syllable boundaries outside words, or at phrases",
+     "details": [
+      "Breaks can occur at syllable boundaries but not within a word; a common approach breaks at phrase boundaries."
+     ],
+     "sources": [
+      {
+       "key": "n:mymr/my",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Justification starts with inter-phrase spacing",
+     "details": [
+      "Justification may begin by adjusting inter-phrase spacing."
+     ],
+     "sources": [
+      {
+       "key": "n:mymr/my",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Larger than Latin",
+     "details": [
+      "Burmese requires more vertical space than Latin."
+     ],
+     "sources": [
+      {
+       "key": "n:mymr/my",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": [
+    {
+     "languages": "Shan",
+     "characteristic": "*",
+     "text": "Orthography notes sections are marked ‘tbd’; no Shan-specific values.",
+     "sources": [
+      {
+       "key": "n:mymr/shn",
+       "anchor": "linebreak"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "Nkoo",
+   "name": "N’Ko",
+   "languages": [
+    "N’Ko"
+   ],
+   "notes_files": [
+    "n:nkoo/nqo"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Bold common for emphasis; italic leans left",
+     "details": [
+      "Authors commonly use bold and sometimes italics for emphasis. The community chose a left-leaning italic."
+     ],
+     "sources": [
+      {
+       "key": "n:nkoo/nqo",
+       "anchor": "fontstyle"
+      },
+      {
+       "key": "n:nkoo/nqo",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters ≈ Latin cap-height",
+     "details": [
+      "Letters are relatively uniform in height with no descenders, around Latin cap-height."
+     ],
+     "sources": [
+      {
+       "key": "n:nkoo/nqo",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "not-used",
+     "short": "Cursive: stretch with U+07FA, not letter spacing",
+     "details": [
+      "Text may be stretched like Arabic using ߺ (U+07FA) for fitting or headings. CSS Text 3 lists N’Ko as a cursive script."
+     ],
+     "sources": [
+      {
+       "key": "n:nkoo/nqo",
+       "anchor": "spacing"
+      },
+      {
+       "key": "css-text-3",
+       "anchor": "cursive-script"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "There is no upper vs. lowercase distinction."
+     ],
+     "sources": [
+      {
+       "key": "n:nkoo/nqo",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "In-word breaks with U+002D at line end",
+     "details": [
+      "Lines can break inside a word, adding U+002D HYPHEN-MINUS at line end."
+     ],
+     "sources": [
+      {
+       "key": "n:nkoo/nqo",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Larger than Latin",
+     "details": [
+      "Combining marks and the dorome sign reach beyond Latin ascenders."
+     ],
+     "sources": [
+      {
+       "key": "n:nkoo/nqo",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "padding": {
+     "status": "convention",
+     "short": "Mirror of left-to-right layouts",
+     "details": [
+      "An N’Ko web page should be the mirror image of a page in, say, French, including navigation and panels."
+     ],
+     "sources": [
+      {
+       "key": "n:nkoo/nqo",
+       "anchor": "generallayout"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Orya",
+   "name": "Odia",
+   "languages": [
+    "Odia"
+   ],
+   "notes_files": [
+    "n:orya/or"
+   ],
+   "cells": {
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [
+      "Lines are mostly broken at inter-word spaces; hyphenation is not described."
+     ],
+     "sources": [
+      {
+       "key": "n:orya/or",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "aspect": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linespacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Osge",
+   "name": "Osage",
+   "languages": [
+    "Osage"
+   ],
+   "notes_files": [
+    "n:osge/osa"
+   ],
+   "cells": {
+    "aspect": {
+     "status": "convention",
+     "short": "Same metrics as Latin",
+     "details": [
+      "All metrics are about the same as Latin (Noto Sans Osage)."
+     ],
+     "sources": [
+      {
+       "key": "n:osge/osa",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "convention",
+     "short": "Bicameral",
+     "details": [
+      "Osage is bicameral."
+     ],
+     "sources": [
+      {
+       "key": "n:osge/osa",
+       "anchor": "transforms"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Same as Latin",
+     "details": [
+      "Metrics match Latin."
+     ],
+     "sources": [
+      {
+       "key": "n:osge/osa",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "hyphen": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Sinh",
+   "name": "Sinhala",
+   "languages": [
+    "Sinhalese"
+   ],
+   "notes_files": [
+    "n:sinh/si"
+   ],
+   "cells": {
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters just above Latin x-height",
+     "details": [
+      "Basic height marginally higher than Latin x-height; tall letters may be reshaped to avoid large extensions."
+     ],
+     "sources": [
+      {
+       "key": "n:sinh/si",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Slightly more than Latin",
+     "details": [
+      "Combining marks reach a little beyond Latin ascenders."
+     ],
+     "sources": [
+      {
+       "key": "n:sinh/si",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "hyphen": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Sund",
+   "name": "Sundanese",
+   "languages": [
+    "Sundanese"
+   ],
+   "notes_files": [
+    "n:sund/su"
+   ],
+   "cells": {
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters ≈ Latin cap-height",
+     "details": [
+      "Basic height around Latin cap-height; marks above exceed Latin ascenders."
+     ],
+     "sources": [
+      {
+       "key": "n:sund/su",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Hyphenation after full syllables (no details)",
+     "details": [
+      "According to Everson, hyphenation can occur after any full orthographic syllable; no further details."
+     ],
+     "sources": [
+      {
+       "key": "n:sund/su",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Larger than Latin",
+     "details": [
+      "Marks above reach beyond Latin ascenders."
+     ],
+     "sources": [
+      {
+       "key": "n:sund/su",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Taml",
+   "name": "Tamil",
+   "languages": [
+    "Tamil"
+   ],
+   "notes_files": [
+    "n:taml/ta"
+   ],
+   "cells": {
+    "font": {
+     "status": "not-used",
+     "short": "Italic and bold not traditional",
+     "details": [
+      "Italics and bold are not traditional features of Tamil text; some fonts are slightly slanted."
+     ],
+     "sources": [
+      {
+       "key": "n:taml/ta",
+       "anchor": "fontstyle"
+      }
+     ]
+    },
+    "decoration": {
+     "status": "not-used",
+     "short": "Underline not traditional",
+     "details": [
+      "Underlining is not a traditional feature of Tamil text."
+     ],
+     "sources": [
+      {
+       "key": "n:taml/ta",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters = Latin x-height",
+     "details": [
+      "Basic Tamil letter height is the same as Latin x-height (Noto Serif)."
+     ],
+     "sources": [
+      {
+       "key": "n:taml/ta",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Useful for long words; at syllable boundaries; hyphen usually not shown",
+     "details": [
+      "Hyphenation must be at syllable boundaries; a hyphen is not usually added at line end."
+     ],
+     "sources": [
+      {
+       "key": "n:taml/ta",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Slightly more than Latin",
+     "details": [
+      "Extenders go slightly beyond Latin, creating a need for slightly larger line heights."
+     ],
+     "sources": [
+      {
+       "key": "n:taml/ta",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Telu",
+   "name": "Telugu",
+   "languages": [
+    "Telugu"
+   ],
+   "notes_files": [
+    "n:telu/te"
+   ],
+   "cells": {
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "In-word breaks very common; hyphen observed (InDesign)",
+     "details": [
+      "In-word breaks are very common, especially in newsprint, mostly at syllable boundaries. InDesign adds a hyphen at line end."
+     ],
+     "sources": [
+      {
+       "key": "n:telu/te",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "font": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "aspect": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "letterspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linespacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Thai",
+   "name": "Thai",
+   "languages": [
+    "Thai"
+   ],
+   "notes_files": [
+    "n:thai/th"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Bold for inline emphasis; italic for whole blocks (captions, by-lines)",
+     "details": [
+      "Bold is used for emphasis and names; italic is applied to whole paragraphs (captions, by-lines, standfirsts) and direct speech."
+     ],
+     "sources": [
+      {
+       "key": "n:thai/th",
+       "anchor": "fontstyle"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Basic letters ≈ Latin x-height (Noto) or between x- and cap-height",
+     "details": [
+      "Basic height around Latin x-height in Noto; in other fonts between x-height and cap-height."
+     ],
+     "sources": [
+      {
+       "key": "n:thai/th",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Inter-character spacing used in justification of narrow columns",
+     "details": [
+      "Justification primarily adjusts spaces between phrases; inter-character spacing is used mostly in narrow columns."
+     ],
+     "sources": [
+      {
+       "key": "n:thai/th",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "convention",
+     "short": "Wraps at word boundaries (dictionary); hyphenation not described",
+     "details": [
+      "Thai wraps at word boundaries found by dictionary lookup; the notes do not describe hyphenation."
+     ],
+     "sources": [
+      {
+       "key": "n:thai/th",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Larger than Latin; Thai adds more interline spacing",
+     "details": [
+      "Stacked marks need higher vertical resolution; Thai tends to add more interline spacing than Latin."
+     ],
+     "sources": [
+      {
+       "key": "n:thai/th",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "size": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "paraspacing": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "padding": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  },
+  {
+   "code": "Tibt",
+   "name": "Tibetan",
+   "languages": [
+    "Tibetan",
+    "Dzongkha"
+   ],
+   "notes_files": [
+    "n:tibt/bo"
+   ],
+   "cells": {
+    "font": {
+     "status": "convention",
+     "short": "Bold/italic not traditional; bold now seen",
+     "details": [
+      "Tibetan never had bold or italic until bold was introduced for books; modern texts appear to use bolding."
+     ],
+     "sources": [
+      {
+       "key": "n:tibt/bo",
+       "anchor": "fontstyle"
+      },
+      {
+       "key": "n:tibt/bo",
+       "anchor": "emphasis"
+      }
+     ]
+    },
+    "size": {
+     "status": "numeric",
+     "short": "Pecha: smaller text ≥ 20 pt; standard 27–30 pt",
+     "details": [
+      "Traditional pechas have two sizes: the smaller does not usually go below 20 pt; the larger (standard) is around 27–30 pt."
+     ],
+     "sources": [
+      {
+       "key": "n:tibt/bo",
+       "anchor": "generallayout"
+      }
+     ]
+    },
+    "aspect": {
+     "status": "convention",
+     "short": "Hanging baseline between Latin x-height and ascender",
+     "details": [
+      "The hanging baseline falls between Latin ascender and x-height."
+     ],
+     "sources": [
+      {
+       "key": "n:tibt/bo",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "letterspacing": {
+     "status": "convention",
+     "short": "Equal inter-character spacing is a justification method",
+     "details": [
+      "One justification method adapts spacing between all characters equally; another pads with tsheg."
+     ],
+     "sources": [
+      {
+       "key": "n:tibt/bo",
+       "anchor": "justification"
+      }
+     ]
+    },
+    "caps": {
+     "status": "not-used",
+     "short": "No case",
+     "details": [
+      "The script has no case mappings in the Unicode Character Database 15.1."
+     ],
+     "sources": [
+      {
+       "key": "ucd",
+       "anchor": ""
+      }
+     ]
+    },
+    "hyphen": {
+     "status": "not-used",
+     "short": "No hyphenation; breaks after tsheg",
+     "details": [
+      "Tibetan never breaks inside a syllable and has no hyphenation; lines break after ་."
+     ],
+     "sources": [
+      {
+       "key": "n:tibt/bo",
+       "anchor": "linebreak"
+      }
+     ]
+    },
+    "linespacing": {
+     "status": "convention",
+     "short": "Larger than Latin",
+     "details": [
+      "Stacked consonants and marks need higher vertical resolution than English."
+     ],
+     "sources": [
+      {
+       "key": "n:tibt/bo",
+       "anchor": "baselines"
+      }
+     ]
+    },
+    "paraspacing": {
+     "status": "convention",
+     "short": "First-line indent may be used",
+     "details": [
+      "Modern publications use paragraphs; the first line may be indented."
+     ],
+     "sources": [
+      {
+       "key": "n:tibt/bo",
+       "anchor": "generallayout"
+      }
+     ]
+    },
+    "padding": {
+     "status": "convention",
+     "short": "Pecha text sits in a (visible or invisible) box defining the margin",
+     "details": [
+      "In pechas text is written inside a visible box defining the page margin; in recent publications it may be invisible."
+     ],
+     "sources": [
+      {
+       "key": "n:tibt/bo",
+       "anchor": "generallayout"
+      }
+     ]
+    },
+    "contrast": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "decoration": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    },
+    "linelength": {
+     "status": "no-data",
+     "short": "No data",
+     "details": [],
+     "sources": []
+    }
+   },
+   "exceptions": []
+  }
+ ],
+ "contrast_notes": [
+  {
+   "text": "No ingested language-enablement source (lreq documents, gap analyses, orthography notes) defines a contrast value or contrast rule for any script or language.",
+   "sources": [
+    {
+     "key": "matrix",
+     "anchor": ""
+    }
+   ]
+  },
+  {
+   "text": "WCAG 2.2 ‘large scale text’ includes ‘font size that would yield equivalent size for Chinese, Japanese and Korean (CJK) fonts’ but does not state that size.",
+   "sources": [
+    {
+     "key": "wcag22-large",
+     "anchor": ""
+    }
+   ]
+  },
+  {
+   "text": "WCAG 2.2 notes that fonts with extraordinarily thin strokes or unusual features are harder to read at lower contrast. Several sources describe script-specific stroke weight (e.g. Hebrew bold ‘often quite light’; Japanese body Mincho is light; Ethiopic classic typeface is heavy and Latin is thickened to match). These are related to contrast perception but none states a contrast requirement.",
+   "sources": [
+    {
+     "key": "wcag22-large",
+     "anchor": ""
+    },
+    {
+     "key": "n:hebr/he",
+     "anchor": "fontstyle"
+    },
+    {
+     "key": "jlreq",
+     "anchor": "font_selection_and_font_size_of_heading"
+    },
+    {
+     "key": "elreq",
+     "anchor": "relative_typeface_weights"
+    }
+   ]
+  }
+ ],
+ "wcag2_reference": [
+  {
+   "text": "SC 1.4.12 Text Spacing (AA): line height ≥ 1.5× font size, paragraph spacing ≥ 2×, letter spacing ≥ 0.12×, word spacing ≥ 0.16×. Exception: languages/scripts that do not use a property conform using only the properties that exist for them.",
+   "sources": [
+    {
+     "key": "wcag22-1412",
+     "anchor": ""
+    }
+   ]
+  },
+  {
+   "text": "Understanding 1.4.12: Japanese does not use spacing following paragraphs; word spacing has no effect in languages without spaces between words. About 480 languages/scripts were tested with no adverse effects.",
+   "sources": [
+    {
+     "key": "u-1412",
+     "anchor": ""
+    }
+   ]
+  },
+  {
+   "text": "SC 1.4.8 Visual Presentation (AAA): width ≤ 80 characters or glyphs (40 if CJK); not justified; line spacing ≥ 1.5 within paragraphs; paragraph spacing ≥ 1.5× line spacing. Presentation aspects not used in a writing system need not be applied.",
+   "sources": [
+    {
+     "key": "wcag22-148",
+     "anchor": ""
+    },
+    {
+     "key": "u-148",
+     "anchor": ""
+    }
+   ]
+  },
+  {
+   "text": "These WCAG 2 values are user-adjustment targets or mechanisms, not authoring defaults. They are listed for comparison and are not used in the matrix cells.",
+   "sources": []
+  }
+ ],
+ "sources": {
+  "jlreq": {
+   "title": "Requirements for Japanese Text Layout (JLReq)",
+   "url": "https://w3c.github.io/jlreq/",
+   "kind": "W3C Group Note / editor's draft. Cites JIS X 4051 and JIS Z 8305."
+  },
+  "clreq": {
+   "title": "Requirements for Chinese Text Layout (CLReq)",
+   "url": "https://w3c.github.io/clreq/",
+   "kind": "W3C Group Note / editor's draft."
+  },
+  "klreq": {
+   "title": "Requirements for Hangul Text Layout and Typography (KLReq)",
+   "url": "https://w3c.github.io/klreq/",
+   "kind": "W3C editor's draft."
+  },
+  "alreq": {
+   "title": "Arabic & Persian Layout Requirements (ALReq)",
+   "url": "https://w3c.github.io/alreq/",
+   "kind": "W3C editor's draft."
+  },
+  "elreq": {
+   "title": "Ethiopic Layout Requirements (ELReq)",
+   "url": "https://w3c.github.io/elreq/",
+   "kind": "W3C editor's draft."
+  },
+  "elreq-sg": {
+   "title": "Ethiopic Layout Style Guide",
+   "url": "https://w3c.github.io/elreq/style-guide/",
+   "kind": "W3C i18n draft style guide."
+  },
+  "mlreq": {
+   "title": "Mongolian Layout Requirements (MLReq)",
+   "url": "https://w3c.github.io/mlreq/",
+   "kind": "W3C editor's draft."
+  },
+  "hlreq": {
+   "title": "Hebrew Layout Requirements (HLReq)",
+   "url": "https://w3c.github.io/hlreq/",
+   "kind": "W3C editor's draft."
+  },
+  "ilreq": {
+   "title": "Indic Layout Requirements (ILReq)",
+   "url": "https://w3c.github.io/ilreq/",
+   "kind": "W3C Group Note / editor's draft."
+  },
+  "nl-checklist": {
+   "title": "Dutch text layout and typography checklist (gap analysis)",
+   "url": "https://w3c.github.io/typography/gap-analysis/latn-nl.html",
+   "kind": "W3C i18n gap-analysis draft."
+  },
+  "arfa-checklist": {
+   "title": "Arabic & Persian text layout and typography checklist (gap analysis)",
+   "url": "https://w3c.github.io/typography/gap-analysis/arab-ar-fa.html",
+   "kind": "W3C i18n gap-analysis draft."
+  },
+  "ethi-checklist": {
+   "title": "Ethiopic text layout and typography checklist (gap analysis)",
+   "url": "https://w3c.github.io/typography/gap-analysis/ethi.html",
+   "kind": "W3C i18n gap-analysis draft."
+  },
+  "iip-deva": {
+   "title": "Devanagari Layout Requirements (draft)",
+   "url": "https://w3c.github.io/iip/devanagari/",
+   "kind": "W3C Indic Interest Group draft."
+  },
+  "matrix": {
+   "title": "Language matrix (W3C i18n)",
+   "url": "https://www.w3.org/International/typography/gap-analysis/language-matrix.html",
+   "kind": "Heat map of web-support gaps. Source of the language list."
+  },
+  "css-text-3": {
+   "title": "CSS Text Module Level 3 (editor's draft)",
+   "url": "https://drafts.csswg.org/css-text-3/",
+   "kind": "W3C CSS specification."
+  },
+  "wcag22-1412": {
+   "title": "WCAG 2.2 SC 1.4.12 Text Spacing",
+   "url": "https://www.w3.org/TR/WCAG22/#text-spacing",
+   "kind": "W3C Recommendation. User-override values, not authoring defaults."
+  },
+  "wcag22-148": {
+   "title": "WCAG 2.2 SC 1.4.8 Visual Presentation",
+   "url": "https://www.w3.org/TR/WCAG22/#visual-presentation",
+   "kind": "W3C Recommendation. Mechanism values, not authoring defaults."
+  },
+  "wcag22-large": {
+   "title": "WCAG 2.2 definition: large scale (text)",
+   "url": "https://www.w3.org/TR/WCAG22/#dfn-large-scale",
+   "kind": "W3C Recommendation."
+  },
+  "u-1412": {
+   "title": "Understanding SC 1.4.12 Text Spacing",
+   "url": "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html",
+   "kind": "W3C WAI informative."
+  },
+  "u-148": {
+   "title": "Understanding SC 1.4.8 Visual Presentation",
+   "url": "https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html",
+   "kind": "W3C WAI informative."
+  },
+  "u-143": {
+   "title": "Understanding SC 1.4.3 Contrast (Minimum)",
+   "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+   "kind": "W3C WAI informative."
+  },
+  "ucd": {
+   "title": "Unicode Character Database 15.1 case mappings (checked with Python unicodedata)",
+   "url": "https://www.unicode.org/Public/15.1.0/ucd/",
+   "kind": "Unicode data. Used only to state whether a script has case."
+  },
+  "n:adlm/fuf": {
+   "title": "Adlam/Fula orthography notes",
+   "url": "https://r12a.github.io/scripts/adlm/fuf.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:arab/arb": {
+   "title": "Arabic orthography notes",
+   "url": "https://r12a.github.io/scripts/arab/arb.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:arab/ur": {
+   "title": "Urdu orthography notes",
+   "url": "https://r12a.github.io/scripts/arab/ur.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:arab/pes": {
+   "title": "Persian orthography notes",
+   "url": "https://r12a.github.io/scripts/arab/pes.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:arab/ps": {
+   "title": "Pashto orthography notes",
+   "url": "https://r12a.github.io/scripts/arab/ps.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:arab/sd": {
+   "title": "Sindhi orthography notes",
+   "url": "https://r12a.github.io/scripts/arab/sd.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:arab/ckb": {
+   "title": "Sorani (Kurdish) orthography notes",
+   "url": "https://r12a.github.io/scripts/arab/ckb.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:arab/skr": {
+   "title": "Saraiki orthography notes",
+   "url": "https://r12a.github.io/scripts/arab/skr.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:arab/ks": {
+   "title": "Kashmiri (Arabic) orthography notes",
+   "url": "https://r12a.github.io/scripts/arab/ks.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:arab/ug": {
+   "title": "Uighur orthography notes",
+   "url": "https://r12a.github.io/scripts/arab/ug.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:beng/bn": {
+   "title": "Bengali/Bangla orthography notes",
+   "url": "https://r12a.github.io/scripts/beng/bn.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:cans/ike": {
+   "title": "Eastern Canadian Inuktitut orthography notes",
+   "url": "https://r12a.github.io/scripts/cans/ike.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:cans/crk": {
+   "title": "Plains Cree orthography summary",
+   "url": "https://r12a.github.io/scripts/cans/crk.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:cher/chr": {
+   "title": "Cherokee orthography notes",
+   "url": "https://r12a.github.io/scripts/cher/chr.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:cyrl/ru": {
+   "title": "Russian orthography notes",
+   "url": "https://r12a.github.io/scripts/cyrl/ru.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:cyrl/uk": {
+   "title": "Ukrainian orthography notes",
+   "url": "https://r12a.github.io/scripts/cyrl/uk.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:deva/hi": {
+   "title": "Hindi orthography notes",
+   "url": "https://r12a.github.io/scripts/deva/hi.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:ethi/am": {
+   "title": "Amharic orthography notes",
+   "url": "https://r12a.github.io/scripts/ethi/am.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:geor/ka": {
+   "title": "Georgian orthography notes",
+   "url": "https://r12a.github.io/scripts/geor/ka.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:grek/el": {
+   "title": "Greek orthography notes",
+   "url": "https://r12a.github.io/scripts/grek/el.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:gujr/gu": {
+   "title": "Gujarati orthography notes",
+   "url": "https://r12a.github.io/scripts/gujr/gu.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:guru/pa": {
+   "title": "Punjabi (Gurmukhi) orthography notes",
+   "url": "https://r12a.github.io/scripts/guru/pa.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:kore/ko": {
+   "title": "Korean orthography notes",
+   "url": "https://r12a.github.io/scripts/kore/ko.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:hani/zh": {
+   "title": "Chinese orthography notes",
+   "url": "https://r12a.github.io/scripts/hani/zh.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:hebr/he": {
+   "title": "Hebrew orthography notes",
+   "url": "https://r12a.github.io/scripts/hebr/he.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:java/jv": {
+   "title": "Javanese orthography notes",
+   "url": "https://r12a.github.io/scripts/java/jv.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:jpan/ja": {
+   "title": "Japanese orthography summary",
+   "url": "https://r12a.github.io/scripts/jpan/ja.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:khmr/km": {
+   "title": "Khmer orthography notes",
+   "url": "https://r12a.github.io/scripts/khmr/km.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:laoo/lo": {
+   "title": "Lao orthography notes",
+   "url": "https://r12a.github.io/scripts/laoo/lo.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:latn/ff": {
+   "title": "Fula (Latin) orthography notes",
+   "url": "https://r12a.github.io/scripts/latn/ff.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:latn/ha": {
+   "title": "Hausa (boko) orthography notes",
+   "url": "https://r12a.github.io/scripts/latn/ha.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:latn/kmr": {
+   "title": "Kurmanji Hawar orthography notes",
+   "url": "https://r12a.github.io/scripts/latn/kmr.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:mlym/ml": {
+   "title": "Malayalam orthography notes",
+   "url": "https://r12a.github.io/scripts/mlym/ml.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:mong/mn": {
+   "title": "Mongolian orthography notes",
+   "url": "https://r12a.github.io/scripts/mong/mn.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:mymr/my": {
+   "title": "Burmese orthography notes",
+   "url": "https://r12a.github.io/scripts/mymr/my.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:mymr/shn": {
+   "title": "Shan orthography notes",
+   "url": "https://r12a.github.io/scripts/mymr/shn.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:nkoo/nqo": {
+   "title": "N’Ko orthography notes",
+   "url": "https://r12a.github.io/scripts/nkoo/nqo.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:orya/or": {
+   "title": "Odia orthography notes",
+   "url": "https://r12a.github.io/scripts/orya/or.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:osge/osa": {
+   "title": "Osage orthography notes",
+   "url": "https://r12a.github.io/scripts/osge/osa.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:sinh/si": {
+   "title": "Sinhala orthography notes",
+   "url": "https://r12a.github.io/scripts/sinh/si.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:sund/su": {
+   "title": "Sundanese orthography notes",
+   "url": "https://r12a.github.io/scripts/sund/su.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:taml/ta": {
+   "title": "Tamil orthography notes",
+   "url": "https://r12a.github.io/scripts/taml/ta.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:telu/te": {
+   "title": "Telugu orthography notes",
+   "url": "https://r12a.github.io/scripts/telu/te.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:thai/th": {
+   "title": "Thai orthography notes",
+   "url": "https://r12a.github.io/scripts/thai/th.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  },
+  "n:tibt/bo": {
+   "title": "Tibetan orthography notes",
+   "url": "https://r12a.github.io/scripts/tibt/bo.html",
+   "kind": "Orthography notes (Richard Ishida, W3C i18n). Descriptive, not normative."
+  }
+ }
+}

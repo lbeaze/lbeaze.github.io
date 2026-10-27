@@ -1,0 +1,397 @@
+script_code,script,characteristic,status,summary,details,sources
+Adlm,Adlam,Font face / weight,convention,Bold and italic used; italic leans right,Adlam texts use both bolding and italics. | After community consultation the first drawn Adlam italic leans to the right (the opposite of N’Ko).,https://r12a.github.io/scripts/adlm/fuf.html#fontstyle ; https://r12a.github.io/scripts/nkoo/nqo.html#fontstyle
+Adlm,Adlam,Font size,no-data,No data,,
+Adlm,Adlam,Contrast,no-data,No data,,
+Adlm,Adlam,Letter aspect ratio,convention,Basic letters ≈ Latin x-height; marks exceed Latin ascenders,Basic lowercase Adlam letters are typically around the Latin x-height (Noto Sans Adlam). | Diacritics reach well beyond Latin ascenders; capitals increase height further.,https://r12a.github.io/scripts/adlm/fuf.html#baselines
+Adlm,Adlam,Text decoration,no-data,No data,,
+Adlm,Adlam,Letter spacing,convention,Interword spacing for justification; baseline stretching is historical,Modern preference is interword spacing for justification; stretching the baseline with ـ was used in the past.,https://r12a.github.io/scripts/adlm/fuf.html#justification
+Adlm,Adlam,Capitalization,convention,Bicameral,The notes refer to capital letters increasing vertical height; Unicode 15.1 has case mappings for Adlam.,https://r12a.github.io/scripts/adlm/fuf.html#baselines ; https://www.unicode.org/Public/15.1.0/ucd/
+Adlm,Adlam,End-of-line hyphenation,convention,Hyphenation used,Breaks occur primarily at spaces; in-word breaks with hyphenation also occur. | Long words may be hyphenated to reduce added space in justified text.,https://r12a.github.io/scripts/adlm/fuf.html#linebreak ; https://r12a.github.io/scripts/adlm/fuf.html#justification
+Adlm,Adlam,Line spacing,convention,Larger than Latin,Vertical resolution needed for readable Fula text is higher than for English; diacritics create a need for larger line spacing.,https://r12a.github.io/scripts/adlm/fuf.html#baselines
+Adlm,Adlam,Paragraph spacing,no-data,No data,,
+Adlm,Adlam,Line length,no-data,No data,,
+Adlm,Adlam,Padding (text containers),convention,Right-to-left page progression,Books are bound on the right; pages progress right to left. Layout direction mirrors left-to-right layouts.,https://r12a.github.io/scripts/adlm/fuf.html#generallayout
+Arab,Arabic,Font face / weight,convention,Naskh default; Nastaʻlīq for Persian (Iran) and Urdu (Pakistan),"Naskh has become the default form of Arabic in most contexts and is the model for most text typefaces. | In Iran and Pakistan, Nastaʻlīq remains the preferred style for Persian and Urdu respectively. | ALReq lists accessibility (readability and visibility) and small-screen legibility (larger loops and teeth, small descenders) as font-selection considerations. | Italic/oblique Arabic may slant to the left.",https://w3c.github.io/alreq/#h_writing_style ; https://w3c.github.io/alreq/#h_writing_styles ; https://r12a.github.io/scripts/arab/arb.html#letterforms
+Arab,Arabic,Font size,no-data,No data,,
+Arab,Arabic,Contrast,no-data,No data,,
+Arab,Arabic,Letter aspect ratio,convention,Ascenders/descenders extend much further than Latin,"Arabic ascenders and descenders extend much further than those of Latin. | Uighur: the basic part of most letters is less than Latin x-height, but extenders and marks reach Latin ascender/descender lines.",https://w3c.github.io/alreq/#h_baselines ; https://r12a.github.io/scripts/arab/ug.html#baselines
+Arab,Arabic,Text decoration,convention,Underline further from baseline than Latin; avoid short ink-skip fragments,"Underlines and overlines sit further from the baseline than in Latin text, typically clearing long descenders and their diacritics. | If lines skip ink, very short line remnants must be avoided because they can look like dots or diacritics. | The Qur’an tends to use overlines rather than underlines. | Text borders must not expose the joins between letters; styling one letter must not break its joining.",https://r12a.github.io/scripts/arab/arb.html#otherinline ; https://w3c.github.io/alreq/#h_joining_and_text_border ; https://w3c.github.io/alreq/#h_styling_individual_letters
+Arab,Arabic,Letter spacing,not-used,No letter spacing (cursive); stretching via kashida instead,"Spaces are not added between characters except micro-spacing at non-joining letters during justification. | Stretching for headings, signs, or emphasis is done by elongating the baseline, unevenly, and does not correspond to Latin letter-spacing. | CSS Text 3 classes Arabic as a cursive script that does not admit gaps between letters; authors should avoid letter-spacing on cursive scripts.",https://r12a.github.io/scripts/arab/arb.html#spacing ; https://w3c.github.io/alreq/#h_spacing ; https://drafts.csswg.org/css-text-3/#cursive-tracking
+Arab,Arabic,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Arab,Arabic,End-of-line hyphenation,not-used,"No hyphenation (Arabic, Persian); lines break between words","Lines are broken at word boundaries, not at gaps after non-joining letters. | No hyphenation is used for Arabic script when used for Arabic and Persian.",https://w3c.github.io/alreq/#h_line_breaking ; https://r12a.github.io/scripts/arab/arb.html#linebreak ; https://w3c.github.io/typography/gap-analysis/arab-ar-fa.html
+Arab,Arabic,Line spacing,convention,Larger than Latin; much larger for Nastaʻlīq,Ascenders and descenders travel further from the baseline than Latin; line height must allow for this. | Nastaʻlīq’s cascading baselines can require quite large line heights compared with many other orthographies.,https://r12a.github.io/scripts/arab/arb.html#baselines ; https://r12a.github.io/scripts/arab/ur.html#baselines ; https://r12a.github.io/scripts/arab/ks.html#baselines
+Arab,Arabic,Paragraph spacing,no-data,No data,,
+Arab,Arabic,Line length,no-data,No data,,
+Arab,Arabic,Padding (text containers),convention,Right-to-left page progression,"Books are bound on the right and pages progress right to left (Arabic, Persian, Pashto, Sindhi, Saraiki, Kashmiri).",https://r12a.github.io/scripts/arab/arb.html#generallayout ; https://r12a.github.io/scripts/arab/pes.html#generallayout
+Beng,Bengali,Font face / weight,not-used,Italic and bold not traditional,"Italicisation, bolding, and underlining are not traditional features of Bengali text.",https://r12a.github.io/scripts/beng/bn.html#emphasis
+Beng,Bengali,Font size,no-data,No data,,
+Beng,Bengali,Contrast,no-data,No data,,
+Beng,Bengali,Letter aspect ratio,convention,Basic letters slightly above Latin x-height,Basic Bangla letters are typically slightly higher than Latin x-height; some letters and marks extend beyond Latin ascenders.,https://r12a.github.io/scripts/beng/bn.html#baselines
+Beng,Bengali,Text decoration,not-used,Underline not traditional,Underlining is not a traditional feature of Bengali text.,https://r12a.github.io/scripts/beng/bn.html#emphasis
+Beng,Bengali,Letter spacing,convention,Applied per orthographic syllable; more prevalent than in Hindi,"In Indian languages letter spacing is inserted after each orthographic syllable, not each character; ILReq says it is more prevalent in Bengali.",https://w3c.github.io/ilreq/#h_letter_spacing
+Beng,Bengali,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Beng,Bengali,End-of-line hyphenation,convention,Possible but uncommon,"Bengali can be hyphenated at line wrap, though it is not very common because most words are short; a hyphen is added at line end.",https://r12a.github.io/scripts/beng/bn.html#linebreak
+Beng,Bengali,Line spacing,convention,Slightly more than Latin,Bangla requires slightly more vertical space than Latin text.,https://r12a.github.io/scripts/beng/bn.html#baselines
+Beng,Bengali,Paragraph spacing,no-data,No data,,
+Beng,Bengali,Line length,no-data,No data,,
+Beng,Bengali,Padding (text containers),no-data,No data,,
+Cans,Canadian Aboriginal Syllabics,Font face / weight,convention,Italic observed; function unclear,Italicised text is used frequently on East Cree web pages but its function is not clear.,https://r12a.github.io/scripts/cans/crk.html#fontstyle
+Cans,Canadian Aboriginal Syllabics,Font size,no-data,No data,,
+Cans,Canadian Aboriginal Syllabics,Contrast,no-data,No data,,
+Cans,Canadian Aboriginal Syllabics,Letter aspect ratio,convention,Basic letters ≈ Latin cap-height,"Basic letter height is usually the Latin cap-height; no ascenders, descenders, or combining marks except the long-vowel dot.",https://r12a.github.io/scripts/cans/ike.html#baselines ; https://r12a.github.io/scripts/cans/crk.html#baselines
+Cans,Canadian Aboriginal Syllabics,Text decoration,no-data,No data,,
+Cans,Canadian Aboriginal Syllabics,Letter spacing,no-data,No data,,
+Cans,Canadian Aboriginal Syllabics,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Cans,Canadian Aboriginal Syllabics,End-of-line hyphenation,convention,Hyphenation used; important for long Inuktitut words,Inuktitut uses hyphenation; it is important because words can be very long and helps justification in narrow columns. | Plains Cree uses U+1400 CANADIAN SYLLABICS HYPHEN because a standard hyphen can be confused with U+1428.,https://r12a.github.io/scripts/cans/ike.html#linebreak ; https://r12a.github.io/scripts/cans/ike.html#justification ; https://r12a.github.io/scripts/cans/crk.html#linebreak
+Cans,Canadian Aboriginal Syllabics,Line spacing,convention,Slightly more than Latin,"The long-vowel dot sits above the Latin ascender line, creating a need for slightly larger line spacing.",https://r12a.github.io/scripts/cans/ike.html#baselines
+Cans,Canadian Aboriginal Syllabics,Paragraph spacing,no-data,No data,,
+Cans,Canadian Aboriginal Syllabics,Line length,no-data,No data,,
+Cans,Canadian Aboriginal Syllabics,Padding (text containers),no-data,No data,,
+Cher,Cherokee,Font face / weight,convention,Users want bold/italic; not yet common,"Cherokee users would like fonts with italic and bold styles, used as for Latin; this is not currently common.",https://r12a.github.io/scripts/cher/chr.html#fontstyle
+Cher,Cherokee,Font size,no-data,No data,,
+Cher,Cherokee,Contrast,no-data,No data,,
+Cher,Cherokee,Letter aspect ratio,convention,Upper = Latin cap-height; lower = Latin x-height,Uppercase Cherokee letters are at Latin cap-height and lowercase at Latin x-height (Noto Sans Cherokee). Glyphs rarely descend.,https://r12a.github.io/scripts/cher/chr.html#baselines
+Cher,Cherokee,Text decoration,no-data,No data,,
+Cher,Cherokee,Letter spacing,convention,Justification by interword spacing,Justification is done principally by adjusting the space between words.,https://r12a.github.io/scripts/cher/chr.html#justification
+Cher,Cherokee,Capitalization,convention,Bicameral since Unicode 8; existing text is uppercase,"Lowercase letters were added in Unicode 8.0. Traditional text is uppercase; mixed-case text uses lowercase for most body text. | Cherokee case-folds to uppercase, not lowercase. Upper/lowercase shapes differ mainly in size.",https://r12a.github.io/scripts/cher/chr.html#transforms ; https://r12a.github.io/scripts/cher/chr.html#cs
+Cher,Cherokee,End-of-line hyphenation,no-data,No data,Lines break at inter-word spaces; nothing is said about hyphenation.,https://r12a.github.io/scripts/cher/chr.html#linebreak
+Cher,Cherokee,Line spacing,convention,Similar to Latin,No combining marks in normal text; glyphs are generally the same height and rarely descend.,https://r12a.github.io/scripts/cher/chr.html#baselines
+Cher,Cherokee,Paragraph spacing,no-data,No data,,
+Cher,Cherokee,Line length,no-data,No data,,
+Cher,Cherokee,Padding (text containers),no-data,No data,,
+Cyrl,Cyrillic,Font face / weight,convention,Italic letterforms can differ radically from regular; vary by language,"There can be a significant difference in shape between regular and italic forms of the same character, and italic shapes can vary by language.",https://r12a.github.io/scripts/cyrl/ru.html#fontstyle ; https://r12a.github.io/scripts/cyrl/uk.html#fontstyle
+Cyrl,Cyrillic,Font size,no-data,No data,,
+Cyrl,Cyrillic,Contrast,no-data,No data,,
+Cyrl,Cyrillic,Letter aspect ratio,convention,Same metrics as Latin,Font metrics are mostly the same as ASCII text; some diacritics on capitals rise above the ASCII ascender.,https://r12a.github.io/scripts/cyrl/ru.html#baselines
+Cyrl,Cyrillic,Text decoration,no-data,No data,,
+Cyrl,Cyrillic,Letter spacing,convention,Justification by interword spacing,Justification is done principally by adjusting the space between words.,https://r12a.github.io/scripts/cyrl/ru.html#justification
+Cyrl,Cyrillic,Capitalization,convention,Bicameral,Russian and Ukrainian are bicameral; applications may need case transforms.,https://r12a.github.io/scripts/cyrl/ru.html#transforms ; https://r12a.github.io/scripts/cyrl/uk.html#transforms
+Cyrl,Cyrillic,End-of-line hyphenation,no-data,No data,Spaces are the primary break opportunities; hyphenation is not described.,https://r12a.github.io/scripts/cyrl/ru.html#linebreak
+Cyrl,Cyrillic,Line spacing,convention,Similar to Latin,Little in the way of ascenders/descenders beyond Latin; metrics mostly the same as ASCII.,https://r12a.github.io/scripts/cyrl/ru.html#baselines
+Cyrl,Cyrillic,Paragraph spacing,no-data,No data,,
+Cyrl,Cyrillic,Line length,no-data,No data,,
+Cyrl,Cyrillic,Padding (text containers),no-data,No data,,
+Deva,Devanagari,Font face / weight,not-used,Italic and bold not traditional for highlighting,Italicisation and bolding are not traditionally used for highlighting text in Devanagari.,https://r12a.github.io/scripts/deva/hi.html#emphasis
+Deva,Devanagari,Font size,no-data,No data,,
+Deva,Devanagari,Contrast,no-data,No data,,
+Deva,Devanagari,Letter aspect ratio,convention,Basic letters / hanging baseline slightly above Latin x-height,Basic letters and the hanging baseline are just slightly higher than Latin x-height; vowel signs with tone marks go slightly beyond Latin ascenders/descenders.,https://r12a.github.io/scripts/deva/hi.html#baselines
+Deva,Devanagari,Text decoration,not-used,Underline not traditional,Underlining is not a traditional feature of Devanagari text.,https://w3c.github.io/iip/devanagari/
+Deva,Devanagari,Letter spacing,convention,Used decoratively; applied per syllable and breaks the top bar,"Inter-character spacing is sometimes applied (banners, newspapers, name plates); the top bar then appears broken. | Space is inserted after each orthographic syllable, not after each code point.",https://r12a.github.io/scripts/deva/hi.html#spacing ; https://w3c.github.io/ilreq/#h_letter_spacing
+Deva,Devanagari,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Deva,Devanagari,End-of-line hyphenation,convention,Possible but uncommon for Hindi,"Devanagari can be hyphenated at line wrap, but it is not very common for Hindi (mostly short words); it is much more common for Sanskrit. | A hyphen is added at the end of the line.",https://r12a.github.io/scripts/deva/hi.html#linebreak
+Deva,Devanagari,Line spacing,convention,Slightly more than Latin,"Ascenders and vowel signs, especially with tone marks, push slightly beyond Latin ascenders and descenders.",https://r12a.github.io/scripts/deva/hi.html#baselines
+Deva,Devanagari,Paragraph spacing,no-data,No data,,
+Deva,Devanagari,Line length,no-data,No data,,
+Deva,Devanagari,Padding (text containers),no-data,No data,,
+Ethi,Ethiopic,Font face / weight,convention,Classic heavy typeface: avoid bold for emphasis,"With the classic heavy typeface, bold should not be used for emphasis because it is hard to distinguish from regular; bold suits titles when designed for it. | With modern thinner typefaces, bold and italic can be used effectively. | When the rendering typeface is unknown, avoid bold in favour of underline or italics. | Latin text set alongside Ethiopic is commonly made heavier to match Ethiopic weight.",https://w3c.github.io/elreq/style-guide/#h_emphasis_boldface ; https://w3c.github.io/elreq/style-guide/#h_emphasis_italic ; https://w3c.github.io/elreq/#relative_typeface_weights
+Ethi,Ethiopic,Font size,numeric,Emphasis by +≈25% size (single-typeface works),"Where only one typeface is available, mid-sentence emphasis is sometimes shown by enlarging the font by around 25%. Use mainly when reproducing works that already do this.",https://w3c.github.io/elreq/style-guide/#h_emphasis_inline_size_change
+Ethi,Ethiopic,Contrast,no-data,No data,,
+Ethi,Ethiopic,Letter aspect ratio,convention,Variable letter heights: up to Latin ascender; some at cap-height,In the classic style letter heights vary. Letters with a top bar reach about the Latin ascender height; others are at cap-height. Nothing goes below the Latin descender. | Relative letter heights change between typefaces.,https://r12a.github.io/scripts/ethi/am.html#baselines ; https://w3c.github.io/elreq/#relative_character_heights
+Ethi,Ethiopic,Text decoration,convention,Underline is preferred emphasis with classic typeface; often heavier; wordspace inherits it,"Underline is the more appropriate emphasis for the classic heavy typeface and has historic precedence. | Underlines are often made heavier to match the weight of Ethiopic letters; the gap analysis says they need to be thicker than in English text. | A wordspace (፡) after an emphasised word should receive the same emphasis, including underline.",https://w3c.github.io/elreq/style-guide/#h_emphasis_underscore ; https://w3c.github.io/elreq/#emphasis_within_prose ; https://w3c.github.io/typography/gap-analysis/ethi.html ; https://w3c.github.io/elreq/#emphasis_with_wordspace
+Ethi,Ethiopic,Letter spacing,convention,Justify by interword spacing; ፡ width changes rather than adding spaces,"Ethiopic is usually justified by adjusting interword spacing; when ፡ separates words, the wordspace width changes and no extra spaces are added.",https://r12a.github.io/scripts/ethi/am.html#justification
+Ethi,Ethiopic,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Ethi,Ethiopic,End-of-line hyphenation,convention,Traditionally none; open question for space-separated text,Classical text using ፡ did not need hyphenation; older text wraps wherever it hits the margin without hyphens. | Whether to hyphenate when spaces separate words is an open question in ELReq.,https://w3c.github.io/elreq/#ethiopic_hyphenation ; https://r12a.github.io/scripts/ethi/am.html#linebreak
+Ethi,Ethiopic,Line spacing,convention,Similar to Latin unless diacritics are added above,Height differences from Latin are small; diacritics above letters increase line height.,https://r12a.github.io/scripts/ethi/am.html#baselines
+Ethi,Ethiopic,Paragraph spacing,convention,First-line indent is regular practice; amount not specified,Paragraph indentation is a regular practice in Ethiopic publishing; ELReq lists the indent amount as an open question.,https://w3c.github.io/elreq/#first_paragraph
+Ethi,Ethiopic,Line length,no-data,No data,,
+Ethi,Ethiopic,Padding (text containers),numeric,Ge’ez religious literature: margins ≈ 1 : 2 : 4 (gutter : top/fore-edge : bottom),Top and fore-edge margins are commonly twice the gutter and half the bottom. ELReq notes this is not well understood and seeks expert input.,https://w3c.github.io/elreq/#h_page_margins
+Geor,Georgian,Font face / weight,convention,Emphasis via mtavruli (all-caps style) rather than weight,Modern Georgian tends to use mtavruli for a word or phrase to show emphasis.,https://r12a.github.io/scripts/geor/ka.html#emphasis
+Geor,Georgian,Font size,no-data,No data,,
+Geor,Georgian,Contrast,no-data,No data,,
+Geor,Georgian,Letter aspect ratio,convention,Same metrics as Latin,"Georgian metrics match Latin, including x-height, ascenders, descenders, cap-height (Noto).",https://r12a.github.io/scripts/geor/ka.html#baselines
+Geor,Georgian,Text decoration,no-data,No data,,
+Geor,Georgian,Letter spacing,no-data,No data,,
+Geor,Georgian,Capitalization,convention,"Mtavruli applied to whole words only, never initial letter","Mtavruli characters are used like ALL-CAPS on whole words or phrases, never just the first letter of a word.",https://r12a.github.io/scripts/geor/ka.html#emphasis ; https://www.unicode.org/Public/15.1.0/ucd/
+Geor,Georgian,End-of-line hyphenation,convention,Hyphenation used,Georgian uses hyphenation to fit text to lines better.,https://r12a.github.io/scripts/geor/ka.html#linebreak
+Geor,Georgian,Line spacing,convention,Same as Latin,No vowel or tone marks above or below base characters; metrics match Latin.,https://r12a.github.io/scripts/geor/ka.html#baselines
+Geor,Georgian,Paragraph spacing,no-data,No data,,
+Geor,Georgian,Line length,no-data,No data,,
+Geor,Georgian,Padding (text containers),no-data,No data,,
+Grek,Greek,Font face / weight,no-data,No data,,
+Grek,Greek,Font size,no-data,No data,,
+Grek,Greek,Contrast,no-data,No data,,
+Grek,Greek,Letter aspect ratio,no-data,No data,,
+Grek,Greek,Text decoration,no-data,No data,,
+Grek,Greek,Letter spacing,convention,Justification by interword spacing,The primary justification point is the space between words.,https://r12a.github.io/scripts/grek/el.html#justification
+Grek,Greek,Capitalization,convention,"Bicameral; all-caps drops tonos, keeps dialytika",When a whole word is capitalised the tonos is dropped; dialytika is kept. Diphthongs with tonos gain a dialytika in all-caps. Disjunctive ή keeps its tonos. | Uppercase→lowercase cannot be done reliably because context determines where tonos is restored.,https://r12a.github.io/scripts/grek/el.html#transforms
+Grek,Greek,End-of-line hyphenation,convention,Hyphenation used; rules from official grammar,Hyphenation is a feature of modern Greek with consonant-cluster rules; certain vowel combinations and diphthongs are not split. The marker is a hyphen at line end.,https://r12a.github.io/scripts/grek/el.html#linebreak
+Grek,Greek,Line spacing,no-data,No data,,
+Grek,Greek,Paragraph spacing,no-data,No data,,
+Grek,Greek,Line length,no-data,No data,,
+Grek,Greek,Padding (text containers),no-data,No data,,
+Gujr,Gujarati,Font face / weight,no-data,No data,,
+Gujr,Gujarati,Font size,no-data,No data,,
+Gujr,Gujarati,Contrast,no-data,No data,,
+Gujr,Gujarati,Letter aspect ratio,no-data,No data,,
+Gujr,Gujarati,Text decoration,no-data,No data,,
+Gujr,Gujarati,Letter spacing,convention,Gaps between units are admissible (not a cursive script),CSS Text 3 notes Indic scripts with baseline connectors such as Devanagari and Gujarati are not cursive and do admit gaps.,https://drafts.csswg.org/css-text-3/#cursive-script
+Gujr,Gujarati,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Gujr,Gujarati,End-of-line hyphenation,no-data,No data,Lines break on spaces between words; hyphenation is not described.,https://r12a.github.io/scripts/gujr/gu.html#linebreak
+Gujr,Gujarati,Line spacing,no-data,No data,,
+Gujr,Gujarati,Paragraph spacing,no-data,No data,,
+Gujr,Gujarati,Line length,no-data,No data,,
+Gujr,Gujarati,Padding (text containers),no-data,No data,,
+Guru,Gurmukhi,Font face / weight,convention,"Italic sets off blocks, not emphasis; bold occurs","Italic is not commonly used for emphasis; slanted text sets off blocks, by-lines, etc. Slanted text and bolding occur in modern texts.",https://r12a.github.io/scripts/guru/pa.html#fontstyle
+Guru,Gurmukhi,Font size,no-data,No data,,
+Guru,Gurmukhi,Contrast,no-data,No data,,
+Guru,Gurmukhi,Letter aspect ratio,convention,Basic letters slightly above Latin x-height,Basic letters are typically slightly higher than Latin x-height; conjuncts and diacritics extend slightly below Latin descenders.,https://r12a.github.io/scripts/guru/pa.html#baselines
+Guru,Gurmukhi,Text decoration,no-data,No data,,
+Guru,Gurmukhi,Letter spacing,convention,Justify by interword spacing; space before danda not stretched,Lines are justified by stretching inter-word spaces; the space before an end-of-sentence danda is not stretched.,https://r12a.github.io/scripts/guru/pa.html#justification
+Guru,Gurmukhi,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Guru,Gurmukhi,End-of-line hyphenation,no-data,No data,Lines break at inter-word spaces; hyphenation is not described.,https://r12a.github.io/scripts/guru/pa.html#linebreak
+Guru,Gurmukhi,Line spacing,convention,Slightly more than Latin,Gurmukhi requires slightly more vertical space than Latin.,https://r12a.github.io/scripts/guru/pa.html#baselines
+Guru,Gurmukhi,Paragraph spacing,no-data,No data,,
+Guru,Gurmukhi,Line length,no-data,No data,,
+Guru,Gurmukhi,Padding (text containers),no-data,No data,,
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Font face / weight,no-data,No data,KLReq: both fixed-width and proportional Hangul fonts are used. Its section on bold/italic is marked ‘content is needed’.,https://w3c.github.io/klreq/#fonts-types ; https://w3c.github.io/klreq/#h_letterforms
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Font size,no-data,No data,,
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Contrast,no-data,No data,,
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Letter aspect ratio,no-data,No data,,
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Text decoration,convention,"Underline below (horizontal) / right (vertical), with a gap from glyphs","Underlines appear below horizontal text and to the right of vertical text, low enough to leave a gap below the characters (text-underline-position: under right). | Underlines may exclude the particle syllables at the end of a word. Emphasis dots go above syllables in horizontal text.",https://r12a.github.io/scripts/kore/ko.html#textdecor ; https://r12a.github.io/scripts/kore/ko.html#emphasis
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Letter spacing,numeric,Zero by default,"Hangul, Hanja and Kana have zero space between characters by default; narrower/wider settings exist for justification. | Unlike Chinese/Japanese, no extra gap is normally inserted between Hangul and Latin text.",https://w3c.github.io/klreq/#chartypes-intercharspace ; https://r12a.github.io/scripts/kore/ko.html#spacing
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Capitalization,not-used,No case,There is no upper/lowercase distinction in Korean syllables.,https://w3c.github.io/klreq/#h_transforms
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",End-of-line hyphenation,convention,Break by syllable or by word; hyphen described only for English,Hangul lines break on a character or word basis by user choice; KLReq describes hyphens only for English text in Korean documents.,https://w3c.github.io/klreq/#line-break ; https://r12a.github.io/scripts/kore/ko.html#linebreak
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Line spacing,numeric,Proportional line spacing; example 160% of character size,"KLReq describes four methods (percentage of character size, fixed value, space only, minimum). Its example value for proportional spacing is 160%. | 160% is shown as an example setting, not stated as a standard.",https://w3c.github.io/klreq/#line-space
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Paragraph spacing,convention,First-line indent of one character width by default,The character width of the paragraph is the default indent unit. Indenting every paragraph is the most common mode; no indent suits shorter horizontal lines.,https://w3c.github.io/klreq/#line-head-indent
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Line length,no-data,No data,,
+Hang/Kore,"Hangul (Korean, incl. mixed Hanja)",Padding (text containers),convention,Page body position is defined by margin values; tables have inner padding,The page body is the area excluding the top/bottom/left/right margins; its position is linked to margin values. | Tables and cells have inner padding; cell padding takes priority over table padding.,https://w3c.github.io/klreq/#page-body ; https://w3c.github.io/klreq/#inner-padding
+Hani,Han (Chinese),Font face / weight,convention,Song (Ming) for body; Hei or bold Song for headings,"CLReq names four frequently used typeface styles: Song, Kai, Hei, Fangsong. Song is currently the most common in printing. | Headings use Hei or bold Song; when Hei is used for low-level headings its weight is increased. | Mainland China stipulates Fangsong in principle for government official documents.",https://w3c.github.io/clreq/#four_commonly_used_typefaces_for_chinese_composition ; https://w3c.github.io/clreq/#song ; https://w3c.github.io/clreq/#kai ; https://w3c.github.io/clreq/#hei ; https://w3c.github.io/clreq/#imitation_song ; https://w3c.github.io/clreq/#styling_of_headings
+Hani,Han (Chinese),Font size,numeric,"Body: Size 5 (10.5 pt); minimum Size 6 (≈7.875 pt, 2.8 mm)",Size 5 is usually used for body text. The acceptable minimum is Size 6 (7.875 pt ≈ 2.8 mm); smaller is hard to read because of the complex structure of Han characters. | Headings 10–20% larger than body; e.g. 9 pt body → 10/12/14 pt headings.,https://w3c.github.io/clreq/#considerations_in_designing_type_area ; https://w3c.github.io/clreq/#styling_of_headings
+Hani,Han (Chinese),Contrast,no-data,No data,,
+Hani,Han (Chinese),Letter aspect ratio,convention,"Square character frame; letter face smaller, centred",Han characters have square frames of equal size with a smaller centred character face. Font size is measured by the frame.,https://w3c.github.io/clreq/#h_baselines
+Hani,Han (Chinese),Text decoration,convention,"Lines mark proper nouns and titles, not emphasis; left side in vertical text","Straight or wavy side lines indicate proper nouns and book titles, not emphasis. | Lines appear below horizontal text and to the left of vertical text; emphasis dots go below (horizontal) or right (vertical). | Adjacent underlined items should have a break between their lines.",https://r12a.github.io/scripts/hani/zh.html#text_decoration ; https://r12a.github.io/scripts/hani/zh.html#emphasis ; https://w3c.github.io/clreq/#id84
+Hani,Han (Chinese),Letter spacing,numeric,Solid setting (0) for body; up to ¼ em gap next to Latin/numerals,"Characters are set solid. Increased spacing (examples ¼, ⅓, ½, 1 em) is used for running heads, captions, short poetry, and children’s publications. | A gap of up to ¼ em is suggested between Han and Latin/numerals.",https://w3c.github.io/clreq/#considerations_in_designing_type_area ; https://w3c.github.io/clreq/#increased_inter_character_spacing ; https://r12a.github.io/scripts/hani/zh.html#letterspace
+Hani,Han (Chinese),Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Hani,Han (Chinese),End-of-line hyphenation,not-used,No hyphenation; wraps between characters,Lines wrap between characters; there is no hyphenation.,https://r12a.github.io/scripts/hani/zh.html#linebreak
+Hani,Han (Chinese),Line spacing,numeric,Line gap 50–100% of character frame; not above 100%,The line gap is commonly 50–100% of the character frame height; shorter for short lines or small sizes. Exceeding the font size does not improve reading. | The line gap must accommodate interlinear decorations and emphasis dots and stay constant.,https://w3c.github.io/clreq/#considerations_in_designing_type_area ; https://r12a.github.io/scripts/hani/zh.html#baselines
+Hani,Han (Chinese),Paragraph spacing,numeric,No extra space; 2 em first-line indent (1 em in narrow columns),There is in principle no extra spacing between paragraphs; the gap equals the line gap. A blank line signals end of section. | Publications usually use a 2 em first-line indent; multi-column magazines may use 1 em.,https://w3c.github.io/clreq/#first_line_indents
+Hani,Han (Chinese),Line length,numeric,Books 17–40 chars; min 10; max 48 horizontal / 55 vertical,"Most books use 17–40 characters per line. Body lines should not be less than 10 characters, and should not exceed 48 (horizontal) or 55 (vertical). | Line length should be an integer multiple of the font size.",https://w3c.github.io/clreq/#considerations_in_designing_type_area
+Hani,Han (Chinese),Padding (text containers),convention,Type area defined on a character grid; shape similar to trim size,The type area’s dimensions consider trim size and margins; its shape can be similar to the trim size. The type area also defines a grid that characters align to.,https://w3c.github.io/clreq/#considerations_in_designing_type_area ; https://w3c.github.io/clreq/#main_elements_of_basic_composition
+Hebr,Hebrew,Font face / weight,convention,Bold (often light) for emphasis; italic controversial,Bold is used for emphasis and highlighting; the degree of bolding is often quite light. Bold-italic is mostly for display text. | Use of italic in Hebrew is controversial; slant direction preference varies.,https://r12a.github.io/scripts/hebr/he.html#fontstyle ; https://w3c.github.io/hlreq/#h_letterforms
+Hebr,Hebrew,Font size,no-data,No data,,
+Hebr,Hebrew,Contrast,no-data,No data,,
+Hebr,Hebrew,Letter aspect ratio,convention,Slightly taller than Latin x-height,Hebrew characters are commonly slightly taller than Latin x-height.,https://r12a.github.io/scripts/hebr/he.html#baselines
+Hebr,Hebrew,Text decoration,convention,Underline is an alternative emphasis,Alternatives to tracking for emphasis include a different typeface and/or underlining.,https://r12a.github.io/scripts/hebr/he.html#emphasis
+Hebr,Hebrew,Letter spacing,convention,Increased tracking is a common emphasis method,Increased tracking is a common way to express emphasis or highlight text (e.g. terms in a dictionary).,https://r12a.github.io/scripts/hebr/he.html#spacing ; https://w3c.github.io/hlreq/#h_spacing
+Hebr,Hebrew,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Hebr,Hebrew,End-of-line hyphenation,no-data,No data,Lines are normally broken at word boundaries; hyphenation is not described.,https://r12a.github.io/scripts/hebr/he.html#linebreak
+Hebr,Hebrew,Line spacing,no-data,No data,,
+Hebr,Hebrew,Paragraph spacing,no-data,No data,,
+Hebr,Hebrew,Line length,no-data,No data,,
+Hebr,Hebrew,Padding (text containers),convention,Right-to-left page progression,Books are bound on the right; pages progress right to left.,https://r12a.github.io/scripts/hebr/he.html#generallayout
+Java,Javanese,Font face / weight,convention,"Slant used for whole blocks, not inline","Slanted text (1933 publication) distinguishes blocks: panels, subheadings, captions, by-lines; not used inline.",https://r12a.github.io/scripts/java/jv.html#fontstyle
+Java,Javanese,Font size,no-data,No data,,
+Java,Javanese,Contrast,no-data,No data,,
+Java,Javanese,Letter aspect ratio,convention,Basic letters ≈ Latin x-height; overall height 2–3× Latin,Basic letters are around Latin x-height but overall height is 2 to 3 times that of Latin letters.,https://r12a.github.io/scripts/java/jv.html#baselines
+Java,Javanese,Text decoration,no-data,No data,,
+Java,Javanese,Letter spacing,convention,Slight inter-character stretch observed in justification,Justification observed in a 1933 publication stretches spaces and slightly stretches inter-character spaces (not stacks).,https://r12a.github.io/scripts/java/jv.html#justification
+Java,Javanese,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Java,Javanese,End-of-line hyphenation,not-used,Breaks after syllables; no hyphenation,Lines break after full orthographic syllables without splitting conjuncts; hyphenation as such is not used.,https://r12a.github.io/scripts/java/jv.html#linebreak
+Java,Javanese,Line spacing,convention,Far more than Latin,"Javanese requires far more vertical space than Latin, creating a need for much larger line spacing.",https://r12a.github.io/scripts/java/jv.html#baselines
+Java,Javanese,Paragraph spacing,convention,Paragraph indents observed,One article in the 1933 Kajawen publication uses paragraph indents.,https://r12a.github.io/scripts/java/jv.html#justification
+Java,Javanese,Line length,no-data,No data,,
+Java,Javanese,Padding (text containers),no-data,No data,,
+Jpan,Japanese,Font face / weight,convention,"Mincho (light, Hoso-mincho) for body; Gothic for headings/emphasis","Mincho is the most frequently used typeface for main text; body Mincho is usually light weight (Hoso-mincho). | Headings use Mincho or Japanese Gothic, sometimes heavier weight. A Gothic face in Mincho text is a common emphasis method; italic and bold are not in the list of emphasis methods.",https://w3c.github.io/jlreq/#font_selection_and_font_size_of_heading ; https://w3c.github.io/jlreq/#terminology ; https://r12a.github.io/scripts/jpan/ja.html#emphasis
+Jpan,Japanese,Font size,numeric,Body 9 pt common; minimum 8 pt,"Generally 9 pt (≈3.2 mm) is common; except for dictionaries etc., the minimum is 8 pt (≈2.8 mm). | JLReq contrasts this with Western layout, where 10 or 12 pt is common, because of differences in letter design. | Headings e.g. 10/12/14 pt for 9 pt body; or a constant 15–20% step.",https://w3c.github.io/jlreq/#considerations_in_designing_the_kihonhanmen ; https://w3c.github.io/jlreq/#font_selection_and_font_size_of_heading
+Jpan,Japanese,Contrast,no-data,No data,,
+Jpan,Japanese,Letter aspect ratio,convention,"Square character frame; letter face smaller, centred",Kanji and kana share square frames of equal size; a smaller centred letter face holds the glyph. Size is measured by the frame. Small kana are offset within the frame.,https://w3c.github.io/jlreq/#kanji_hiragana_and_katakana
+Jpan,Japanese,Text decoration,convention,"Below (horizontal) / right (vertical), just outside the character box","Underlines may be used for emphasis. Lines appear below horizontal text and right of vertical text (unlike Chinese), immediately outside the character box. | Boten (emphasis dots) go above characters in horizontal text and right in vertical text.",https://r12a.github.io/scripts/jpan/ja.html#text_decoration ; https://r12a.github.io/scripts/jpan/ja.html#emphasis
+Jpan,Japanese,Letter spacing,numeric,Solid setting (0) for body; ¼ em gap next to Latin/numerals,"Body text is set solid (no extra space between character frames); this is the most reader-friendly approach. | Fixed inter-character spacing is used for short running heads, headings, captions, short poetry. Tsumegumi (negative spacing) is rare in books, used for large headings. | JLReq suggests a ¼ em gap between kanji/kana and Latin/numerals.",https://w3c.github.io/jlreq/#principles_of_arrangement_of_kanji_and_kana_characters ; https://r12a.github.io/scripts/jpan/ja.html#letterspace
+Jpan,Japanese,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Jpan,Japanese,End-of-line hyphenation,not-used,No hyphenation; wraps between characters,There is no hyphenation at line-breaks for Japanese text.,https://r12a.github.io/scripts/jpan/ja.html#linebreak
+Jpan,Japanese,Line spacing,numeric,Line gap ½–1 em; ≈1 em when line > 35 chars; not above 1 em,The line gap is commonly between half-em and one-em of the character frame. Half-em suits short lines; one em or close to it is better above 35 characters per line. | A line gap larger than full-width decreases legibility unless ruby/annotations need the space. | JLReq notes the Western standard line gap is said to be ⅓ em.,https://w3c.github.io/jlreq/#considerations_in_designing_the_kihonhanmen
+Jpan,Japanese,Paragraph spacing,numeric,Space between paragraphs = line gap; 1 em first-line indent,"The space between paragraphs is usually the same as the line gap. Paragraphs are marked by a one-em first-line indent, used in nearly all books and magazines. | Understanding 1.4.12 notes that Japanese does not use spacing following paragraphs.",https://w3c.github.io/jlreq/#processing_of_spaces_between_paragraphs ; https://w3c.github.io/jlreq/#line_head_indent_at_the_beginning_of_paragraphs ; https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html
+Jpan,Japanese,Line length,numeric,Max ≈40 chars horizontal / ≈52 vertical,The best line length is around 52 characters maximum (vertical) and 40 maximum (horizontal); use columns if the page would exceed this. | Line length should be a multiple of the character size.,https://w3c.github.io/jlreq/#considerations_in_designing_the_kihonhanmen
+Jpan,Japanese,Padding (text containers),convention,Text area set in characters × lines; margins are what remains,Japanese text areas are usually defined by width and height in characters and lines; margins are determined from what remains of the page. | The text area shape should be similar to the trim size.,https://r12a.github.io/scripts/jpan/ja.html#generallayout ; https://w3c.github.io/jlreq/#considerations_in_designing_the_kihonhanmen ; https://w3c.github.io/jlreq/#elements_of_kihonhanmen
+Khmr,Khmer,Font face / weight,no-data,No data,,
+Khmr,Khmer,Font size,no-data,No data,,
+Khmr,Khmer,Contrast,no-data,No data,,
+Khmr,Khmer,Letter aspect ratio,convention,Basic letters between Latin x-height and ascender (font-dependent),Basic letter height is around Latin ascender height in one Noto font and around x-height in the other; extenders and marks go well beyond Latin ascenders/descenders.,https://r12a.github.io/scripts/khmr/km.html#baselines
+Khmr,Khmer,Text decoration,no-data,No data,,
+Khmr,Khmer,Letter spacing,no-data,No data,,
+Khmr,Khmer,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Khmr,Khmer,End-of-line hyphenation,convention,Break at word boundaries; not at sub-word syllables,Line-breaks are expected at word boundaries (no spaces between words). Text is not broken at sub-word syllable boundaries. ZWSP/WJ control breaks.,https://r12a.github.io/scripts/khmr/km.html#linebreak
+Khmr,Khmer,Line spacing,convention,Larger than Latin,Extenders and combining marks create a need for larger line spacing.,https://r12a.github.io/scripts/khmr/km.html#baselines
+Khmr,Khmer,Paragraph spacing,no-data,No data,,
+Khmr,Khmer,Line length,no-data,No data,,
+Khmr,Khmer,Padding (text containers),no-data,No data,,
+Knda,Kannada,Font face / weight,no-data,No data,,
+Knda,Kannada,Font size,no-data,No data,,
+Knda,Kannada,Contrast,no-data,No data,,
+Knda,Kannada,Letter aspect ratio,no-data,No data,,
+Knda,Kannada,Text decoration,no-data,No data,,
+Knda,Kannada,Letter spacing,no-data,No data,,
+Knda,Kannada,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Knda,Kannada,End-of-line hyphenation,no-data,No data,,
+Knda,Kannada,Line spacing,no-data,No data,,
+Knda,Kannada,Paragraph spacing,no-data,No data,,
+Knda,Kannada,Line length,no-data,No data,,
+Knda,Kannada,Padding (text containers),no-data,No data,,
+Laoo,Lao,Font face / weight,convention,Italic for captions and quotations,Italicised text observed for figure captions and quotations.,https://r12a.github.io/scripts/laoo/lo.html#fontstyle
+Laoo,Lao,Font size,no-data,No data,,
+Laoo,Lao,Contrast,no-data,No data,,
+Laoo,Lao,Letter aspect ratio,convention,Basic letters slightly above Latin x-height,Basic height slightly above Latin x-height; stacked marks reach well beyond Latin ascenders/descenders.,https://r12a.github.io/scripts/laoo/lo.html#baselines
+Laoo,Lao,Text decoration,no-data,No data,,
+Laoo,Lao,Letter spacing,no-data,No data,,
+Laoo,Lao,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Laoo,Lao,End-of-line hyphenation,no-data,No data,,
+Laoo,Lao,Line spacing,convention,Larger than Latin; Lao adds more interline spacing,Stacked vowel and tone marks need higher vertical resolution; Lao also tends to add more interline spacing than Latin.,https://r12a.github.io/scripts/laoo/lo.html#baselines
+Laoo,Lao,Paragraph spacing,no-data,No data,,
+Laoo,Lao,Line length,no-data,No data,,
+Laoo,Lao,Padding (text containers),no-data,No data,,
+Latn,Latin,Font face / weight,no-data,No data,,
+Latn,Latin,Font size,numeric,10–12 pt common in Western layout (per JLReq),JLReq states that in Western text layout 10 pt (≈3.5 mm) or 12 pt (≈4.2 mm) type is common. No Latin-specific requirements document was found.,https://w3c.github.io/jlreq/#considerations_in_designing_the_kihonhanmen
+Latn,Latin,Contrast,no-data,No data,,
+Latn,Latin,Letter aspect ratio,no-data,No data,,
+Latn,Latin,Text decoration,no-data,No data,,
+Latn,Latin,Letter spacing,convention,Justification by interword spacing,Principal justification opportunities are inter-word spaces (Kurmanji).,https://r12a.github.io/scripts/latn/kmr.html#justification
+Latn,Latin,Capitalization,convention,Bicameral; language-specific casing rules exist,Turkish (and other Turkic languages using Turkish casing rules) map dotted/dotless i differently from English. | Dutch capitalises word-initial ij as IJ.,https://drafts.csswg.org/css-text-3/#text-transform-property ; https://w3c.github.io/typography/gap-analysis/latn-nl.html
+Latn,Latin,End-of-line hyphenation,convention,Hyphenation used; practice varies by language,"Hyphenation practices vary: hyphen before the break, after it, both, a different character, or spelling changes (CSS Text 3 examples: English, Dutch, Hungarian).",https://drafts.csswg.org/css-text-3/#hyphenation
+Latn,Latin,Line spacing,numeric,Line gap ≈ ⅓ em (per JLReq),JLReq: ‘It is said that the standard line-gap in Western text layout is one third em’. Kurmanji line height is the same as other simple Latin orthographies.,https://w3c.github.io/jlreq/#considerations_in_designing_the_kihonhanmen ; https://r12a.github.io/scripts/latn/kmr.html#baselines
+Latn,Latin,Paragraph spacing,no-data,No data,,
+Latn,Latin,Line length,no-data,No data,,
+Latn,Latin,Padding (text containers),no-data,No data,,
+Mlym,Malayalam,Font face / weight,no-data,No data,,
+Mlym,Malayalam,Font size,no-data,No data,,
+Mlym,Malayalam,Contrast,no-data,No data,,
+Mlym,Malayalam,Letter aspect ratio,convention,Basic letters ≈ Latin x-height,Basic letter height around Latin x-height; extenders slightly beyond Latin ascenders/descenders.,https://r12a.github.io/scripts/mlym/ml.html#baselines
+Mlym,Malayalam,Text decoration,no-data,No data,,
+Mlym,Malayalam,Letter spacing,no-data,No data,,
+Mlym,Malayalam,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Mlym,Malayalam,End-of-line hyphenation,convention,In-word breaks very common; usually no visible marker,"Long agglutinative words make in-word breaks very common, especially in newsprint. Breaks are mostly at syllable boundaries and usually have no visual marker.",https://r12a.github.io/scripts/mlym/ml.html#linebreak
+Mlym,Malayalam,Line spacing,convention,Slightly more than Latin,Creates a need for slightly larger line spacing.,https://r12a.github.io/scripts/mlym/ml.html#baselines
+Mlym,Malayalam,Paragraph spacing,no-data,No data,,
+Mlym,Malayalam,Line length,no-data,No data,,
+Mlym,Malayalam,Padding (text containers),no-data,No data,,
+Mong,Mongolian,Font face / weight,not-used,No italics,"Mongolian has no concept of italics. If synthesised, vertical text tilts clockwise.",https://w3c.github.io/mlreq/#h_letterforms
+Mong,Mongolian,Font size,no-data,No data,,
+Mong,Mongolian,Contrast,no-data,No data,,
+Mong,Mongolian,Letter aspect ratio,convention,Smaller than Chinese/Japanese at the same font size,At the same font size Mongolian appears smaller than Chinese or Japanese; numbers appear slightly larger than Mongolian.,https://w3c.github.io/mlreq/#mixed_arrangement_cjk ; https://w3c.github.io/mlreq/#mixed_arrangement_alphanum
+Mong,Mongolian,Text decoration,convention,Right line = underline; left line = overline; centred strikethrough,"In vertical text the ‘right line’ functions like an underline and the ‘left line’ like an overline; strikethrough is baseline-centred. | Lines may skip inter-word spaces but must not skip the gaps before suffixes (U+202F, U+180E).",https://w3c.github.io/mlreq/#h_text_decor
+Mong,Mongolian,Letter spacing,not-used,Cursive script: no letter spacing,CSS Text 3 lists Mongolian as a cursive script that does not admit gaps between letters.,https://drafts.csswg.org/css-text-3/#cursive-script
+Mong,Mongolian,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Mong,Mongolian,End-of-line hyphenation,convention,Words not broken; hyphenated compounds break with the hyphen moved to the next line,"Words are not normally broken. Compounds may break at a hyphen, which moves to the next line; Unicode provides U+1806 for this.",https://r12a.github.io/scripts/mong/mn.html#linebreak ; https://w3c.github.io/mlreq/#h_line_breaking
+Mong,Mongolian,Line spacing,no-data,No data,,
+Mong,Mongolian,Paragraph spacing,convention,Indent or paragraph leading; no standard amount,A new paragraph may be signalled by first-line indentation or by paragraph leading. MLReq: there is no clear standard for indentation amount.,https://r12a.github.io/scripts/mong/mn.html#justification ; https://w3c.github.io/mlreq/#first_line_indents
+Mong,Mongolian,Line length,no-data,No data,,
+Mong,Mongolian,Padding (text containers),convention,Bound on the left; columns run horizontally; landscape pages common,Books are bound on the left. Columns run horizontally. Landscape orientation is common.,https://r12a.github.io/scripts/mong/mn.html#generallayout
+Mymr,Myanmar,Font face / weight,convention,Italic for quotations and titles,Italicisation observed in Wikipedia for quotations and publication titles.,https://r12a.github.io/scripts/mymr/my.html#fontstyle
+Mymr,Myanmar,Font size,no-data,No data,,
+Mymr,Myanmar,Contrast,no-data,No data,,
+Mymr,Myanmar,Letter aspect ratio,convention,Basic letters ≈ Latin x-height,Basic height around Latin x-height; overall height and marks extend beyond Latin.,https://r12a.github.io/scripts/mymr/my.html#baselines
+Mymr,Myanmar,Text decoration,no-data,No data,,
+Mymr,Myanmar,Letter spacing,convention,Justification starts with inter-phrase spacing,Justification may begin by adjusting inter-phrase spacing.,https://r12a.github.io/scripts/mymr/my.html#justification
+Mymr,Myanmar,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Mymr,Myanmar,End-of-line hyphenation,convention,"Break at syllable boundaries outside words, or at phrases",Breaks can occur at syllable boundaries but not within a word; a common approach breaks at phrase boundaries.,https://r12a.github.io/scripts/mymr/my.html#linebreak
+Mymr,Myanmar,Line spacing,convention,Larger than Latin,Burmese requires more vertical space than Latin.,https://r12a.github.io/scripts/mymr/my.html#baselines
+Mymr,Myanmar,Paragraph spacing,no-data,No data,,
+Mymr,Myanmar,Line length,no-data,No data,,
+Mymr,Myanmar,Padding (text containers),no-data,No data,,
+Nkoo,N’Ko,Font face / weight,convention,Bold common for emphasis; italic leans left,Authors commonly use bold and sometimes italics for emphasis. The community chose a left-leaning italic.,https://r12a.github.io/scripts/nkoo/nqo.html#fontstyle ; https://r12a.github.io/scripts/nkoo/nqo.html#emphasis
+Nkoo,N’Ko,Font size,no-data,No data,,
+Nkoo,N’Ko,Contrast,no-data,No data,,
+Nkoo,N’Ko,Letter aspect ratio,convention,Basic letters ≈ Latin cap-height,"Letters are relatively uniform in height with no descenders, around Latin cap-height.",https://r12a.github.io/scripts/nkoo/nqo.html#baselines
+Nkoo,N’Ko,Text decoration,no-data,No data,,
+Nkoo,N’Ko,Letter spacing,not-used,"Cursive: stretch with U+07FA, not letter spacing",Text may be stretched like Arabic using ߺ (U+07FA) for fitting or headings. CSS Text 3 lists N’Ko as a cursive script.,https://r12a.github.io/scripts/nkoo/nqo.html#spacing ; https://drafts.csswg.org/css-text-3/#cursive-script
+Nkoo,N’Ko,Capitalization,not-used,No case,There is no upper vs. lowercase distinction.,https://r12a.github.io/scripts/nkoo/nqo.html#baselines
+Nkoo,N’Ko,End-of-line hyphenation,convention,In-word breaks with U+002D at line end,"Lines can break inside a word, adding U+002D HYPHEN-MINUS at line end.",https://r12a.github.io/scripts/nkoo/nqo.html#linebreak
+Nkoo,N’Ko,Line spacing,convention,Larger than Latin,Combining marks and the dorome sign reach beyond Latin ascenders.,https://r12a.github.io/scripts/nkoo/nqo.html#baselines
+Nkoo,N’Ko,Paragraph spacing,no-data,No data,,
+Nkoo,N’Ko,Line length,no-data,No data,,
+Nkoo,N’Ko,Padding (text containers),convention,Mirror of left-to-right layouts,"An N’Ko web page should be the mirror image of a page in, say, French, including navigation and panels.",https://r12a.github.io/scripts/nkoo/nqo.html#generallayout
+Orya,Odia,Font face / weight,no-data,No data,,
+Orya,Odia,Font size,no-data,No data,,
+Orya,Odia,Contrast,no-data,No data,,
+Orya,Odia,Letter aspect ratio,no-data,No data,,
+Orya,Odia,Text decoration,no-data,No data,,
+Orya,Odia,Letter spacing,no-data,No data,,
+Orya,Odia,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Orya,Odia,End-of-line hyphenation,no-data,No data,Lines are mostly broken at inter-word spaces; hyphenation is not described.,https://r12a.github.io/scripts/orya/or.html#linebreak
+Orya,Odia,Line spacing,no-data,No data,,
+Orya,Odia,Paragraph spacing,no-data,No data,,
+Orya,Odia,Line length,no-data,No data,,
+Orya,Odia,Padding (text containers),no-data,No data,,
+Osge,Osage,Font face / weight,no-data,No data,,
+Osge,Osage,Font size,no-data,No data,,
+Osge,Osage,Contrast,no-data,No data,,
+Osge,Osage,Letter aspect ratio,convention,Same metrics as Latin,All metrics are about the same as Latin (Noto Sans Osage).,https://r12a.github.io/scripts/osge/osa.html#baselines
+Osge,Osage,Text decoration,no-data,No data,,
+Osge,Osage,Letter spacing,no-data,No data,,
+Osge,Osage,Capitalization,convention,Bicameral,Osage is bicameral.,https://r12a.github.io/scripts/osge/osa.html#transforms
+Osge,Osage,End-of-line hyphenation,no-data,No data,,
+Osge,Osage,Line spacing,convention,Same as Latin,Metrics match Latin.,https://r12a.github.io/scripts/osge/osa.html#baselines
+Osge,Osage,Paragraph spacing,no-data,No data,,
+Osge,Osage,Line length,no-data,No data,,
+Osge,Osage,Padding (text containers),no-data,No data,,
+Sinh,Sinhala,Font face / weight,no-data,No data,,
+Sinh,Sinhala,Font size,no-data,No data,,
+Sinh,Sinhala,Contrast,no-data,No data,,
+Sinh,Sinhala,Letter aspect ratio,convention,Basic letters just above Latin x-height,Basic height marginally higher than Latin x-height; tall letters may be reshaped to avoid large extensions.,https://r12a.github.io/scripts/sinh/si.html#baselines
+Sinh,Sinhala,Text decoration,no-data,No data,,
+Sinh,Sinhala,Letter spacing,no-data,No data,,
+Sinh,Sinhala,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Sinh,Sinhala,End-of-line hyphenation,no-data,No data,,
+Sinh,Sinhala,Line spacing,convention,Slightly more than Latin,Combining marks reach a little beyond Latin ascenders.,https://r12a.github.io/scripts/sinh/si.html#baselines
+Sinh,Sinhala,Paragraph spacing,no-data,No data,,
+Sinh,Sinhala,Line length,no-data,No data,,
+Sinh,Sinhala,Padding (text containers),no-data,No data,,
+Sund,Sundanese,Font face / weight,no-data,No data,,
+Sund,Sundanese,Font size,no-data,No data,,
+Sund,Sundanese,Contrast,no-data,No data,,
+Sund,Sundanese,Letter aspect ratio,convention,Basic letters ≈ Latin cap-height,Basic height around Latin cap-height; marks above exceed Latin ascenders.,https://r12a.github.io/scripts/sund/su.html#baselines
+Sund,Sundanese,Text decoration,no-data,No data,,
+Sund,Sundanese,Letter spacing,no-data,No data,,
+Sund,Sundanese,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Sund,Sundanese,End-of-line hyphenation,convention,Hyphenation after full syllables (no details),"According to Everson, hyphenation can occur after any full orthographic syllable; no further details.",https://r12a.github.io/scripts/sund/su.html#linebreak
+Sund,Sundanese,Line spacing,convention,Larger than Latin,Marks above reach beyond Latin ascenders.,https://r12a.github.io/scripts/sund/su.html#baselines
+Sund,Sundanese,Paragraph spacing,no-data,No data,,
+Sund,Sundanese,Line length,no-data,No data,,
+Sund,Sundanese,Padding (text containers),no-data,No data,,
+Taml,Tamil,Font face / weight,not-used,Italic and bold not traditional,Italics and bold are not traditional features of Tamil text; some fonts are slightly slanted.,https://r12a.github.io/scripts/taml/ta.html#fontstyle
+Taml,Tamil,Font size,no-data,No data,,
+Taml,Tamil,Contrast,no-data,No data,,
+Taml,Tamil,Letter aspect ratio,convention,Basic letters = Latin x-height,Basic Tamil letter height is the same as Latin x-height (Noto Serif).,https://r12a.github.io/scripts/taml/ta.html#baselines
+Taml,Tamil,Text decoration,not-used,Underline not traditional,Underlining is not a traditional feature of Tamil text.,https://r12a.github.io/scripts/taml/ta.html#emphasis
+Taml,Tamil,Letter spacing,no-data,No data,,
+Taml,Tamil,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Taml,Tamil,End-of-line hyphenation,convention,Useful for long words; at syllable boundaries; hyphen usually not shown,Hyphenation must be at syllable boundaries; a hyphen is not usually added at line end.,https://r12a.github.io/scripts/taml/ta.html#linebreak
+Taml,Tamil,Line spacing,convention,Slightly more than Latin,"Extenders go slightly beyond Latin, creating a need for slightly larger line heights.",https://r12a.github.io/scripts/taml/ta.html#baselines
+Taml,Tamil,Paragraph spacing,no-data,No data,,
+Taml,Tamil,Line length,no-data,No data,,
+Taml,Tamil,Padding (text containers),no-data,No data,,
+Telu,Telugu,Font face / weight,no-data,No data,,
+Telu,Telugu,Font size,no-data,No data,,
+Telu,Telugu,Contrast,no-data,No data,,
+Telu,Telugu,Letter aspect ratio,no-data,No data,,
+Telu,Telugu,Text decoration,no-data,No data,,
+Telu,Telugu,Letter spacing,no-data,No data,,
+Telu,Telugu,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Telu,Telugu,End-of-line hyphenation,convention,In-word breaks very common; hyphen observed (InDesign),"In-word breaks are very common, especially in newsprint, mostly at syllable boundaries. InDesign adds a hyphen at line end.",https://r12a.github.io/scripts/telu/te.html#linebreak
+Telu,Telugu,Line spacing,no-data,No data,,
+Telu,Telugu,Paragraph spacing,no-data,No data,,
+Telu,Telugu,Line length,no-data,No data,,
+Telu,Telugu,Padding (text containers),no-data,No data,,
+Thai,Thai,Font face / weight,convention,"Bold for inline emphasis; italic for whole blocks (captions, by-lines)","Bold is used for emphasis and names; italic is applied to whole paragraphs (captions, by-lines, standfirsts) and direct speech.",https://r12a.github.io/scripts/thai/th.html#fontstyle
+Thai,Thai,Font size,no-data,No data,,
+Thai,Thai,Contrast,no-data,No data,,
+Thai,Thai,Letter aspect ratio,convention,Basic letters ≈ Latin x-height (Noto) or between x- and cap-height,Basic height around Latin x-height in Noto; in other fonts between x-height and cap-height.,https://r12a.github.io/scripts/thai/th.html#baselines
+Thai,Thai,Text decoration,no-data,No data,,
+Thai,Thai,Letter spacing,convention,Inter-character spacing used in justification of narrow columns,Justification primarily adjusts spaces between phrases; inter-character spacing is used mostly in narrow columns.,https://r12a.github.io/scripts/thai/th.html#justification
+Thai,Thai,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Thai,Thai,End-of-line hyphenation,convention,Wraps at word boundaries (dictionary); hyphenation not described,Thai wraps at word boundaries found by dictionary lookup; the notes do not describe hyphenation.,https://r12a.github.io/scripts/thai/th.html#linebreak
+Thai,Thai,Line spacing,convention,Larger than Latin; Thai adds more interline spacing,Stacked marks need higher vertical resolution; Thai tends to add more interline spacing than Latin.,https://r12a.github.io/scripts/thai/th.html#baselines
+Thai,Thai,Paragraph spacing,no-data,No data,,
+Thai,Thai,Line length,no-data,No data,,
+Thai,Thai,Padding (text containers),no-data,No data,,
+Tibt,Tibetan,Font face / weight,convention,Bold/italic not traditional; bold now seen,Tibetan never had bold or italic until bold was introduced for books; modern texts appear to use bolding.,https://r12a.github.io/scripts/tibt/bo.html#fontstyle ; https://r12a.github.io/scripts/tibt/bo.html#emphasis
+Tibt,Tibetan,Font size,numeric,Pecha: smaller text ≥ 20 pt; standard 27–30 pt,Traditional pechas have two sizes: the smaller does not usually go below 20 pt; the larger (standard) is around 27–30 pt.,https://r12a.github.io/scripts/tibt/bo.html#generallayout
+Tibt,Tibetan,Contrast,no-data,No data,,
+Tibt,Tibetan,Letter aspect ratio,convention,Hanging baseline between Latin x-height and ascender,The hanging baseline falls between Latin ascender and x-height.,https://r12a.github.io/scripts/tibt/bo.html#baselines
+Tibt,Tibetan,Text decoration,no-data,No data,,
+Tibt,Tibetan,Letter spacing,convention,Equal inter-character spacing is a justification method,One justification method adapts spacing between all characters equally; another pads with tsheg.,https://r12a.github.io/scripts/tibt/bo.html#justification
+Tibt,Tibetan,Capitalization,not-used,No case,The script has no case mappings in the Unicode Character Database 15.1.,https://www.unicode.org/Public/15.1.0/ucd/
+Tibt,Tibetan,End-of-line hyphenation,not-used,No hyphenation; breaks after tsheg,Tibetan never breaks inside a syllable and has no hyphenation; lines break after ་.,https://r12a.github.io/scripts/tibt/bo.html#linebreak
+Tibt,Tibetan,Line spacing,convention,Larger than Latin,Stacked consonants and marks need higher vertical resolution than English.,https://r12a.github.io/scripts/tibt/bo.html#baselines
+Tibt,Tibetan,Paragraph spacing,convention,First-line indent may be used,Modern publications use paragraphs; the first line may be indented.,https://r12a.github.io/scripts/tibt/bo.html#generallayout
+Tibt,Tibetan,Line length,no-data,No data,,
+Tibt,Tibetan,Padding (text containers),convention,Pecha text sits in a (visible or invisible) box defining the margin,In pechas text is written inside a visible box defining the page margin; in recent publications it may be invisible.,https://r12a.github.io/scripts/tibt/bo.html#generallayout
