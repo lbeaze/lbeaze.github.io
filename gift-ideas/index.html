@@ -66,10 +66,6 @@ a{color:inherit}
 /* Header */
 .top{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:.75rem 1.5rem;padding-top:1.25rem;padding-bottom:1.25rem}
 .theme{display:flex;align-items:center;gap:.5rem;font-size:.875rem;font-weight:500;color:var(--muted)}
-.lock{font:inherit;font-size:.875rem;font-weight:700;color:var(--fg);background:transparent;border:1px solid var(--btn-line);border-radius:.75rem;
-  min-height:2.75rem;padding:0 1rem;cursor:pointer}
-.lock:hover{border-color:var(--accent);color:var(--accent)}
-.lock[hidden]{display:none}
 .theme select{font:inherit;font-weight:700;color:var(--fg);background:var(--card);border:1px solid var(--btn-line);border-radius:.75rem;
   min-height:2.75rem;padding:0 .75rem;cursor:pointer}
 
@@ -139,7 +135,6 @@ footer :focus-visible{outline-color:var(--foot-fg)}
 <a class="skip" href="#main">Skip to gift lists</a>
 
 <header class="top pad inner">
-  <button type="button" id="lock" class="lock" hidden>Lock private lists</button>
   <label class="theme">Theme
     <select id="theme">
       <option value="system">System</option>
@@ -198,7 +193,7 @@ footer :focus-visible{outline-color:var(--foot-fg)}
                        Left out = a Google Shopping search for the name.
      link    optional  A button for another shop: link: { label: "Home Depot", url: "https://..." }
    Set  amazon: false  or  google: false  to leave that button off.
-   Add  private: true  to a person to hide their list (see PRIVATE LISTS below).
+   Add  private: true  to a person to show their list only by link (see PRIVATE LISTS below).
    ====================================================================== */
 const LISTS = [
   {
@@ -236,7 +231,7 @@ const LISTS = [
       { name: "Food dehydrator", price: "$60–$180" },
       { name: "Hey Dudes", price: "$55–$70", amazon: false, link: { label: "HeyDude", url: "https://www.heydude.com/c/men/men-footwear" } },
       { name: "BILT HARD 40-ton Wood splitter", amazon: false, price: "$1,999–$3,999" image: "https://bilthardusa.com/cdn/shop/files/1_9d4d372c-7b0d-45e5-b606-1cdcd04cbc50.jpg" link: { label: "BILT HARD", url: "https://bilthardusa.com/products/40-ton-full-beam-gas-log-splitter-13hp-389cc-ohv-engine-23-stroke" } },
-      { name: "Any special edition Converse", price: "$60–$70" },
+      { name: "Any special edition Converse", price: "$60–$1,000", image: url: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQegY5sqLF6Q6_ffXCCV6B_r2WD7wPYzo3HPbkZvmVYuf1xtuxbowBe7T03mDvJkuWj0jSarh9G0Q3RuxEmh7NP-O7PXdpcTKqHHiueYhgAeSSeunHoU49A4ak" },
       { name: "Alma Cofee: 5lb bag of Soulmate", price: "$99", amazon:false, image: "https://myalmacoffee.com/cdn/shop/files/Soulmate_-new_webprofile_1.png", link: { label: "Alma Coffee", url: "https://myalmacoffee.com/products/soulmate?variant=22975542165562"} }
       { name: "BULLIANT men's ratchet leather belt, 1 3/8 inch", price: "About $6", note: "Gift boxed", image: "https://m.media-amazon.com/images/I/71HZBE4QZPL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B0H7XC1FW5" },
       { name: "AA batteries for his deer feeders", price: "$13–$21", note: "He needs 8 in each feeder" },
@@ -256,18 +251,19 @@ const LISTS = [
 
 /* ======================================================================
    PRIVATE LISTS.
-   Lists marked  private: true  are left off the page unless it is opened
-   with the phrase below at the end of the address:
+   Lists without  private: true  (Cara, Len) always show.
+   A list marked  private: true  shows only when its person's name is
+   at the end of the address, or with #all:
 
-       https://lenbeasley.com/gift-ideas/#open=everyone
+       https://lenbeasley.com/gift-ideas/#randy      Cara, Len and Randy
+       https://lenbeasley.com/gift-ideas/#don-meany  Cara, Len and Don Meany
+       https://lenbeasley.com/gift-ideas/#all        every list
 
-   Capitals, spaces and punctuation are ignored, so "Everyone"
-   and "EVERYONE" work too. Once opened, that browser keeps
-   showing the private lists until "Lock private lists" is pressed.
-   Changing the phrase locks every browser again.
+   Capitals, spaces and punctuation are ignored, so #Randy, #DonMeany
+   and #don-meany all work. Nothing is remembered: each address shows
+   what its ending asks for.
    This only keeps the lists out of sight. They are still in this file.
    ====================================================================== */
-const UNLOCK_PHRASE = "everyone";
 
 (function () {
   "use strict";
@@ -339,35 +335,32 @@ const UNLOCK_PHRASE = "everyone";
 
   var tablist = document.getElementById("tabs");
   var panels = document.getElementById("panels");
-  var lockBtn = document.getElementById("lock");
   var heading = document.getElementById("lists-heading");
   var tabs = [];
-  var KEY = "gift-open";
 
   function norm(v) { return String(v).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ""); }
-  function stored() { try { return localStorage.getItem(KEY) || ""; } catch (e) { return ""; } }
-  function isOpen() { return norm(UNLOCK_PHRASE) !== "" && stored() === norm(UNLOCK_PHRASE); }
-  /* Returns true when the address carried the right phrase. The phrase is then removed from the address bar. */
-  function readKey() {
-    var m = /^#open=(.*)$/.exec(location.hash);
-    if (!m) return false;
-    var given = m[1];
-    try { given = decodeURIComponent(given); } catch (e) {}
-    var ok = norm(UNLOCK_PHRASE) !== "" && norm(given) === norm(UNLOCK_PHRASE);
-    if (ok) { try { localStorage.setItem(KEY, norm(UNLOCK_PHRASE)); } catch (e) {} }
-    try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
-    return ok;
+  function hashKey() {
+    var h = location.hash.slice(1);
+    try { h = decodeURIComponent(h); } catch (e) {}
+    return norm(h);
   }
 
-  function build(showPrivate) {
+  /* Reads the address ending and draws the tabs it asks for. */
+  function build() {
+    var key = hashKey();
+    var all = key === "all";
     tablist.textContent = "";
     panels.textContent = "";
     tabs = [];
     var used = {};
-    LISTS.filter(function (list) { return showPrivate || !list.private; }).forEach(function (list, i) {
+    var start = 0;
+    LISTS.filter(function (list) {
+      return !list.private || all || norm(list.person) === key;
+    }).forEach(function (list, i) {
       var id = slug(list.person) || "list-" + (i + 1);
       while (used[id]) id += "-" + (i + 1);
       used[id] = true;
+      if (key && norm(list.person) === key) start = i;
 
       var tab = el("button", { type: "button", role: "tab", id: "tab-" + id, "aria-controls": id, "aria-selected": "false", tabindex: "-1", text: list.person });
       var panel = el("div", { role: "tabpanel", id: id, "aria-labelledby": "tab-" + id, hidden: "" });
@@ -377,7 +370,7 @@ const UNLOCK_PHRASE = "everyone";
         panel.setAttribute("tabindex", "0");
         panel.appendChild(el("p", { class: "empty", text: "No ideas here yet." }));
       }
-      tab.addEventListener("click", function () { select(i, false, true); });
+      tab.addEventListener("click", function () { select(i, false); });
       tab.addEventListener("keydown", function (e) {
         var n = tabs.length, next = null;
         if (e.key === "ArrowRight") next = (i + 1) % n;
@@ -386,20 +379,17 @@ const UNLOCK_PHRASE = "everyone";
         else if (e.key === "End") next = n - 1;
         if (next === null) return;
         e.preventDefault();
-        select(next, true, true);
+        select(next, true);
       });
       tablist.appendChild(tab);
       panels.appendChild(panel);
       tabs.push({ tab: tab, panel: panel, id: id });
     });
-    lockBtn.hidden = !showPrivate;
-    if (tabs.length) {
-      var start = fromHash();
-      select(start < 0 ? 0 : start, false, false);
-    }
+    if (tabs.length) select(start, false);
   }
 
-  function select(index, focus, updateHash) {
+  /* Switching tabs leaves the address alone, so a shared link keeps its tabs on reload. */
+  function select(index, focus) {
     tabs.forEach(function (t, j) {
       var on = j === index;
       t.tab.setAttribute("aria-selected", on ? "true" : "false");
@@ -408,28 +398,10 @@ const UNLOCK_PHRASE = "everyone";
     });
     heading.textContent = tabs[index].tab.textContent;
     if (focus) tabs[index].tab.focus();
-    if (updateHash) {
-      try { history.replaceState(null, "", "#" + tabs[index].id); } catch (e) {}
-    }
   }
-  function fromHash() {
-    var h = decodeURIComponent(location.hash.slice(1));
-    for (var j = 0; j < tabs.length; j++) if (tabs[j].id === h) return j;
-    return -1;
-  }
-  var opened = readKey() || isOpen();
-  build(opened);
-  window.addEventListener("hashchange", function () {
-    if (readKey()) { build(true); return; }
-    var j = fromHash();
-    if (j >= 0) select(j, false, false);
-  });
-  lockBtn.addEventListener("click", function () {
-    try { localStorage.removeItem(KEY); } catch (e) {}
-    try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
-    build(false);
-    if (tabs.length) tabs[0].tab.focus();
-  });
+
+  build();
+  window.addEventListener("hashchange", build);
 
   /* Theme: "system" removes the override so the browser/OS setting applies. */
   var picker = document.getElementById("theme");
