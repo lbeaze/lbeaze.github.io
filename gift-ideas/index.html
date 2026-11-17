@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gift ideas</title>
+<meta name="description" content="Gift ideas by person, with price ranges and shopping links.">
+<meta name="color-scheme" content="light dark">
+<script>
+/* Apply a saved theme choice before first paint. No saved choice = follow the system. */
+(function () {
+  try {
+    var t = localStorage.getItem("gift-theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=DM+Serif+Display:ital@0;1&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f8f6ef;--band:#eeeae0;--fg:#24211f;--muted:#5e5a55;--line:#d5d0c6;
+  --card:#f8f6ef;--img:#ddd8cd;--img-icon:#6f6a62;
+  --track:#dad5ca;--tab-on:#ffffff;--tab-off:#4f4b46;
+  --accent:#6046d7;--squiggle:#ed725d;--mark:#f4d03f;--mark-fg:#24211f;
+  --btn:#24211f;--btn-fg:#ffffff;--btn-line:#8a847a;
+  --foot:#6046d7;--foot-fg:#ffffff;--foot-muted:#e4defc;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#171513;--band:#1f1c19;--fg:#f1ede4;--muted:#b9b3a9;--line:#3d3832;
+  --card:#26221e;--img:#332e29;--img-icon:#a39c91;
+  --track:#2d2925;--tab-on:#4a433b;--tab-off:#c9c3b9;
+  --accent:#b5a6ff;--squiggle:#f08a77;--mark:#f4d03f;--mark-fg:#24211f;
+  --btn:#f1ede4;--btn-fg:#171513;--btn-line:#8d867b;
+  --foot:#2c2163;--foot-fg:#ffffff;--foot-muted:#d5cdfa;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#171513;--band:#1f1c19;--fg:#f1ede4;--muted:#b9b3a9;--line:#3d3832;
+  --card:#26221e;--img:#332e29;--img-icon:#a39c91;
+  --track:#2d2925;--tab-on:#4a433b;--tab-off:#c9c3b9;
+  --accent:#b5a6ff;--squiggle:#f08a77;--mark:#f4d03f;--mark-fg:#24211f;
+  --btn:#f1ede4;--btn-fg:#171513;--btn-line:#8d867b;
+  --foot:#2c2163;--foot-fg:#ffffff;--foot-muted:#d5cdfa;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:100%;scroll-behavior:smooth}
+body{margin:0;min-width:320px;background:var(--bg);color:var(--fg);
+  font:1rem/1.6 "DM Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  text-rendering:optimizeLegibility;overflow-wrap:break-word}
+::selection{background:var(--mark);color:var(--mark-fg)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.skip{position:fixed;left:1rem;top:1rem;z-index:50;transform:translateY(-6rem);background:var(--btn);color:var(--btn-fg);
+  padding:.75rem 1.25rem;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .15s}
+.skip:focus{transform:none}
+.inner{max-width:83.25rem;margin:0 auto}
+.pad{padding-left:1.25rem;padding-right:1.25rem}
+@media (min-width:40rem){.pad{padding-left:2rem;padding-right:2rem}}
+@media (min-width:64rem){.pad{padding-left:3.5rem;padding-right:3.5rem}}
+
+/* Header */
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:.75rem 1.5rem;padding-top:1.25rem;padding-bottom:1.25rem}
+.theme{display:flex;align-items:center;gap:.5rem;font-size:.875rem;font-weight:500;color:var(--muted)}
+.lock{font:inherit;font-size:.875rem;font-weight:700;color:var(--fg);background:transparent;border:1px solid var(--btn-line);border-radius:.75rem;
+  min-height:2.75rem;padding:0 1rem;cursor:pointer}
+.lock:hover{border-color:var(--accent);color:var(--accent)}
+.lock[hidden]{display:none}
+.theme select{font:inherit;font-weight:700;color:var(--fg);background:var(--card);border:1px solid var(--btn-line);border-radius:.75rem;
+  min-height:2.75rem;padding:0 .75rem;cursor:pointer}
+
+/* Hero */
+.hero{display:grid;gap:2rem;padding-top:2.5rem;padding-bottom:3rem}
+@media (min-width:64rem){.hero{grid-template-columns:1fr 18rem;align-items:end;padding-top:4rem;padding-bottom:4rem}}
+h1{margin:0;font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(3.2rem,8vw,7.2rem);line-height:.9;letter-spacing:-.05em}
+h1 em{position:relative;display:inline-block;color:var(--accent)}
+h1 em svg{position:absolute;left:0;bottom:-.75rem;width:100%;height:1rem;color:var(--squiggle)}
+.lede{max-width:24rem;margin:0;color:var(--muted);line-height:1.75}
+
+/* List section */
+.lists{background:var(--band);border-top:1px solid var(--line);padding-top:2.5rem;padding-bottom:3rem}
+.lists-head{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:2rem}
+@media (min-width:64rem){.lists-head{flex-direction:row;align-items:flex-end;justify-content:space-between}}
+.kicker{margin:0 0 .5rem;font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+h2{margin:0;font-size:clamp(1.875rem,4vw,2.25rem);font-weight:800;letter-spacing:-.04em;line-height:1.15}
+[role="tablist"]{display:flex;flex-wrap:wrap;gap:.25rem;padding:.375rem;border-radius:1rem;background:var(--track);width:fit-content;max-width:100%}
+[role="tab"]{font:inherit;font-size:.875rem;font-weight:700;min-height:2.75rem;padding:0 1.25rem;border:0;border-radius:.75rem;
+  background:transparent;color:var(--tab-off);cursor:pointer;-webkit-tap-highlight-color:transparent}
+[role="tab"]:hover{color:var(--fg)}
+[role="tab"][aria-selected="true"]{background:var(--tab-on);color:var(--fg);box-shadow:inset 0 0 0 2px var(--fg)}
+[role="tabpanel"][hidden]{display:none}
+.grid{display:grid;gap:1.25rem;list-style:none;margin:0;padding:0;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr))}
+.empty{color:var(--muted)}
+
+/* Card */
+.card{position:relative;display:flex;flex-direction:column;height:100%;overflow:hidden;border:1px solid var(--line);border-radius:1.5rem;background:var(--card);transition:transform .3s}
+.card:hover{transform:translateY(-.25rem)}
+.media{order:-1;position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--img);display:grid;place-items:center}
+.media.has-img{background:#fff}
+.media img{width:100%;height:100%;object-fit:contain;padding:1rem;display:block}
+.media .ph{width:3rem;height:3rem;color:var(--img-icon)}
+.price{z-index:1;margin:0;position:absolute;left:1rem;top:1rem;padding:.375rem .75rem;border-radius:999px;background:var(--bg);color:var(--fg);font-size:.8125rem;font-weight:800;line-height:1.2}
+.body{display:flex;flex-direction:column;flex:1;padding:1.25rem}
+h3{margin:0;font-size:1.25rem;font-weight:800;letter-spacing:-.03em;line-height:1.25}
+.note{margin:.25rem 0 0;font-size:.875rem;color:var(--muted)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.5rem;margin-top:auto;padding-top:1.25rem}
+.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;padding:.25rem .75rem;border-radius:.75rem;
+  font-size:.875rem;font-weight:700;text-decoration:none;text-align:center;border:1px solid var(--btn);transition:background-color .15s,color .15s,border-color .15s}
+.btn svg{width:1rem;height:1rem;flex:none}
+.btn-solid{background:var(--btn);color:var(--btn-fg)}
+.btn-solid:hover{background:var(--accent);border-color:var(--accent)}
+.btn-line{border-color:var(--btn-line)}
+.btn-line:hover{border-color:var(--accent);color:var(--accent)}
+.fine{max-width:42rem;margin:1.75rem 0 0;font-size:.8125rem;color:var(--muted)}
+
+/* Footer */
+footer{background:var(--foot);color:var(--foot-fg);padding-top:2.5rem;padding-bottom:2.5rem}
+.foot{display:flex;flex-direction:column;gap:1.5rem}
+@media (min-width:40rem){.foot{flex-direction:row;align-items:center;justify-content:space-between}}
+.foot p{margin:0}
+.foot .big{font-family:"DM Serif Display",Georgia,serif;font-style:italic;font-size:1.875rem;line-height:1.2}
+.foot .small{margin-top:.25rem;font-size:.875rem;color:var(--foot-muted)}
+.toplink{width:fit-content;display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.25rem;border:1px solid var(--foot-muted);border-radius:999px;
+  font-size:.875rem;font-weight:700;text-decoration:none}
+.toplink:hover{background:var(--foot-fg);color:var(--foot)}
+footer :focus-visible{outline-color:var(--foot-fg)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+  .card:hover{transform:none}
+}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to gift lists</a>
+
+<header class="top pad inner">
+  <button type="button" id="lock" class="lock" hidden>Lock private lists</button>
+  <label class="theme">Theme
+    <select id="theme">
+      <option value="system">System</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </label>
+</header>
+
+<main id="main">
+  <section class="hero pad inner">
+    <div>
+      <h1>Good Finds for <em>Good People<svg aria-hidden="true" viewBox="0 0 330 18" preserveAspectRatio="none"><path d="M3 12c70-10 193 4 324-7" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg></em></h1>
+    </div>
+    <p class="lede">Pick a person to see their list. Each idea has a rough price range and links to shop for it.</p>
+  </section>
+
+  <section class="lists pad" aria-labelledby="lists-heading">
+    <div class="inner">
+      <div class="lists-head">
+        <div>
+          <p class="kicker">The lists</p>
+          <h2 id="lists-heading">Who is it for?</h2>
+        </div>
+        <div id="tabs" role="tablist" aria-labelledby="lists-heading"></div>
+      </div>
+      <div id="panels"></div>
+      <noscript><p>This page needs JavaScript to show the gift lists.</p></noscript>
+      <p class="fine">Prices are approximate and may change.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="pad">
+  <div class="foot inner">
+    <div>
+      <p class="big">Find something good.</p>
+      <p class="small">Any of these would be welcome. So would none of them.</p>
+    </div>
+    <a class="toplink" href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+/* ======================================================================
+   EDIT THIS LIST.
+   One block per person (each becomes a tab), in the order shown.
+   Each gift:
+     name    required  Product name.
+     price   optional  Price range, e.g. "$20–$40". Left out = no price shown.
+     image   optional  Path or URL of the product image, e.g. "images/lamp.jpg".
+                       Left out = a placeholder icon is shown.
+     alt     optional  Image description. Left out = image is treated as decorative.
+     note    optional  One short line under the name.
+     amazon  optional  Link to the product on Amazon.
+                       Left out = an Amazon search for the name.
+     google  optional  Google Shopping link.
+                       Left out = a Google Shopping search for the name.
+     link    optional  A button for another shop: link: { label: "Home Depot", url: "https://..." }
+   Set  amazon: false  or  google: false  to leave that button off.
+   Add  private: true  to a person to hide their list (see PRIVATE LISTS below).
+   ====================================================================== */
+const LISTS = [
+  {
+    person: "Cara",
+    gifts: [
+      { name: "New Balance Women's Fresh Foam X Hierro V9", price: "About $160", image: "https://m.media-amazon.com/images/I/51doBlvSq6L._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B0FX5RJJ18" },
+      { name: "Gaiam Yoga Mat, 6mm reversible print", price: "$27–$56", image: "https://m.media-amazon.com/images/I/817Uru5jV%2BL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B0DHT6XGJK" },
+      { name: "Wildone Mixing Bowls with Airtight Lids, set of 5", price: "About $30", image: "https://m.media-amazon.com/images/I/71dqDSOHnPL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B07N646N9S" },
+      { name: "Viva Doria Sel Gris French grey sea salt, 1.5 lb", price: "About $10", image: "https://m.media-amazon.com/images/I/71tBiahOJHL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B012JHBS52" },
+      { name: "Sphere and large-cube ice trays, 2 pack", price: "About $10", image: "https://m.media-amazon.com/images/I/611ZM8j2lUL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B08CH513LF" },
+      { name: "Vetiver & Tonka scented candle", price: "About $23", image: "https://m.media-amazon.com/images/I/71qAMziSt1L._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B094KQHHDH" },
+      { name: "Amazon Basics microfiber hair towel wrap, 3 pack", price: "About $8", image: "https://m.media-amazon.com/images/I/812k6h07CpL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B0G7DHXHRC" },
+      { name: "Single ear piercing (Kind Find)", amazon: false, google: false, link: { label: "Book at Kind Find", url: "https://book.squareup.com/appointments/ebb5877b-c077-4897-8f4a-36a754bdf8e6/location/PYDDJJKV111XR/services/7RBFLDDRO5ZTN5RLZIKDVRRY" } },
+      { name: "EACHY travel makeup bag, orange, medium", price: "About $24", image: "https://m.media-amazon.com/images/I/51YYNv56dJL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B0GK13QXB4" }
+    ]
+  },
+  {
+    person: "Len",
+    gifts: [
+      { name: "Twenty-Two Foreigners in Funny Shorts", note: "By Pete Davies (paperback)", image: "https://m.media-amazon.com/images/I/51CP2VT9SGL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/0679774939" },
+      { name: "How Soccer Explains the World", price: "About $9", note: "By Franklin Foer (paperback)", image: "https://m.media-amazon.com/images/I/913Gjy3RLdL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/0060731427" },
+      { name: "Brilliant Orange: The Neurotic Genius of Dutch Football", price: "About $20", note: "By David Winner (paperback)", image: "https://m.media-amazon.com/images/I/713BD%2BHH7SL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/0747553106" },
+      { name: "Any puzzle from the Magic Puzzle Company", price: "$25–$36" },
+      { name: "International Football Kits (True Colours): The Illustrated Guide", note: "By John Devlin" },
+      { name: "More Than A Shirt: How Football Shirts Explain Global Politics, Money and Power", note: "By Joey D'Urso", image: "https://m.media-amazon.com/images/I/9104UmwFLiL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B0DWQWH6PG" },
+      { name: "The Athletic subscription", amazon: false, google: false, link: { label: "The Athletic", url: "https://www.nytimes.com/subscription/athletic" } },
+      { name: "Jigsaw puzzle table", price: "$80–$160" }
+    ]
+  },
+  {
+    person: "Randy",
+    private: true,
+    gifts: [
+      { name: "Food dehydrator", price: "$60–$180" },
+      { name: "Hey Dudes", price: "$55–$70", amazon: false, link: { label: "HeyDude", url: "https://www.heydude.com/c/men/men-footwear" } },
+      { name: "Wood splitter", note: "From Home Depot", amazon: false, link: { label: "Home Depot", url: "https://www.homedepot.com/s/log%20splitter" } },
+      { name: "Any special edition Converse", price: "$60–$70" },
+      { name: "BULLIANT men's ratchet leather belt, 1 3/8 inch", price: "About $6", note: "Gift boxed", image: "https://m.media-amazon.com/images/I/71HZBE4QZPL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B0H7XC1FW5" },
+      { name: "AA batteries for his deer feeders", price: "$13–$21", note: "He needs 8 in each feeder" },
+      { name: "Timberland reversible black and brown leather belt", price: "About $23", image: "https://m.media-amazon.com/images/I/71kIpBtbRkL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B01MYGIPPQ" },
+      { name: "Glider rocker for front porch", price: "About $210", note: "If he's willing to let go of the swing", image: "https://m.media-amazon.com/images/I/61LFsdUgvnL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B0D6ZXG58W" },
+      { name: "Electric fly swatter, set of 2", price: "About $27", image: "https://m.media-amazon.com/images/I/91aAPQryriL._AC_SL600_.jpg", amazon: "https://www.amazon.com/dp/B0B29M763L" }
+    ]
+  },
+  {
+    person: "Don Meany",
+    private: true,
+    gifts: [
+      { name: "New flat cap for winter", price: "$20–$35" }
+    ]
+  }
+];
+
+/* ======================================================================
+   PRIVATE LISTS.
+   Lists marked  private: true  are left off the page unless it is opened
+   with the phrase below at the end of the address:
+
+       https://lenbeasley.com/gift-ideas/#open=everyone
+
+   Capitals, spaces and punctuation are ignored, so "Everyone"
+   and "EVERYONE" work too. Once opened, that browser keeps
+   showing the private lists until "Lock private lists" is pressed.
+   Changing the phrase locks every browser again.
+   This only keeps the lists out of sight. They are still in this file.
+   ====================================================================== */
+const UNLOCK_PHRASE = "everyone";
+
+(function () {
+  "use strict";
+  var SVG = "http://www.w3.org/2000/svg";
+
+  function el(tag, attrs, children) {
+    var n = document.createElement(tag);
+    for (var k in attrs || {}) {
+      if (k === "text") n.textContent = attrs[k]; else n.setAttribute(k, attrs[k]);
+    }
+    (children || []).forEach(function (c) { n.appendChild(c); });
+    return n;
+  }
+  function icon(paths, cls) {
+    var s = document.createElementNS(SVG, "svg");
+    s.setAttribute("viewBox", "0 0 20 20");
+    s.setAttribute("fill", "none");
+    s.setAttribute("stroke", "currentColor");
+    s.setAttribute("stroke-width", "1.7");
+    s.setAttribute("stroke-linecap", "round");
+    s.setAttribute("stroke-linejoin", "round");
+    s.setAttribute("aria-hidden", "true");
+    if (cls) s.setAttribute("class", cls);
+    paths.forEach(function (d) {
+      var p = document.createElementNS(SVG, "path");
+      p.setAttribute("d", d);
+      s.appendChild(p);
+    });
+    return s;
+  }
+  var ARROW = ["M4 10h11", "M11 6l4 4-4 4"];
+  var SEARCH = ["M13.25 8.5a4.75 4.75 0 1 1-9.5 0 4.75 4.75 0 0 1 9.5 0z", "M12 12l4 4"];
+  var GIFT = ["M3.5 9.5h13v7h-13z", "M2.5 6.5h15v3h-15z", "M10 6.5v10", "M10 6.5c-1.2-3-5-3-4 0", "M10 6.5c1.2-3 5-3 4 0"];
+
+  function slug(s) {
+    return String(s).toLowerCase().trim().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "");
+  }
+  function shopLink(href, cls, label, name, paths, iconFirst) {
+    var a = el("a", { href: href, target: "_blank", rel: "noopener noreferrer", class: "btn " + cls });
+    var text = el("span", { text: label });
+    var sr = el("span", { class: "sr", text: ": " + name + " (opens in a new tab)" });
+    if (iconFirst) { a.appendChild(icon(paths)); a.appendChild(text); }
+    else { a.appendChild(text); a.appendChild(icon(paths)); }
+    a.appendChild(sr);
+    return a;
+  }
+  function card(g) {
+    var q = encodeURIComponent(g.name);
+    var media = el("div", { class: "media" });
+    if (g.image) {
+      var img = el("img", { src: g.image, alt: g.alt || "", loading: "lazy", decoding: "async", referrerpolicy: "no-referrer" });
+      media.classList.add("has-img");
+      img.addEventListener("error", function () { media.classList.remove("has-img"); img.replaceWith(icon(GIFT, "ph")); });
+      media.appendChild(img);
+    } else {
+      media.appendChild(icon(GIFT, "ph"));
+    }
+    var body = el("div", { class: "body" }, [el("h3", { text: g.name })]);
+    if (g.price) body.appendChild(el("p", { class: "price" }, [el("span", { class: "sr", text: "Price range: " }), document.createTextNode(g.price)]));
+    if (g.note) body.appendChild(el("p", { class: "note", text: g.note }));
+    var links = [];
+    if (g.link && g.link.url) links.push(shopLink(g.link.url, "btn-solid", g.link.label || "Shop", g.name, ARROW, false));
+    if (g.amazon !== false) links.push(shopLink(g.amazon || "https://www.amazon.com/s?k=" + q, links.length ? "btn-line" : "btn-solid", "Amazon", g.name, ARROW, false));
+    if (g.google !== false) links.push(shopLink(g.google || "https://www.google.com/search?udm=28&q=" + q, "btn-line", "Google Shopping", g.name, SEARCH, true));
+    body.appendChild(el("div", { class: "links" }, links));
+    /* Name comes first in the DOM; CSS places the image above it visually. */
+    return el("li", {}, [el("article", { class: "card" }, [body, media])]);
+  }
+
+  var tablist = document.getElementById("tabs");
+  var panels = document.getElementById("panels");
+  var lockBtn = document.getElementById("lock");
+  var tabs = [];
+  var KEY = "gift-open";
+
+  function norm(v) { return String(v).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ""); }
+  function stored() { try { return localStorage.getItem(KEY) || ""; } catch (e) { return ""; } }
+  function isOpen() { return norm(UNLOCK_PHRASE) !== "" && stored() === norm(UNLOCK_PHRASE); }
+  /* Returns true when the address carried the right phrase. The phrase is then removed from the address bar. */
+  function readKey() {
+    var m = /^#open=(.*)$/.exec(location.hash);
+    if (!m) return false;
+    var given = m[1];
+    try { given = decodeURIComponent(given); } catch (e) {}
+    var ok = norm(UNLOCK_PHRASE) !== "" && norm(given) === norm(UNLOCK_PHRASE);
+    if (ok) { try { localStorage.setItem(KEY, norm(UNLOCK_PHRASE)); } catch (e) {} }
+    try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+    return ok;
+  }
+
+  function build(showPrivate) {
+    tablist.textContent = "";
+    panels.textContent = "";
+    tabs = [];
+    var used = {};
+    LISTS.filter(function (list) { return showPrivate || !list.private; }).forEach(function (list, i) {
+      var id = slug(list.person) || "list-" + (i + 1);
+      while (used[id]) id += "-" + (i + 1);
+      used[id] = true;
+
+      var tab = el("button", { type: "button", role: "tab", id: "tab-" + id, "aria-controls": id, "aria-selected": "false", tabindex: "-1", text: list.person });
+      var panel = el("div", { role: "tabpanel", id: id, "aria-labelledby": "tab-" + id, hidden: "" });
+      if (list.gifts && list.gifts.length) {
+        panel.appendChild(el("ul", { class: "grid" }, list.gifts.map(card)));
+      } else {
+        panel.setAttribute("tabindex", "0");
+        panel.appendChild(el("p", { class: "empty", text: "No ideas here yet." }));
+      }
+      tab.addEventListener("click", function () { select(i, false, true); });
+      tab.addEventListener("keydown", function (e) {
+        var n = tabs.length, next = null;
+        if (e.key === "ArrowRight") next = (i + 1) % n;
+        else if (e.key === "ArrowLeft") next = (i - 1 + n) % n;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = n - 1;
+        if (next === null) return;
+        e.preventDefault();
+        select(next, true, true);
+      });
+      tablist.appendChild(tab);
+      panels.appendChild(panel);
+      tabs.push({ tab: tab, panel: panel, id: id });
+    });
+    lockBtn.hidden = !showPrivate;
+    if (tabs.length) {
+      var start = fromHash();
+      select(start < 0 ? 0 : start, false, false);
+    }
+  }
+
+  function select(index, focus, updateHash) {
+    tabs.forEach(function (t, j) {
+      var on = j === index;
+      t.tab.setAttribute("aria-selected", on ? "true" : "false");
+      t.tab.setAttribute("tabindex", on ? "0" : "-1");
+      t.panel.hidden = !on;
+    });
+    if (focus) tabs[index].tab.focus();
+    if (updateHash) {
+      try { history.replaceState(null, "", "#" + tabs[index].id); } catch (e) {}
+    }
+  }
+  function fromHash() {
+    var h = decodeURIComponent(location.hash.slice(1));
+    for (var j = 0; j < tabs.length; j++) if (tabs[j].id === h) return j;
+    return -1;
+  }
+  var opened = readKey() || isOpen();
+  build(opened);
+  window.addEventListener("hashchange", function () {
+    if (readKey()) { build(true); return; }
+    var j = fromHash();
+    if (j >= 0) select(j, false, false);
+  });
+  lockBtn.addEventListener("click", function () {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+    build(false);
+    if (tabs.length) tabs[0].tab.focus();
+  });
+
+  /* Theme: "system" removes the override so the browser/OS setting applies. */
+  var picker = document.getElementById("theme");
+  var root = document.documentElement;
+  picker.value = root.getAttribute("data-theme") || "system";
+  picker.addEventListener("change", function () {
+    var v = picker.value;
+    if (v === "system") root.removeAttribute("data-theme"); else root.setAttribute("data-theme", v);
+    try {
+      if (v === "system") localStorage.removeItem("gift-theme"); else localStorage.setItem("gift-theme", v);
+    } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
