@@ -83,11 +83,10 @@ h1 em svg{position:absolute;left:0;bottom:-.75rem;width:100%;height:1rem;color:v
 
 /* List section */
 .lists{background:var(--band);border-top:1px solid var(--line);padding-top:2.5rem;padding-bottom:3rem}
-.lists-head{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:2rem}
-@media (min-width:64rem){.lists-head{flex-direction:row;align-items:flex-end;justify-content:space-between}}
+.lists-head{margin-bottom:2rem}
 .kicker{margin:0 0 .5rem;font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 h2{margin:0;font-size:clamp(1.875rem,4vw,2.25rem);font-weight:800;letter-spacing:-.04em;line-height:1.15}
-[role="tablist"]{display:flex;flex-wrap:wrap;gap:.25rem;padding:.375rem;border-radius:1rem;background:var(--track);width:fit-content;max-width:100%}
+[role="tablist"]{margin-top:2.75rem;display:flex;flex-wrap:wrap;gap:.25rem;padding:.375rem;border-radius:1rem;background:var(--track);width:fit-content;max-width:100%}
 [role="tab"]{font:inherit;font-size:.875rem;font-weight:700;min-height:2.75rem;padding:0 1.25rem;border:0;border-radius:.75rem;
   background:transparent;color:var(--tab-off);cursor:pointer;-webkit-tap-highlight-color:transparent}
 [role="tab"]:hover{color:var(--fg)}
@@ -154,6 +153,7 @@ footer :focus-visible{outline-color:var(--foot-fg)}
   <section class="hero pad inner">
     <div>
       <h1>Good Finds for <em>Good People<svg aria-hidden="true" viewBox="0 0 330 18" preserveAspectRatio="none"><path d="M3 12c70-10 193 4 324-7" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg></em></h1>
+      <div id="tabs" role="tablist" aria-label="Gift lists by person"></div>
     </div>
     <p class="lede">Pick a person to see their list. Each idea has a rough price range and links to shop for it.</p>
   </section>
@@ -161,11 +161,8 @@ footer :focus-visible{outline-color:var(--foot-fg)}
   <section class="lists pad" aria-labelledby="lists-heading">
     <div class="inner">
       <div class="lists-head">
-        <div>
-          <p class="kicker">The lists</p>
-          <h2 id="lists-heading">Who is it for?</h2>
-        </div>
-        <div id="tabs" role="tablist" aria-labelledby="lists-heading"></div>
+        <p class="kicker">Gift ideas for</p>
+        <h2 id="lists-heading"></h2>
       </div>
       <div id="panels"></div>
       <noscript><p>This page needs JavaScript to show the gift lists.</p></noscript>
@@ -341,6 +338,7 @@ const UNLOCK_PHRASE = "everyone";
   var tablist = document.getElementById("tabs");
   var panels = document.getElementById("panels");
   var lockBtn = document.getElementById("lock");
+  var heading = document.getElementById("lists-heading");
   var tabs = [];
   var KEY = "gift-open";
 
@@ -406,6 +404,7 @@ const UNLOCK_PHRASE = "everyone";
       t.tab.setAttribute("tabindex", on ? "0" : "-1");
       t.panel.hidden = !on;
     });
+    heading.textContent = tabs[index].tab.textContent;
     if (focus) tabs[index].tab.focus();
     if (updateHash) {
       try { history.replaceState(null, "", "#" + tabs[index].id); } catch (e) {}
