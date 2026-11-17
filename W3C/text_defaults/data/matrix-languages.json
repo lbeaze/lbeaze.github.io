@@ -1,0 +1,1277 @@
+[
+ {
+  "script": "Adlam",
+  "languages": [
+   {
+    "lang": "Fula",
+    "url": "https://www.w3.org/TR/adlm-gap/",
+    "tentative": true,
+    "fonts": "3",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Arab",
+  "languages": [
+   {
+    "lang": "Arabic",
+    "url": "https://www.w3.org/TR/alreq-gap/",
+    "tentative": true,
+    "fonts": "1",
+    "letterforms": "2",
+    "transforms": "-",
+    "text_decoration": "1",
+    "line_breaking": "-",
+    "spacing": "",
+    "baselines": "-",
+    "justification": "1"
+   },
+   {
+    "lang": "Urdu",
+    "url": "https://www.w3.org/TR/alreq-gap/",
+    "tentative": true,
+    "fonts": "1",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Persian",
+    "url": "https://www.w3.org/TR/alreq-gap/",
+    "tentative": true,
+    "fonts": "1",
+    "letterforms": "2",
+    "transforms": "-",
+    "text_decoration": "1",
+    "line_breaking": "-",
+    "spacing": "",
+    "baselines": "-",
+    "justification": "1"
+   },
+   {
+    "lang": "Pashto",
+    "url": "https://www.w3.org/TR/alreq-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Sindhi",
+    "url": "https://www.w3.org/TR/alreq-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Kurdish",
+    "url": "https://www.w3.org/TR/alreq-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Saraiki",
+    "url": "https://www.w3.org/TR/alreq-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Kashmiri",
+    "url": "https://www.w3.org/TR/alreq-gap/",
+    "tentative": true,
+    "fonts": "1",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Uighur",
+    "url": "https://www.w3.org/TR/alreq-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "",
+    "baselines": "-",
+    "justification": "-"
+   }
+  ]
+ },
+ {
+  "script": "Beng",
+  "languages": [
+   {
+    "lang": "Bangla",
+    "url": "https://www.w3.org/TR/beng-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "1",
+    "line_breaking": "",
+    "spacing": "1",
+    "baselines": "2",
+    "justification": "-"
+   },
+   {
+    "lang": "Assamese",
+    "url": "https://www.w3.org/TR/beng-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Manipuri",
+    "url": "https://www.w3.org/TR/beng-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   }
+  ]
+ },
+ {
+  "script": "Cans",
+  "languages": [
+   {
+    "lang": "Inuktitut",
+    "url": "https://www.w3.org/TR/cans-iu-cr-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   },
+   {
+    "lang": "Plains Cree",
+    "url": "https://www.w3.org/TR/cans-iu-cr-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Cher",
+  "languages": [
+   {
+    "lang": "Cherokee",
+    "url": "https://www.w3.org/TR/cher-gap/",
+    "tentative": true,
+    "fonts": "2",
+    "letterforms": "",
+    "transforms": "3",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Cyrl",
+  "languages": [
+   {
+    "lang": "Russian",
+    "url": "https://www.w3.org/TR/cyrl-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Ukrainian",
+    "url": "https://www.w3.org/TR/cyrl-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Uzbek",
+    "url": "https://www.w3.org/TR/cyrl-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Azerbaijani",
+    "url": "https://www.w3.org/TR/cyrl-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Bulgarian",
+    "url": "https://www.w3.org/TR/cyrl-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Serbian",
+    "url": "https://www.w3.org/TR/cyrl-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   }
+  ]
+ },
+ {
+  "script": "Deva",
+  "languages": [
+   {
+    "lang": "Hindi",
+    "url": "https://www.w3.org/TR/deva-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "1",
+    "line_breaking": "1",
+    "spacing": "1",
+    "baselines": "2",
+    "justification": "-"
+   },
+   {
+    "lang": "Marathi",
+    "url": "https://www.w3.org/TR/deva-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Bhojpuri",
+    "url": "https://www.w3.org/TR/deva-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Maithili",
+    "url": "https://www.w3.org/TR/deva-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Awadhi",
+    "url": "https://www.w3.org/TR/deva-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Nepali",
+    "url": "https://www.w3.org/TR/deva-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   }
+  ]
+ },
+ {
+  "script": "Ethi",
+  "languages": [
+   {
+    "lang": "Amharic",
+    "url": "https://www.w3.org/TR/elreq-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "2",
+    "text_decoration": "1",
+    "line_breaking": "3",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "2"
+   },
+   {
+    "lang": "Tigriña",
+    "url": "https://www.w3.org/TR/elreq-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "2",
+    "text_decoration": "1",
+    "line_breaking": "3",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "2"
+   }
+  ]
+ },
+ {
+  "script": "Geor",
+  "languages": [
+   {
+    "lang": "Georgian",
+    "url": "https://www.w3.org/TR/geor-gap",
+    "tentative": true,
+    "fonts": "2",
+    "letterforms": "-",
+    "transforms": "1",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Grek",
+  "languages": [
+   {
+    "lang": "Greek",
+    "url": "https://www.w3.org/TR/grek-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "3",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Gujr",
+  "languages": [
+   {
+    "lang": "Gujarati",
+    "url": "https://www.w3.org/TR/gujr-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "1",
+    "line_breaking": "1",
+    "spacing": "2",
+    "baselines": "2",
+    "justification": "-"
+   }
+  ]
+ },
+ {
+  "script": "Guru",
+  "languages": [
+   {
+    "lang": "Panjabi",
+    "url": "https://www.w3.org/TR/guru-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "1",
+    "line_breaking": "",
+    "spacing": "2",
+    "baselines": "2",
+    "justification": "-"
+   }
+  ]
+ },
+ {
+  "script": "Hang",
+  "languages": [
+   {
+    "lang": "Korean",
+    "url": "https://www.w3.org/TR/kore-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Hani",
+  "languages": [
+   {
+    "lang": "SChinese",
+    "url": "https://www.w3.org/TR/clreq-gap/",
+    "tentative": true,
+    "fonts": "1",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "1",
+    "line_breaking": "2",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   },
+   {
+    "lang": "TChinese",
+    "url": "https://www.w3.org/TR/clreq-gap/",
+    "tentative": true,
+    "fonts": "1",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "1",
+    "line_breaking": "2",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Hebr",
+  "languages": [
+   {
+    "lang": "Hebrew",
+    "url": "https://www.w3.org/TR/hebr-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "2",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Java",
+  "languages": [
+   {
+    "lang": "Javanese",
+    "url": "https://www.w3.org/TR/java-gap/",
+    "tentative": true,
+    "fonts": "2",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "3",
+    "spacing": "",
+    "baselines": "",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Japn",
+  "languages": [
+   {
+    "lang": "Japanese",
+    "url": "https://www.w3.org/TR/jpan-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "1",
+    "text_decoration": "1",
+    "line_breaking": "",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Khmr",
+  "languages": [
+   {
+    "lang": "Khmer",
+    "url": "https://www.w3.org/TR/khmr-gap/",
+    "tentative": true,
+    "fonts": "2",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "2",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Knda",
+  "languages": [
+   {
+    "lang": "Kannada",
+    "url": "",
+    "tentative": true,
+    "fonts": "3",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Kore",
+  "languages": [
+   {
+    "lang": "Korean",
+    "url": "https://www.w3.org/TR/kore-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Laoo",
+  "languages": [
+   {
+    "lang": "Lao",
+    "url": "https://www.w3.org/TR/laoo-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "",
+    "transforms": "",
+    "text_decoration": "",
+    "line_breaking": "1",
+    "spacing": "2",
+    "baselines": "",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Latn",
+  "languages": [
+   {
+    "lang": "English",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Spanish",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Portuguese",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "German",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Javanese",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Malay",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Vietnamese",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "French",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Turkish",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Italian",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Polish",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Hausa",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Tagalog",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Yoruba",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Uzbek",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Fula",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Romanian",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Oromo",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Igbo",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Azerbaijani",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Cebuano",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Dutch",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "1",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "2"
+   },
+   {
+    "lang": "Kurdish",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Croatian",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Malagasy",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "-",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Hungarian",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "2",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   },
+   {
+    "lang": "Catalan",
+    "url": "https://www.w3.org/TR/latn-gap",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "3",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": "-"
+   }
+  ]
+ },
+ {
+  "script": "Mlym",
+  "languages": [
+   {
+    "lang": "Malayalam",
+    "url": "",
+    "tentative": true,
+    "fonts": "3",
+    "letterforms": "3",
+    "transforms": "",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Mong",
+  "languages": [
+   {
+    "lang": "Mongolian",
+    "url": "https://www.w3.org/TR/mong-gap/",
+    "tentative": true,
+    "fonts": "1",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Mymr",
+  "languages": [
+   {
+    "lang": "Burmese",
+    "url": "",
+    "tentative": true,
+    "fonts": "",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "",
+    "justification": ""
+   },
+   {
+    "lang": "Shan",
+    "url": "",
+    "tentative": true,
+    "fonts": "",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "N’Ko",
+  "languages": [
+   {
+    "lang": "N’Ko",
+    "url": "https://www.w3.org/TR/nkoo-gap/",
+    "tentative": true,
+    "fonts": "1",
+    "letterforms": "1",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Orya",
+  "languages": [
+   {
+    "lang": "Odia",
+    "url": "",
+    "tentative": true,
+    "fonts": "",
+    "letterforms": "",
+    "transforms": "",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Osage",
+  "languages": [
+   {
+    "lang": "Osage",
+    "url": "https://www.w3.org/TR/osge-osa-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "-",
+    "line_breaking": "-",
+    "spacing": "2",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Sinh",
+  "languages": [
+   {
+    "lang": "Sinhalese",
+    "url": "",
+    "tentative": true,
+    "fonts": "",
+    "letterforms": "",
+    "transforms": "",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Sund",
+  "languages": [
+   {
+    "lang": "Sundanese",
+    "url": "",
+    "tentative": true,
+    "fonts": "",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Taml",
+  "languages": [
+   {
+    "lang": "Tamil",
+    "url": "https://www.w3.org/TR/taml-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "-",
+    "transforms": "-",
+    "text_decoration": "1",
+    "line_breaking": "1",
+    "spacing": "2",
+    "baselines": "",
+    "justification": "2"
+   }
+  ]
+ },
+ {
+  "script": "Telu",
+  "languages": [
+   {
+    "lang": "Telugu",
+    "url": "",
+    "tentative": true,
+    "fonts": "3",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "",
+    "justification": ""
+   }
+  ]
+ },
+ {
+  "script": "Thai",
+  "languages": [
+   {
+    "lang": "Thai",
+    "url": "https://www.w3.org/TR/thai-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "2",
+    "spacing": "2",
+    "baselines": "",
+    "justification": "2"
+   }
+  ]
+ },
+ {
+  "script": "Tibt",
+  "languages": [
+   {
+    "lang": "Tibetan",
+    "url": "https://www.w3.org/TR/tibt-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "-",
+    "justification": ""
+   },
+   {
+    "lang": "Dzongkha",
+    "url": "https://www.w3.org/TR/tibt-gap/",
+    "tentative": true,
+    "fonts": "-",
+    "letterforms": "",
+    "transforms": "-",
+    "text_decoration": "",
+    "line_breaking": "",
+    "spacing": "",
+    "baselines": "-",
+    "justification": ""
+   }
+  ]
+ }
+]

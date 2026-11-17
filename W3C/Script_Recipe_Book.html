@@ -1,0 +1,1409 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Script Recipe Book</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: language tabs on top; settings column, sample stage and recipe book side by side on wide screens, stacked on narrow ones. Same tokens as the Script Readability Lab. */
+:root {
+  --bg: #f3f4f7;
+  --surface: #ffffff;
+  --ink: #1a2030;
+  --muted: #5a6376;
+  --line: #d6dbe5;
+  --accent: #2c4bb0;
+  --accent-ink: #ffffff;
+  --accent-soft: #e5eafa;
+  --code-bg: #eceff5;
+  --warn: #9a5b00;
+  --warn-soft: #fbf0dc;
+  --ok: #1d7a46;
+  --danger: #b3261e;
+  --star: #b07a00;
+  --stage-bg: #e4e7ee;
+  --ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --label: "IBM Plex Sans Condensed", "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10131a; --surface: #171b24; --ink: #e5e8ef; --muted: #9aa3b4; --line: #2b313e;
+    --accent: #8fa8ff; --accent-ink: #0e1220; --accent-soft: #1f2741; --code-bg: #0c0f15;
+    --warn: #f0b35a; --warn-soft: #2e2412; --ok: #6fd39b; --danger: #ff8a80; --star: #f2c14e; --stage-bg: #0c0f15; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10131a; --surface: #171b24; --ink: #e5e8ef; --muted: #9aa3b4; --line: #2b313e;
+  --accent: #8fa8ff; --accent-ink: #0e1220; --accent-soft: #1f2741; --code-bg: #0c0f15;
+  --warn: #f0b35a; --warn-soft: #2e2412; --ok: #6fd39b; --danger: #ff8a80; --star: #f2c14e; --stage-bg: #0c0f15; color-scheme: dark;
+}
+
+body { background: var(--bg); color: var(--ink); font-family: var(--ui); font-size: 14px; line-height: 1.5; }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 48px; max-width: 1760px; margin: 0 auto; }
+
+header.top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 12px; }
+header.top h1 { font-family: var(--label); font-weight: 600; font-size: 24px; letter-spacing: 0.01em; margin: 0; text-wrap: balance; }
+header.top h1 span { color: var(--muted); font-weight: 500; }
+header.top p { margin: 2px 0 0; color: var(--muted); max-width: 70ch; }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; }
+.tab { font-family: var(--ui); font-size: 13px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 4px; padding: 6px 10px; cursor: pointer; display: flex; gap: 6px; align-items: baseline; line-height: 1.3; }
+.tab:hover { border-color: var(--accent); }
+.tab[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.tab .n { font-family: var(--mono); font-size: 11px; opacity: 0.8; font-variant-numeric: tabular-nums; }
+
+.sync { font-size: 12.5px; color: var(--muted); margin: 0 0 16px; display: flex; gap: 8px; align-items: center; min-height: 1.5em; }
+.sync .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; }
+.sync.ok .dot { background: var(--ok); }
+.sync.warn { color: var(--warn); }
+.sync.warn .dot { background: var(--warn); }
+
+.layout { display: grid; gap: 20px; align-items: start; grid-template-columns: minmax(0, 1fr); grid-template-areas: "main" "book" "controls"; }
+@media (min-width: 960px) { .layout { grid-template-columns: 300px minmax(0, 1fr); grid-template-areas: "controls main" "controls book"; } }
+@media (min-width: 1400px) { .layout { grid-template-columns: 300px minmax(0, 1fr) 360px; grid-template-areas: "controls main book"; } }
+aside.controls { grid-area: controls; }
+main { grid-area: main; }
+aside.book { grid-area: book; }
+
+/* ---------- Controls ---------- */
+aside.controls { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+@media (min-width: 960px) { aside.controls { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); max-height: calc(100vh - 24px); overflow-y: auto; padding-right: 4px; } }
+fieldset { margin: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+legend { font-family: var(--label); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 0 6px; }
+.row { display: flex; flex-direction: column; gap: 5px; }
+.row > .lbl { display: flex; justify-content: space-between; gap: 8px; font-weight: 500; }
+output { font-family: var(--mono); font-size: 12px; color: var(--accent); font-variant-numeric: tabular-nums; }
+.hint { color: var(--muted); font-size: 12px; margin: 0; }
+
+.seg { display: flex; flex-wrap: wrap; gap: 4px; }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg label, .btn { font-family: var(--mono); font-size: 12px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 4px; cursor: pointer; background: var(--surface); color: var(--ink); user-select: none; line-height: 1.4; }
+.seg label:hover, .btn:hover { border-color: var(--accent); }
+.seg input:checked + label { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.seg input:focus-visible + label, .btn:focus-visible, .tab:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.seg label.unsupported { text-decoration: line-through; text-decoration-color: var(--warn); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.danger { color: var(--danger); }
+.btn.danger.confirm { background: var(--danger); color: var(--surface); border-color: var(--danger); }
+.btn:disabled { opacity: 0.45; cursor: default; border-color: var(--line); }
+.btns { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+
+select, input[type=text], textarea { font-family: var(--ui); font-size: 13px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); width: 100%; box-sizing: border-box; }
+select { font-family: var(--mono); font-size: 12px; padding: 4px 6px; }
+textarea { resize: vertical; min-height: 4.5em; line-height: 1.45; }
+input[type=range] { width: 100%; accent-color: var(--accent); margin: 0; }
+input[type=range]:disabled { opacity: 0.35; }
+.check { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.check input { accent-color: var(--accent); margin: 0; }
+
+/* ---------- Main ---------- */
+main { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+h2 { font-family: var(--label); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0; color: var(--muted); }
+.section-head { display: flex; justify-content: space-between; align-items: center; gap: 8px 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.section-head .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+.now { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.now-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; align-items: center; }
+.now-name { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; min-width: 0; }
+.now-name .k { font-family: var(--label); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.now-name b { font-size: 16px; font-weight: 600; overflow-wrap: anywhere; }
+.badge { font-family: var(--mono); font-size: 11px; padding: 1px 6px; border-radius: 3px; background: var(--warn-soft); color: var(--warn); }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.chip { font-family: var(--mono); font-size: 11px; padding: 1px 6px; border-radius: 3px; border: 1px solid var(--line); color: var(--ink); overflow-wrap: anywhere; }
+.chip.none { color: var(--muted); border-style: dashed; }
+.chip.yes { color: var(--ok); }
+.chip.no { color: var(--warn); text-decoration: line-through; }
+
+.views { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+.views.compare { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.view { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.view-label { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.stage-outer { background: var(--stage-bg); border: 1px solid var(--line); border-radius: 6px; padding: 12px; overflow-x: auto; }
+.stage { box-sizing: border-box; }
+.stage.rl .card-body { display: flex; justify-content: flex-end; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; display: flex; flex-direction: column; min-width: 0; }
+.card-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; padding: 8px 12px; border-bottom: 1px solid var(--line); font-size: 13px; line-height: 1.3; }
+.card-head .tag { font-family: var(--mono); font-size: 11px; color: var(--accent); background: var(--accent-soft); padding: 1px 6px; border-radius: 3px; }
+.card-body { padding: 12px; min-width: 0; }
+.card-foot { padding: 6px 12px; border-top: 1px dashed var(--line); font-family: var(--mono); font-size: 11px; color: var(--muted); line-height: 1.5; font-variant-numeric: tabular-nums; }
+.sample, .base-sample { color: var(--ink); overflow: auto; max-width: 100%; box-sizing: border-box; }
+.base-sample { font-family: initial; font-size: medium; line-height: normal; letter-spacing: normal; word-spacing: normal; }
+.sample[contenteditable="true"] { outline: 1px dashed var(--accent); outline-offset: 4px; }
+.text-tools { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+
+pre.css { margin: 0; background: var(--code-bg); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-family: var(--mono); font-size: 12.5px; line-height: 1.6; overflow-x: auto; white-space: pre; color: var(--ink); }
+pre.css .c { color: var(--muted); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 16px; }
+.panel ul { padding-left: 18px; margin: 0; display: flex; flex-direction: column; gap: 6px; max-width: 80ch; }
+.panel code, .hint code { font-family: var(--mono); font-size: 12px; background: var(--code-bg); padding: 0 4px; border-radius: 3px; }
+.panel a { color: var(--accent); }
+.env { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; font-size: 12.5px; }
+.env b { font-family: var(--mono); font-weight: 500; font-variant-numeric: tabular-nums; }
+.env .k { color: var(--muted); }
+.toast { color: var(--ok); font-size: 12px; min-height: 1em; }
+.toast.err { color: var(--danger); }
+
+/* ---------- Recipe book ---------- */
+aside.book { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.save { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 8px; }
+.field { display: flex; flex-direction: column; gap: 3px; }
+.field > span { font-size: 12px; font-weight: 500; color: var(--muted); }
+.recipes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.recipe { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.recipe.active { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.r-head { display: flex; gap: 8px; align-items: flex-start; justify-content: space-between; }
+.r-head h3 { margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.star { border: 0; background: none; cursor: pointer; font-size: 16px; line-height: 1; color: var(--muted); padding: 2px 4px; border-radius: 3px; flex: none; }
+.star[aria-pressed="true"] { color: var(--star); }
+.star:focus-visible { outline: 2px solid var(--accent); }
+.r-meta { margin: 0; font-size: 12px; color: var(--muted); }
+.r-meta b { color: var(--ink); font-weight: 500; }
+.r-notes { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; }
+.empty { border: 1px dashed var(--line); border-radius: 6px; padding: 14px; color: var(--muted); font-size: 13px; }
+.export { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 8px; }
+#export-fallback { font-family: var(--mono); font-size: 11.5px; min-height: 10em; white-space: pre; }
+
+/* ---------- Japanese annotation ---------- */
+.stage, #base-stage { display: flex; flex-direction: column; gap: 12px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.at-tools { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.at-tools select { width: auto; max-width: 100%; }
+#anno-markup-out { white-space: pre-wrap; overflow-wrap: anywhere; }
+pre.spoken { white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--ui); font-size: 15px; line-height: 1.8; }
+.sub-head { font-family: var(--label); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 14px 0 6px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Script Recipe Book <span id="h-lang"></span></h1>
+      <p>Each language opens on browser defaults. Change the settings with an expert, save the result as a named recipe with their reasoning, and apply recipes one at a time to compare them.</p>
+    </div>
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Language"></nav>
+  </header>
+  <div class="sync" id="sync" role="status"><span class="dot"></span><span id="sync-text">Connecting to saved recipes…</span></div>
+
+  <div class="layout">
+    <aside class="controls" aria-label="Text settings">
+      <fieldset>
+        <legend>Font</legend>
+        <div class="row">
+          <span class="lbl">font-family</span>
+          <select id="family"></select>
+        </div>
+        <div class="row">
+          <span class="lbl">font-size</span>
+          <div class="seg" id="size-mode"></div>
+        </div>
+        <div class="row">
+          <span class="lbl"><span>Custom size</span><output id="size-out"></output></span>
+          <input type="range" id="size" min="10" max="40" step="1" value="16" aria-label="Custom font size in pixels">
+          <div class="seg" id="size-unit"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Colour mode</legend>
+        <div class="seg" id="color-mode"></div>
+        <p class="hint">Light uses a 90% white background (#E6E6E6), dark a 90% black one (#1A1A1A). The rest of the page switches with it.</p>
+        <div class="row">
+          <span class="lbl"><span>Text colour</span><output id="text-out"></output></span>
+          <input type="range" id="text-grey" min="0" max="255" step="1" value="26" aria-label="Text grey level">
+          <div class="btns"><button class="btn" type="button" id="text-max">Opposite 90%</button><button class="btn" type="button" id="text-lc60">Lowest contrast that meets Lc 60</button></div>
+        </div>
+        <p class="hint" id="contrast-out"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Spacing</legend>
+        <div class="row">
+          <span class="lbl"><span>line-height</span><output id="lh-out"></output></span>
+          <label class="check"><input type="checkbox" id="lh-normal" checked> normal</label>
+          <input type="range" id="lh" min="1" max="3" step="0.05" value="1.5" aria-label="Line height multiplier">
+        </div>
+        <div class="row">
+          <span class="lbl"><span>letter-spacing</span><output id="ls-out"></output></span>
+          <input type="range" id="ls" min="-0.05" max="0.5" step="0.01" value="0" aria-label="Letter spacing in em">
+        </div>
+        <div class="row">
+          <span class="lbl"><span>word-spacing</span><output id="ws-out"></output></span>
+          <input type="range" id="ws" min="0" max="1" step="0.02" value="0" aria-label="Word spacing in em">
+        </div>
+        <div class="row">
+          <span class="lbl"><span>Paragraph spacing</span><output id="ps-out"></output></span>
+          <label class="check"><input type="checkbox" id="ps-unset" checked> browser default</label>
+          <input type="range" id="ps" min="0" max="3" step="0.25" value="2" aria-label="Space after paragraphs in em">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Line breaking</legend>
+        <div class="row">
+          <span class="lbl"><span>Line length (max-inline-size)</span><output id="measure-out"></output></span>
+          <label class="check"><input type="checkbox" id="measure-none" checked> not set</label>
+          <input type="range" id="measure" min="8" max="60" step="1" value="30" aria-label="Maximum line length in ic">
+        </div>
+        <div class="row"><span class="lbl">line-break</span>
+          <select id="line-break"><option value="">not set</option><option>auto</option><option>loose</option><option>normal</option><option>strict</option><option>anywhere</option></select></div>
+        <div class="row"><span class="lbl">word-break</span>
+          <select id="word-break"><option value="">not set</option><option>normal</option><option>keep-all</option><option>break-all</option><option>auto-phrase</option></select></div>
+        <div class="row"><span class="lbl">text-spacing-trim</span>
+          <select id="tst"><option value="">not set</option><option>normal</option><option>space-all</option><option>space-first</option><option>trim-start</option><option>trim-both</option><option>trim-all</option></select></div>
+        <div class="row"><span class="lbl">text-autospace</span>
+          <select id="tas"><option value="">not set</option><option>normal</option><option>no-autospace</option><option>auto</option></select></div>
+      </fieldset>
+
+      <fieldset id="anno-markup-fs" hidden>
+        <legend>Ruby and annotation markup</legend>
+        <div class="row"><span class="lbl">Ruby (furigana)</span><div class="seg" id="ruby-mode"></div>
+          <p class="hint">Mono ruby puts a reading on each kanji where the reading splits. Words such as 今日 and 大人 cannot split, so they stay group ruby.</p></div>
+        <div class="row"><span class="lbl">Which words get ruby</span><div class="seg" id="ruby-scope"></div></div>
+        <label class="check"><input type="checkbox" id="ruby-rp"> <span><code>&lt;rp&gt;</code> parentheses for browsers without ruby</span></label>
+        <div class="row"><span class="lbl">Exposed to assistive tech</span>
+          <select id="at-mode">
+            <option value="native">Native ruby: base text and reading</option>
+            <option value="hide-rt">Base text only (rt aria-hidden)</option>
+            <option value="reading-only">Reading only (ruby aria-hidden, reading in hidden text)</option>
+          </select></div>
+        <div class="row"><span class="lbl">Spaces between phrases (wakachigaki)</span><div class="seg" id="wakachi"></div></div>
+        <div class="row"><span class="lbl">Inline note</span><div class="seg" id="warichu"></div>
+          <p class="hint">Warichu sets a note as two small lines inside the text. CSS has no property for it, so this is an approximation.</p></div>
+      </fieldset>
+
+      <fieldset id="anno-css-fs" hidden>
+        <legend>Ruby and emphasis CSS</legend>
+        <div class="row"><span class="lbl">ruby-position</span>
+          <select id="ruby-pos"><option value="">not set</option><option>over</option><option>under</option><option>alternate</option><option>inter-character</option></select></div>
+        <div class="row"><span class="lbl">ruby-align</span>
+          <select id="ruby-align"><option value="">not set</option><option>start</option><option>center</option><option>space-between</option><option>space-around</option></select></div>
+        <div class="row"><span class="lbl">ruby-merge</span>
+          <select id="ruby-merge"><option value="">not set</option><option>separate</option><option>merge</option><option>auto</option></select>
+          <p class="hint">Only affects mono ruby. <code>auto</code> is jukugo ruby.</p></div>
+        <div class="row">
+          <span class="lbl"><span>rt font-size</span><output id="rt-out"></output></span>
+          <label class="check"><input type="checkbox" id="rt-default" checked> browser default (50%)</label>
+          <input type="range" id="rt-size" min="30" max="100" step="5" value="50" aria-label="Ruby text size in percent">
+        </div>
+        <div class="row"><span class="lbl"><span>Emphasis (<code>&lt;em&gt;</code>)</span></span>
+          <select id="em-style">
+            <option value="">browser default (italic)</option>
+            <option value="normal">no styling (font-style: normal)</option>
+            <option value="bold">bold</option>
+            <option value="filled sesame">emphasis dots: filled sesame</option>
+            <option value="filled dot">emphasis dots: filled dot</option>
+            <option value="filled circle">emphasis dots: filled circle</option>
+            <option value="open sesame">emphasis dots: open sesame</option>
+            <option value="open circle">emphasis dots: open circle</option>
+            <option value="sideline">side line (underline)</option>
+          </select></div>
+        <div class="row"><span class="lbl">text-emphasis-position</span>
+          <select id="em-pos"><option value="">not set</option><option>over right</option><option>under right</option><option>over left</option><option>under left</option></select></div>
+        <div class="row"><span class="lbl">Red annotation (red ink)</span>
+          <div class="seg" id="red-color"></div>
+          <div class="seg" id="red-on"></div>
+          <p class="hint" id="red-out">Pure red is #FF0000. Dark red is #B00020 on light backgrounds and #FF9999 in dark mode, because a dark red is unreadable on a dark background.</p></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Writing mode</legend>
+        <div class="row"><span class="lbl">writing-mode</span><div class="seg" id="wm"></div></div>
+        <div class="row"><span class="lbl">text-orientation</span><div class="seg" id="to"></div></div>
+        <label class="check"><input type="checkbox" id="tcy"> <span>text-combine-upright: all on 1 and 2 digit numbers</span></label>
+        <p class="hint" id="wm-hint"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Test conditions</legend>
+        <div class="row"><span class="lbl">Zoom</span><div class="seg" id="zoom"></div></div>
+        <div class="row">
+          <span class="lbl">Method</span>
+          <div class="seg" id="zoom-method"></div>
+          <p class="hint" id="zoom-hint"></p>
+        </div>
+        <div class="row">
+          <span class="lbl">Viewport width at 100%</span>
+          <select id="ref-width">
+            <option value="fit">Fit this panel</option>
+            <option value="1920">1920px</option>
+            <option value="1280">1280px</option>
+            <option value="1024">1024px</option>
+            <option value="768">768px</option>
+            <option value="390">390px (phone)</option>
+            <option value="320">320px</option>
+          </select>
+        </div>
+        <div class="row"><span class="lbl">text-size-adjust</span>
+          <select id="tsa"><option value="">not set</option><option>auto</option><option>none</option><option>100%</option><option>150%</option><option>200%</option></select>
+          <p class="hint">Only mobile browsers that enlarge text on their own respond to it.</p></div>
+      </fieldset>
+    </aside>
+
+    <main>
+      <section class="now" aria-label="Current settings">
+        <div class="now-top">
+          <div class="now-name"><span class="k">On the sample</span><b id="now-name">Browser defaults</b><span class="badge" id="now-badge" hidden>changed since applied</span></div>
+          <div class="btns">
+            <button class="btn" type="button" id="reset">Back to browser defaults</button>
+            <button class="btn primary" type="button" id="update-active" hidden>Save changes to recipe</button>
+          </div>
+        </div>
+        <ul class="chips" id="now-chips"></ul>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Sample</h2>
+          <span class="meta" id="stage-meta"></span>
+        </div>
+        <div class="text-tools" style="margin-bottom:8px">
+          <label class="check"><input type="checkbox" id="compare"> Show browser defaults beside it</label>
+          <label class="check"><input type="checkbox" id="edit-text"> Edit sample text</label>
+          <button class="btn" type="button" id="save-text" hidden>Keep this text for the language</button>
+          <button class="btn" type="button" id="reset-text">Restore original text</button>
+          <span class="toast" id="text-toast" role="status"></span>
+        </div>
+        <div class="views" id="views">
+          <div class="view">
+            <span class="view-label" id="live-label">With current settings</span>
+            <div class="stage-outer" id="stage-outer"><div class="stage" id="stage"></div></div>
+          </div>
+          <div class="view" id="base-view" hidden>
+            <span class="view-label">Browser defaults, 100% zoom</span>
+            <div class="stage-outer"><div id="base-stage"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Applied CSS</h2>
+          <div class="btns"><span class="toast" id="copy-toast" role="status"></span><button class="btn" type="button" id="copy-css">Copy CSS</button></div>
+        </div>
+        <pre class="css" id="css-out" tabindex="0"></pre>
+      </section>
+
+      <section id="at-section" hidden>
+        <div class="section-head">
+          <h2>What assistive tech gets</h2>
+          <div class="at-tools" id="speech-tools">
+            <select id="voice" aria-label="Speech voice"></select>
+            <select id="rate" aria-label="Speech rate"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select>
+            <button class="btn primary" type="button" id="speak">Read aloud</button>
+            <button class="btn" type="button" id="stop-speak">Stop</button>
+          </div>
+        </div>
+        <p class="hint" id="speech-hint">The text below is what the annotation sample exposes once <code>aria-hidden</code> parts and hidden <code>&lt;rp&gt;</code> are removed. Screen readers may still treat ruby their own way, so test the same sample with VoiceOver, NVDA, JAWS or TalkBack. Read aloud sends this text to the browser's own speech engine, which is not a screen reader.</p>
+        <pre class="css spoken" id="spoken" lang="ja" tabindex="0"></pre>
+        <div class="section-head" style="margin-top:12px">
+          <h2>Annotation markup</h2>
+          <div class="btns"><span class="toast" id="markup-toast" role="status"></span><button class="btn" type="button" id="copy-markup">Copy markup</button></div>
+        </div>
+        <pre class="css" id="anno-markup-out" tabindex="0"></pre>
+      </section>
+
+      <section>
+        <div class="section-head"><h2 id="tips-title">Things to try</h2></div>
+        <div class="panel"><ul id="tips"></ul></div>
+      </section>
+
+      <div class="env" id="env" aria-label="Your browser"></div>
+    </main>
+
+    <aside class="book" aria-label="Recipe book">
+      <form class="save" id="save-form">
+        <h2 id="save-title">Save as a recipe</h2>
+        <label class="field"><span>Recipe name</span><input type="text" id="r-name" required maxlength="120" placeholder="For example: Kinsoku strict, line-height 1.8"></label>
+        <label class="field"><span>Expert or source</span><input type="text" id="r-expert" maxlength="120" placeholder="Who suggested it"></label>
+        <label class="field"><span>Why, and notes</span><textarea id="r-notes" maxlength="4000" rows="3" placeholder="Their reasoning, what to watch for, references"></textarea></label>
+        <div class="btns"><button class="btn primary" type="submit" id="r-save">Save current settings</button><span class="toast" id="save-toast" role="status"></span></div>
+      </form>
+
+      <section>
+        <div class="section-head">
+          <h2 id="list-title">Recipes</h2>
+          <label class="check hint"><input type="checkbox" id="only-starred"> Shortlist only</label>
+        </div>
+        <ol class="recipes" id="recipes"></ol>
+      </section>
+
+      <section class="export">
+        <h2>Export</h2>
+        <div class="row">
+          <div class="seg" id="ex-scope"></div>
+          <label class="check"><input type="checkbox" id="ex-starred"> Shortlisted recipes only</label>
+        </div>
+        <div class="btns">
+          <button class="btn" type="button" id="ex-json">Download JSON</button>
+          <button class="btn" type="button" id="ex-css">Download CSS</button>
+          <button class="btn" type="button" id="ex-copy">Copy CSS</button>
+        </div>
+        <span class="toast" id="ex-toast" role="status"></span>
+        <p class="hint">JSON keeps every setting, note and date, for comparing recipes later. The CSS file has one rule per recipe with the expert and reasons in comments. It is saved as .txt because the download only allows certain file types.</p>
+        <textarea id="export-fallback" readonly hidden aria-label="Export text"></textarea>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<script>
+(() => {
+  // ---------- Languages and samples ----------
+  const LANGS = [
+    { id: 'zh-Hans', name: 'Chinese, Simplified', short: 'Chinese (Simplified)', native: '简体中文', notoSans: 'Noto Sans SC', notoSerif: 'Noto Serif SC', vertical: true,
+      h: '《世界人权宣言》第一条',
+      p: ['人人生而自由，在尊严和权利上一律平等。他们赋有理性和良心，并应以兄弟关系的精神相对待。',
+          '《Web内容无障碍指南》（WCAG）2.2版于2023年10月5日成为W3C推荐标准。它要求用户在调整行高、字母间距、单词间距和段落间距时，内容和功能不会丢失。'],
+      tips: [
+        'Han characters fill a square box, so <code>line-height</code> above <code>normal</code> mostly adds space between lines. Compare values between 1.5 and 2.',
+        '<code>text-autospace</code> adds a small gap where Han meets Latin letters or digits, as in “WCAG” and “2023” in the second paragraph.',
+        '<code>letter-spacing</code> spreads every character, punctuation included. Watch the full-width brackets 《》 and （）.',
+        '<code>text-spacing-trim</code> decides how much blank space full-width punctuation keeps when two marks meet, such as 》（.',
+        'Reference: <a href="https://www.w3.org/TR/clreq/" target="_blank" rel="noopener">Requirements for Chinese Text Layout (clreq)</a>.'] },
+    { id: 'zh-Hant', name: 'Chinese, Traditional', short: 'Chinese (Traditional)', native: '繁體中文', notoSans: 'Noto Sans TC', notoSerif: 'Noto Serif TC', vertical: true,
+      h: '《世界人權宣言》第一條',
+      p: ['人人生而自由，在尊嚴和權利上一律平等。他們賦有理性和良心，並應以兄弟關係的精神相對待。',
+          '《網頁內容無障礙指引》（WCAG）2.2版於2023年10月5日成為W3C建議標準。它要求使用者在調整行高、字母間距、單字間距和段落間距時，內容和功能不會遺失。'],
+      tips: [
+        'Taiwan style centres punctuation such as ，and 。 in the character box. That comes from the font chosen for <code>lang="zh-Hant"</code>, so compare the font families.',
+        'Traditional Chinese is still set vertically in books and some signage. Try <code>vertical-rl</code> with <code>text-combine-upright</code> for the date.',
+        '<code>text-autospace</code> and <code>text-spacing-trim</code> behave as they do for Simplified Chinese.',
+        'Reference: <a href="https://www.w3.org/TR/clreq/" target="_blank" rel="noopener">Requirements for Chinese Text Layout (clreq)</a>.'] },
+    { id: 'ja', name: 'Japanese', short: 'Japanese', native: '日本語', notoSans: 'Noto Sans JP', notoSerif: 'Noto Serif JP', vertical: true,
+      h: '世界人権宣言 第1条',
+      p: ['すべての人間は、生まれながらにして自由であり、かつ、尊厳と権利とについて平等である。人間は、理性と良心とを授けられており、互いに同胞の精神をもって行動しなければならない。',
+          '「Webコンテンツ・アクセシビリティ・ガイドライン（WCAG）2.2」は、2023年10月5日にW3C勧告となった。利用者が行の高さ、文字間隔、単語間隔、段落間隔を変更しても、コンテンツや機能が失われてはならない。'],
+      tips: [
+        '<code>line-break: strict</code> applies the stricter line-start rules (kinsoku), so small kana such as ょ and the long vowel mark ー cannot start a line.',
+        '<code>word-break: auto-phrase</code> (Chrome) breaks lines between phrases (bunsetsu) instead of between any two characters. It only works with <code>lang="ja"</code>.',
+        'Vertical text: <code>vertical-rl</code> with <code>text-combine-upright</code> sets the numbers 10 and 5 upright in one character space.',
+        '<code>text-spacing-trim</code> removes the blank half of a full-width bracket at the start of a line or between two marks, such as 」（.',
+        'Ruby and <code>line-height: normal</code>: lines that carry ruby grow taller, so line spacing becomes uneven. A number keeps lines even, but if it is too small the ruby touches the line above.',
+        'Screen readers handle native ruby differently. Some read the base and then the reading (人間にんげん), some read only one. Switch “Exposed to assistive tech” and compare.',
+        'Readings fix text-to-speech errors. 今日 can be read きょう or こんにち. “Reading only” sends the kana instead of the kanji.',
+        'A browser minimum font size setting also applies to <code>rt</code>, so ruby may grow and push lines apart. Try it with the browser settings.',
+        'Emphasis dots (bouten) are the usual Japanese emphasis. Browsers style <code>&lt;em&gt;</code> as italic by default, and Japanese fonts have no italic, so the browser slants the glyphs.',
+        'Wakachigaki (spaces between phrases) appears in children’s books and learner text. Compare it with <code>word-break: auto-phrase</code>, which breaks lines between phrases without adding spaces.',
+        'References: <a href="https://www.w3.org/TR/jlreq/" target="_blank" rel="noopener">Requirements for Japanese Text Layout (jlreq)</a>, <a href="https://www.w3.org/TR/css-ruby-1/" target="_blank" rel="noopener">CSS Ruby Annotation Layout</a>, <a href="https://www.w3.org/International/articles/ruby/markup" target="_blank" rel="noopener">W3C: Ruby markup</a>.'] },
+    { id: 'ko', name: 'Korean', short: 'Korean', native: '한국어', notoSans: 'Noto Sans KR', notoSerif: 'Noto Serif KR', vertical: true,
+      h: '세계인권선언 제1조',
+      p: ['모든 인간은 태어날 때부터 자유로우며 그 존엄과 권리에 있어 동등하다. 인간은 천부적으로 이성과 양심을 부여받았으며 서로 형제애의 정신으로 행동하여야 한다.',
+          '「웹 콘텐츠 접근성 지침(WCAG) 2.2」는 2023년 10월 5일 W3C 권고안이 되었다. 사용자가 줄 높이, 글자 간격, 단어 간격, 문단 간격을 바꾸어도 콘텐츠나 기능이 사라져서는 안 된다.'],
+      tips: [
+        'Korean separates words with spaces. <code>word-break: keep-all</code> stops lines breaking inside a word. Check it at 400% zoom, where lines get short and long words can overflow.',
+        '<code>word-spacing</code> has a visible effect here, unlike Chinese and Japanese.',
+        'Hangul syllable blocks are dense. Compare <code>line-height: normal</code> with values around 1.6 to 1.8.',
+        'Reference: <a href="https://www.w3.org/TR/klreq/" target="_blank" rel="noopener">Requirements for Hangul Text Layout (klreq)</a>.'] },
+    { id: 'hi', name: 'Hindi', short: 'Hindi', native: 'हिन्दी', notoSans: 'Noto Sans Devanagari', notoSerif: 'Noto Serif Devanagari', vertical: false,
+      h: 'मानव अधिकारों की सार्वभौम घोषणा, अनुच्छेद 1',
+      p: ['सभी मनुष्यों को गौरव और अधिकारों के मामले में जन्मजात स्वतन्त्रता और समानता प्राप्त है। उन्हें बुद्धि और अन्तरात्मा की देन प्राप्त है और परस्पर उन्हें भाईचारे के भाव से बर्ताव करना चाहिए।',
+          'वेब सामग्री अभिगम्यता दिशानिर्देश (WCAG) 2.2 को 5 अक्टूबर 2023 को W3C अनुशंसा के रूप में प्रकाशित किया गया। उपयोगकर्ता जब पंक्ति की ऊँचाई, अक्षरों के बीच की दूरी, शब्दों के बीच की दूरी या अनुच्छेदों के बीच की दूरी बदलें, तब भी कोई सामग्री या कार्यक्षमता नष्ट नहीं होनी चाहिए।'],
+      tips: [
+        '<code>letter-spacing</code> above 0 can open gaps in the headline bar (shirorekha) that joins the letters of a word, and can pull conjuncts apart. Browsers differ here, so compare them.',
+        'Vowel signs sit above (ि ी े) and below (ु ू) the letters. With a tight <code>line-height</code>, marks on neighbouring lines can touch.',
+        'Devanagari often looks smaller than Latin text at the same <code>font-size</code>. Try a custom size against the Latin “WCAG” in the second paragraph.',
+        'Hindi is written horizontally only, so the writing mode controls are left for completeness.',
+        'Reference: <a href="https://www.w3.org/TR/ilreq/" target="_blank" rel="noopener">Indic Layout Requirements (ilreq)</a>.'] },
+  ];
+  const LANG_BY_ID = Object.fromEntries(LANGS.map(l => [l.id, l]));
+
+  const sup = (p, v) => { try { return CSS.supports(p, v); } catch { return false; } };
+  const IC = sup('width', '1ic') ? 'ic' : 'em';
+  const $ = id => document.getElementById(id);
+  const fmt = n => String(+Number(n).toFixed(3));
+  const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  // ---------- Settings ----------
+  const DEFAULTS = {
+    family: 'initial', sizeMode: 'default', sizePx: 16, sizeUnit: 'px',
+    zoom: 1, zoomMethod: 'page', refWidth: 'fit',
+    wm: '', to: '', tcy: false,
+    lhNormal: true, lh: 1.5, ls: 0, ws: 0, psUnset: true, ps: 2,
+    measureNone: true, measure: 30,
+    lineBreak: '', wordBreak: '', tst: '', tas: '', tsa: '',
+    // Japanese annotation: markup choices, then CSS
+    rubyMode: 'group', rubyScope: 'all', rubyRp: true, atMode: 'native', wakachi: '', warichu: 'paren',
+    rubyPos: '', rubyAlign: '', rubyMerge: '', rtSize: 0, emStyle: '', emPos: '',
+    // Colour: '' leaves colours to the browser; textGrey is the 0-255 grey level of the text
+    colorMode: '', textGrey: 0, redColor: '', redOn: 'rt',
+  };
+  const MODE_BG = { light: 230, dark: 26 };
+  const hexGrey = g => '#' + Math.round(g).toString(16).padStart(2, '0').repeat(3);
+  const bgHex = s => s.colorMode ? hexGrey(MODE_BG[s.colorMode]) : '#ffffff';
+  const redHex = s => s.redColor === 'red' ? '#ff0000' : s.redColor === 'crimson' ? (s.colorMode === 'dark' ? '#ff9999' : '#b00020') : '';
+  // APCA 0.0.98G-4g contrast (Lc) for text on background, both #rrggbb
+  function apca(txt, bg) {
+    const Y = h => { const n = parseInt(h.slice(1), 16), f = c => Math.pow(c / 255, 2.4); return 0.2126729 * f(n >> 16 & 255) + 0.7151522 * f(n >> 8 & 255) + 0.0721750 * f(n & 255); };
+    const clamp = y => y > 0.022 ? y : y + Math.pow(0.022 - y, 1.414);
+    const t = clamp(Y(txt)), b = clamp(Y(bg));
+    if (Math.abs(b - t) < 0.0005) return 0;
+    if (b > t) { const S = (Math.pow(b, 0.56) - Math.pow(t, 0.57)) * 1.14; return S < 0.1 ? 0 : (S - 0.027) * 100; }
+    const S = (Math.pow(b, 0.65) - Math.pow(t, 0.62)) * 1.14; return S > -0.1 ? 0 : (S + 0.027) * 100;
+  }
+  const lcText = (fg, bg) => `Lc ${Math.abs(apca(fg, bg)).toFixed(1)}`;
+  // The grey closest to the background that still reaches |Lc| 60
+  function lc60Grey(mode) {
+    const bg = hexGrey(MODE_BG[mode]);
+    if (mode === 'light') { for (let g = 255; g >= 0; g--) if (Math.abs(apca(hexGrey(g), bg)) >= 60) return g; }
+    else { for (let g = 0; g <= 255; g++) if (Math.abs(apca(hexGrey(g), bg)) >= 60) return g; }
+    return mode === 'light' ? 0 : 255;
+  }
+  const MARKUP_KEYS = ['rubyMode', 'rubyScope', 'rubyRp', 'atMode', 'wakachi', 'warichu'];
+  const RUBY_LABEL = { none: 'no ruby', group: 'group ruby', mono: 'mono ruby', paren: 'readings in parentheses' };
+  const AT_LABEL = { native: 'native ruby', 'hide-rt': 'base text only', 'reading-only': 'reading only' };
+  const KEYS = Object.keys(DEFAULTS);
+  // Coerce anything read back from storage to the expected type of each setting.
+  function norm(s) {
+    const o = {};
+    KEYS.forEach(k => {
+      const d = DEFAULTS[k], v = s && typeof s === 'object' && k in s ? s[k] : d;
+      o[k] = typeof d === 'number' ? (Number.isFinite(Number(v)) ? Number(v) : d) : typeof d === 'boolean' ? !!v : String(v ?? d);
+    });
+    return o;
+  }
+  const same = (a, b) => KEYS.every(k => a[k] === b[k]);
+
+  let lang = LANGS[0];
+  let state = norm({});
+  let activeId = null;
+
+  const famLabel = (s, L) => s.family === 'noto-sans' ? L.notoSans : s.family === 'noto-serif' ? L.notoSerif : s.family;
+  function summary(s, L) {
+    const d = DEFAULTS, out = [];
+    if (s.family !== d.family) out.push(`font-family: ${famLabel(s, L)}`);
+    if (s.sizeMode === 'custom') out.push(`font-size: ${s.sizePx}px${s.sizeUnit !== 'px' ? ` (as ${s.sizeUnit})` : ''}`);
+    if (!s.lhNormal) out.push(`line-height: ${fmt(s.lh)}`);
+    if (s.ls !== 0) out.push(`letter-spacing: ${fmt(s.ls)}em`);
+    if (s.ws !== 0) out.push(`word-spacing: ${fmt(s.ws)}em`);
+    if (!s.psUnset) out.push(`paragraph spacing: ${fmt(s.ps)}em`);
+    if (!s.measureNone) out.push(`line length: ${s.measure}${IC}`);
+    if (s.lineBreak) out.push(`line-break: ${s.lineBreak}`);
+    if (s.wordBreak) out.push(`word-break: ${s.wordBreak}`);
+    if (s.tst) out.push(`text-spacing-trim: ${s.tst}`);
+    if (s.tas) out.push(`text-autospace: ${s.tas}`);
+    if (s.wm) out.push(`writing-mode: ${s.wm}`);
+    if (s.to) out.push(`text-orientation: ${s.to}`);
+    if (s.tcy) out.push('text-combine-upright: all');
+    if (s.zoom !== 1) out.push(`${Math.round(s.zoom * 100)}% ${s.zoomMethod === 'page' ? 'page' : 'text-only'} zoom`);
+    if (s.refWidth !== 'fit') out.push(`viewport ${s.refWidth}px`);
+    if (s.tsa) out.push(`text-size-adjust: ${s.tsa}`);
+    if (s.rubyMode !== d.rubyMode) out.push(`ruby markup: ${RUBY_LABEL[s.rubyMode] || s.rubyMode}`);
+    if (s.rubyScope !== d.rubyScope) out.push('ruby on selected words only');
+    if (!s.rubyRp) out.push('no rp');
+    if (s.atMode !== d.atMode) out.push(`assistive tech: ${AT_LABEL[s.atMode] || s.atMode}`);
+    if (s.wakachi) out.push(`wakachigaki: ${s.wakachi === ' ' ? 'half-width' : 'full-width'} spaces`);
+    if (s.warichu !== d.warichu) out.push('warichu note');
+    if (s.rubyPos) out.push(`ruby-position: ${s.rubyPos}`);
+    if (s.rubyAlign) out.push(`ruby-align: ${s.rubyAlign}`);
+    if (s.rubyMerge) out.push(`ruby-merge: ${s.rubyMerge}`);
+    if (s.rtSize) out.push(`rt font-size: ${s.rtSize}%`);
+    if (s.emStyle) out.push(`em: ${s.emStyle === 'sideline' ? 'side line' : s.emStyle}`);
+    if (s.emPos) out.push(`text-emphasis-position: ${s.emPos}`);
+    if (s.colorMode) out.push(`${s.colorMode} mode: ${hexGrey(s.textGrey)} on ${bgHex(s)}, ${lcText(hexGrey(s.textGrey), bgHex(s))}`);
+    if (s.redColor) out.push(`red ${s.redOn === 'rt' ? 'ruby' : s.redOn === 'em' ? 'emphasis dots' : 'ruby and emphasis dots'}: ${redHex(s)}`);
+    return out;
+  }
+  function markupSummary(s) {
+    if (s.rubyMode === 'none') return `no ruby${s.wakachi ? ', wakachigaki' : ''}, note in ${s.warichu === 'warichu' ? 'warichu' : 'parentheses'}`;
+    return `${RUBY_LABEL[s.rubyMode]} on ${s.rubyScope === 'all' ? 'every kanji word' : 'selected words'}${s.rubyMode !== 'paren' ? (s.rubyRp ? ' with rp' : ' without rp') + `, exposed to assistive tech as ${AT_LABEL[s.atMode]}` : ''}`
+      + `${s.wakachi ? `, wakachigaki with ${s.wakachi === ' ' ? 'half-width' : 'full-width'} spaces` : ''}, note in ${s.warichu === 'warichu' ? 'warichu' : 'parentheses'}`;
+  }
+
+  // ---------- Japanese annotation sample ----------
+  // {base|reading} is group ruby; {base|r1|r2} gives one reading per character for mono ruby.
+  // ! marks a harder word (ruby when only selected words get it), *text* is <em>, ((text)) an inline note, / a phrase boundary.
+  const ANNO = {
+    h: '{読|よ}みやすさと/{注記|ちゅう|き}',
+    p: [
+      'すべての/{人間|にん|げん}は、/{生|う}まれながらにして/{自由|じ|ゆう}であり、/かつ、/!{尊厳|そん|げん}と/{権利|けん|り}とに/ついて/{平等|びょう|どう}である。/{人間|にん|げん}は、/{理性|り|せい}と/{良心|りょう|しん}とを/!{授|さず}けられており、/!{互|たが}いに/!{同胞|どう|ほう}の/{精神|せい|しん}を/もって/{行動|こう|どう}しなければ/ならない。',
+      '!{今日|きょう}、/!{大人|おとな}も/{子|こ}どもも、/*ふりがな*((振り仮名とも書く))で/!{難|むずか}しい/{漢字|かん|じ}を/{読|よ}む/ことが/できる。',
+    ],
+  };
+  function annoText(src, s) {
+    const re = /(!?)\{([^}]*)\}|\*([^*]*)\*|\(\(([^)]*)\)\)|\/|[^{*(\/!]+|[\s\S]/g;
+    let out = '', m;
+    while ((m = re.exec(src))) {
+      if (m[2] != null) out += rubyHTML(m[2].split('|'), !!m[1], s);
+      else if (m[3] != null) out += `<em>${esc(m[3])}</em>`;
+      else if (m[4] != null) out += s.warichu === 'warichu'
+        ? `（<span class="warichu" style="--wc:${Math.ceil([...m[4]].length / 2)}">${esc(m[4])}</span>）`
+        : `（${esc(m[4])}）`;
+      else if (m[0] === '/') { if (s.wakachi && !/[、。]$/.test(out)) out += s.wakachi; }
+      else out += esc(m[0]);
+    }
+    return out;
+  }
+  function rubyHTML([base, ...readings], hard, s) {
+    if (s.rubyMode === 'none' || (s.rubyScope === 'hard' && !hard)) return esc(base);
+    const full = readings.join('');
+    if (s.rubyMode === 'paren') return `${esc(base)}（${esc(full)}）`;
+    const hide = s.atMode === 'hide-rt' ? ' aria-hidden="true"' : '';
+    const rp = t => s.rubyRp ? `<rp${hide}>${t}</rp>` : '';
+    const rt = r => `${rp('（')}<rt${hide}>${esc(r)}</rt>${rp('）')}`;
+    const chars = [...base];
+    const inner = s.rubyMode === 'mono' && readings.length > 1 && readings.length === chars.length
+      ? chars.map((c, i) => esc(c) + rt(readings[i])).join('')
+      : esc(base) + rt(full);
+    if (s.atMode === 'reading-only') return `<ruby aria-hidden="true">${inner}</ruby><span class="vh">${esc(full)}</span>`;
+    return `<ruby>${inner}</ruby>`;
+  }
+  const annoInner = s => `<h3>${annoText(ANNO.h, s)}</h3>\n${ANNO.p.map(p => `<p>${annoText(p, s)}</p>`).join('\n')}`;
+  function conditions(s) {
+    const c = [];
+    if (s.zoom !== 1) c.push(`${Math.round(s.zoom * 100)}% ${s.zoomMethod === 'page' ? 'page' : 'text-only'} zoom`);
+    if (s.refWidth !== 'fit') c.push(`viewport ${s.refWidth}px wide`);
+    if (s.tsa) c.push(`text-size-adjust: ${s.tsa}`);
+    return c;
+  }
+
+  // ---------- Environment ----------
+  const env = {};
+  function readEnv() {
+    const probe = document.createElement('span');
+    probe.style.cssText = 'font-size:medium;position:absolute;visibility:hidden';
+    document.body.append(probe);
+    env.mediumPx = parseFloat(getComputedStyle(probe).fontSize);
+    probe.remove();
+    env.rootPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+    const checks = [
+      ['zoom', 'zoom', '2'], ['ic unit', 'width', '1ic'],
+      ['text-combine-upright', 'text-combine-upright', 'all'], ['text-spacing-trim', 'text-spacing-trim', 'trim-start'],
+      ['text-autospace', 'text-autospace', 'normal'], ['word-break: auto-phrase', 'word-break', 'auto-phrase'],
+      ['line-break: anywhere', 'line-break', 'anywhere'], ['text-size-adjust', 'text-size-adjust', 'auto'],
+    ];
+    $('env').innerHTML = `<span><span class="k">This browser:</span> <span class="k">default font size</span> <b>${env.mediumPx}px</b></span>
+      <span><span class="k">devicePixelRatio</span> <b>${fmt(devicePixelRatio)}</b></span>
+      <ul class="chips" aria-label="CSS support in this browser">${checks.map(([n, p, v]) => `<li class="chip ${sup(p, v) ? 'yes' : 'no'}" title="${sup(p, v) ? 'Supported' : 'Not supported'} in this browser">${n}</li>`).join('')}</ul>`;
+  }
+
+  // ---------- CSS generation ----------
+  // Returns [text, comment] pairs for the text rules. `sel` is the selector for the sample element.
+  function textRules(s, L, sel) {
+    const out = [];
+    const z = s.zoom, textZoom = s.zoomMethod !== 'page' && z !== 1;
+    out.push([`${sel} {`, '']);
+    if (s.family === 'initial') out.push(['  font-family: initial;', 'browser default font for the lang']);
+    else if (s.family.startsWith('noto')) out.push([`  font-family: "${famLabel(s, L)}", ${s.family === 'noto-sans' ? 'sans-serif' : 'serif'};`, 'web font']);
+    else out.push([`  font-family: ${s.family};`, '']);
+    let sizeExpr, sizeNote = '';
+    if (s.sizeMode === 'default') {
+      if (textZoom) { sizeExpr = `${fmt(z)}rem`; sizeNote = `medium × ${Math.round(z * 100)}% text zoom`; }
+      else { sizeExpr = 'medium'; sizeNote = 'browser default'; }
+    } else {
+      const px = s.sizePx * (textZoom ? z : 1), base = env.rootPx || 16;
+      if (s.sizeUnit === 'px') sizeExpr = `${fmt(px)}px`;
+      else if (s.sizeUnit === 'rem') sizeExpr = `${fmt(px / base)}rem`;
+      else sizeExpr = `${fmt(px / base * 100)}%`;
+      sizeNote = [s.sizeUnit !== 'px' ? `= ${fmt(px)}px at ${base}px default` : '', textZoom ? `${s.sizePx}px × ${Math.round(z * 100)}% text zoom` : ''].filter(Boolean).join(', ');
+    }
+    out.push([`  font-size: ${sizeExpr};`, sizeNote]);
+    if (s.colorMode) {
+      out.push([`  color: ${hexGrey(s.textGrey)};`, `APCA ${lcText(hexGrey(s.textGrey), bgHex(s))}`]);
+      out.push([`  background-color: ${bgHex(s)};`, `${s.colorMode} mode, 90% ${s.colorMode === 'light' ? 'white' : 'black'}`]);
+    }
+    out.push([`  line-height: ${s.lhNormal ? 'normal' : fmt(s.lh)};`, s.lhNormal ? 'taken from the font' : '']);
+    out.push([`  letter-spacing: ${s.ls === 0 ? 'normal' : fmt(s.ls) + 'em'};`, '']);
+    out.push([`  word-spacing: ${s.ws === 0 ? 'normal' : fmt(s.ws) + 'em'};`, '']);
+    if (s.wm) out.push([`  writing-mode: ${s.wm};`, '']);
+    if (s.to) out.push([`  text-orientation: ${s.to};`, '']);
+    if (s.lineBreak) out.push([`  line-break: ${s.lineBreak};`, '']);
+    if (s.wordBreak) out.push([`  word-break: ${s.wordBreak};`, '']);
+    if (s.tst) out.push([`  text-spacing-trim: ${s.tst};`, '']);
+    if (s.tas) out.push([`  text-autospace: ${s.tas};`, '']);
+    const vert = /^(vertical|sideways)/.test(s.wm);
+    if (!s.measureNone) {
+      const perLine = IC === 'ic' ? `about ${s.measure} CJK characters per line` : 'ic unit unsupported, using em';
+      if (vert) out.push([`  inline-size: ${s.measure + IC};`, `${perLine}; vertical text needs a definite column height`]);
+      else out.push([`  max-inline-size: ${s.measure + IC};`, perLine]);
+    } else if (vert) {
+      out.push(['  inline-size: 20em;', 'vertical text needs a definite column height']);
+    }
+    out.push(['}', '']);
+    if (!s.psUnset) {
+      out.push([`${sel} p {`, '']);
+      out.push([`  margin-block: 0 ${fmt(s.ps)}em;`, 'paragraph spacing']);
+      out.push(['}', '']);
+    }
+    if (s.tcy) {
+      out.push([`${sel} .tcy {`, '']);
+      out.push(['  text-combine-upright: all;', 'only visible in vertical modes']);
+      out.push(['}', '']);
+    }
+    const ruby = [];
+    if (s.rubyPos) ruby.push([`  ruby-position: ${s.rubyPos};`, '']);
+    if (s.rubyAlign) ruby.push([`  ruby-align: ${s.rubyAlign};`, '']);
+    if (s.rubyMerge) ruby.push([`  ruby-merge: ${s.rubyMerge};`, s.rubyMerge === 'auto' ? 'jukugo ruby' : '']);
+    if (ruby.length) out.push([`${sel} ruby {`, ''], ...ruby, ['}', '']);
+    if (s.rtSize) out.push([`${sel} rt {`, ''], [`  font-size: ${s.rtSize}%;`, 'browser default is 50%'], ['}', '']);
+    const red = redHex(s);
+    if (red && s.redOn !== 'em') out.push([`${sel} rt {`, ''], [`  color: ${red};`, `red ruby, APCA ${lcText(red, bgHex(s))}${s.colorMode ? '' : ' on white'}`], ['}', '']);
+    if (red && s.redOn !== 'rt') out.push([`${sel} em {`, ''], [`  text-emphasis-color: ${red};`, 'red emphasis dots'], ['}', '']);
+    if (s.emStyle) {
+      out.push([`${sel} em {`, ''], ['  font-style: normal;', 'no slanted fake italic']);
+      if (s.emStyle === 'bold') out.push(['  font-weight: bold;', '']);
+      else if (s.emStyle === 'sideline') out.push(['  text-decoration-line: underline;', 'a line beside the text in vertical modes']);
+      else if (s.emStyle !== 'normal') {
+        out.push([`  text-emphasis: ${s.emStyle};`, 'emphasis dots (bouten)']);
+        if (s.emPos) out.push([`  text-emphasis-position: ${s.emPos};`, '']);
+      }
+      out.push(['}', '']);
+    }
+    if (s.warichu === 'warichu') {
+      out.push([`${sel} .warichu {`, 'approximation: CSS has no warichu property'],
+        ['  display: inline-block;', ''], ['  font-size: 50%;', ''], ['  line-height: 1.15;', ''],
+        ['  inline-size: calc(var(--wc) * 1em);', 'half the note length, so it wraps onto two lines'],
+        ['  vertical-align: middle;', ''], ['  text-align: justify;', ''], ['  text-align-last: justify;', ''], ['}', '']);
+    }
+    return out;
+  }
+  function stageRules(s) {
+    const out = [], z = s.zoom, page = s.zoomMethod === 'page', ref = stageWidth(s);
+    out.push(['/* Simulated viewport */', '']);
+    out.push(['.stage {', '']);
+    if (page && z !== 1) {
+      out.push([`  zoom: ${fmt(z)};`, `page zoom ${Math.round(z * 100)}%`]);
+      out.push([`  width: ${fmt(ref / z)}px;`, `${ref}px viewport ÷ ${fmt(z)} = CSS px available`]);
+    } else {
+      out.push([`  width: ${ref}px;`, s.refWidth === 'fit' ? 'fits the panel' : 'viewport width']);
+    }
+    if (s.tsa) { out.push([`  -webkit-text-size-adjust: ${s.tsa};`, '']); out.push([`  text-size-adjust: ${s.tsa};`, '']); }
+    out.push(['}', '']);
+    return out;
+  }
+  const plain = lines => lines.map(([t, c]) => c ? `${t}  /* ${c} */` : t).join('\n');
+
+  function stageWidth(s) {
+    const outer = $('stage-outer');
+    const cs = getComputedStyle(outer);
+    const avail = outer.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    return s.refWidth === 'fit' ? Math.max(200, Math.floor(avail)) : Number(s.refWidth);
+  }
+
+  const live = document.createElement('style'); live.id = 'live-css'; document.head.append(live);
+  const initialTheme = document.documentElement.getAttribute('data-theme');
+  function renderCSS() {
+    const lines = [...stageRules(state), ['', ''], [`/* ${lang.short} text */`, ''], ...textRules(state, lang, '.sample')];
+    live.textContent = plain(lines).replace(/^\.stage \{/m, '#stage {').replace(/^\.sample/gm, '#stage .sample')
+      + (state.colorMode ? `\n#stage .card { background: ${bgHex(state)}; color: ${hexGrey(state.textGrey)}; }` : '');
+    // The page follows the sample's colour mode; with no mode set it goes back to the viewer's own theme.
+    if (state.colorMode) document.documentElement.setAttribute('data-theme', state.colorMode);
+    else if (initialTheme) document.documentElement.setAttribute('data-theme', initialTheme);
+    else document.documentElement.removeAttribute('data-theme');
+    $('css-out').innerHTML = lines.map(([t, c]) => {
+      const tt = t.trim().startsWith('/*') ? `<span class="c">${esc(t)}</span>` : esc(t);
+      return c ? `${tt}  <span class="c">/* ${esc(c)} */</span>` : tt;
+    }).join('\n');
+  }
+
+  // ---------- Web fonts ----------
+  const loadedFonts = new Set();
+  function ensureFont(name) {
+    if (loadedFonts.has(name)) return;
+    loadedFonts.add(name);
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `https://fonts.googleapis.com/css2?family=${name.replace(/ /g, '+')}:wght@400;700&display=swap`;
+    link.onload = () => setTimeout(measure, 300);
+    document.head.append(link);
+  }
+
+  // ---------- Sample text ----------
+  // Stored text is plain; 1 and 2 digit numbers get a span so text-combine-upright can reach them.
+  const tcyWrap = t => esc(t).replace(/(?<![\d.])(\d{1,2})(?![\d.])/g, '<span class="tcy">$1</span>');
+  function textFor(L) {
+    const custom = store.samples[L.id];
+    if (custom && typeof custom.h === 'string' && Array.isArray(custom.p) && custom.p.length) return { h: custom.h, p: custom.p.map(String), custom: true };
+    return { h: L.h, p: L.p, custom: false };
+  }
+  function sampleHTML(L, cls) {
+    const t = textFor(L);
+    return `<article class="card"><div class="card-head"><span>${esc(L.name)} · <span lang="${L.id}">${esc(L.native)}</span>${t.custom ? ' · <span class="hint">edited text</span>' : ''}</span><span class="tag">lang="${L.id}"</span></div>
+      <div class="card-body"><div class="${cls}" lang="${L.id}"><h3>${tcyWrap(t.h)}</h3>${t.p.map(x => `<p>${tcyWrap(x)}</p>`).join('')}</div></div>
+      ${cls === 'sample' ? '<div class="card-foot" id="live-foot"></div>' : ''}</article>`;
+  }
+  function buildSamples() {
+    const ja = lang.id === 'ja';
+    $('stage').innerHTML = sampleHTML(lang, 'sample') + (ja ? '<div id="anno-live"></div>' : '');
+    $('base-stage').innerHTML = sampleHTML(lang, 'base-sample') + (ja ? '<div id="anno-base"></div>' : '');
+    annoKey = '';
+    applyEditable();
+  }
+
+  // Rebuilds the annotation cards only when a markup choice changes, so CSS-only changes keep the DOM.
+  let annoKey = '';
+  function renderAnno() {
+    if (lang.id !== 'ja') return;
+    const key = MARKUP_KEYS.map(k => state[k]).join('|');
+    if (key === annoKey) return;
+    annoKey = key;
+    const inner = annoInner(state);
+    const card = (cls, foot) => `<article class="card"><div class="card-head"><span>Ruby and annotation · <span lang="ja">振り仮名と注記</span></span><span class="tag">lang="ja"</span></div>
+      <div class="card-body"><div class="${cls}" lang="ja">${inner}</div></div>${foot ? `<div class="card-foot">${esc(foot)}</div>` : ''}</article>`;
+    $('anno-live').innerHTML = card('sample anno', markupSummary(state));
+    $('anno-base').innerHTML = card('base-sample', '');
+    $('anno-markup-out').textContent = inner;
+  }
+  function spokenText(node) {
+    if (node.nodeType === 3) return node.nodeValue;
+    if (node.nodeType !== 1 || node.getAttribute('aria-hidden') === 'true') return '';
+    const cs = getComputedStyle(node);
+    if (cs.display === 'none' || cs.visibility === 'hidden') return '';
+    const t = [...node.childNodes].map(spokenText).join('');
+    return /^(H3|P)$/.test(node.tagName) ? t.trim() + '\n' : t;
+  }
+  function renderSpoken() {
+    const a = $('stage').querySelector('.anno');
+    $('spoken').textContent = a ? spokenText(a).replace(/\n\s*\n/g, '\n').trim() : '';
+  }
+  function applyEditable() {
+    const on = $('edit-text').checked;
+    const el = $('stage').querySelector('.sample');
+    if (el) el.contentEditable = on ? 'true' : 'false';
+    $('save-text').hidden = !on;
+  }
+
+  // ---------- Measurement (from the lab) ----------
+  function linePitch(p, mode, fs) {
+    const pos = [];
+    const walker = document.createTreeWalker(p, NodeFilter.SHOW_TEXT);
+    const r = document.createRange();
+    for (let n; (n = walker.nextNode()) && pos.length < 400;) {
+      for (let i = 0; i < n.length; i++) {
+        r.setStart(n, i); r.setEnd(n, i + 1);
+        const b = r.getBoundingClientRect();
+        if (!b.width || !b.height) continue;
+        pos.push(mode === 'h' ? (b.top + b.bottom) / 2 : (b.left + b.right) / 2);
+      }
+    }
+    pos.sort((a, b) => a - b);
+    const lines = [];
+    pos.forEach(x => { const last = lines[lines.length - 1]; if (last && x - last.max < fs * 0.45) { last.max = x; last.sum += x; last.n++; } else lines.push({ max: x, sum: x, n: 1 }); });
+    if (lines.length < 2) return null;
+    const c = lines.map(l => l.sum / l.n), d = [];
+    for (let i = 1; i < c.length; i++) d.push(c[i] - c[i - 1]);
+    d.sort((a, b) => a - b);
+    return d[Math.floor(d.length / 2)];
+  }
+  function measure() {
+    const sample = $('stage').querySelector('.sample'), foot = $('live-foot');
+    if (!sample || !foot) return;
+    const p = sample.querySelector('p') || sample;
+    const cs = getComputedStyle(p);
+    const vertical = /^(vertical|sideways)/.test(cs.writingMode);
+    const fs = parseFloat(cs.fontSize);
+    const pageZoom = state.zoomMethod === 'page' ? state.zoom : 1;
+    const pitch = linePitch(p, vertical ? 'v' : 'h', fs * pageZoom);
+    const ratio = pitch ? pitch / (fs * pageZoom) : null;
+    foot.textContent = `font-size ${fmt(fs)}px · line pitch ${ratio ? `${(pitch / pageZoom).toFixed(1)}px · ${ratio.toFixed(2)}×` : 'one line'} · ${cs.fontFamily}`;
+  }
+
+  // ---------- Controls ----------
+  function seg(containerId, name, options, key, cast = v => v) {
+    const box = $(containerId);
+    box.setAttribute('role', 'radiogroup');
+    options.forEach(([value, label, supported = true], i) => {
+      const id = `${containerId}-${i}`;
+      const input = Object.assign(document.createElement('input'), { type: 'radio', name, id, value });
+      const lab = Object.assign(document.createElement('label'), { htmlFor: id, textContent: label });
+      if (!supported) { lab.classList.add('unsupported'); lab.title = 'Not supported in this browser'; }
+      input.addEventListener('change', () => { state[key] = cast(input.value); update(); });
+      box.append(input, lab);
+    });
+  }
+  seg('size-mode', 'size-mode', [['default', 'medium (browser default)'], ['custom', 'custom']], 'sizeMode');
+  seg('size-unit', 'size-unit', [['px', 'px'], ['rem', 'rem'], ['%', '%']], 'sizeUnit');
+  seg('zoom', 'zoom', [1, 1.1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4].map(z => [String(z), `${Math.round(z * 100)}%`]), 'zoom', Number);
+  seg('zoom-method', 'zoom-method', [['page', 'page zoom (reflows)', sup('zoom', '2')], ['text', 'text-only zoom']], 'zoomMethod');
+  seg('wm', 'wm', [['', 'not set'], ...['horizontal-tb', 'vertical-rl', 'vertical-lr', 'sideways-rl', 'sideways-lr'].map(v => [v, v, sup('writing-mode', v)])], 'wm');
+  seg('to', 'to', [['', 'not set'], ...['mixed', 'upright', 'sideways'].map(v => [v, v, sup('text-orientation', v)])], 'to');
+
+  [['line-break', 'line-break'], ['word-break', 'word-break'], ['tst', 'text-spacing-trim'], ['tas', 'text-autospace']].forEach(([id, prop]) => {
+    [...$(id).options].forEach(o => { if (o.value && !sup(prop, o.value)) o.textContent += '  (not supported here)'; });
+  });
+  seg('color-mode', 'color-mode', [['', 'browser default'], ['light', 'light (90% white)'], ['dark', 'dark (90% black)']], 'colorMode');
+  document.querySelectorAll('input[name="color-mode"]').forEach(i => i.addEventListener('change', () => {
+    if (state.colorMode) state.textGrey = state.colorMode === 'light' ? MODE_BG.dark : MODE_BG.light;
+    update();
+  }));
+  $('text-max').addEventListener('click', () => { if (state.colorMode) { state.textGrey = state.colorMode === 'light' ? MODE_BG.dark : MODE_BG.light; update(); } });
+  $('text-lc60').addEventListener('click', () => { if (state.colorMode) { state.textGrey = lc60Grey(state.colorMode); update(); } });
+  seg('red-color', 'red-color', [['', 'off'], ['red', 'red #FF0000'], ['crimson', 'dark red']], 'redColor');
+  seg('red-on', 'red-on', [['rt', 'ruby'], ['em', 'emphasis dots'], ['both', 'both']], 'redOn');
+  seg('ruby-mode', 'ruby-mode', [['none', 'none'], ['group', 'group'], ['mono', 'mono'], ['paren', '漢字（かんじ）']], 'rubyMode');
+  seg('ruby-scope', 'ruby-scope', [['all', 'every kanji word'], ['hard', 'selected words']], 'rubyScope');
+  seg('wakachi', 'wakachi', [['', 'none'], [' ', 'half-width'], ['　', 'full-width']], 'wakachi');
+  seg('warichu', 'warichu', [['paren', '（parentheses）'], ['warichu', 'warichu']], 'warichu');
+  [['ruby-pos', 'ruby-position'], ['ruby-align', 'ruby-align'], ['ruby-merge', 'ruby-merge']].forEach(([id, prop]) => {
+    [...$(id).options].forEach(o => { if (o.value && !sup(prop, o.value)) o.textContent += '  (not supported here)'; });
+  });
+  [...$('em-style').options].forEach(o => { if (/sesame|dot|circle/.test(o.value) && !sup('text-emphasis', o.value)) o.textContent += '  (not supported here)'; });
+  [...$('tsa').options].forEach(o => { if (o.value && !sup('text-size-adjust', o.value) && !sup('-webkit-text-size-adjust', o.value)) o.textContent += '  (not supported here)'; });
+
+  function buildFamilyOptions() {
+    const v = state.family;
+    $('family').innerHTML = [['initial', 'Browser default (initial)'], ['sans-serif', 'sans-serif'], ['serif', 'serif'], ['system-ui', 'system-ui'],
+      ['noto-sans', `${lang.notoSans} (web font)`], ['noto-serif', `${lang.notoSerif} (web font)`]]
+      .map(([val, label]) => `<option value="${val}">${esc(label)}</option>`).join('');
+    $('family').value = v;
+  }
+
+  function syncUI() {
+    const setRadio = (name, v) => { const el = document.querySelector(`input[name="${name}"][value="${CSS.escape(String(v))}"]`); if (el) el.checked = true; };
+    setRadio('size-mode', state.sizeMode); setRadio('size-unit', state.sizeUnit); setRadio('zoom', state.zoom);
+    setRadio('zoom-method', state.zoomMethod); setRadio('wm', state.wm); setRadio('to', state.to);
+    $('family').value = state.family; $('ref-width').value = state.refWidth;
+    $('size').value = state.sizePx; $('size').disabled = state.sizeMode !== 'custom';
+    $('size-out').textContent = `${state.sizePx}px`;
+    $('tcy').checked = state.tcy;
+    $('lh-normal').checked = state.lhNormal; $('lh').value = state.lh; $('lh').disabled = state.lhNormal;
+    $('lh-out').textContent = state.lhNormal ? 'normal' : fmt(state.lh);
+    $('ls').value = state.ls; $('ls-out').textContent = state.ls === 0 ? 'normal' : `${fmt(state.ls)}em`;
+    $('ws').value = state.ws; $('ws-out').textContent = state.ws === 0 ? 'normal' : `${fmt(state.ws)}em`;
+    $('ps-unset').checked = state.psUnset; $('ps').value = state.ps; $('ps').disabled = state.psUnset;
+    $('ps-out').textContent = state.psUnset ? 'browser default' : `${fmt(state.ps)}em`;
+    $('measure-none').checked = state.measureNone; $('measure').value = state.measure; $('measure').disabled = state.measureNone;
+    $('measure-out').textContent = state.measureNone ? 'not set' : `${state.measure}${IC}`;
+    $('line-break').value = state.lineBreak; $('word-break').value = state.wordBreak;
+    $('tst').value = state.tst; $('tas').value = state.tas; $('tsa').value = state.tsa;
+    setRadio('ruby-mode', state.rubyMode); setRadio('ruby-scope', state.rubyScope); setRadio('wakachi', state.wakachi); setRadio('warichu', state.warichu);
+    $('ruby-rp').checked = state.rubyRp; $('at-mode').value = state.atMode;
+    const noRubyEl = state.rubyMode === 'none' || state.rubyMode === 'paren';
+    $('ruby-rp').disabled = noRubyEl; $('at-mode').disabled = noRubyEl;
+    $('ruby-pos').value = state.rubyPos; $('ruby-align').value = state.rubyAlign; $('ruby-merge').value = state.rubyMerge;
+    $('rt-default').checked = !state.rtSize; $('rt-size').disabled = !state.rtSize; $('rt-size').value = state.rtSize || 50;
+    $('rt-out').textContent = state.rtSize ? `${state.rtSize}%` : 'not set';
+    $('em-style').value = state.emStyle; $('em-pos').value = state.emPos;
+    $('em-pos').disabled = !/sesame|dot|circle/.test(state.emStyle);
+    setRadio('color-mode', state.colorMode); setRadio('red-color', state.redColor); setRadio('red-on', state.redOn);
+    const fg = hexGrey(state.textGrey), bg = bgHex(state);
+    ['text-grey', 'text-max', 'text-lc60'].forEach(id => { $(id).disabled = !state.colorMode; });
+    $('text-grey').value = state.textGrey;
+    $('text-out').textContent = state.colorMode ? fg.toUpperCase() : 'browser default';
+    if (state.colorMode) {
+      const lc = Math.abs(apca(fg, bg));
+      $('contrast-out').textContent = `${fg.toUpperCase()} on ${bg.toUpperCase()}: APCA Lc ${lc.toFixed(1)}, ${lc >= 60 ? 'meets' : 'below'} Lc 60.`;
+      $('contrast-out').style.color = lc >= 60 ? 'var(--ok)' : 'var(--danger)';
+    } else { $('contrast-out').textContent = 'Pick light or dark to set the colours and see the measured contrast.'; $('contrast-out').style.color = ''; }
+    document.querySelectorAll('input[name="red-on"]').forEach(i => { i.disabled = !state.redColor; });
+    if (state.redColor) {
+      const red = redHex(state), lc = Math.abs(apca(red, bg));
+      $('red-out').textContent = `${red.toUpperCase()} on ${bg.toUpperCase()}${state.colorMode ? '' : ' (white)'}: APCA Lc ${lc.toFixed(1)}, ${lc >= 60 ? 'meets' : 'below'} Lc 60. Ruby is usually half size, so it needs more contrast than body text.`;
+      $('red-out').style.color = lc >= 60 ? 'var(--ok)' : 'var(--danger)';
+    } else { $('red-out').textContent = 'Pure red is #FF0000. Dark red is #B00020 on light backgrounds and #FF9999 in dark mode, because a dark red is unreadable on a dark background.'; $('red-out').style.color = ''; }
+    $('zoom-hint').textContent = state.zoomMethod === 'page'
+      ? 'Scales everything and narrows the layout width, like Ctrl/Cmd + in the browser.'
+      : 'Scales only the font size. The layout width stays the same.';
+    $('wm-hint').textContent = lang.vertical ? 'Vertical modes set a column height from the line length, or 20em when it is not set.' : 'Hindi is not written vertically. These controls are here for completeness.';
+  }
+
+  // ---------- Current-settings bar ----------
+  function renderNow() {
+    const r = activeId && store.recipes.find(x => x.id === activeId && x.lang === lang.id);
+    if (activeId && !r) activeId = null;
+    const changed = r ? !same(norm(r.settings), state) : false;
+    const isDefault = same(state, DEFAULTS);
+    $('now-name').textContent = r ? r.name : isDefault ? 'Browser defaults' : 'Unsaved changes';
+    $('now-badge').hidden = !changed;
+    $('update-active').hidden = !(r && changed) || !store.canWrite;
+    $('update-active').textContent = r ? `Save changes to “${truncate(r.name, 28)}”` : '';
+    $('reset').disabled = isDefault && !r;
+    $('live-label').textContent = r ? `Recipe: ${r.name}${changed ? ' (changed)' : ''}` : isDefault ? 'Browser defaults' : 'With current settings';
+    const chips = summary(state, lang);
+    $('now-chips').innerHTML = chips.length ? chips.map(c => `<li class="chip">${esc(c)}</li>`).join('') : '<li class="chip none">nothing set, every property left to the browser</li>';
+  }
+  const truncate = (s, n) => s.length > n ? s.slice(0, n - 1) + '…' : s;
+
+  let raf = 0;
+  function update() {
+    syncUI();
+    if (state.family.startsWith('noto')) ensureFont(famLabel(state, lang));
+    const stage = $('stage');
+    stage.classList.toggle('rl', /-rl$/.test(state.wm));
+    renderAnno();
+    renderCSS();
+    const ref = stageWidth(state), z = state.zoom, page = state.zoomMethod === 'page';
+    $('stage-meta').textContent = page && z !== 1
+      ? `${ref}px viewport at ${Math.round(z * 100)}% = ${fmt(ref / z)} CSS px wide`
+      : `${ref} CSS px wide${!page && z !== 1 ? ` · text zoom ${Math.round(z * 100)}%` : ''}`;
+    renderNow();
+    renderBook();
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => requestAnimationFrame(() => { measure(); renderSpoken(); }));
+  }
+
+  const bindRange = (id, key) => $(id).addEventListener('input', e => { state[key] = Number(e.target.value); update(); });
+  const bindCheck = (id, key) => $(id).addEventListener('change', e => { state[key] = e.target.checked; update(); });
+  const bindSelect = (id, key) => $(id).addEventListener('change', e => { state[key] = e.target.value; update(); });
+  bindRange('size', 'sizePx'); bindRange('lh', 'lh'); bindRange('ls', 'ls'); bindRange('ws', 'ws'); bindRange('ps', 'ps'); bindRange('measure', 'measure');
+  bindCheck('lh-normal', 'lhNormal'); bindCheck('ps-unset', 'psUnset'); bindCheck('measure-none', 'measureNone'); bindCheck('tcy', 'tcy');
+  bindSelect('family', 'family'); bindSelect('ref-width', 'refWidth'); bindSelect('line-break', 'lineBreak'); bindSelect('word-break', 'wordBreak');
+  bindSelect('tst', 'tst'); bindSelect('tas', 'tas'); bindSelect('tsa', 'tsa');
+  bindCheck('ruby-rp', 'rubyRp'); bindSelect('at-mode', 'atMode');
+  bindSelect('ruby-pos', 'rubyPos'); bindSelect('ruby-align', 'rubyAlign'); bindSelect('ruby-merge', 'rubyMerge');
+  bindSelect('em-style', 'emStyle'); bindSelect('em-pos', 'emPos'); bindRange('rt-size', 'rtSize'); bindRange('text-grey', 'textGrey');
+  $('rt-default').addEventListener('change', e => { state.rtSize = e.target.checked ? 0 : 50; update(); });
+
+  // ---------- Browser speech ----------
+  const synth = window.speechSynthesis;
+  let jaVoices = [];
+  function loadVoices() {
+    try { jaVoices = synth.getVoices().filter(v => /^ja/i.test(v.lang)); } catch { jaVoices = []; }
+    const keep = $('voice').value;
+    $('voice').innerHTML = jaVoices.length
+      ? jaVoices.map((v, i) => `<option value="${i}">${esc(v.name)}</option>`).join('')
+      : '<option value="">Default voice (no Japanese voice listed)</option>';
+    if (keep && jaVoices[keep]) $('voice').value = keep;
+  }
+  if (synth && window.SpeechSynthesisUtterance) {
+    loadVoices();
+    try { synth.addEventListener('voiceschanged', loadVoices); } catch {}
+    $('speak').addEventListener('click', () => {
+      try {
+        synth.cancel();
+        const u = new SpeechSynthesisUtterance($('spoken').textContent);
+        u.lang = 'ja-JP';
+        const v = jaVoices[$('voice').value]; if (v) u.voice = v;
+        u.rate = Number($('rate').value);
+        synth.speak(u);
+      } catch { $('speech-hint').textContent = 'This browser would not start speech here. Copy the text below into a screen reader test page instead.'; }
+    });
+    $('stop-speak').addEventListener('click', () => { try { synth.cancel(); } catch {} });
+  } else {
+    $('speech-tools').hidden = true;
+  }
+  $('copy-markup').addEventListener('click', () => copyText($('anno-markup-out').textContent, 'markup-toast', $('anno-markup-out')));
+
+  $('reset').addEventListener('click', () => { state = norm({}); activeId = null; update(); });
+  $('compare').addEventListener('change', e => { $('base-view').hidden = !e.target.checked; $('views').classList.toggle('compare', e.target.checked); update(); });
+  $('edit-text').addEventListener('change', applyEditable);
+
+  // ---------- Storage: artifact db, or this browser as a fallback ----------
+  const store = { mode: 'connecting', recipes: [], samples: {}, canWrite: true };
+  let db = null;
+  const LOCAL_KEY = 'srb-local-v1';
+  function readLocal() { try { return JSON.parse(localStorage.getItem(LOCAL_KEY) || 'null') || { recipes: [], samples: {} }; } catch { return { recipes: [], samples: {} }; } }
+  function writeLocal() { try { localStorage.setItem(LOCAL_KEY, JSON.stringify({ recipes: store.recipes, samples: store.samples })); return true; } catch { return false; } }
+
+  function cleanRecipe(id, d) {
+    d = d || {};
+    return {
+      id, lang: String(d.lang || ''), name: String(d.name || 'Untitled recipe').slice(0, 200), expert: String(d.expert || '').slice(0, 200),
+      notes: String(d.notes || '').slice(0, 8000), starred: !!d.starred, settings: norm(d.settings),
+      createdAt: String(d.createdAt || ''), updatedAt: String(d.updatedAt || d.createdAt || ''),
+    };
+  }
+
+  function setSync(kind, text) { const el = $('sync'); el.className = 'sync ' + kind; $('sync-text').textContent = text; }
+
+  const api = {
+    async add(data) {
+      if (db) { const ref = await db.collection('recipes').add(data); return ref.id; }
+      const id = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
+      store.recipes.push(cleanRecipe(id, data)); persistLocal(); return id;
+    },
+    async update(id, patch) {
+      if (db) return db.doc('recipes/' + id).update(patch);
+      const r = store.recipes.find(x => x.id === id); if (r) Object.assign(r, cleanRecipe(id, { ...r, ...patch })); persistLocal();
+    },
+    async remove(id) {
+      if (db) return db.doc('recipes/' + id).delete();
+      store.recipes = store.recipes.filter(x => x.id !== id); persistLocal();
+    },
+    async setSample(langId, data) {
+      if (db) return data ? db.doc('samples/' + langId).set(data) : db.doc('samples/' + langId).delete();
+      if (data) store.samples[langId] = data; else delete store.samples[langId]; persistLocal();
+    },
+  };
+  function persistLocal() {
+    if (!writeLocal()) setSync('warn', 'This browser is blocking storage, so recipes will be lost when the page closes. Export them before you leave.');
+    renderAll();
+  }
+
+  async function writeOp(fn, toastId, okMsg) {
+    try { await fn(); if (okMsg) toast(toastId, okMsg); return true; }
+    catch (e) {
+      const code = e && e.code;
+      const msg = code === 'quota_exceeded' ? 'The recipe store is full. Delete some recipes and try again.'
+        : code === 'invalid_argument' ? 'You can view these recipes but not change them.'
+        : 'Could not save. Check your connection and try again.';
+      if (code === 'invalid_argument') { store.canWrite = false; renderAll(); }
+      toast(toastId, msg, true);
+      return false;
+    }
+  }
+  function toast(id, msg, err) { const el = $(id); el.textContent = msg; el.classList.toggle('err', !!err); clearTimeout(el._t); el._t = setTimeout(() => { el.textContent = ''; }, err ? 6000 : 2500); }
+
+  async function connect() {
+    const slow = setTimeout(() => { if (store.mode === 'connecting') setSync('', 'Still connecting to saved recipes…'); }, 4000);
+    try { db = window.claude && window.claude.use ? await window.claude.use('db') : null; } catch { db = null; }
+    clearTimeout(slow);
+    try {
+      const user = window.claude && window.claude.use ? await window.claude.use('user') : null;
+      if (user) { const c = await user.can('data.write'); if (c === false) store.canWrite = false; }
+    } catch {}
+    if (!db) {
+      store.mode = 'local';
+      const l = readLocal();
+      store.recipes = (l.recipes || []).map(r => cleanRecipe(r.id, r));
+      store.samples = l.samples || {};
+      setSync('warn', 'Saved recipes are not available in this view, so recipes are kept in this browser only. Open the page on claude.ai to keep them with the page, or export them.');
+      renderAll();
+      return;
+    }
+    store.mode = 'db';
+    setSync('ok', store.canWrite ? 'Recipes save to this page as you go and stay after reloads.' : 'You can view and apply these recipes. Only editors can change them.');
+    db.collection('recipes').onSnapshot(snap => {
+      store.recipes = snap.docs.map(d => cleanRecipe(d.id, d.data()));
+      renderAll();
+    }, () => setSync('warn', 'Lost the connection to saved recipes. Reload the page to reconnect. Export anything new first.'));
+    db.collection('samples').onSnapshot(snap => {
+      const next = {};
+      snap.docs.forEach(d => { const v = d.data(); if (v && typeof v.h === 'string' && Array.isArray(v.p)) next[d.id] = { h: v.h, p: v.p.map(String) }; });
+      const changed = JSON.stringify(next[lang.id] || null) !== JSON.stringify(store.samples[lang.id] || null);
+      store.samples = next;
+      if (changed && !$('edit-text').checked) { buildSamples(); update(); }
+    }, () => {});
+  }
+
+  // ---------- Recipe book ----------
+  let editingId = null, confirmId = null, confirmTimer = 0;
+  const recipesFor = id => store.recipes.filter(r => r.lang === id);
+  const dateLabel = iso => { const d = new Date(iso); return isNaN(d) ? '' : d.toLocaleString(undefined, { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }); };
+
+  function renderTabs() {
+    $('tabs').innerHTML = LANGS.map(L => {
+      const n = recipesFor(L.id).length;
+      return `<button class="tab" type="button" role="tab" id="tab-${L.id}" data-lang="${L.id}" aria-selected="${L.id === lang.id}"><span lang="${L.id}">${esc(L.native)}</span><span>${esc(L.short)}</span><span class="n" aria-label="${n} recipes">${n}</span></button>`;
+    }).join('');
+  }
+  $('tabs').addEventListener('click', e => { const b = e.target.closest('[data-lang]'); if (b) selectLang(b.dataset.lang, true); });
+
+  function renderBook() {
+    const all = recipesFor(lang.id);
+    const onlyStar = $('only-starred').checked;
+    const list = all.filter(r => !onlyStar || r.starred)
+      .sort((a, b) => (b.starred - a.starred) || (b.createdAt > a.createdAt ? 1 : b.createdAt < a.createdAt ? -1 : 0));
+    $('list-title').textContent = `${lang.short} recipes (${all.length})`;
+    const ol = $('recipes');
+    if (store.mode === 'connecting') { ol.innerHTML = '<li class="empty">Loading saved recipes…</li>'; return; }
+    if (!list.length) {
+      ol.innerHTML = `<li class="empty">${onlyStar && all.length ? 'No shortlisted recipes yet. Use the star on a recipe to shortlist it.' : `No ${esc(lang.short)} recipes yet. Change the settings with an expert, then save them above with a name and their reasons. Each saved recipe can be applied to the sample with one click.`}</li>`;
+      return;
+    }
+    ol.innerHTML = '';
+    list.forEach(r => ol.append(editingId === r.id ? editCard(r) : recipeCard(r)));
+  }
+
+  function el(tag, attrs = {}, ...kids) {
+    const n = document.createElement(tag);
+    Object.entries(attrs).forEach(([k, v]) => { if (v == null || v === false) return; if (k === 'text') n.textContent = v; else if (k.startsWith('on')) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v === true ? '' : v); });
+    kids.flat().forEach(k => k != null && n.append(k));
+    return n;
+  }
+
+  function recipeCard(r) {
+    const isActive = r.id === activeId;
+    const ro = !store.canWrite;
+    const meta = [];
+    if (r.expert) meta.push(el('b', { text: r.expert }));
+    const when = dateLabel(r.updatedAt || r.createdAt);
+    if (when) meta.push((r.expert ? ' · ' : '') + (r.updatedAt && r.updatedAt !== r.createdAt ? 'updated ' : 'saved ') + when);
+    const chips = summary(r.settings, lang);
+    const delBtn = el('button', { class: 'btn danger' + (confirmId === r.id ? ' confirm' : ''), type: 'button', disabled: ro, text: confirmId === r.id ? 'Confirm delete' : 'Delete',
+      onclick: () => {
+        if (confirmId !== r.id) { confirmId = r.id; clearTimeout(confirmTimer); confirmTimer = setTimeout(() => { confirmId = null; renderBook(); }, 4000); renderBook(); return; }
+        confirmId = null;
+        if (activeId === r.id) activeId = null;
+        writeOp(() => api.remove(r.id), 'save-toast', 'Recipe deleted');
+      } });
+    return el('li', { class: 'recipe' + (isActive ? ' active' : ''), 'aria-current': isActive ? 'true' : null },
+      el('div', { class: 'r-head' },
+        el('h3', { text: r.name }),
+        el('button', { class: 'star', type: 'button', 'aria-pressed': String(r.starred), title: r.starred ? 'Remove from shortlist' : 'Add to shortlist', 'aria-label': `${r.starred ? 'Remove' : 'Add'} ${r.name} ${r.starred ? 'from' : 'to'} shortlist`, disabled: ro, text: r.starred ? '★' : '☆',
+          onclick: () => writeOp(() => api.update(r.id, { starred: !r.starred }), 'save-toast') })),
+      meta.length ? el('p', { class: 'r-meta' }, meta) : null,
+      r.notes ? el('p', { class: 'r-notes', text: r.notes }) : null,
+      el('ul', { class: 'chips' }, chips.length ? chips.map(c => el('li', { class: 'chip', text: c })) : el('li', { class: 'chip none', text: 'browser defaults' })),
+      el('div', { class: 'btns' },
+        el('button', { class: 'btn' + (isActive ? '' : ' primary'), type: 'button', text: isActive ? 'Applied, click to remove' : 'Apply',
+          onclick: () => { if (isActive) { activeId = null; state = norm({}); } else { activeId = r.id; state = norm(r.settings); } update(); } }),
+        el('button', { class: 'btn', type: 'button', text: 'Edit notes', disabled: ro, onclick: () => { editingId = r.id; renderBook(); setTimeout(() => { const i = $('edit-name'); if (i) i.focus(); }, 0); } }),
+        el('button', { class: 'btn', type: 'button', text: 'Copy to form', title: 'Apply this recipe and fill the save form, to save a variation', disabled: ro,
+          onclick: () => { activeId = null; state = norm(r.settings); $('r-name').value = r.name + ' (variation)'; $('r-expert').value = r.expert; $('r-notes').value = r.notes; update(); $('r-name').focus(); $('r-name').select(); } }),
+        delBtn));
+  }
+
+  function editCard(r) {
+    const name = el('input', { type: 'text', id: 'edit-name', maxlength: '120', required: true }); name.value = r.name;
+    const expert = el('input', { type: 'text', id: 'edit-expert', maxlength: '120' }); expert.value = r.expert;
+    const notes = el('textarea', { id: 'edit-notes', rows: '4', maxlength: '4000' }); notes.value = r.notes;
+    const form = el('form', { class: 'recipe active', onsubmit: async e => {
+      e.preventDefault();
+      if (!name.value.trim()) { name.focus(); return; }
+      const ok = await writeOp(() => api.update(r.id, { name: name.value.trim(), expert: expert.value.trim(), notes: notes.value.trim(), updatedAt: new Date().toISOString() }), 'save-toast', 'Recipe updated');
+      if (ok) { editingId = null; renderBook(); }
+    } },
+      el('label', { class: 'field' }, el('span', { text: 'Recipe name' }), name),
+      el('label', { class: 'field' }, el('span', { text: 'Expert or source' }), expert),
+      el('label', { class: 'field' }, el('span', { text: 'Why, and notes' }), notes),
+      el('p', { class: 'hint', text: 'This changes the name and notes only. To change the settings, apply the recipe, adjust it, then use “Save changes to recipe”.' }),
+      el('div', { class: 'btns' }, el('button', { class: 'btn primary', type: 'submit', text: 'Save' }), el('button', { class: 'btn', type: 'button', text: 'Cancel', onclick: () => { editingId = null; renderBook(); } })));
+    return el('li', {}, form);
+  }
+
+  $('only-starred').addEventListener('change', renderBook);
+
+  $('save-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!store.canWrite) return;
+    const name = $('r-name').value.trim();
+    if (!name) { $('r-name').focus(); return; }
+    const now = new Date().toISOString();
+    const data = { lang: lang.id, name, expert: $('r-expert').value.trim(), notes: $('r-notes').value.trim(), starred: false, settings: { ...state }, createdAt: now, updatedAt: now };
+    $('r-save').disabled = true;
+    let newId = null;
+    const ok = await writeOp(async () => { newId = await api.add(data); }, 'save-toast', 'Saved');
+    $('r-save').disabled = false;
+    if (ok) { activeId = newId; $('r-name').value = ''; $('r-notes').value = ''; update(); }
+  });
+
+  $('update-active').addEventListener('click', async () => {
+    const r = store.recipes.find(x => x.id === activeId);
+    if (!r) return;
+    await writeOp(() => api.update(r.id, { settings: { ...state }, updatedAt: new Date().toISOString() }), 'save-toast', `Saved changes to ${r.name}`);
+  });
+
+  // Sample text editing
+  $('save-text').addEventListener('click', async () => {
+    const s = $('stage').querySelector('.sample');
+    const h = (s.querySelector('h3') || {}).textContent || '';
+    const p = [...s.querySelectorAll('p')].map(x => x.textContent.trim()).filter(Boolean);
+    if (!p.length) { toast('text-toast', 'Keep at least one paragraph.', true); return; }
+    const ok = await writeOp(() => api.setSample(lang.id, { h: h.trim(), p, updatedAt: new Date().toISOString() }), 'text-toast', 'Kept for this language');
+    if (ok) { store.samples[lang.id] = { h: h.trim(), p }; $('edit-text').checked = false; buildSamples(); update(); }
+  });
+  $('reset-text').addEventListener('click', async () => {
+    $('edit-text').checked = false;
+    if (store.samples[lang.id]) await writeOp(() => api.setSample(lang.id, null), 'text-toast', 'Original text restored');
+    delete store.samples[lang.id];
+    buildSamples(); update();
+  });
+
+  // ---------- Copy and export ----------
+  async function copyText(text, toastId, selectEl) {
+    try { await navigator.clipboard.writeText(text); toast(toastId, 'Copied'); }
+    catch {
+      if (selectEl) { const r = document.createRange(); r.selectNodeContents(selectEl); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+      toast(toastId, 'Selected. Press Ctrl or Cmd + C to copy.');
+    }
+  }
+  $('copy-css').addEventListener('click', () => copyText($('css-out').textContent, 'copy-toast', $('css-out')));
+
+  let exScope = 'lang';
+  seg('ex-scope', 'ex-scope', [['lang', 'This language'], ['all', 'All languages']], '__exScope');
+  document.querySelectorAll('input[name="ex-scope"]').forEach(i => { i.checked = i.value === exScope; i.addEventListener('change', () => { exScope = i.value; delete state.__exScope; }); });
+
+  const slug = s => s.toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').slice(0, 48) || 'recipe';
+  const cmt = s => String(s).replace(/\*\//g, '* /');
+  function exportSet() {
+    return store.recipes
+      .filter(r => (exScope === 'all' || r.lang === lang.id) && (!$('ex-starred').checked || r.starred) && LANG_BY_ID[r.lang])
+      .sort((a, b) => LANGS.indexOf(LANG_BY_ID[a.lang]) - LANGS.indexOf(LANG_BY_ID[b.lang]) || (a.createdAt < b.createdAt ? -1 : 1));
+  }
+  function recipeCSS(r) {
+    const L = LANG_BY_ID[r.lang];
+    const head = [`/* ${cmt(r.name)}${r.starred ? '  [shortlisted]' : ''}`];
+    if (r.expert) head.push(`   Expert: ${cmt(r.expert)}`);
+    if (r.notes) r.notes.split('\n').forEach((line, i) => head.push(`   ${i ? '     ' : 'Why: '}${cmt(line)}`));
+    const c = conditions(r.settings);
+    if (c.length) head.push(`   Tested at: ${c.join(', ')}`);
+    if (r.lang === 'ja') head.push(`   Markup: ${cmt(markupSummary(r.settings))}`);
+    head.push(`   Saved: ${(r.updatedAt || r.createdAt).slice(0, 16).replace('T', ' ')} UTC */`);
+    return head.join('\n') + '\n' + plain(textRules(r.settings, L, `[data-recipe="${slug(r.name)}"]:lang(${r.lang})`));
+  }
+  function buildCSSExport(list) {
+    const parts = [`/* Script Recipe Book export, ${new Date().toISOString().slice(0, 16).replace('T', ' ')} UTC`,
+      `   ${list.length} recipe${list.length === 1 ? '' : 's'}${$('ex-starred').checked ? ', shortlisted only' : ''}`,
+      `   Settings marked "browser default" in a comment are written out so each rule stands on its own. */`, ''];
+    let cur = null;
+    list.forEach(r => {
+      if (r.lang !== cur) { cur = r.lang; parts.push('', `/* ======== ${LANG_BY_ID[r.lang].name} (${r.lang}) ======== */`, ''); }
+      parts.push(recipeCSS(r), '');
+    });
+    return parts.join('\n');
+  }
+  function buildJSONExport(list) {
+    return JSON.stringify({
+      format: 'script-recipe-book/1', exportedAt: new Date().toISOString(),
+      scope: exScope === 'all' ? 'all languages' : lang.id, shortlistedOnly: $('ex-starred').checked,
+      settingsDefaults: DEFAULTS,
+      recipes: list.map(r => ({ lang: r.lang, language: LANG_BY_ID[r.lang].name, name: r.name, expert: r.expert, notes: r.notes, shortlisted: r.starred,
+        createdAt: r.createdAt, updatedAt: r.updatedAt, changedFromDefaults: summary(r.settings, LANG_BY_ID[r.lang]), settings: r.settings, css: plain(textRules(r.settings, LANG_BY_ID[r.lang], `:lang(${r.lang})`)),
+        ...(r.lang === 'ja' ? { annotationMarkup: markupSummary(r.settings), annotationMarkupSample: `<p lang="ja">${annoText(ANNO.p[1], r.settings)}</p>` } : {}) })),
+    }, null, 2);
+  }
+  let downloads;
+  async function offer(filename, text) {
+    const list = exportSet();
+    if (!list.length) { toast('ex-toast', 'No recipes match. Save one first, or include all languages.', true); return; }
+    if (downloads === undefined) { try { downloads = window.claude && window.claude.use ? await window.claude.use('downloads') : null; } catch { downloads = null; } }
+    if (downloads) {
+      try { await downloads.save({ filename, data: text }); toast('ex-toast', 'Saved'); $('export-fallback').hidden = true; return; }
+      catch (e) { if (e && e.code === 'declined') { toast('ex-toast', 'Download cancelled'); return; } }
+    }
+    const ta = $('export-fallback'); ta.hidden = false; ta.value = text; ta.focus(); ta.select();
+    toast('ex-toast', 'Downloads are not available here. The text is selected below, ready to copy.');
+  }
+  const stamp = () => new Date().toISOString().slice(0, 10);
+  const scopeName = () => exScope === 'all' ? 'all' : lang.id;
+  $('ex-json').addEventListener('click', () => offer(`script-recipes-${scopeName()}-${stamp()}.json`, buildJSONExport(exportSet())));
+  $('ex-css').addEventListener('click', () => offer(`script-recipes-${scopeName()}-${stamp()}.css.txt`, buildCSSExport(exportSet())));
+  $('ex-copy').addEventListener('click', () => {
+    const list = exportSet();
+    if (!list.length) { toast('ex-toast', 'No recipes match. Save one first, or include all languages.', true); return; }
+    const text = buildCSSExport(list);
+    const ta = $('export-fallback');
+    navigator.clipboard.writeText(text).then(() => toast('ex-toast', 'Copied'), () => { ta.hidden = false; ta.value = text; ta.select(); toast('ex-toast', 'Selected below. Press Ctrl or Cmd + C to copy.'); });
+  });
+
+  // ---------- Language switching ----------
+  function selectLang(id, fromClick) {
+    const L = LANG_BY_ID[id] || LANGS[0];
+    if (L === lang && !fromClick) return;
+    lang = L; activeId = null; editingId = null; state = norm({});
+    $('edit-text').checked = false;
+    document.documentElement.lang = 'en';
+    $('h-lang').textContent = `· ${L.short}`;
+    $('tips-title').textContent = `Things to try in ${L.short}`;
+    $('tips').innerHTML = L.tips.map(t => `<li>${t}</li>`).join('');
+    $('save-title').textContent = `Save as a ${L.short} recipe`;
+    ['anno-markup-fs', 'anno-css-fs', 'at-section'].forEach(id => { $(id).hidden = L.id !== 'ja'; });
+    try { history.replaceState(null, '', '#' + L.id); } catch {}
+    try { localStorage.setItem('srb-lang', L.id); } catch {}
+    buildFamilyOptions();
+    buildSamples();
+    renderTabs();
+    update();
+    if (fromClick) { const t = $('tab-' + L.id); if (t) t.focus(); }
+  }
+  function renderAll() {
+    $('save-form').querySelectorAll('input, textarea, button').forEach(n => n.disabled = !store.canWrite);
+    renderTabs(); renderNow(); renderBook();
+  }
+
+  let lastW = 0;
+  new ResizeObserver(() => { const w = $('stage-outer').clientWidth; if (w !== lastW) { lastW = w; if (state.refWidth === 'fit') update(); } }).observe($('stage-outer'));
+
+  readEnv();
+  let startId = (location.hash || '').slice(1);
+  if (!LANG_BY_ID[startId]) { try { startId = localStorage.getItem('srb-lang') || ''; } catch { startId = ''; } }
+  lang = null;
+  selectLang(LANG_BY_ID[startId] ? startId : LANGS[0].id, false);
+  addEventListener('hashchange', () => { const id = location.hash.slice(1); if (LANG_BY_ID[id] && id !== lang.id) selectLang(id, false); });
+  if (document.fonts) document.fonts.ready.then(() => setTimeout(measure, 50));
+  connect();
+})();
+</script>
+
+</body></html>
