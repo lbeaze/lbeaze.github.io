@@ -10,15 +10,10 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Apply theme before first paint to prevent flash -->
-  <script>
-    (function () {
-      var stored = localStorage.getItem('lb-theme');
-      var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      if (theme === 'light') document.documentElement.dataset.theme = 'light';
-    }());
-  </script>
   <title>Len Beasley — Accessibility is a Design Skill</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="description" content="Digital product designer and W3C AGWG member. Accessibility is a design skill, not a compliance task." />
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="Len Beasley" />
@@ -189,20 +184,13 @@
       --navy:        #f0ebe3;
       --panel-bg:    #e5dfd5;
       --card-bg:     rgba(255,255,255,0.65);
-      --warm-white:  #1c1c2e;
       --text-bright: #0e131f;
       --text-main:   #2c2c3c;
-      --text-body:   #3d3a4a;
-      --text-muted:  #525065;
-      --accent:      #9e4d0d;
-      --accent-dim:  #7a3a09;
+      --text-muted:  #6a6678;
     }
     [data-theme="light"] body::before {
       background: radial-gradient(700px circle at var(--mouse-x,-400px) var(--mouse-y,-400px),
         rgba(240,120,40,0.04), transparent 70%);
-    }
-    [data-theme="light"] .thinking-card:hover {
-      background: rgba(0, 0, 0, 0.05);
     }
 
     /* ── SIDEBAR NAV ───────────────────────────────────── */
@@ -717,6 +705,37 @@
         </a>
       </section>
 
+      <!-- ─── FOOTER ───────────────────────────────────── -->
+      <footer class="page-footer">
+        <div class="footer-links">
+          <a href="mailto:len@lenbeasley.com" class="footer-link">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m2 7 10 7 10-7"/>
+            </svg>
+            len@lenbeasley.com
+          </a>
+          <a href="https://www.linkedin.com/in/lenbeasley" target="_blank" rel="noopener" class="footer-link">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+          <span class="travel-note">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/>
+              <path d="M3 12h18M12 3a15 15 0 0 1 4 9 15 15 0 0 1-4 9 15 15 0 0 1-4-9 15 15 0 0 1 4-9z"/>
+            </svg>
+            Willing to travel
+          </span>
+        </div>
+        <p class="footer-note">Designed with accessibility in mind. Every choice is intentional.</p>
+      </footer>
+
     </main>
   </div><!-- /layout -->
 
@@ -812,28 +831,18 @@
   (function () {
     const btn = document.querySelector('.theme-toggle');
     if (!btn) return;
-
-    function applyTheme(theme) {
-      document.documentElement.dataset.theme = theme;
-      btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-      btn.title = theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
-    }
-
-    // Priority: stored preference > system preference > dark
     const stored = localStorage.getItem('lb-theme');
-    const systemLight = window.matchMedia('(prefers-color-scheme: light)');
-    applyTheme(stored || (systemLight.matches ? 'light' : 'dark'));
-
-    // Follow system changes live only when the user hasn't set a manual preference
-    systemLight.addEventListener('change', function (e) {
-      if (!localStorage.getItem('lb-theme')) applyTheme(e.matches ? 'light' : 'dark');
-    });
-
-    // Manual toggle stores the choice and overrides system preference
+    if (stored) {
+      document.documentElement.dataset.theme = stored;
+      btn.setAttribute('aria-label', stored === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      btn.title = stored === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+    }
     btn.addEventListener('click', function () {
       const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = next;
       localStorage.setItem('lb-theme', next);
-      applyTheme(next);
+      btn.setAttribute('aria-label', next === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      btn.title = next === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
     });
   })();
   </script>
